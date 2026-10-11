@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>SRVP Admin</title>
+  <link rel="icon" href="../images/logo.png">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <!-- LOGIN -->
+  <div id="login-view" class="login" hidden>
+    <form id="login-form" class="box">
+      <img src="../images/logo.png" alt="SRVP" width="90" height="90">
+      <h1>SRVP Admin</h1>
+      <label>Username<input name="username" autocomplete="username" required></label>
+      <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+      <button class="btn">Log in</button>
+      <p class="err" id="login-err"></p>
+    </form>
+  </div>
+
+  <!-- APP -->
+  <div id="app-view" hidden>
+    <header class="top">
+      <div class="brand"><img src="../images/logo.png" alt=""> SRVP Admin</div>
+      <nav id="tabs"></nav>
+      <div class="top-right">
+        <a href="/" target="_blank">View website ↗</a>
+        <button id="logout" class="btn-link">Log out</button>
+      </div>
+    </header>
+    <main id="main"></main>
+  </div>
+
+  <!-- ADD / EDIT POPUP -->
+  <dialog id="editor">
+    <form id="editor-form" method="dialog">
+      <h2 id="editor-title"></h2>
+      <div id="editor-fields" class="fields"></div>
+      <p class="err" id="editor-err"></p>
+      <div class="actions">
+        <button type="button" class="btn ghost" id="editor-cancel">Cancel</button>
+        <button type="submit" class="btn">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="admin.js"></script>
+</body>
+</html>

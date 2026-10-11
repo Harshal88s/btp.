@@ -1,0 +1,5 @@
+node_modules/
+.env
+# Student/faculty data — never commit real personal data to GitHub
+data/*.db
+data/*.db-journal

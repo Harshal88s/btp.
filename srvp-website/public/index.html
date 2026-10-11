@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SRVP — Shri Ram Vidya Pratishthan, Lasur</title>
+  <!-- ✏️ ADD: once you have a domain, update this description for Google search results -->
+  <meta name="description" content="Shri Ram Vidya Pratishthan (SRVP), Lasur — foundation and competitive exam classes with smart-board classrooms, a curated library, debates and live online classes.">
+  <link rel="icon" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!--
+    This page is a frame. Text comes from js/content.js and the
+    lists of faculty / toppers / notices come from the Admin Panel.
+    To change wording, edit js/content.js — not this file.
+    To change colours/fonts, edit css/style.css (top of the file).
+  -->
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a href="#top" class="brand">
+        <img data-src="logo" alt="SRVP logo">
+        <span><b data-text="name"></b><small data-text="fullName"></small></span>
+      </a>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav class="links">
+        <a href="#about">About</a>
+        <a href="#approach">Approach</a>
+        <a href="#courses">Courses</a>
+        <a href="#results">Results</a>
+        <a href="#faculty">Faculty</a>
+        <a href="#library">Library</a>
+        <a href="#contact">Contact</a>
+        <a href="#admission" class="btn btn-sm">Admission</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="notice-bar" id="notices" hidden></div>
+
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow" data-text="hero.eyebrow"></p>
+        <h1 data-text="hero.title"></h1>
+        <p class="lead" data-text="hero.subtitle"></p>
+        <div class="hero-cta">
+          <a href="#admission" class="btn" data-text="hero.primaryButton"></a>
+          <a href="#courses" class="btn btn-ghost" data-text="hero.secondaryButton"></a>
+        </div>
+      </div>
+      <div class="hero-logo"><img data-src="logo" alt=""></div>
+    </div>
+    <div class="wrap stats" id="stats"></div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="wrap about">
+      <div>
+        <h2 data-text="about.heading"></h2>
+        <div id="about-text"></div>
+      </div>
+      <aside class="founder card" id="founder"></aside>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <h2 class="center">What makes SRVP different</h2>
+      <div class="grid g3" id="highlights"></div>
+    </div>
+  </section>
+
+  <section id="approach" class="section">
+    <div class="wrap">
+      <h2 class="center" data-text="approach.heading"></h2>
+      <p class="center narrow" data-text="approach.intro"></p>
+      <ol class="steps" id="steps"></ol>
+    </div>
+  </section>
+
+  <section id="courses" class="section alt">
+    <div class="wrap">
+      <h2 class="center">Courses</h2>
+      <div class="grid g2" id="courses-list"></div>
+      <h3 class="center mt">Exams we prepare for</h3>
+      <div class="tags" id="exams"></div>
+    </div>
+  </section>
+
+  <section id="results" class="section">
+    <div class="wrap">
+      <h2 class="center">Our Results</h2>
+      <p class="center narrow">Our students' achievements — added and updated from the Admin Panel.</p>
+      <div class="grid g4" id="results-list"></div>
+    </div>
+  </section>
+
+  <section id="faculty" class="section alt">
+    <div class="wrap">
+      <h2 class="center">Our Faculty</h2>
+      <div class="grid g4" id="faculty-list"></div>
+    </div>
+  </section>
+
+  <section id="library" class="section">
+    <div class="wrap split">
+      <div>
+        <h2 data-text="library.heading"></h2>
+        <p data-text="library.text"></p>
+        <div class="mini-stats" id="library-facts"></div>
+      </div>
+      <div id="library-photo"></div>
+    </div>
+  </section>
+
+  <section id="online" class="section alt">
+    <div class="wrap split">
+      <div>
+        <h2 data-text="online.heading"></h2>
+        <p data-text="online.text"></p>
+      </div>
+      <ul class="checks" id="online-points"></ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="center">What parents & students say</h2>
+      <div class="grid g2" id="testimonials"></div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <h2 class="center">Gallery</h2>
+      <div class="grid g3" id="gallery"></div>
+    </div>
+  </section>
+
+  <section id="admission" class="section">
+    <div class="wrap split">
+      <div>
+        <h2 data-text="admission.heading"></h2>
+        <p data-text="admission.text"></p>
+        <div id="contact" class="contact-box"></div>
+      </div>
+      <form class="card form" id="enquiry-form" novalidate>
+        <label>Student name *<input name="student_name" required maxlength="100"></label>
+        <label>Parent / Guardian name<input name="parent_name" maxlength="100"></label>
+        <div class="row2">
+          <label>Phone *<input name="phone" type="tel" required maxlength="16" placeholder="10-digit mobile"></label>
+          <label>Class / Std<input name="class_grade" maxlength="30" placeholder="e.g. 6th"></label>
+        </div>
+        <label>Email<input name="email" type="email" maxlength="100"></label>
+        <div class="row2">
+          <label>Interested in<select name="course" id="course-options"></select></label>
+          <label>Mode<select name="mode"><option>Offline</option><option>Online</option><option>Not sure</option></select></label>
+        </div>
+        <label>Message<textarea name="message" rows="3" maxlength="1000"></textarea></label>
+        <input name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn" type="submit">Send Enquiry</button>
+        <p class="form-msg" id="form-msg" role="status"></p>
+      </form>
+    </div>
+    <div class="wrap" id="map"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="brand">
+        <img data-src="logo" alt="">
+        <span><b data-text="name"></b><small data-text="fullName"></small></span>
+      </div>
+      <div id="social" class="social"></div>
+      <p class="small">© <span id="year"></span> <span data-text="footerNote"></span></p>
+    </div>
+  </footer>
+
+  <a id="whatsapp" class="whatsapp" hidden aria-label="Chat on WhatsApp">💬</a>
+
+  <script src="js/content.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
