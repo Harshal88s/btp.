@@ -92,8 +92,8 @@ ${body}
 <script>${mock}</script>
 <script>${read('js/content.js')}
 SITE.logo = ${JSON.stringify(logo)};
-SITE.admission.successMessage += ' (Draft website: this form is not connected yet.)';
-SITE.demoForm.successMessage += ' (Draft website: this form is not connected yet.)';</script>
+SITE.admission.successMessage += ' (Draft website: please also tap the WhatsApp button so SRVP receives it.)';
+SITE.demoForm.successMessage += ' (Draft website: please also tap the WhatsApp button so SRVP receives it.)';</script>
 <script>${read('js/main.js')}</script>
 `;
 

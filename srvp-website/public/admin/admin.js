@@ -77,7 +77,7 @@
       testOut.textContent = 'Sending…';
       try {
         const r = await call('test-notify', { method: 'POST' });
-        testOut.textContent = `SMS: ${r.sms}  ·  Email: ${r.email}`;
+        testOut.textContent = `WhatsApp: ${r.whatsapp}  ·  Email: ${r.email}  ·  SMS: ${r.sms}`;
       } catch (e) { testOut.textContent = e.message; }
       testBtn.disabled = false;
     } }, 'Send test alert');
@@ -94,8 +94,8 @@
         card('Fees pending', rupee(s.feeTotal - s.feePaid))),
       h('div', { class: 'panel' },
         h('h2', {}, 'Enquiry alerts'),
-        h('p', {}, 'Every website enquiry is sent to your phone (SMS) and inbox (email). Set the numbers and keys in the .env file, restart, then send a test.'),
-        h('p', { class: 'channels' }, 'SMS: ', state(ch.sms), '   Email: ', state(ch.email)),
+        h('p', {}, 'Every website enquiry is sent to your WhatsApp, inbox and (optionally) SMS. Set the numbers and keys in the .env file, restart, then send a test.'),
+        h('p', { class: 'channels' }, 'WhatsApp: ', state(ch.whatsapp), '   Email: ', state(ch.email), '   SMS: ', state(ch.sms)),
         testBtn, testOut),
       h('div', { class: 'panel' },
         h('h2', {}, 'Backup'),

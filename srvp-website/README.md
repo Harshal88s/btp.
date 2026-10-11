@@ -79,21 +79,46 @@ srvp-website/
 
 ---
 
-## 5. Enquiry alerts (SMS + email)
+## 5. Enquiry alerts (WhatsApp + email + SMS)
 
-Every time a parent fills the demo or admission form, the enquiry is saved **and** sent to you:
+Every time a parent fills the demo or admission form, the enquiry is saved **and** sent to you.
+All settings go in the `.env` file. After editing it, restart the server and open
+Admin → Dashboard → **Send test alert**. It shows "sent" or the exact error for each channel.
 
-| Channel | Cost | Set up in `.env` |
-|---|---|---|
-| **Email** (shows as a notification in the Gmail app on your phone) | Free | `NOTIFY_EMAIL`, and `SMTP_USER` + `SMTP_PASS` (Gmail address + a Gmail **App password**: turn on 2-Step Verification, then visit myaccount.google.com/apppasswords) |
-| **SMS** via Fast2SMS "Quick SMS" route | About ₹5 per SMS, no DLT registration | `NOTIFY_PHONE`, `FAST2SMS_API_KEY` (sign up at fast2sms.com, add balance, copy the key from "Dev API") |
-| **WhatsApp** copy from the parent | Free | Set `contact.whatsapp` in `content.js`: after sending the form, parents get an "Also send on WhatsApp" button |
+### A. WhatsApp alerts (free, via CallMeBot) — do this once on EACH phone
+1. Open the official guide: https://www.callmebot.com/blog/free-api-whatsapp-messages/ and save the
+   bot's phone number shown there in your contacts (the number can change, so always take it from that page).
+2. From that phone's WhatsApp, send the bot the activation message given on the page
+   (it is like: `I allow callmebot to send me messages`).
+3. The bot replies with your **API key** (if nothing comes in 2 minutes, try again after 24 hours).
+4. Put the number (with 91 in front) and its key in `.env`, separated by `:`; several phones with commas:
+   ```
+   WHATSAPP_ALERTS=91XXXXXXXXXX:KEY1,91YYYYYYYYYY:KEY2
+   ```
+CallMeBot is a free shared service, so a message can sometimes take a minute. Email is the backup.
 
-After editing `.env`, restart the server, open Admin → Dashboard → **Send test alert**. It shows "sent" or the exact error.
+### B. Gmail alerts (free)
+1. Sign in to the Gmail account that will **send** the alerts (it can be the same one that receives them).
+2. Turn on **2-Step Verification** in your Google Account (Security).
+3. Open https://myaccount.google.com/apppasswords, create an app password named "SRVP website", copy the 16 letters.
+4. In `.env`:
+   ```
+   NOTIFY_EMAIL=address-that-receives-alerts@gmail.com
+   SMTP_USER=address-that-sends@gmail.com
+   SMTP_PASS=the16letterapppassword
+   ```
+Install the Gmail app on the phone with notifications on, and every enquiry pops up instantly.
 
-Notes:
-- Fast2SMS says Quick SMS messages are checked manually before delivery, so they can be delayed a little. For high volume, register on DLT (TRAI rule for Indian SMS) and switch to a cheaper DLT route; only `sendSms()` in `notify.js` changes.
-- Set `EMAIL_PARENT=true` to also send parents a "thank you" email when they give an email address.
+### C. SMS (optional, paid)
+Fast2SMS "Quick SMS" route, about ₹5 per SMS, no DLT registration: sign up at fast2sms.com, add balance,
+copy the key from "Dev API", then set `NOTIFY_PHONE` and `FAST2SMS_API_KEY`. Fast2SMS checks Quick SMS
+manually before delivery, so they can be a little late. Leave blank to keep SMS off.
+
+### D. WhatsApp from the parent (free, no setup on the server)
+`contact.whatsapp` in `content.js` is the public WhatsApp number. After a parent sends a form, they get an
+"Also send on WhatsApp" button that opens a chat to that number with the enquiry already typed.
+
+`EMAIL_PARENT=true` also sends parents a "thank you" email when they give an email address.
 
 ---
 

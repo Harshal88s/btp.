@@ -42,8 +42,8 @@ const SITE = {
 
   // ---------------- CONTACT ----------------
   contact: {
-    phone: "[ADD: Main phone number, e.g. +91 98xxxxxxxx]",
-    whatsapp: "", // digits only with country code, e.g. "919800000000" — leave "" to hide WhatsApp buttons
+    phone: "+91 98907 79705",   // number on the SRVP poster — shown on the site with a Call button
+    whatsapp: "919890779705",   // digits only with 91 in front — WhatsApp buttons go to this number ("" hides them)
     email: "[ADD: Email address, e.g. srvp.lasur@gmail.com]",
     address: "[ADD: Full address of the classes — building, road, Lasur, taluka, district, PIN code]",
     timings: "[ADD: Office / enquiry timings, e.g. Mon–Sat, 8:00 AM – 8:00 PM]",
