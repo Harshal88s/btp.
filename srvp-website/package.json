@@ -8,7 +8,8 @@
     "start": "node --no-warnings=ExperimentalWarning server.js",
     "dev": "node --no-warnings=ExperimentalWarning --watch server.js",
     "preview": "node tools/build-preview.js",
-    "test-alert": "node tools/test-alert.js"
+    "test-alert": "node tools/test-alert.js",
+    "setup-email": "node tools/setup-email.js"
   },
   "engines": {
     "node": ">=22.13"

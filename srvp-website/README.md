@@ -16,11 +16,12 @@ Website + admin panel for SRVP classes.
    cp .env.example .env      # on Windows: copy .env.example .env
    ```
 3. Open `.env` and set a strong `ADMIN_PASSWORD`.
-4. Start it:
+4. (Optional) Turn on email alerts for new enquiries: `npm run setup-email` (see section 5).
+5. Start it:
    ```bash
    npm start
    ```
-5. Open **http://localhost:3000** for the website and **http://localhost:3000/admin** for the admin panel.
+6. Open **http://localhost:3000** for the website and **http://localhost:3000/admin** for the admin panel.
 
 Use `npm run dev` while editing: the server restarts on its own when you change `server.js` or `schema.js`.
 
@@ -80,6 +81,15 @@ srvp-website/
 ---
 
 ## 5. Enquiry alerts (WhatsApp + email + SMS)
+
+**Quickest start: email alerts only (current setup).** In the `srvp-website` folder run
+
+```bash
+npm run setup-email
+```
+
+It asks for the Gmail address and its app password (see B below for how to get one), saves them in
+`.env` on this computer, keeps WhatsApp and SMS off, and sends a test email. That's all.
 
 Every time a parent fills the demo or admission form, the enquiry is saved **and** sent to you.
 All settings go in the `.env` file (on your computer only, never upload it). After editing it, run
