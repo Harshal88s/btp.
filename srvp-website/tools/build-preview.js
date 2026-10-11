@@ -14,7 +14,7 @@ const path = require('path');
 
 const pub = path.join(__dirname, '..', 'public');
 const read = (p) => fs.readFileSync(path.join(pub, p), 'utf8');
-const logo = 'data:image/png;base64,' + fs.readFileSync(path.join(pub, 'images/logo.png')).toString('base64');
+const logo = 'data:image/png;base64,' + fs.readFileSync(path.join(pub, 'images/logo-sm.png')).toString('base64');
 
 const html = read('index.html');
 const fonts = html.match(/<link href="https:\/\/fonts\.googleapis\.com[^>]+>/)[0];
@@ -44,6 +44,7 @@ ${read('css/style.css')}
 .fb-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 .fb-actions .btn { background: #1F9D55; }
 .fb-actions .btn.ghost { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+@media (max-width: 720px) { .fb-btn { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); padding: 10px 14px; font-size: 13px; } .fb-panel { bottom: calc(130px + env(safe-area-inset-bottom, 0px)); max-height: 60vh; overflow-y: auto; } }
 .fb-btn:focus-visible, .fb-panel :focus-visible { outline: 3px solid var(--saffron); outline-offset: 2px; }
 </style>
 <div class="preview-bar">Draft website for review. Yellow ✏️ boxes are details still to be filled in. Tap “Suggest a change” to send feedback.</div>
@@ -53,10 +54,10 @@ ${body}
   <h3>Suggest a change</h3>
   <p>Write what to add, remove or reword. It opens WhatsApp so you can send it.</p>
   <label for="fb-section">Which part?<select id="fb-section">
-    <option>Whole website</option><option>Top banner</option><option>About / Founder</option><option>Shatrubodh &amp; Swayambodh</option>
-    <option>What makes SRVP different</option><option>Approach</option><option>Courses &amp; exams</option><option>Results</option>
-    <option>Faculty</option><option>Library</option><option>Online classes</option><option>Testimonials</option><option>Gallery</option>
-    <option>Admission form &amp; contact</option><option>Colours / design</option></select></label>
+    <option>Whole website</option><option>Top banner &amp; demo form</option><option>Numbers band</option><option>Choose your goal (exams)</option>
+    <option>Courses &amp; fees</option><option>Offline / Online</option><option>Results</option><option>Why SRVP</option><option>How we teach</option>
+    <option>Faculty</option><option>About / Founder / Values</option><option>Library</option><option>Testimonials</option><option>Gallery</option>
+    <option>FAQ</option><option>Admission form &amp; contact</option><option>Colours / design</option></select></label>
   <label for="fb-text">Your suggestion<textarea id="fb-text" rows="4" placeholder="e.g. Add Navodaya to the exam list; phone number is 98…"></textarea></label>
   <div class="fb-actions">
     <a class="btn" id="fb-send" href="https://wa.me/" target="_blank" rel="noopener">Send on WhatsApp</a>
@@ -82,7 +83,8 @@ ${body}
 <script>${mock}</script>
 <script>${read('js/content.js')}
 SITE.logo = ${JSON.stringify(logo)};
-SITE.admission.successMessage += ' (Draft website: this form is not connected yet.)';</script>
+SITE.admission.successMessage += ' (Draft website: this form is not connected yet.)';
+SITE.demoForm.successMessage += ' (Draft website: this form is not connected yet.)';</script>
 <script>${read('js/main.js')}</script>
 `;
 

@@ -79,6 +79,7 @@ module.exports = {
   enquiries: {
     label: 'Enquiries',
     fields: [
+      { name: 'enquiry_type', label: 'Type', type: 'select', options: ['Free demo', 'Admission enquiry', 'Walk-in', 'Phone call'] },
       { name: 'student_name', label: 'Student Name', type: 'text', required: true },
       { name: 'parent_name', label: 'Parent Name', type: 'text' },
       { name: 'phone', label: 'Phone', type: 'tel', required: true },
@@ -90,8 +91,8 @@ module.exports = {
       { name: 'status', label: 'Status', type: 'select', options: ['New', 'Contacted', 'Admitted', 'Closed'] },
       { name: 'followup_notes', label: 'Follow-up Notes', type: 'textarea' },
     ],
-    list: ['created_at', 'student_name', 'parent_name', 'phone', 'class_grade', 'course', 'mode', 'status'],
-    filters: ['status', 'mode'],
+    list: ['created_at', 'enquiry_type', 'student_name', 'parent_name', 'phone', 'class_grade', 'course', 'mode', 'status'],
+    filters: ['status', 'enquiry_type', 'mode'],
   },
 
   results: {

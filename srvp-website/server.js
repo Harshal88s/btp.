@@ -122,11 +122,12 @@ app.post('/api/public/enquiry', (req, res) => {
   }
   const body = req.body || {};
   if (body.website) return res.json({ ok: true }); // hidden honeypot field: bots fill it, humans don't
-  const allowed = ['student_name', 'parent_name', 'phone', 'email', 'class_grade', 'course', 'mode', 'message'];
+  const allowed = ['enquiry_type', 'student_name', 'parent_name', 'phone', 'email', 'class_grade', 'course', 'mode', 'message'];
   const input = Object.fromEntries(allowed.map((k) => [k, body[k]]));
   const { row, errors } = cleanRow('enquiries', input);
   if (row.phone && !/^[+\d][\d\s-]{6,15}$/.test(row.phone)) errors.push('Please enter a valid phone number');
   if (errors.length) return res.status(400).json({ error: errors.join(', ') });
+  if (!['Free demo', 'Admission enquiry'].includes(row.enquiry_type)) row.enquiry_type = 'Admission enquiry';
   row.status = 'New';
   row.followup_notes = '';
   insertRow('enquiries', row);
