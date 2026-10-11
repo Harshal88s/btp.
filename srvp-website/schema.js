@@ -112,6 +112,36 @@ module.exports = {
     publicOrder: 'year DESC, id DESC',
   },
 
+  books: {
+    label: 'Library Books',
+    fields: [
+      { name: 'title', label: 'Title', type: 'text', required: true },
+      { name: 'author', label: 'Author / Publisher', type: 'text' },
+      { name: 'category', label: 'Category', type: 'select', options: [
+        'School Textbooks', 'Scholarship & Navodaya', 'Olympiad', 'Homi Bhabha & VVM', 'NDA & Defence', 'UPSC Foundation',
+        'Reasoning & Aptitude', 'Maths & Science Reference', 'English & Language', 'General Knowledge', 'Popular Science',
+        'Biographies & Inspiration', 'Indian Knowledge & Values', 'Stories & Classics', 'Marathi Sahitya', 'Other'] },
+      { name: 'classes', label: 'For classes', type: 'text' },
+      { name: 'language', label: 'Language', type: 'text' },
+      // In library = printed copies only; Free online = legal free download only; Both = both
+      { name: 'format', label: 'Available as', type: 'select', options: ['In library', 'Free online', 'Both'], required: true },
+      { name: 'copies_total', label: 'Printed copies (total)', type: 'number' },
+      { name: 'copies_available', label: 'Copies on the shelf now', type: 'number' },
+      { name: 'shelf', label: 'Shelf / rack no.', type: 'text' },
+      // Only link to LEGAL free sources: NCERT, Balbharati, exam boards, Gutenberg, Internet Archive …
+      { name: 'link', label: 'Free download link (official / public-domain only)', type: 'text' },
+      { name: 'source', label: 'Source name, e.g. NCERT (official)', type: 'text' },
+      { name: 'show_on_site', label: 'Show on website', type: 'checkbox' },
+      { name: 'notes', label: 'Notes', type: 'textarea' },
+    ],
+    list: ['title', 'author', 'category', 'classes', 'format', 'copies_total', 'copies_available', 'shelf', 'show_on_site'],
+    filters: ['category', 'format'],
+    public: ['title', 'author', 'category', 'classes', 'language', 'format', 'copies_total', 'copies_available', 'link', 'source'],
+    publicWhere: 'show_on_site = 1',
+    publicOrder: 'category, title',
+    publicLimit: 2000,
+  },
+
   announcements: {
     label: 'Announcements',
     fields: [

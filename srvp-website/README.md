@@ -35,7 +35,9 @@ Use `npm run dev` while editing: the server restarts on its own when you change 
 | Logo | Replace `public/images/logo.png` (keep the same name) | Refresh |
 | Photos (founder, library, gallery, faculty, toppers) | Put files in `public/images/…` and write the path in `content.js`, or in the admin form's photo field | Refresh |
 | Order or layout of sections | `public/index.html` | Refresh |
-| Students, faculty, enquiries, toppers, notices | **Admin panel** `/admin`, no code needed | Instantly live |
+| Students, faculty, enquiries, toppers, notices, **library books** | **Admin panel** `/admin`, no code needed | Instantly live |
+| Book issued / returned | Admin → Library Books → Edit → "Copies on the shelf now" | Instantly live |
+| Phone / email that get enquiry alerts | `.env` (see section 5) | Restart the server |
 | Add a new field (e.g. blood group, Aadhaar last 4 digits, batch timing) | `schema.js` (instructions at the top) | Restart the server |
 | Admin password | `.env` | Restart the server |
 
@@ -52,6 +54,9 @@ srvp-website/
 ├── schema.js            ← database tables & fields (edit to add fields)
 ├── db.js                ← creates/updates the SQLite database
 ├── .env.example         ← copy to .env; admin password, port
+├── notify.js            ← SMS + email alerts for new enquiries
+├── seed/books.json      ← starter list of 100 library books (loaded once, on first run)
+├── tools/build-preview.js ← builds the one-file shareable preview (npm run preview)
 ├── data/srvp.db         ← ALL student/faculty data (created on first run; back it up!)
 └── public/              ← everything the browser sees
     ├── index.html       ← page structure
@@ -74,7 +79,33 @@ srvp-website/
 
 ---
 
-## 5. Putting it online (going live)
+## 5. Enquiry alerts (SMS + email)
+
+Every time a parent fills the demo or admission form, the enquiry is saved **and** sent to you:
+
+| Channel | Cost | Set up in `.env` |
+|---|---|---|
+| **Email** (shows as a notification in the Gmail app on your phone) | Free | `NOTIFY_EMAIL`, and `SMTP_USER` + `SMTP_PASS` (Gmail address + a Gmail **App password**: turn on 2-Step Verification, then visit myaccount.google.com/apppasswords) |
+| **SMS** via Fast2SMS "Quick SMS" route | About ₹5 per SMS, no DLT registration | `NOTIFY_PHONE`, `FAST2SMS_API_KEY` (sign up at fast2sms.com, add balance, copy the key from "Dev API") |
+| **WhatsApp** copy from the parent | Free | Set `contact.whatsapp` in `content.js`: after sending the form, parents get an "Also send on WhatsApp" button |
+
+After editing `.env`, restart the server, open Admin → Dashboard → **Send test alert**. It shows "sent" or the exact error.
+
+Notes:
+- Fast2SMS says Quick SMS messages are checked manually before delivery, so they can be delayed a little. For high volume, register on DLT (TRAI rule for Indian SMS) and switch to a cheaper DLT route; only `sendSms()` in `notify.js` changes.
+- Set `EMAIL_PARENT=true` to also send parents a "thank you" email when they give an email address.
+
+---
+
+## 6. Library & free downloads
+
+- The **book catalogue** on the website comes from Admin → **Library Books**. It starts with 100 books from `seed/books.json`. Check them against the real shelf: fix copies, delete what you don't have, add what you do (or Import CSV).
+- **"Download free"** only links to legal free sources: NCERT and Balbharati textbooks, official exam-body past papers (MSCE, MSTA, UPSC, SOF, Navodaya), and public-domain books (Project Gutenberg, Internet Archive, Wikisource).
+- **Never upload or link pirated PDFs** of paid books (Arihant, MTG, Laxmikanth, etc.). It is illegal and can get the website taken down. Paid books show "On our shelf: X of Y copies" instead, so students can borrow the printed copy.
+
+---
+
+## 7. Putting it online (going live)
 
 The site needs a server that runs Node.js **and keeps files on disk** (the database is a file). Options:
 
@@ -88,7 +119,7 @@ On the server, set `NODE_ENV=production` in `.env` (only works over HTTPS), and 
 
 ---
 
-## 6. What else is required (checklist)
+## 8. What else is required (checklist)
 
 **Information to collect from the founder**
 - [ ] Founder's name, photo, qualifications, his story and philosophy quote
@@ -104,7 +135,7 @@ On the server, set `NODE_ENV=production` in `.env` (only works over HTTPS), and 
 
 **Things to buy / set up**
 - [ ] Domain name, e.g. `srvplasur.in` / `srvp.in` (~₹500–1,000/year)
-- [ ] Hosting (see section 5) + HTTPS certificate (free with Let's Encrypt)
+- [ ] Hosting (see section 7) + HTTPS certificate (free with Let's Encrypt)
 - [ ] Google Business Profile for "SRVP Lasur" (free; helps parents find you on Google Maps)
 - [ ] Official email (e.g. Google Workspace or Zoho Mail with your domain)
 - [ ] YouTube / Instagram pages, then paste the links in `content.js → social`

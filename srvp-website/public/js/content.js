@@ -63,6 +63,10 @@ const SITE = {
   hero: {
     eyebrow: "Foundation & Competitive Exam Classes · Lasur & Online",
     title: "Top Notch Academics, right here in Lasur",
+    highlight: "Top Notch",          // these words get an animated underline ("" to turn off)
+    // The line that cycles through exam names under the heading
+    rotatingPrefix: "Preparing students for",
+    rotating: ["Scholarship Exams", "Olympiads", "Homi Bhabha", "VVM", "NDA", "UPSC Foundation"],
     subtitle:
       "Concept-first teaching on smart boards, regular exam-pattern tests and personal attention, in our Lasur classrooms or live online. Building strong foundations for scholarship, Olympiad and competitive exams.",
     primaryButton: "Book a Free Demo Class",
@@ -72,6 +76,7 @@ const SITE = {
       { icon: "pin", text: "Offline classes in Lasur" },
       { icon: "video", text: "Live online on Zoom" },
       { icon: "board", text: "Smart-board classrooms" },
+      { icon: "book", text: "Free library: 100+ books" },
     ],
   },
 
@@ -90,6 +95,9 @@ const SITE = {
     { value: "[ADD: number]", label: "Years of teaching" },
     { value: "[ADD: number]", label: "Selections & scholarships" },
   ],
+
+  // Scrolling ribbon under the numbers band
+  marquee: ["Scholarship 5th & 8th", "Olympiads", "Homi Bhabha", "VVM", "NDA", "UPSC Foundation", "Smart boards", "Live Zoom classes", "Free library", "Debates"],
 
   // ---------------- CHOOSE YOUR GOAL (exam tiles) ----------------
   // Clicking a tile takes the visitor to the enquiry form with that goal selected.
@@ -202,16 +210,17 @@ const SITE = {
   },
 
   // ---------------- LIBRARY ----------------
+  // The book list itself is managed in Admin Panel → Library Books.
   library: {
     heading: "The SRVP Library",
     text:
       "A curated library in a small town, built so that students read beyond textbooks: biographies, science, history, philosophy, general knowledge and competitive-exam books, all chosen with care.",
-    facts: [
-      { value: "[ADD: number]", label: "Books" },
-      { value: "[ADD: e.g. Daily 4–8 PM]", label: "Open hours" },
-      { value: "Free", label: "For SRVP students" },
-    ],
+    hours: "[ADD: e.g. Daily 4–8 PM]",
     photo: "", // e.g. "images/library.jpg"
+    catalogueHeading: "Find a book",
+    catalogueText:
+      "Search the catalogue to see whether a book is on our shelf, or download it free. Free downloads open the official source (NCERT, Balbharati, exam boards) or public-domain libraries.",
+    starterNote: "[ADD: This is a starter list of 100 books — check it against the real shelf and update copies in Admin → Library Books]",
   },
 
   // ---------------- TESTIMONIALS ----------------

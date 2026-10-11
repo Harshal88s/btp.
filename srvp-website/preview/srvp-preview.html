@@ -58,7 +58,7 @@ p { margin: 0 0 1em; }
 .ico svg { width: 18px; height: 18px; }
 
 /* buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--saffron); color: #fff; border: 2px solid var(--saffron); padding: 12px 24px; border-radius: 10px; font: 600 1rem var(--font); text-decoration: none; cursor: pointer; transition: background .2s, border-color .2s, transform .2s; }
+.btn { position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--saffron); color: #fff; border: 2px solid var(--saffron); padding: 12px 24px; border-radius: 10px; font: 600 1rem var(--font); text-decoration: none; cursor: pointer; transition: background .2s, border-color .2s, transform .2s; }
 .btn:hover { background: var(--saffron-dark); border-color: var(--saffron-dark); transform: translateY(-1px); }
 .btn:disabled { opacity: .6; cursor: wait; }
 .btn-sm { padding: 8px 16px; font-size: .9rem; }
@@ -84,7 +84,10 @@ p { margin: 0 0 1em; }
 .menu-btn { display: none; background: none; border: 0; font-size: 1.7rem; cursor: pointer; color: var(--navy); padding: 6px; }
 
 /* hero */
-.hero { background: radial-gradient(900px 400px at 85% 0%, var(--saffron-soft), transparent 70%), linear-gradient(180deg, var(--navy-soft), #fff); padding-block: 56px 64px; }
+.hero { position: relative; overflow: hidden; isolation: isolate; background: linear-gradient(180deg, var(--navy-soft), #fff); padding-block: 56px 64px; }
+.hero::before, .hero::after { content: ''; position: absolute; z-index: -1; border-radius: 50%; filter: blur(60px); opacity: .55; }
+.hero::before { width: 420px; height: 420px; right: -80px; top: -120px; background: #FBD3AE; animation: drift 14s ease-in-out infinite alternate; }
+.hero::after { width: 360px; height: 360px; left: -120px; bottom: -160px; background: #C9D3F5; animation: drift 18s ease-in-out infinite alternate-reverse; }
 .hero-inner { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; }
 .hero-inner > * { min-width: 0; }
 .eyebrow { display: inline-block; color: var(--navy); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px; font-weight: 600; font-size: .82rem; margin-bottom: 18px; }
@@ -96,7 +99,9 @@ p { margin: 0 0 1em; }
 .chips .ico svg { width: 16px; height: 16px; }
 
 .card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
-.demo-card { box-shadow: 0 24px 60px rgba(27,45,107,.14); border-top: 4px solid var(--saffron); }
+.demo-card { box-shadow: 0 24px 60px rgba(27,45,107,.14); border: 2px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box, conic-gradient(from var(--angle, 0deg), var(--saffron), var(--navy), #F2A65A, var(--navy), var(--saffron)) border-box;
+  animation: spin-border 6s linear infinite; }
 .demo-card h2 { font-family: var(--font); font-weight: 700; font-size: 1.35rem; margin-bottom: 4px; }
 
 /* forms */
@@ -286,6 +291,128 @@ p { margin: 0 0 1em; }
   .mobile-bar a.primary { background: var(--saffron); border-color: var(--saffron); color: #fff; flex: 1.6; }
 }
 
+/* ============================================================
+   LIBRARY CATALOGUE
+   ============================================================ */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.catalogue { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--line); }
+.cat-title { font-family: var(--font-head); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--navy); }
+.cat-tools { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 16px; }
+.search { flex: 1 1 280px; min-width: 0; }
+.search input { width: 100%; padding: 12px 16px 12px 42px; border: 1px solid var(--line); border-radius: 999px; font: inherit; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235B6178' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 15px center / 18px; }
+.search input:focus { outline: 2px solid var(--navy); border-color: transparent; }
+.seg { display: inline-flex; background: var(--bg-alt); border: 1px solid var(--line); border-radius: 999px; padding: 4px; }
+.seg button { border: 0; background: none; font: 500 .88rem var(--font); color: var(--muted); padding: 8px 14px; border-radius: 999px; cursor: pointer; transition: background .2s, color .2s; }
+.seg button[aria-pressed="true"] { background: var(--navy); color: #fff; }
+.cat-chips { display: flex; gap: 8px; overflow-x: auto; padding: 14px 2px 6px; scrollbar-width: thin; }
+.cat-chips button { flex: none; display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: #fff; color: var(--ink); font: 500 .85rem var(--font); padding: 7px 12px; border-radius: 999px; cursor: pointer; transition: border-color .2s, background .2s, transform .2s; }
+.cat-chips button:hover { border-color: var(--navy); transform: translateY(-1px); }
+.cat-chips button[aria-pressed="true"] { background: var(--saffron); border-color: var(--saffron); color: #fff; }
+.cat-chips small { font-size: .72rem; opacity: .75; }
+#book-count { margin: 6px 0 0; }
+.books { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; margin-top: 14px; }
+.books > * { min-width: 0; }
+.books .empty { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 30px; }
+.book { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: transform .25s, box-shadow .25s; }
+.book:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(27,45,107,.12); }
+.cover { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 10px; min-height: 120px; padding: 14px 16px 14px 24px; color: #fff;
+  background: linear-gradient(140deg, var(--c1) 0%, var(--c1) 50%, var(--c2) 160%); }
+.cover::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background: rgba(0,0,0,.18); }
+.cover::after { content: ''; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.22) 50%, transparent 60%); transform: translateX(-100%); transition: transform .7s; }
+.book:hover .cover::after { transform: translateX(100%); }
+.cover-cat { font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; opacity: .85; }
+.cover-title { margin: 0; font-family: var(--font-head); font-weight: 400; font-size: 1.2rem; line-height: 1.2; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.book-body { display: flex; flex-direction: column; gap: 6px; padding: 14px 16px 16px; flex: 1; }
+.author { margin: 0; color: var(--muted); font-size: .86rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0; }
+.tags span { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 6px; padding: 1px 8px; font-size: .75rem; color: var(--muted); }
+.avail { display: flex; align-items: center; gap: 8px; margin: 0; font-size: .85rem; font-weight: 500; }
+.avail i { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.avail.ok { color: var(--ok); } .avail.ok i { background: var(--ok); box-shadow: 0 0 0 3px #DCFCE7; }
+.avail.no { color: var(--err); } .avail.no i { background: var(--err); box-shadow: 0 0 0 3px #FEE2E2; }
+.book .get { align-self: flex-start; margin-top: auto; }
+.book .avail + .get, .book .avail:last-child { margin-top: auto; }
+.src { color: var(--muted); font-size: .75rem; }
+.more-wrap { text-align: center; margin-top: 22px; }
+.wa-follow { display: inline-block; margin-top: 6px; color: #128C4A; font-weight: 600; }
+
+/* ============================================================
+   ANIMATIONS — all switched off for "reduce motion" users
+   ============================================================ */
+@property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+@keyframes spin-border { to { --angle: 360deg; } }
+@keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(-60px, 40px) scale(1.15); } }
+@keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@keyframes sweep { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* reading-progress line */
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 100; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--saffron), #F2A65A, var(--navy)); }
+
+/* heading highlight + rotating exam name */
+.hl { position: relative; white-space: nowrap; }
+.hl::after { content: ''; position: absolute; left: -2px; right: -2px; bottom: .06em; height: .28em; z-index: -1; border-radius: 4px; background: #F9C996; transform-origin: 0 50%; animation: sweep .9s .5s cubic-bezier(.65,0,.35,1) both; }
+.rotator { font-weight: 600; color: var(--navy); margin: -4px 0 14px; font-size: 1.05rem; }
+.rot-word { display: inline-block; color: var(--saffron-dark); transition: opacity .3s, transform .3s; }
+.rot-word.out { opacity: 0; transform: translateY(-10px); }
+
+/* hero entrance */
+.anim .hero-text > * { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+.anim .hero-text > :nth-child(2) { animation-delay: .08s; }
+.anim .hero-text > :nth-child(3) { animation-delay: .16s; }
+.anim .hero-text > :nth-child(4) { animation-delay: .24s; }
+.anim .hero-text > :nth-child(5) { animation-delay: .32s; }
+.anim .hero-text > :nth-child(6) { animation-delay: .4s; }
+.anim .demo-card { animation: rise .8s .25s cubic-bezier(.2,.7,.2,1) both, spin-border 6s linear infinite; }
+
+/* things glide in as you scroll */
+.anim .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--i, 0) * 70ms); }
+.anim .reveal.in { opacity: 1; transform: none; }
+
+/* button shine */
+.btn::after { content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%; background: linear-gradient(105deg, transparent, rgba(255,255,255,.35), transparent); transform: skewX(-20deg); transition: left .6s; }
+.btn:hover::after { left: 130%; }
+
+/* tiles and icons */
+.goal:hover .goal-ico { transform: rotate(-8deg) scale(1.1); }
+.goal-ico, .feat-ico, .mode-ico { transition: transform .3s cubic-bezier(.3,1.6,.5,1); }
+.feature:hover .feat-ico, .mode:hover .mode-ico { transform: translateY(-3px) rotate(6deg); }
+.goal:hover .goal-arrow { transform: translateX(4px); }
+.goal-arrow { transition: transform .25s; }
+.course, .mode, .result, .person, .quote { transition: transform .25s, box-shadow .25s; }
+.course:hover, .mode:hover, .result:hover, .person:hover, .quote:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(27,45,107,.10); }
+
+/* scrolling ribbon */
+.marquee { overflow: hidden; background: var(--saffron); color: #fff; padding: 10px 0; }
+.marquee-track { display: flex; width: max-content; animation: marquee 32s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-group { display: flex; align-items: center; gap: 22px; padding-right: 22px; font-weight: 600; font-size: .92rem; letter-spacing: .04em; white-space: nowrap; }
+.marquee .star { opacity: .7; }
+
+/* back to top */
+.to-top { position: fixed; right: 22px; bottom: 90px; z-index: 59; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--navy); color: #fff; font-size: 1.2rem; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,.2); transition: transform .2s; }
+.to-top:hover { transform: translateY(-3px); }
+
+@media (max-width: 720px) {
+  .to-top { bottom: calc(80px + env(safe-area-inset-bottom, 0px)); right: 14px; width: 40px; height: 40px; }
+  .seg { width: 100%; }
+  .seg button { flex: 1; padding: 8px 4px; font-size: .8rem; white-space: nowrap; }
+  .books { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .cover { min-height: 96px; padding: 12px 12px 12px 20px; }
+  .cover-title { font-size: 1rem; }
+  .book-body { padding: 12px; }
+  .hero::before { width: 260px; height: 260px; }
+  .hero::after { width: 220px; height: 220px; }
+}
+@media (max-width: 400px) { .books { grid-template-columns: 1fr; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before, .hero::after, .marquee-track, .demo-card, .hl::after { animation: none !important; }
+  .marquee-track { flex-wrap: wrap; width: auto; }
+  .marquee-group + .marquee-group { display: none; }
+  .btn::after, .cover::after { display: none; }
+}
+
 .nav { top: env(safe-area-inset-top, 0px); }
 .preview-bar { background: #FFF3BF; color: #5A4300; text-align: center; font: 500 13px/1.4 'Poppins', sans-serif; padding: 8px 16px; }
 .fb-btn { position: fixed; left: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 70; background: var(--navy); color: #fff; border: 0; border-radius: 999px; padding: 12px 18px; font: 600 14px var(--font); box-shadow: 0 8px 24px rgba(0,0,0,.25); cursor: pointer; }
@@ -309,6 +436,7 @@ p { margin: 0 0 1em; }
     To change colours/fonts, edit css/style.css (top of the file).
   -->
 
+  <div class="progress" id="progress" aria-hidden="true"></div>
   <div class="notice-bar" id="notices" hidden></div>
 
   <header class="nav" id="top">
@@ -322,6 +450,7 @@ p { margin: 0 0 1em; }
         <a href="#goals">Courses</a>
         <a href="#results">Results</a>
         <a href="#faculty">Faculty</a>
+        <a href="#library">Library</a>
         <a href="#about">About</a>
         <a href="#faq">FAQ</a>
         <a href="#admission">Contact</a>
@@ -335,7 +464,8 @@ p { margin: 0 0 1em; }
     <div class="wrap hero-inner">
       <div class="hero-text">
         <p class="eyebrow" data-text="hero.eyebrow"></p>
-        <h1 data-text="hero.title"></h1>
+        <h1 id="hero-title" data-text="hero.title"></h1>
+        <p class="rotator" id="rotator"></p>
         <p class="lead" data-text="hero.subtitle"></p>
         <div class="hero-cta">
           <a href="#demo-form" class="btn js-demo" data-text="hero.primaryButton"></a>
@@ -361,6 +491,7 @@ p { margin: 0 0 1em; }
 
   <!-- 2. STATS BAND -->
   <div class="stats-band"><div class="wrap stats" id="stats"></div></div>
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
 
   <!-- 3. CHOOSE YOUR GOAL -->
   <section id="goals" class="section">
@@ -439,16 +570,38 @@ p { margin: 0 0 1em; }
     </div>
   </section>
 
-  <!-- 11. LIBRARY -->
+  <!-- 11. LIBRARY + BOOK CATALOGUE (books come from Admin Panel → Library Books) -->
   <section id="library" class="section">
-    <div class="wrap split">
-      <div>
-        <p class="kicker">Beyond textbooks</p>
-        <h2 data-text="library.heading"></h2>
-        <p data-text="library.text"></p>
-        <div class="mini-stats" id="library-facts"></div>
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="kicker">Beyond textbooks</p>
+          <h2 data-text="library.heading"></h2>
+          <p data-text="library.text"></p>
+          <div class="mini-stats" id="library-facts"></div>
+        </div>
+        <div id="library-photo"></div>
       </div>
-      <div id="library-photo"></div>
+
+      <div class="catalogue">
+        <h3 class="cat-title" data-text="library.catalogueHeading"></h3>
+        <p class="muted small narrow" data-text="library.catalogueText"></p>
+        <p class="small" id="library-note"></p>
+        <div class="cat-tools">
+          <label class="search" for="book-search"><span class="sr-only">Search books</span>
+            <input type="search" id="book-search" placeholder="Search title, author, exam or class…" autocomplete="off">
+          </label>
+          <div class="seg" role="group" aria-label="Show books">
+            <button type="button" data-format="all" aria-pressed="true">All</button>
+            <button type="button" data-format="online" aria-pressed="false">Free download</button>
+            <button type="button" data-format="library" aria-pressed="false">In library</button>
+          </div>
+        </div>
+        <div class="cat-chips" id="book-cats" role="group" aria-label="Category"></div>
+        <p class="muted small" id="book-count" role="status"></p>
+        <div class="books" id="books"></div>
+        <div class="more-wrap"><button type="button" class="btn btn-ghost" id="books-more" hidden>Show more books</button></div>
+      </div>
     </div>
   </section>
 
@@ -522,7 +675,7 @@ p { margin: 0 0 1em; }
       <div><h3>Courses</h3><ul id="footer-courses"></ul></div>
       <div><h3>Quick links</h3><ul>
         <li><a href="#results">Results</a></li><li><a href="#faculty">Faculty</a></li>
-        <li><a href="#about">About SRVP</a></li><li><a href="#faq">FAQ</a></li><li><a href="#admission">Admissions</a></li>
+        <li><a href="#library">Library</a></li><li><a href="#about">About SRVP</a></li><li><a href="#faq">FAQ</a></li><li><a href="#admission">Admissions</a></li>
       </ul></div>
       <div><h3>Contact</h3><div id="footer-contact" class="small"></div></div>
     </div>
@@ -532,6 +685,7 @@ p { margin: 0 0 1em; }
   <!-- Phone: sticky bottom bar. Desktop: floating WhatsApp button -->
   <div class="mobile-bar" id="mobile-bar"></div>
   <a id="whatsapp" class="whatsapp" hidden aria-label="Chat on WhatsApp"></a>
+  <button type="button" id="to-top" class="to-top" aria-label="Back to top" hidden>↑</button>
 
   
 <button class="fb-btn" id="fb-open" aria-expanded="false" aria-controls="fb-panel">✍️ Suggest a change</button>
@@ -541,7 +695,7 @@ p { margin: 0 0 1em; }
   <label for="fb-section">Which part?<select id="fb-section">
     <option>Whole website</option><option>Top banner &amp; demo form</option><option>Numbers band</option><option>Choose your goal (exams)</option>
     <option>Courses &amp; fees</option><option>Offline / Online</option><option>Results</option><option>Why SRVP</option><option>How we teach</option>
-    <option>Faculty</option><option>About / Founder / Values</option><option>Library</option><option>Testimonials</option><option>Gallery</option>
+    <option>Faculty</option><option>About / Founder / Values</option><option>Library &amp; book list</option><option>Animations</option><option>Testimonials</option><option>Gallery</option>
     <option>FAQ</option><option>Admission form &amp; contact</option><option>Colours / design</option></select></label>
   <label for="fb-text">Your suggestion<textarea id="fb-text" rows="4" placeholder="e.g. Add Navodaya to the exam list; phone number is 98…"></textarea></label>
   <div class="fb-actions">
@@ -566,9 +720,11 @@ p { margin: 0 0 1em; }
 })();
 </script>
 <script>
+const PREVIEW_BOOKS = [{"title":"Atomic Habits","author":"James Clear","category":"Biographies & Inspiration","classes":"Class 9+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"Ignited Minds","author":"A.P.J. Abdul Kalam","category":"Biographies & Inspiration","classes":"Class 7+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"My Journey: Transforming Dreams into Actions","author":"A.P.J. Abdul Kalam","category":"Biographies & Inspiration","classes":"Class 5+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"The Diary of a Young Girl","author":"Anne Frank","category":"Biographies & Inspiration","classes":"Class 7+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"The Story of My Experiments with Truth","author":"M.K. Gandhi","category":"Biographies & Inspiration","classes":"Class 8+","language":"English","format":"Both","copies_total":1,"copies_available":1,"link":"https://archive.org/search?query=Story%20of%20My%20Experiments%20with%20Truth%20Gandhi","source":"Internet Archive (public domain)"},{"title":"Wings of Fire","author":"A.P.J. Abdul Kalam with Arun Tiwari","category":"Biographies & Inspiration","classes":"Class 6+","language":"English","format":"In library","copies_total":3,"copies_available":3,"link":"","source":""},{"title":"A Dictionary, Marathi and English","author":"J.T. Molesworth","category":"English & Language","classes":"All","language":"Marathi & English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://archive.org/search?query=Molesworth%20Marathi%20English%20dictionary","source":"Internet Archive (public domain)"},{"title":"High School English Grammar and Composition","author":"Wren & Martin","category":"English & Language","classes":"Class 6+","language":"English","format":"In library","copies_total":3,"copies_available":3,"link":"","source":""},{"title":"Oxford Advanced Learner’s Dictionary","author":"A.S. Hornby","category":"English & Language","classes":"All","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"Word Power Made Easy","author":"Norman Lewis","category":"English & Language","classes":"Class 8+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"DIKSHA — free lessons and e-books for Classes 1–12","author":"Ministry of Education","category":"General Knowledge","classes":"Class 1–12","language":"Many languages","format":"Free online","copies_total":0,"copies_available":0,"link":"https://diksha.gov.in","source":"DIKSHA, Ministry of Education"},{"title":"ePathshala — NCERT e-books and audio","author":"NCERT","category":"General Knowledge","classes":"Class 1–12","language":"English & Hindi","format":"Free online","copies_total":0,"copies_available":0,"link":"https://epathshala.nic.in","source":"ePathshala, NCERT"},{"title":"Lucent’s General Knowledge","author":"Lucent Publications","category":"General Knowledge","classes":"Class 8+","language":"English","format":"In library","copies_total":2,"copies_available":2,"link":"","source":""},{"title":"Manorama Yearbook","author":"Malayala Manorama","category":"General Knowledge","classes":"Class 6+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"National Digital Library of India (free e-library)","author":"IIT Kharagpur & Ministry of Education","category":"General Knowledge","classes":"All","language":"Many languages","format":"Free online","copies_total":0,"copies_available":0,"link":"https://ndl.iitkgp.ac.in","source":"National Digital Library of India"},{"title":"Oxford Student Atlas for India","author":"Oxford University Press","category":"General Knowledge","classes":"Class 5+","language":"English","format":"In library","copies_total":2,"copies_available":2,"link":"","source":""},{"title":"Children’s Illustrated Encyclopedia","author":"DK","category":"Homi Bhabha & VVM","classes":"Class 3–8","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"Dr. Homi Bhabha Balvaidnyanik Competition — Syllabus & Past Papers","author":"Mumbai Science Teachers’ Association","category":"Homi Bhabha & VVM","classes":"Std 6 & 9","language":"English & Marathi","format":"Free online","copies_total":0,"copies_available":0,"link":"https://msta.in","source":"Mumbai Science Teachers’ Association (official)"},{"title":"The Usborne Big Book of Experiments","author":"Usborne","category":"Homi Bhabha & VVM","classes":"Class 3–8","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"The Way Things Work Now","author":"David Macaulay","category":"Homi Bhabha & VVM","classes":"Class 5+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"VVM (Vidyarthi Vigyan Manthan) — Study Material","author":"Vijnana Bharati","category":"Homi Bhabha & VVM","classes":"Class 6–11","language":"English, Hindi & Marathi","format":"Free online","copies_total":0,"copies_available":0,"link":"https://www.vvm.org.in","source":"VVM (official)"},{"title":"Hind Swaraj","author":"M.K. Gandhi","category":"Indian Knowledge & Values","classes":"Class 9+","language":"English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://archive.org/search?query=Hind%20Swaraj%20Gandhi","source":"Internet Archive (public domain)"},{"title":"Jataka Tales","author":"Retold by Ellen C. Babbitt","category":"Indian Knowledge & Values","classes":"Class 3+","language":"English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://www.gutenberg.org/ebooks/search/?query=Jataka%20Tales%20Babbitt","source":"Project Gutenberg (public domain)"},{"title":"Kautilya’s Arthashastra","author":"Translated by R. Shamasastry","category":"Indian Knowledge & Values","classes":"Class 10+","language":"English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://archive.org/search?query=Arthasastra%20Shamasastry","source":"Internet Archive (public domain)"},{"title":"Mahabharata","author":"C. Rajagopalachari","category":"Indian Knowledge & Values","classes":"Class 5+","language":"English","format":"In library","copies_total":2,"copies_available":2,"link":"","source":""},{"title":"Ramayana","author":"C. Rajagopalachari","category":"Indian Knowledge & Values","classes":"Class 5+","language":"English","format":"In library","copies_total":2,"copies_available":2,"link":"","source":""},{"title":"The Bhagavad Gita (The Song Celestial)","author":"Translated by Edwin Arnold","category":"Indian Knowledge & Values","classes":"Class 7+","language":"English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://www.gutenberg.org/ebooks/search/?query=Song%20Celestial%20Arnold","source":"Project Gutenberg (public domain)"},{"title":"The Book of Good Counsels (Hitopadesha)","author":"Translated by Edwin Arnold","category":"Indian Knowledge & Values","classes":"Class 5+","language":"English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://www.gutenberg.org/ebooks/search/?query=Book%20of%20Good%20Counsels%20Hitopadesa","source":"Project Gutenberg (public domain)"},{"title":"The Complete Works of Swami Vivekananda","author":"Swami Vivekananda","category":"Indian Knowledge & Values","classes":"Class 8+","language":"English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://en.wikisource.org/wiki/The_Complete_Works_of_Swami_Vivekananda","source":"Wikisource (public domain)"},{"title":"The Panchatantra","author":"Vishnu Sharma (tr. Arthur W. Ryder)","category":"Indian Knowledge & Values","classes":"Class 3+","language":"English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://archive.org/search?query=Panchatantra%20Ryder","source":"Internet Archive (public domain)"},{"title":"Agnipankh (Marathi translation of Wings of Fire)","author":"A.P.J. Abdul Kalam","category":"Marathi Sahitya","classes":"Class 6+","language":"Marathi","format":"In library","copies_total":2,"copies_available":2,"link":"","source":""},{"title":"Mrutyunjay","author":"Shivaji Sawant","category":"Marathi Sahitya","classes":"Class 9+","language":"Marathi","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"Shriman Yogi","author":"Ranjit Desai","category":"Marathi Sahitya","classes":"Class 8+","language":"Marathi","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"Shyamchi Aai","author":"Sane Guruji","category":"Marathi Sahitya","classes":"Class 5+","language":"Marathi","format":"In library","copies_total":2,"copies_available":2,"link":"","source":""},{"title":"Science for Ninth Class / Tenth Class","author":"Lakhmir Singh & Manjit Kaur","category":"Maths & Science Reference","classes":"Class 9–10","language":"English","format":"In library","copies_total":2,"copies_available":2,"link":"","source":""},{"title":"Secondary School Mathematics (Class 9 & 10)","author":"R.S. Aggarwal","category":"Maths & Science Reference","classes":"Class 9–10","language":"English","format":"In library","copies_total":2,"copies_available":2,"link":"","source":""},{"title":"NDA/NA — Previous Question Papers","author":"UPSC","category":"NDA & Defence","classes":"Class 11–12","language":"English & Hindi","format":"Free online","copies_total":0,"copies_available":0,"link":"https://upsc.gov.in","source":"UPSC (official)"},{"title":"Objective General English","author":"S.P. Bakshi","category":"NDA & Defence","classes":"Class 9+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"Pathfinder NDA/NA Entrance Examination","author":"Arihant Experts","category":"NDA & Defence","classes":"Class 11–12","language":"English","format":"In library","copies_total":2,"copies_available":2,"link":"","source":""},{"title":"Amusements in Mathematics","author":"Henry E. Dudeney","category":"Olympiad","classes":"Class 7+","language":"English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://www.gutenberg.org/ebooks/search/?query=Amusements%20in%20Mathematics%20Dudeney","source":"Project Gutenberg (public domain)"},{"title":"IEO — International English Olympiad Workbook","author":"MTG Editorial Board","category":"Olympiad","classes":"Class 3–10 (class-wise)","language":"English","format":"In library","copies_total":2,"copies_available":2,"link":"","source":""},{"title":"IMO — International Mathematics Olympiad Workbook","author":"MTG Editorial Board","category":"Olympiad","classes":"Class 3–10 (class-wise)","language":"English","format":"In library","copies_total":3,"copies_available":3,"link":"","source":""},{"title":"NSO — National Science Olympiad Workbook","author":"MTG Editorial Board","category":"Olympiad","classes":"Class 3–10 (class-wise)","language":"English","format":"In library","copies_total":3,"copies_available":3,"link":"","source":""},{"title":"Puzzles to Puzzle You","author":"Shakuntala Devi","category":"Olympiad","classes":"Class 5+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"SOF Olympiad Sample Papers (IMO, NSO, IEO)","author":"Science Olympiad Foundation","category":"Olympiad","classes":"Class 1–12","language":"English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://sofworld.org","source":"Science Olympiad Foundation (official)"},{"title":"Vedic Mathematics","author":"Swami Sri Bharati Krsna Tirthaji Maharaja","category":"Olympiad","classes":"Class 6+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"A Brief History of Time","author":"Stephen Hawking","category":"Popular Science","classes":"Class 9+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"Flatland: A Romance of Many Dimensions","author":"Edwin A. Abbott","category":"Popular Science","classes":"Class 8+","language":"English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://www.gutenberg.org/ebooks/search/?query=Flatland%20Abbott","source":"Project Gutenberg (public domain)"},{"title":"On the Origin of Species","author":"Charles Darwin","category":"Popular Science","classes":"Class 10+","language":"English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://www.gutenberg.org/ebooks/search/?query=Origin%20of%20Species%20Darwin","source":"Project Gutenberg (public domain)"},{"title":"Relativity: The Special and General Theory","author":"Albert Einstein","category":"Popular Science","classes":"Class 10+","language":"English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://www.gutenberg.org/ebooks/search/?query=Relativity%20Einstein","source":"Project Gutenberg (public domain)"},{"title":"Surely You’re Joking, Mr. Feynman!","author":"Richard P. Feynman","category":"Popular Science","classes":"Class 9+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"A Modern Approach to Verbal & Non-Verbal Reasoning","author":"R.S. Aggarwal","category":"Reasoning & Aptitude","classes":"Class 6+","language":"English","format":"In library","copies_total":2,"copies_available":2,"link":"","source":""},{"title":"Quantitative Aptitude for Competitive Examinations","author":"R.S. Aggarwal","category":"Reasoning & Aptitude","classes":"Class 9+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"Jawahar Navodaya Vidyalaya Entrance Exam Guide (Class 6)","author":"Arihant Experts","category":"Scholarship & Navodaya","classes":"Class 5–6","language":"English","format":"In library","copies_total":2,"copies_available":2,"link":"","source":""},{"title":"JNVST (Navodaya) — Sample Papers","author":"Navodaya Vidyalaya Samiti","category":"Scholarship & Navodaya","classes":"Class 5–6","language":"English & Hindi","format":"Free online","copies_total":0,"copies_available":0,"link":"https://navodaya.gov.in","source":"Navodaya Vidyalaya Samiti (official)"},{"title":"Maharashtra Scholarship Exam — Previous Papers (Std 5)","author":"MSCE Pune","category":"Scholarship & Navodaya","classes":"Std 5","language":"Marathi & English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://www.mscepune.in","source":"MSCE Pune (official)"},{"title":"Maharashtra Scholarship Exam — Previous Papers (Std 8)","author":"MSCE Pune","category":"Scholarship & Navodaya","classes":"Std 8","language":"Marathi & English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://www.mscepune.in","source":"MSCE Pune (official)"},{"title":"NMMS — Previous Papers (Std 8)","author":"MSCE Pune","category":"Scholarship & Navodaya","classes":"Std 8","language":"Marathi & English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://www.mscepune.in","source":"MSCE Pune (official)"},{"title":"Sainik School Entrance Exam Guide (Class 6)","author":"Arihant Experts","category":"Scholarship & Navodaya","classes":"Class 5–6","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"Balbharati Marathi — Std 5","author":"Balbharati, Maharashtra","category":"School Textbooks","classes":"Std 5","language":"Marathi","format":"Both","copies_total":1,"copies_available":1,"link":"https://ebalbharati.in","source":"Balbharati (official)"},{"title":"Balbharati Mathematics — Std 5","author":"Balbharati, Maharashtra","category":"School Textbooks","classes":"Std 5","language":"English & Marathi","format":"Both","copies_total":1,"copies_available":1,"link":"https://ebalbharati.in","source":"Balbharati (official)"},{"title":"Balbharati Mathematics — Std 8","author":"Balbharati, Maharashtra","category":"School Textbooks","classes":"Std 8","language":"English & Marathi","format":"Both","copies_total":1,"copies_available":1,"link":"https://ebalbharati.in","source":"Balbharati (official)"},{"title":"Balbharati Science — Std 8","author":"Balbharati, Maharashtra","category":"School Textbooks","classes":"Std 8","language":"English & Marathi","format":"Both","copies_total":1,"copies_available":1,"link":"https://ebalbharati.in","source":"Balbharati (official)"},{"title":"Balbharati Textbooks — all standards and mediums","author":"Balbharati, Maharashtra","category":"School Textbooks","classes":"Std 1–12","language":"Marathi, English & more","format":"Free online","copies_total":0,"copies_available":0,"link":"https://ebalbharati.in","source":"Balbharati (official)"},{"title":"NCERT English Textbooks — Classes 3 to 10","author":"NCERT","category":"School Textbooks","classes":"Class 3–10","language":"English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://ncert.nic.in/textbook.php","source":"NCERT (official)"},{"title":"NCERT Environmental Studies (EVS) — Classes 3 to 5","author":"NCERT","category":"School Textbooks","classes":"Class 3–5","language":"English & Hindi","format":"Both","copies_total":1,"copies_available":1,"link":"https://ncert.nic.in/textbook.php","source":"NCERT (official)"},{"title":"NCERT Exemplar Problems — Mathematics","author":"NCERT","category":"School Textbooks","classes":"Class 6–10","language":"English & Hindi","format":"Free online","copies_total":0,"copies_available":0,"link":"https://ncert.nic.in/exemplar-problems.php","source":"NCERT (official)"},{"title":"NCERT Exemplar Problems — Science","author":"NCERT","category":"School Textbooks","classes":"Class 6–10","language":"English & Hindi","format":"Free online","copies_total":0,"copies_available":0,"link":"https://ncert.nic.in/exemplar-problems.php","source":"NCERT (official)"},{"title":"NCERT Mathematics — Class 10","author":"NCERT","category":"School Textbooks","classes":"Class 10","language":"English & Hindi","format":"Both","copies_total":2,"copies_available":2,"link":"https://ncert.nic.in/textbook.php","source":"NCERT (official)"},{"title":"NCERT Mathematics — Class 3","author":"NCERT","category":"School Textbooks","classes":"Class 3","language":"English & Hindi","format":"Both","copies_total":2,"copies_available":2,"link":"https://ncert.nic.in/textbook.php","source":"NCERT (official)"},{"title":"NCERT Mathematics — Class 4","author":"NCERT","category":"School Textbooks","classes":"Class 4","language":"English & Hindi","format":"Both","copies_total":2,"copies_available":2,"link":"https://ncert.nic.in/textbook.php","source":"NCERT (official)"},{"title":"NCERT Mathematics — Class 5","author":"NCERT","category":"School Textbooks","classes":"Class 5","language":"English & Hindi","format":"Both","copies_total":2,"copies_available":2,"link":"https://ncert.nic.in/textbook.php","source":"NCERT (official)"},{"title":"NCERT Mathematics — Class 6","author":"NCERT","category":"School Textbooks","classes":"Class 6","language":"English & Hindi","format":"Both","copies_total":2,"copies_available":2,"link":"https://ncert.nic.in/textbook.php","source":"NCERT (official)"},{"title":"NCERT Mathematics — Class 7","author":"NCERT","category":"School Textbooks","classes":"Class 7","language":"English & Hindi","format":"Both","copies_total":2,"copies_available":2,"link":"https://ncert.nic.in/textbook.php","source":"NCERT (official)"},{"title":"NCERT Mathematics — Class 8","author":"NCERT","category":"School Textbooks","classes":"Class 8","language":"English & Hindi","format":"Both","copies_total":2,"copies_available":2,"link":"https://ncert.nic.in/textbook.php","source":"NCERT (official)"},{"title":"NCERT Mathematics — Class 9","author":"NCERT","category":"School Textbooks","classes":"Class 9","language":"English & Hindi","format":"Both","copies_total":2,"copies_available":2,"link":"https://ncert.nic.in/textbook.php","source":"NCERT (official)"},{"title":"NCERT Science — Class 10","author":"NCERT","category":"School Textbooks","classes":"Class 10","language":"English & Hindi","format":"Both","copies_total":2,"copies_available":2,"link":"https://ncert.nic.in/textbook.php","source":"NCERT (official)"},{"title":"NCERT Science — Class 6","author":"NCERT","category":"School Textbooks","classes":"Class 6","language":"English & Hindi","format":"Both","copies_total":2,"copies_available":2,"link":"https://ncert.nic.in/textbook.php","source":"NCERT (official)"},{"title":"NCERT Science — Class 7","author":"NCERT","category":"School Textbooks","classes":"Class 7","language":"English & Hindi","format":"Both","copies_total":2,"copies_available":2,"link":"https://ncert.nic.in/textbook.php","source":"NCERT (official)"},{"title":"NCERT Science — Class 8","author":"NCERT","category":"School Textbooks","classes":"Class 8","language":"English & Hindi","format":"Both","copies_total":2,"copies_available":2,"link":"https://ncert.nic.in/textbook.php","source":"NCERT (official)"},{"title":"NCERT Science — Class 9","author":"NCERT","category":"School Textbooks","classes":"Class 9","language":"English & Hindi","format":"Both","copies_total":2,"copies_available":2,"link":"https://ncert.nic.in/textbook.php","source":"NCERT (official)"},{"title":"NCERT Social Science — Classes 6 to 8","author":"NCERT","category":"School Textbooks","classes":"Class 6–8","language":"English & Hindi","format":"Both","copies_total":1,"copies_available":1,"link":"https://ncert.nic.in/textbook.php","source":"NCERT (official)"},{"title":"NCERT Social Science — Classes 9 and 10","author":"NCERT","category":"School Textbooks","classes":"Class 9–10","language":"English & Hindi","format":"Both","copies_total":1,"copies_available":1,"link":"https://ncert.nic.in/textbook.php","source":"NCERT (official)"},{"title":"Aesop’s Fables","author":"Aesop","category":"Stories & Classics","classes":"Class 3+","language":"English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://www.gutenberg.org/ebooks/search/?query=Aesop%20Fables","source":"Project Gutenberg (public domain)"},{"title":"Gitanjali","author":"Rabindranath Tagore","category":"Stories & Classics","classes":"Class 7+","language":"English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://www.gutenberg.org/ebooks/search/?query=Gitanjali%20Tagore","source":"Project Gutenberg (public domain)"},{"title":"Malgudi Days","author":"R.K. Narayan","category":"Stories & Classics","classes":"Class 5+","language":"English","format":"In library","copies_total":2,"copies_available":2,"link":"","source":""},{"title":"Premchand — Selected Stories","author":"Munshi Premchand","category":"Stories & Classics","classes":"Class 5+","language":"Hindi","format":"Free online","copies_total":0,"copies_available":0,"link":"https://archive.org/search?query=Premchand%20kahaniyan","source":"Internet Archive (public domain)"},{"title":"Stories from Tagore","author":"Rabindranath Tagore","category":"Stories & Classics","classes":"Class 5+","language":"English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://www.gutenberg.org/ebooks/search/?query=Stories%20from%20Tagore","source":"Project Gutenberg (public domain)"},{"title":"The Jungle Book","author":"Rudyard Kipling","category":"Stories & Classics","classes":"Class 4+","language":"English","format":"Free online","copies_total":0,"copies_available":0,"link":"https://www.gutenberg.org/ebooks/search/?query=Jungle%20Book%20Kipling","source":"Project Gutenberg (public domain)"},{"title":"A Brief History of Modern India","author":"Rajiv Ahir (Spectrum)","category":"UPSC Foundation","classes":"Class 10+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"Ancient India","author":"R.S. Sharma","category":"UPSC Foundation","classes":"Class 9+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"Certificate Physical and Human Geography","author":"Goh Cheng Leong","category":"UPSC Foundation","classes":"Class 9+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"India’s Struggle for Independence","author":"Bipan Chandra and others","category":"UPSC Foundation","classes":"Class 9+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"Indian Art and Culture","author":"Nitin Singhania","category":"UPSC Foundation","classes":"Class 10+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"Indian Economy","author":"Ramesh Singh","category":"UPSC Foundation","classes":"Class 11+","language":"English","format":"In library","copies_total":1,"copies_available":1,"link":"","source":""},{"title":"Indian Polity","author":"M. Laxmikanth","category":"UPSC Foundation","classes":"Class 10+","language":"English","format":"In library","copies_total":2,"copies_available":2,"link":"","source":""},{"title":"NIOS Secondary & Senior Secondary Study Material","author":"NIOS","category":"UPSC Foundation","classes":"Class 9–12","language":"English & Hindi","format":"Free online","copies_total":0,"copies_available":0,"link":"https://nios.ac.in","source":"NIOS (official)"},{"title":"The Constitution of India","author":"Government of India","category":"UPSC Foundation","classes":"Class 8+","language":"English & Hindi","format":"Both","copies_total":1,"copies_available":1,"link":"https://legislative.gov.in","source":"Legislative Department, Govt. of India"},{"title":"UPSC Civil Services — Previous Question Papers","author":"UPSC","category":"UPSC Foundation","classes":"Class 11+","language":"English & Hindi","format":"Free online","copies_total":0,"copies_available":0,"link":"https://upsc.gov.in","source":"UPSC (official)"},{"title":"Yojana (monthly magazine)","author":"Publications Division","category":"UPSC Foundation","classes":"Class 10+","language":"English & Hindi","format":"Free online","copies_total":0,"copies_available":0,"link":"https://www.publicationsdivision.nic.in","source":"Publications Division, Govt. of India"}];
 window.fetch = async (url, opts) => {
   const ok = (data) => ({ ok: true, json: async () => data });
   if (String(url).includes('enquiry')) return ok({ ok: true });
+  if (String(url).includes('books')) return ok(PREVIEW_BOOKS);
   if (String(url).includes('announcements')) return ok([{ title: 'Admissions Open — Offline & Online', body: '', link: '' }]);
   return ok([]);
 };</script>
@@ -637,6 +793,10 @@ const SITE = {
   hero: {
     eyebrow: "Foundation & Competitive Exam Classes · Lasur & Online",
     title: "Top Notch Academics, right here in Lasur",
+    highlight: "Top Notch",          // these words get an animated underline ("" to turn off)
+    // The line that cycles through exam names under the heading
+    rotatingPrefix: "Preparing students for",
+    rotating: ["Scholarship Exams", "Olympiads", "Homi Bhabha", "VVM", "NDA", "UPSC Foundation"],
     subtitle:
       "Concept-first teaching on smart boards, regular exam-pattern tests and personal attention, in our Lasur classrooms or live online. Building strong foundations for scholarship, Olympiad and competitive exams.",
     primaryButton: "Book a Free Demo Class",
@@ -646,6 +806,7 @@ const SITE = {
       { icon: "pin", text: "Offline classes in Lasur" },
       { icon: "video", text: "Live online on Zoom" },
       { icon: "board", text: "Smart-board classrooms" },
+      { icon: "book", text: "Free library: 100+ books" },
     ],
   },
 
@@ -664,6 +825,9 @@ const SITE = {
     { value: "[ADD: number]", label: "Years of teaching" },
     { value: "[ADD: number]", label: "Selections & scholarships" },
   ],
+
+  // Scrolling ribbon under the numbers band
+  marquee: ["Scholarship 5th & 8th", "Olympiads", "Homi Bhabha", "VVM", "NDA", "UPSC Foundation", "Smart boards", "Live Zoom classes", "Free library", "Debates"],
 
   // ---------------- CHOOSE YOUR GOAL (exam tiles) ----------------
   // Clicking a tile takes the visitor to the enquiry form with that goal selected.
@@ -776,16 +940,17 @@ const SITE = {
   },
 
   // ---------------- LIBRARY ----------------
+  // The book list itself is managed in Admin Panel → Library Books.
   library: {
     heading: "The SRVP Library",
     text:
       "A curated library in a small town, built so that students read beyond textbooks: biographies, science, history, philosophy, general knowledge and competitive-exam books, all chosen with care.",
-    facts: [
-      { value: "[ADD: number]", label: "Books" },
-      { value: "[ADD: e.g. Daily 4–8 PM]", label: "Open hours" },
-      { value: "Free", label: "For SRVP students" },
-    ],
+    hours: "[ADD: e.g. Daily 4–8 PM]",
     photo: "", // e.g. "images/library.jpg"
+    catalogueHeading: "Find a book",
+    catalogueText:
+      "Search the catalogue to see whether a book is on our shelf, or download it free. Free downloads open the official source (NCERT, Balbharati, exam boards) or public-domain libraries.",
+    starterNote: "[ADD: This is a starter list of 100 books — check it against the real shelf and update copies in Admin → Library Books]",
   },
 
   // ---------------- TESTIMONIALS ----------------
@@ -842,6 +1007,7 @@ SITE.demoForm.successMessage += ' (Draft website: this form is not connected yet
   const get = (path) => path.split('.').reduce((o, k) => (o == null ? o : o[k]), SITE);
   const hasTodo = (s) => /\[ADD:/.test(String(s || ''));
   const isBlank = (s) => !s || (String(s).replace(PLACEHOLDER, '').trim() === '' && !SHOW_PLACEHOLDERS);
+  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Put text into an element; [ADD: ...] parts become yellow hint boxes.
   function fill(el, str) {
@@ -926,6 +1092,36 @@ SITE.demoForm.successMessage += ' (Draft website: this form is not connected yet
   $('#hero-chips').append(...SITE.hero.chips.map((c) => h('li', {}, icon(c.icon), h('span', {}, c.text))));
   $('#stats').append(...SITE.stats.map((s) => h('div', { class: 'stat' }, h('b', {}, s.value), h('span', {}, s.label))));
 
+  // Animated underline on the key words of the heading
+  const hl = SITE.hero.highlight;
+  if (hl && !hasTodo(SITE.hero.title) && SITE.hero.title.includes(hl)) {
+    const [before, ...rest] = SITE.hero.title.split(hl);
+    const titleEl = $('#hero-title');
+    titleEl.textContent = '';
+    titleEl.append(before, h('span', { class: 'hl' }, hl), rest.join(hl));
+  }
+
+  // "Preparing students for ___" — cycles through the exam names
+  const words = (SITE.hero.rotating || []).filter((w) => !isBlank(w));
+  if (words.length) {
+    const word = h('span', { class: 'rot-word' }, words[0]);
+    $('#rotator').append(h('span', {}, SITE.hero.rotatingPrefix + ' '), word);
+    if (!REDUCED && words.length > 1) {
+      let i = 0;
+      setInterval(() => {
+        word.classList.add('out');
+        setTimeout(() => { i = (i + 1) % words.length; word.textContent = words[i]; word.classList.remove('out'); }, 320);
+      }, 2400);
+    }
+  } else $('#rotator').hidden = true;
+
+  // Scrolling ribbon of exams under the numbers band (two copies make a seamless loop)
+  const ribbon = (SITE.marquee || []).filter((w) => !isBlank(w));
+  if (ribbon.length) {
+    const group = () => h('div', { class: 'marquee-group' }, ribbon.map((w) => [h('span', {}, w), h('span', { class: 'star' }, '✦')]));
+    $('#marquee').append(group(), group());
+  } else $('.marquee').hidden = true;
+
   // ---------- "Choose your goal" → enquiry form with that goal selected ----------
   const courseNames = [...new Set([...SITE.goals.map((g) => g.name), ...SITE.courses.map((c) => c.name)])];
   $('#course-options').append(...courseNames.map((o) => h('option', {}, o)), h('option', {}, 'Not sure — please guide me'));
@@ -982,8 +1178,8 @@ SITE.demoForm.successMessage += ' (Draft website: this form is not connected yet
     h('h3', {}, f.name), h('p', { class: 'muted small' }, f.role), h('p', { class: 'small' }, f.qualification),
     h('blockquote', {}, `“${f.message}”`));
 
-  // ---------- library ----------
-  $('#library-facts').append(...SITE.library.facts.map((s) => h('div', {}, h('b', {}, s.value), h('span', {}, s.label))));
+  // ---------- library intro (the book catalogue is built further down) ----------
+  if (!isBlank(SITE.library.starterNote)) fill($('#library-note'), SITE.library.starterNote);
   $('#library-photo').append(safeUrl(SITE.library.photo)
     ? h('img', { src: SITE.library.photo, alt: 'SRVP library', class: 'photo', loading: 'lazy' })
     : h('div', { class: 'photo ph' }, todoBlock('Library photo — put it in public/images/ and set library.photo in content.js') || icon('book', 'big-ico')));
@@ -1059,6 +1255,12 @@ SITE.demoForm.successMessage += ' (Draft website: this form is not connected yet
         if (!r.ok) throw new Error(j.error || 'Something went wrong');
         msg.className = 'form-msg ok';
         msg.textContent = get(msg.dataset.success);
+        if (wa) {
+          // Free, instant copy of the enquiry on SRVP's WhatsApp
+          const text = ['Hello SRVP, I just sent an enquiry on your website.', `Student: ${data.student_name}`, `Phone: ${data.phone}`,
+            data.class_grade && `Class: ${data.class_grade}`, data.course && `Interested in: ${data.course}`].filter(Boolean).join('\n');
+          msg.append(' ', h('a', { href: `https://wa.me/${wa}?text=${encodeURIComponent(text)}`, target: '_blank', rel: 'noopener', class: 'wa-follow' }, 'Also send on WhatsApp →'));
+        }
         form.reset();
       } catch (err) {
         msg.className = 'form-msg err';
@@ -1084,6 +1286,70 @@ SITE.demoForm.successMessage += ' (Draft website: this form is not connected yet
   if (!hasTodo(c.address)) ld.address = c.address;
   document.head.append(h('script', { type: 'application/ld+json' }, JSON.stringify(ld)));
 
+  // ---------- animations ----------
+  // Cards and headings glide in as they scroll into view. Skipped for people
+  // who turn on "reduce motion" on their phone/computer.
+  const canAnimate = !REDUCED && 'IntersectionObserver' in window;
+  if (canAnimate) document.documentElement.classList.add('anim');
+  const revealIO = canAnimate ? new IntersectionObserver((entries) => {
+    for (const en of entries) {
+      if (!en.isIntersecting) continue;
+      const el = en.target;
+      revealIO.unobserve(el);
+      el.classList.add('in');
+      // afterwards hand the element back to its normal hover effects
+      setTimeout(() => el.classList.remove('reveal', 'in'), 900 + (Number(el.style.getPropertyValue('--i')) || 0) * 80);
+    }
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 }) : null;
+  const REVEAL = '.section .kicker, .section h2, .goal, .course, .mode, .result, .person, .feature, .steps li, .quote, .gal, .faq details, .book, .founder, .values, .cat-tools, .mini-stats';
+  function reveal(root = document) {
+    if (!revealIO) return;
+    root.querySelectorAll(REVEAL).forEach((el) => {
+      if (el.dataset.rv) return;
+      el.dataset.rv = '1';
+      el.style.setProperty('--i', Math.min([...el.parentElement.children].indexOf(el), 6));
+      el.classList.add('reveal');
+      revealIO.observe(el);
+    });
+  }
+
+  // Numbers count up when they come into view (only plain numbers like 250+)
+  function countUp(el) {
+    const m = el.querySelector('.todo') ? null : el.textContent.match(/^(\D*)(\d[\d,]*)(.*)$/);
+    if (!m || REDUCED) return;
+    const target = Number(m[2].replace(/,/g, '')), start = performance.now(), dur = 1300;
+    const step = (t) => {
+      const p = Math.min(1, (t - start) / dur);
+      el.textContent = m[1] + Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString('en-IN') + m[3];
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  function countWhenVisible(els) {
+    if (!canAnimate) return;
+    const io = new IntersectionObserver((entries) => entries.forEach((en) => {
+      if (en.isIntersecting) { io.unobserve(en.target); countUp(en.target); }
+    }), { threshold: 0.6 });
+    els.forEach((el) => io.observe(el));
+  }
+  countWhenVisible(document.querySelectorAll('.stat b'));
+
+  // Reading-progress line at the top + "back to top" button
+  const progressBar = $('#progress'), toTop = $('#to-top');
+  let ticking = false;
+  addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      progressBar.style.transform = `scaleX(${max > 0 ? Math.min(1, scrollY / max) : 0})`;
+      toTop.hidden = scrollY < 900;
+      ticking = false;
+    });
+  }, { passive: true });
+  toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: REDUCED ? 'auto' : 'smooth' }));
+  reveal();
+
   // ---------- data from the Admin Panel ----------
   const api = (name) => fetch('api/public/' + name).then((r) => (r.ok ? r.json() : [])).catch(() => []);
   const sample = (n, make) => (SHOW_PLACEHOLDERS ? Array.from({ length: n }, make) : []);
@@ -1104,6 +1370,7 @@ SITE.demoForm.successMessage += ' (Draft website: this form is not connected yet
     const cards = rows.length ? rows.map((r) => ({ name: r.student_name, big: r.achievement, sub: [r.exam, r.year].filter(Boolean).join(' · '), photo: r.photo_url }))
       : sample(4, () => ({ name: '[ADD: Student name]', big: '[ADD: Rank / marks]', sub: '[ADD: Exam · Year]' }));
     box.append(...cards.map((r) => h('div', { class: 'card result' }, avatar(r.photo, r.name), h('b', { class: 'rank' }, r.big || ''), h('h3', {}, r.name), h('p', { class: 'muted small' }, r.sub))));
+    reveal(box);
     if (!rows.length && SHOW_PLACEHOLDERS) box.after(h('p', { class: 'hint small' }, 'These are empty sample cards. Add real toppers in Admin Panel → Results / Toppers and tick “Show on website”.'));
   });
 
@@ -1113,6 +1380,97 @@ SITE.demoForm.successMessage += ' (Draft website: this form is not connected yet
     box.append(...cards.map((t) => h('div', { class: 'card person' }, avatar(t.photo_url, t.full_name), h('h3', {}, t.full_name), h('p', { class: 'subject' }, t.subject || ''),
       h('p', { class: 'muted small' }, [t.qualification, t.experience_years ? `${t.experience_years} yrs experience` : ''].filter(Boolean).join(' · ')), t.bio ? h('p', { class: 'small' }, t.bio) : null)));
     if (!rows.length && SHOW_PLACEHOLDERS) box.after(h('p', { class: 'hint small' }, 'Add teachers in Admin Panel → Faculty and tick “Show on website”.'));
+    reveal(box);
+  });
+
+  // ---------- library catalogue (Admin Panel → Library Books) ----------
+  const CAT_COLORS = {
+    'School Textbooks': ['#1B2D6B', '#4F6FD8'], 'Scholarship & Navodaya': ['#9A3F06', '#F2A65A'], 'Olympiad': ['#5B21B6', '#A78BFA'],
+    'Homi Bhabha & VVM': ['#115E59', '#2DD4BF'], 'NDA & Defence': ['#3F5212', '#A3C93A'], 'UPSC Foundation': ['#881337', '#FB7185'],
+    'Reasoning & Aptitude': ['#1E3A8A', '#60A5FA'], 'Maths & Science Reference': ['#164E63', '#22D3EE'], 'English & Language': ['#7C2D12', '#FB923C'],
+    'General Knowledge': ['#713F12', '#EAB308'], 'Popular Science': ['#3730A3', '#818CF8'], 'Biographies & Inspiration': ['#9D174D', '#F472B6'],
+    'Indian Knowledge & Values': ['#9A3412', '#FDBA74'], 'Stories & Classics': ['#065F46', '#34D399'], 'Marathi Sahitya': ['#86198F', '#E879F9'],
+  };
+  const PAGE = 12;
+  const booksEl = $('#books'), moreBtn = $('#books-more'), countEl = $('#book-count'), searchEl = $('#book-search');
+  const isOnline = (b) => (b.format === 'Free online' || b.format === 'Both') && !!safeUrl(b.link);
+  const inLibrary = (b) => b.format === 'In library' || b.format === 'Both';
+  let books = [], current = [], shown = PAGE, fCat = 'All', fFormat = 'all', fq = '';
+
+  function matches(b) {
+    if (fCat !== 'All' && b.category !== fCat) return false;
+    if (fFormat === 'online' && !isOnline(b)) return false;
+    if (fFormat === 'library' && !inLibrary(b)) return false;
+    return !fq || [b.title, b.author, b.category, b.classes, b.language, b.source].join(' ').toLowerCase().includes(fq);
+  }
+  function bookCard(b) {
+    const [c1, c2] = CAT_COLORS[b.category] || ['#1B2D6B', '#4F6FD8'];
+    const status = [];
+    if (isOnline(b)) status.push(h('p', { class: 'avail ok' }, h('i'), 'Free to read & download'));
+    if (inLibrary(b)) {
+      const total = Number(b.copies_total) || 0, left = Number(b.copies_available) || 0;
+      status.push(left > 0
+        ? h('p', { class: 'avail ok' }, h('i'), `On our shelf: ${left} of ${Math.max(total, left)} ${total === 1 ? 'copy' : 'copies'}`)
+        : h('p', { class: 'avail no' }, h('i'), 'All copies issued — ask at the desk'));
+    }
+    return h('article', { class: 'book' },
+      h('div', { class: 'cover', style: `--c1:${c1};--c2:${c2}` }, h('span', { class: 'cover-cat' }, b.category || 'Book'), h('h4', { class: 'cover-title' }, b.title)),
+      h('div', { class: 'book-body' },
+        b.author ? h('p', { class: 'author' }, b.author) : null,
+        h('p', { class: 'tags' }, [b.classes, b.language].filter(Boolean).map((t) => h('span', {}, t))),
+        status,
+        isOnline(b) ? h('a', { class: 'btn btn-sm get', href: b.link, target: '_blank', rel: 'noopener', title: `Opens ${b.source || 'the free source'} in a new tab` }, 'Download free ↗') : null,
+        isOnline(b) && b.source ? h('small', { class: 'src' }, b.source) : null));
+  }
+  function addBooks(from) {
+    booksEl.append(...current.slice(from, shown).map(bookCard));
+    moreBtn.hidden = current.length <= shown;
+    moreBtn.textContent = `Show more books (${current.length - shown} more)`;
+    reveal(booksEl);
+  }
+  function renderBooks() {
+    current = books.filter(matches);
+    shown = PAGE;
+    booksEl.textContent = '';
+    if (!current.length) booksEl.append(h('p', { class: 'empty' }, books.length ? 'No books match. Try another word or category, or ask at the library desk.' : 'The book list is coming soon.'));
+    countEl.textContent = books.length ? `${current.length} of ${books.length} books` : '';
+    addBooks(0);
+  }
+  function catChips() {
+    const counts = {};
+    books.forEach((b) => { counts[b.category] = (counts[b.category] || 0) + 1; });
+    const order = [...Object.keys(CAT_COLORS), ...Object.keys(counts)].filter((c, i, a) => counts[c] && a.indexOf(c) === i);
+    const box = $('#book-cats');
+    box.textContent = '';
+    box.append(...['All', ...order].map((c) => h('button', { type: 'button', 'aria-pressed': String(c === fCat),
+      onclick: () => { fCat = c; catChips(); renderBooks(); } }, c, h('small', {}, String(c === 'All' ? books.length : counts[c])))));
+  }
+  let searchTimer;
+  searchEl.addEventListener('input', () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => { fq = searchEl.value.trim().toLowerCase(); renderBooks(); }, 150);
+  });
+  document.querySelectorAll('.seg button').forEach((btn) => btn.addEventListener('click', () => {
+    fFormat = btn.dataset.format;
+    document.querySelectorAll('.seg button').forEach((x) => x.setAttribute('aria-pressed', String(x === btn)));
+    renderBooks();
+  }));
+  moreBtn.addEventListener('click', () => { const from = shown; shown += PAGE; addBooks(from); });
+
+  api('books').then((rows) => {
+    // textbooks and exam books first (same order as the category list above), A–Z inside each
+    const rank = (c) => { const i = Object.keys(CAT_COLORS).indexOf(c); return i < 0 ? 99 : i; };
+    books = rows.slice().sort((a, b) => rank(a.category) - rank(b.category));
+    const fact = (value, label) => h('div', {}, h('b', {}, String(value)), h('span', {}, label));
+    const facts = $('#library-facts');
+    if (books.length) {
+      const copies = books.filter(inLibrary).reduce((n, b) => n + (Number(b.copies_total) || 0), 0);
+      facts.append(fact(books.length, 'Books in catalogue'), fact(books.filter(isOnline).length, 'Free to download'), fact(copies, 'Printed copies'));
+    }
+    if (!isBlank(SITE.library.hours)) facts.append(fact(SITE.library.hours, 'Library hours'));
+    countWhenVisible(facts.querySelectorAll('b'));
+    catChips();
+    renderBooks();
   });
 })();
 </script>

@@ -8,6 +8,7 @@
   const get = (path) => path.split('.').reduce((o, k) => (o == null ? o : o[k]), SITE);
   const hasTodo = (s) => /\[ADD:/.test(String(s || ''));
   const isBlank = (s) => !s || (String(s).replace(PLACEHOLDER, '').trim() === '' && !SHOW_PLACEHOLDERS);
+  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Put text into an element; [ADD: ...] parts become yellow hint boxes.
   function fill(el, str) {
@@ -92,6 +93,36 @@
   $('#hero-chips').append(...SITE.hero.chips.map((c) => h('li', {}, icon(c.icon), h('span', {}, c.text))));
   $('#stats').append(...SITE.stats.map((s) => h('div', { class: 'stat' }, h('b', {}, s.value), h('span', {}, s.label))));
 
+  // Animated underline on the key words of the heading
+  const hl = SITE.hero.highlight;
+  if (hl && !hasTodo(SITE.hero.title) && SITE.hero.title.includes(hl)) {
+    const [before, ...rest] = SITE.hero.title.split(hl);
+    const titleEl = $('#hero-title');
+    titleEl.textContent = '';
+    titleEl.append(before, h('span', { class: 'hl' }, hl), rest.join(hl));
+  }
+
+  // "Preparing students for ___" — cycles through the exam names
+  const words = (SITE.hero.rotating || []).filter((w) => !isBlank(w));
+  if (words.length) {
+    const word = h('span', { class: 'rot-word' }, words[0]);
+    $('#rotator').append(h('span', {}, SITE.hero.rotatingPrefix + ' '), word);
+    if (!REDUCED && words.length > 1) {
+      let i = 0;
+      setInterval(() => {
+        word.classList.add('out');
+        setTimeout(() => { i = (i + 1) % words.length; word.textContent = words[i]; word.classList.remove('out'); }, 320);
+      }, 2400);
+    }
+  } else $('#rotator').hidden = true;
+
+  // Scrolling ribbon of exams under the numbers band (two copies make a seamless loop)
+  const ribbon = (SITE.marquee || []).filter((w) => !isBlank(w));
+  if (ribbon.length) {
+    const group = () => h('div', { class: 'marquee-group' }, ribbon.map((w) => [h('span', {}, w), h('span', { class: 'star' }, '✦')]));
+    $('#marquee').append(group(), group());
+  } else $('.marquee').hidden = true;
+
   // ---------- "Choose your goal" → enquiry form with that goal selected ----------
   const courseNames = [...new Set([...SITE.goals.map((g) => g.name), ...SITE.courses.map((c) => c.name)])];
   $('#course-options').append(...courseNames.map((o) => h('option', {}, o)), h('option', {}, 'Not sure — please guide me'));
@@ -148,8 +179,8 @@
     h('h3', {}, f.name), h('p', { class: 'muted small' }, f.role), h('p', { class: 'small' }, f.qualification),
     h('blockquote', {}, `“${f.message}”`));
 
-  // ---------- library ----------
-  $('#library-facts').append(...SITE.library.facts.map((s) => h('div', {}, h('b', {}, s.value), h('span', {}, s.label))));
+  // ---------- library intro (the book catalogue is built further down) ----------
+  if (!isBlank(SITE.library.starterNote)) fill($('#library-note'), SITE.library.starterNote);
   $('#library-photo').append(safeUrl(SITE.library.photo)
     ? h('img', { src: SITE.library.photo, alt: 'SRVP library', class: 'photo', loading: 'lazy' })
     : h('div', { class: 'photo ph' }, todoBlock('Library photo — put it in public/images/ and set library.photo in content.js') || icon('book', 'big-ico')));
@@ -225,6 +256,12 @@
         if (!r.ok) throw new Error(j.error || 'Something went wrong');
         msg.className = 'form-msg ok';
         msg.textContent = get(msg.dataset.success);
+        if (wa) {
+          // Free, instant copy of the enquiry on SRVP's WhatsApp
+          const text = ['Hello SRVP, I just sent an enquiry on your website.', `Student: ${data.student_name}`, `Phone: ${data.phone}`,
+            data.class_grade && `Class: ${data.class_grade}`, data.course && `Interested in: ${data.course}`].filter(Boolean).join('\n');
+          msg.append(' ', h('a', { href: `https://wa.me/${wa}?text=${encodeURIComponent(text)}`, target: '_blank', rel: 'noopener', class: 'wa-follow' }, 'Also send on WhatsApp →'));
+        }
         form.reset();
       } catch (err) {
         msg.className = 'form-msg err';
@@ -250,6 +287,70 @@
   if (!hasTodo(c.address)) ld.address = c.address;
   document.head.append(h('script', { type: 'application/ld+json' }, JSON.stringify(ld)));
 
+  // ---------- animations ----------
+  // Cards and headings glide in as they scroll into view. Skipped for people
+  // who turn on "reduce motion" on their phone/computer.
+  const canAnimate = !REDUCED && 'IntersectionObserver' in window;
+  if (canAnimate) document.documentElement.classList.add('anim');
+  const revealIO = canAnimate ? new IntersectionObserver((entries) => {
+    for (const en of entries) {
+      if (!en.isIntersecting) continue;
+      const el = en.target;
+      revealIO.unobserve(el);
+      el.classList.add('in');
+      // afterwards hand the element back to its normal hover effects
+      setTimeout(() => el.classList.remove('reveal', 'in'), 900 + (Number(el.style.getPropertyValue('--i')) || 0) * 80);
+    }
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 }) : null;
+  const REVEAL = '.section .kicker, .section h2, .goal, .course, .mode, .result, .person, .feature, .steps li, .quote, .gal, .faq details, .book, .founder, .values, .cat-tools, .mini-stats';
+  function reveal(root = document) {
+    if (!revealIO) return;
+    root.querySelectorAll(REVEAL).forEach((el) => {
+      if (el.dataset.rv) return;
+      el.dataset.rv = '1';
+      el.style.setProperty('--i', Math.min([...el.parentElement.children].indexOf(el), 6));
+      el.classList.add('reveal');
+      revealIO.observe(el);
+    });
+  }
+
+  // Numbers count up when they come into view (only plain numbers like 250+)
+  function countUp(el) {
+    const m = el.querySelector('.todo') ? null : el.textContent.match(/^(\D*)(\d[\d,]*)(.*)$/);
+    if (!m || REDUCED) return;
+    const target = Number(m[2].replace(/,/g, '')), start = performance.now(), dur = 1300;
+    const step = (t) => {
+      const p = Math.min(1, (t - start) / dur);
+      el.textContent = m[1] + Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString('en-IN') + m[3];
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  function countWhenVisible(els) {
+    if (!canAnimate) return;
+    const io = new IntersectionObserver((entries) => entries.forEach((en) => {
+      if (en.isIntersecting) { io.unobserve(en.target); countUp(en.target); }
+    }), { threshold: 0.6 });
+    els.forEach((el) => io.observe(el));
+  }
+  countWhenVisible(document.querySelectorAll('.stat b'));
+
+  // Reading-progress line at the top + "back to top" button
+  const progressBar = $('#progress'), toTop = $('#to-top');
+  let ticking = false;
+  addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      progressBar.style.transform = `scaleX(${max > 0 ? Math.min(1, scrollY / max) : 0})`;
+      toTop.hidden = scrollY < 900;
+      ticking = false;
+    });
+  }, { passive: true });
+  toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: REDUCED ? 'auto' : 'smooth' }));
+  reveal();
+
   // ---------- data from the Admin Panel ----------
   const api = (name) => fetch('api/public/' + name).then((r) => (r.ok ? r.json() : [])).catch(() => []);
   const sample = (n, make) => (SHOW_PLACEHOLDERS ? Array.from({ length: n }, make) : []);
@@ -270,6 +371,7 @@
     const cards = rows.length ? rows.map((r) => ({ name: r.student_name, big: r.achievement, sub: [r.exam, r.year].filter(Boolean).join(' · '), photo: r.photo_url }))
       : sample(4, () => ({ name: '[ADD: Student name]', big: '[ADD: Rank / marks]', sub: '[ADD: Exam · Year]' }));
     box.append(...cards.map((r) => h('div', { class: 'card result' }, avatar(r.photo, r.name), h('b', { class: 'rank' }, r.big || ''), h('h3', {}, r.name), h('p', { class: 'muted small' }, r.sub))));
+    reveal(box);
     if (!rows.length && SHOW_PLACEHOLDERS) box.after(h('p', { class: 'hint small' }, 'These are empty sample cards. Add real toppers in Admin Panel → Results / Toppers and tick “Show on website”.'));
   });
 
@@ -279,5 +381,96 @@
     box.append(...cards.map((t) => h('div', { class: 'card person' }, avatar(t.photo_url, t.full_name), h('h3', {}, t.full_name), h('p', { class: 'subject' }, t.subject || ''),
       h('p', { class: 'muted small' }, [t.qualification, t.experience_years ? `${t.experience_years} yrs experience` : ''].filter(Boolean).join(' · ')), t.bio ? h('p', { class: 'small' }, t.bio) : null)));
     if (!rows.length && SHOW_PLACEHOLDERS) box.after(h('p', { class: 'hint small' }, 'Add teachers in Admin Panel → Faculty and tick “Show on website”.'));
+    reveal(box);
+  });
+
+  // ---------- library catalogue (Admin Panel → Library Books) ----------
+  const CAT_COLORS = {
+    'School Textbooks': ['#1B2D6B', '#4F6FD8'], 'Scholarship & Navodaya': ['#9A3F06', '#F2A65A'], 'Olympiad': ['#5B21B6', '#A78BFA'],
+    'Homi Bhabha & VVM': ['#115E59', '#2DD4BF'], 'NDA & Defence': ['#3F5212', '#A3C93A'], 'UPSC Foundation': ['#881337', '#FB7185'],
+    'Reasoning & Aptitude': ['#1E3A8A', '#60A5FA'], 'Maths & Science Reference': ['#164E63', '#22D3EE'], 'English & Language': ['#7C2D12', '#FB923C'],
+    'General Knowledge': ['#713F12', '#EAB308'], 'Popular Science': ['#3730A3', '#818CF8'], 'Biographies & Inspiration': ['#9D174D', '#F472B6'],
+    'Indian Knowledge & Values': ['#9A3412', '#FDBA74'], 'Stories & Classics': ['#065F46', '#34D399'], 'Marathi Sahitya': ['#86198F', '#E879F9'],
+  };
+  const PAGE = 12;
+  const booksEl = $('#books'), moreBtn = $('#books-more'), countEl = $('#book-count'), searchEl = $('#book-search');
+  const isOnline = (b) => (b.format === 'Free online' || b.format === 'Both') && !!safeUrl(b.link);
+  const inLibrary = (b) => b.format === 'In library' || b.format === 'Both';
+  let books = [], current = [], shown = PAGE, fCat = 'All', fFormat = 'all', fq = '';
+
+  function matches(b) {
+    if (fCat !== 'All' && b.category !== fCat) return false;
+    if (fFormat === 'online' && !isOnline(b)) return false;
+    if (fFormat === 'library' && !inLibrary(b)) return false;
+    return !fq || [b.title, b.author, b.category, b.classes, b.language, b.source].join(' ').toLowerCase().includes(fq);
+  }
+  function bookCard(b) {
+    const [c1, c2] = CAT_COLORS[b.category] || ['#1B2D6B', '#4F6FD8'];
+    const status = [];
+    if (isOnline(b)) status.push(h('p', { class: 'avail ok' }, h('i'), 'Free to read & download'));
+    if (inLibrary(b)) {
+      const total = Number(b.copies_total) || 0, left = Number(b.copies_available) || 0;
+      status.push(left > 0
+        ? h('p', { class: 'avail ok' }, h('i'), `On our shelf: ${left} of ${Math.max(total, left)} ${total === 1 ? 'copy' : 'copies'}`)
+        : h('p', { class: 'avail no' }, h('i'), 'All copies issued — ask at the desk'));
+    }
+    return h('article', { class: 'book' },
+      h('div', { class: 'cover', style: `--c1:${c1};--c2:${c2}` }, h('span', { class: 'cover-cat' }, b.category || 'Book'), h('h4', { class: 'cover-title' }, b.title)),
+      h('div', { class: 'book-body' },
+        b.author ? h('p', { class: 'author' }, b.author) : null,
+        h('p', { class: 'tags' }, [b.classes, b.language].filter(Boolean).map((t) => h('span', {}, t))),
+        status,
+        isOnline(b) ? h('a', { class: 'btn btn-sm get', href: b.link, target: '_blank', rel: 'noopener', title: `Opens ${b.source || 'the free source'} in a new tab` }, 'Download free ↗') : null,
+        isOnline(b) && b.source ? h('small', { class: 'src' }, b.source) : null));
+  }
+  function addBooks(from) {
+    booksEl.append(...current.slice(from, shown).map(bookCard));
+    moreBtn.hidden = current.length <= shown;
+    moreBtn.textContent = `Show more books (${current.length - shown} more)`;
+    reveal(booksEl);
+  }
+  function renderBooks() {
+    current = books.filter(matches);
+    shown = PAGE;
+    booksEl.textContent = '';
+    if (!current.length) booksEl.append(h('p', { class: 'empty' }, books.length ? 'No books match. Try another word or category, or ask at the library desk.' : 'The book list is coming soon.'));
+    countEl.textContent = books.length ? `${current.length} of ${books.length} books` : '';
+    addBooks(0);
+  }
+  function catChips() {
+    const counts = {};
+    books.forEach((b) => { counts[b.category] = (counts[b.category] || 0) + 1; });
+    const order = [...Object.keys(CAT_COLORS), ...Object.keys(counts)].filter((c, i, a) => counts[c] && a.indexOf(c) === i);
+    const box = $('#book-cats');
+    box.textContent = '';
+    box.append(...['All', ...order].map((c) => h('button', { type: 'button', 'aria-pressed': String(c === fCat),
+      onclick: () => { fCat = c; catChips(); renderBooks(); } }, c, h('small', {}, String(c === 'All' ? books.length : counts[c])))));
+  }
+  let searchTimer;
+  searchEl.addEventListener('input', () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => { fq = searchEl.value.trim().toLowerCase(); renderBooks(); }, 150);
+  });
+  document.querySelectorAll('.seg button').forEach((btn) => btn.addEventListener('click', () => {
+    fFormat = btn.dataset.format;
+    document.querySelectorAll('.seg button').forEach((x) => x.setAttribute('aria-pressed', String(x === btn)));
+    renderBooks();
+  }));
+  moreBtn.addEventListener('click', () => { const from = shown; shown += PAGE; addBooks(from); });
+
+  api('books').then((rows) => {
+    // textbooks and exam books first (same order as the category list above), A–Z inside each
+    const rank = (c) => { const i = Object.keys(CAT_COLORS).indexOf(c); return i < 0 ? 99 : i; };
+    books = rows.slice().sort((a, b) => rank(a.category) - rank(b.category));
+    const fact = (value, label) => h('div', {}, h('b', {}, String(value)), h('span', {}, label));
+    const facts = $('#library-facts');
+    if (books.length) {
+      const copies = books.filter(inLibrary).reduce((n, b) => n + (Number(b.copies_total) || 0), 0);
+      facts.append(fact(books.length, 'Books in catalogue'), fact(books.filter(isOnline).length, 'Free to download'), fact(copies, 'Printed copies'));
+    }
+    if (!isBlank(SITE.library.hours)) facts.append(fact(SITE.library.hours, 'Library hours'));
+    countWhenVisible(facts.querySelectorAll('b'));
+    catChips();
+    renderBooks();
   });
 })();

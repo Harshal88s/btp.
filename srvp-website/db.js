@@ -34,4 +34,17 @@ for (const [table, def] of Object.entries(SCHEMA)) {
   }
 }
 
+// First run only: fill the library with the starter list in seed/books.json.
+// (Deleting books later will not bring them back.)
+db.exec('CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT)');
+const seedFile = path.join(__dirname, 'seed', 'books.json');
+if (!db.prepare("SELECT 1 FROM meta WHERE key = 'books_seeded'").get() && fs.existsSync(seedFile)) {
+  const cols = SCHEMA.books.fields.map((f) => f.name);
+  const insert = db.prepare(`INSERT INTO books (${cols.join(',')}) VALUES (${cols.map(() => '?').join(',')})`);
+  db.exec('BEGIN');
+  for (const book of JSON.parse(fs.readFileSync(seedFile, 'utf8'))) insert.run(...cols.map((c) => book[c] ?? null));
+  db.exec("INSERT INTO meta (key, value) VALUES ('books_seeded', datetime('now'))");
+  db.exec('COMMIT');
+}
+
 module.exports = { db, DB_FILE, SCHEMA };

@@ -68,8 +68,19 @@
   async function dashboard() {
     const main = $('#main');
     main.textContent = '';
-    const s = await call('stats');
+    const [s, ch] = await Promise.all([call('stats'), call('notify-status')]);
     const card = (label, value, tab) => h('div', { class: 'stat', onclick: tab ? () => show(tab) : null }, h('b', {}, String(value)), h('span', {}, label));
+    const state = (on) => h('b', { class: on ? 'on' : 'off' }, on ? 'Set up ✓' : 'Not set up');
+    const testOut = h('p', { class: 'muted' });
+    const testBtn = h('button', { class: 'btn', onclick: async () => {
+      testBtn.disabled = true;
+      testOut.textContent = 'Sending…';
+      try {
+        const r = await call('test-notify', { method: 'POST' });
+        testOut.textContent = `SMS: ${r.sms}  ·  Email: ${r.email}`;
+      } catch (e) { testOut.textContent = e.message; }
+      testBtn.disabled = false;
+    } }, 'Send test alert');
     main.append(
       h('h1', {}, 'Dashboard'),
       h('div', { class: 'stats' },
@@ -78,8 +89,14 @@
         card('Online', s.online, 'students'),
         card('Active faculty', s.faculty, 'faculty'),
         card('New enquiries', s.newEnquiries, 'enquiries'),
+        card('Library books', s.books, 'books'),
         card('Fees collected', rupee(s.feePaid)),
         card('Fees pending', rupee(s.feeTotal - s.feePaid))),
+      h('div', { class: 'panel' },
+        h('h2', {}, 'Enquiry alerts'),
+        h('p', {}, 'Every website enquiry is sent to your phone (SMS) and inbox (email). Set the numbers and keys in the .env file, restart, then send a test.'),
+        h('p', { class: 'channels' }, 'SMS: ', state(ch.sms), '   Email: ', state(ch.email)),
+        testBtn, testOut),
       h('div', { class: 'panel' },
         h('h2', {}, 'Backup'),
         h('p', {}, 'Download a copy of the whole database (all students, faculty, enquiries). Do this every week and keep it on Google Drive / a pen drive.'),
@@ -90,7 +107,8 @@
           h('li', {}, 'Website text (about, courses, contact…) → edit public/js/content.js and refresh the site.'),
           h('li', {}, 'Faculty and toppers appear on the website only when "Show on website" is ticked.'),
           h('li', {}, 'Announcements with "Show on website" ticked appear in the bar at the top of the site.'),
-          h('li', {}, 'To load many students at once: Students → Export CSV to get the format, fill it in Excel, then Import CSV.'))));
+          h('li', {}, 'To load many students at once: Students → Export CSV to get the format, fill it in Excel, then Import CSV.'),
+          h('li', {}, 'Library: when a book is issued or returned, edit it in Library Books and change "Copies on the shelf now".'))));
   }
 
   // ---------- table view ----------

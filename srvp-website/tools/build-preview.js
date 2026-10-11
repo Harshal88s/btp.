@@ -20,11 +20,20 @@ const html = read('index.html');
 const fonts = html.match(/<link href="https:\/\/fonts\.googleapis\.com[^>]+>/)[0];
 const body = html.split('<body>')[1].split('<script')[0];
 
+// The starter book list (the real site serves it from the database)
+const keep = ['title', 'author', 'category', 'classes', 'language', 'format', 'copies_total', 'copies_available', 'link', 'source'];
+const books = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'seed', 'books.json'), 'utf8'))
+  .filter((b) => b.show_on_site)
+  .map((b) => Object.fromEntries(keep.map((k) => [k, b[k]])))
+  .sort((a, b) => a.category.localeCompare(b.category) || a.title.localeCompare(b.title));
+
 // Stand-in for the server while previewing
 const mock = `
+const PREVIEW_BOOKS = ${JSON.stringify(books)};
 window.fetch = async (url, opts) => {
   const ok = (data) => ({ ok: true, json: async () => data });
   if (String(url).includes('enquiry')) return ok({ ok: true });
+  if (String(url).includes('books')) return ok(PREVIEW_BOOKS);
   if (String(url).includes('announcements')) return ok([{ title: 'Admissions Open — Offline & Online', body: '', link: '' }]);
   return ok([]);
 };`;
@@ -56,7 +65,7 @@ ${body}
   <label for="fb-section">Which part?<select id="fb-section">
     <option>Whole website</option><option>Top banner &amp; demo form</option><option>Numbers band</option><option>Choose your goal (exams)</option>
     <option>Courses &amp; fees</option><option>Offline / Online</option><option>Results</option><option>Why SRVP</option><option>How we teach</option>
-    <option>Faculty</option><option>About / Founder / Values</option><option>Library</option><option>Testimonials</option><option>Gallery</option>
+    <option>Faculty</option><option>About / Founder / Values</option><option>Library &amp; book list</option><option>Animations</option><option>Testimonials</option><option>Gallery</option>
     <option>FAQ</option><option>Admission form &amp; contact</option><option>Colours / design</option></select></label>
   <label for="fb-text">Your suggestion<textarea id="fb-text" rows="4" placeholder="e.g. Add Navodaya to the exam list; phone number is 98…"></textarea></label>
   <div class="fb-actions">

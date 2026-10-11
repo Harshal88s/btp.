@@ -14,6 +14,7 @@ const path = require('path');
 const crypto = require('crypto');
 const express = require('express');
 const { db, DB_FILE, SCHEMA } = require('./db');
+const notify = require('./notify');
 
 const PORT = Number(process.env.PORT) || 3000;
 const ADMIN_USER = process.env.ADMIN_USER || 'admin';
@@ -110,7 +111,7 @@ for (const [table, def] of Object.entries(SCHEMA)) {
   if (!def.public) continue;
   app.get(`/api/public/${table}`, (req, res) => {
     const rows = db.prepare(
-      `SELECT ${def.public.join(',')} FROM ${table} WHERE ${def.publicWhere || '1=1'} ORDER BY ${def.publicOrder || 'id DESC'} LIMIT 200`
+      `SELECT ${def.public.join(',')} FROM ${table} WHERE ${def.publicWhere || '1=1'} ORDER BY ${def.publicOrder || 'id DESC'} LIMIT ${def.publicLimit || 200}`
     ).all();
     res.json(rows);
   });
@@ -132,6 +133,8 @@ app.post('/api/public/enquiry', (req, res) => {
   row.followup_notes = '';
   insertRow('enquiries', row);
   res.json({ ok: true });
+  // SMS + email to SRVP (set up in .env). Runs after replying, so the parent never waits.
+  notify.enquiry(row).then((r) => console.log('Enquiry alert:', JSON.stringify(r))).catch((e) => console.error('Enquiry alert failed:', e.message));
 });
 
 // ---------- admin auth ----------
@@ -185,9 +188,19 @@ app.get('/api/admin/stats', (req, res) => {
     offline: one("SELECT COUNT(*) FROM students WHERE mode='Offline' AND (status IS NULL OR status IN ('', 'Active'))"),
     faculty: one("SELECT COUNT(*) FROM faculty WHERE status IS NULL OR status IN ('', 'Active')"),
     newEnquiries: one("SELECT COUNT(*) FROM enquiries WHERE status='New'"),
+    books: one('SELECT COUNT(*) FROM books'),
     feeTotal: one('SELECT SUM(COALESCE(fee_total,0)) FROM students'),
     feePaid: one('SELECT SUM(COALESCE(fee_paid,0)) FROM students'),
   });
+});
+
+app.get('/api/admin/notify-status', (req, res) => res.json(notify.channels()));
+app.post('/api/admin/test-notify', async (req, res) => {
+  const result = await notify.enquiry({
+    enquiry_type: 'Test', student_name: 'Test Student', parent_name: 'Test Parent', phone: '9999999999',
+    class_grade: '6th', course: 'Foundation Course', mode: 'Offline', message: 'This is a test alert from the SRVP admin panel.',
+  });
+  res.json(result);
 });
 
 app.get('/api/admin/backup', (req, res) => {

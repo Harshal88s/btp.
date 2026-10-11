@@ -25,6 +25,7 @@
     To change colours/fonts, edit css/style.css (top of the file).
   -->
 
+  <div class="progress" id="progress" aria-hidden="true"></div>
   <div class="notice-bar" id="notices" hidden></div>
 
   <header class="nav" id="top">
@@ -38,6 +39,7 @@
         <a href="#goals">Courses</a>
         <a href="#results">Results</a>
         <a href="#faculty">Faculty</a>
+        <a href="#library">Library</a>
         <a href="#about">About</a>
         <a href="#faq">FAQ</a>
         <a href="#admission">Contact</a>
@@ -51,7 +53,8 @@
     <div class="wrap hero-inner">
       <div class="hero-text">
         <p class="eyebrow" data-text="hero.eyebrow"></p>
-        <h1 data-text="hero.title"></h1>
+        <h1 id="hero-title" data-text="hero.title"></h1>
+        <p class="rotator" id="rotator"></p>
         <p class="lead" data-text="hero.subtitle"></p>
         <div class="hero-cta">
           <a href="#demo-form" class="btn js-demo" data-text="hero.primaryButton"></a>
@@ -77,6 +80,7 @@
 
   <!-- 2. STATS BAND -->
   <div class="stats-band"><div class="wrap stats" id="stats"></div></div>
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
 
   <!-- 3. CHOOSE YOUR GOAL -->
   <section id="goals" class="section">
@@ -155,16 +159,38 @@
     </div>
   </section>
 
-  <!-- 11. LIBRARY -->
+  <!-- 11. LIBRARY + BOOK CATALOGUE (books come from Admin Panel → Library Books) -->
   <section id="library" class="section">
-    <div class="wrap split">
-      <div>
-        <p class="kicker">Beyond textbooks</p>
-        <h2 data-text="library.heading"></h2>
-        <p data-text="library.text"></p>
-        <div class="mini-stats" id="library-facts"></div>
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="kicker">Beyond textbooks</p>
+          <h2 data-text="library.heading"></h2>
+          <p data-text="library.text"></p>
+          <div class="mini-stats" id="library-facts"></div>
+        </div>
+        <div id="library-photo"></div>
       </div>
-      <div id="library-photo"></div>
+
+      <div class="catalogue">
+        <h3 class="cat-title" data-text="library.catalogueHeading"></h3>
+        <p class="muted small narrow" data-text="library.catalogueText"></p>
+        <p class="small" id="library-note"></p>
+        <div class="cat-tools">
+          <label class="search" for="book-search"><span class="sr-only">Search books</span>
+            <input type="search" id="book-search" placeholder="Search title, author, exam or class…" autocomplete="off">
+          </label>
+          <div class="seg" role="group" aria-label="Show books">
+            <button type="button" data-format="all" aria-pressed="true">All</button>
+            <button type="button" data-format="online" aria-pressed="false">Free download</button>
+            <button type="button" data-format="library" aria-pressed="false">In library</button>
+          </div>
+        </div>
+        <div class="cat-chips" id="book-cats" role="group" aria-label="Category"></div>
+        <p class="muted small" id="book-count" role="status"></p>
+        <div class="books" id="books"></div>
+        <div class="more-wrap"><button type="button" class="btn btn-ghost" id="books-more" hidden>Show more books</button></div>
+      </div>
     </div>
   </section>
 
@@ -238,7 +264,7 @@
       <div><h3>Courses</h3><ul id="footer-courses"></ul></div>
       <div><h3>Quick links</h3><ul>
         <li><a href="#results">Results</a></li><li><a href="#faculty">Faculty</a></li>
-        <li><a href="#about">About SRVP</a></li><li><a href="#faq">FAQ</a></li><li><a href="#admission">Admissions</a></li>
+        <li><a href="#library">Library</a></li><li><a href="#about">About SRVP</a></li><li><a href="#faq">FAQ</a></li><li><a href="#admission">Admissions</a></li>
       </ul></div>
       <div><h3>Contact</h3><div id="footer-contact" class="small"></div></div>
     </div>
@@ -248,6 +274,7 @@
   <!-- Phone: sticky bottom bar. Desktop: floating WhatsApp button -->
   <div class="mobile-bar" id="mobile-bar"></div>
   <a id="whatsapp" class="whatsapp" hidden aria-label="Chat on WhatsApp"></a>
+  <button type="button" id="to-top" class="to-top" aria-label="Back to top" hidden>↑</button>
 
   <script src="js/content.js"></script>
   <script src="js/main.js"></script>
