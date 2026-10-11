@@ -69,6 +69,12 @@
     isBlank(f.philosophy) ? null : h('p', { class: 'philosophy' }, f.philosophy)
   );
 
+  // ---------- programs strip + philosophy ----------
+  $('#strip').append(...SITE.programsStrip.map((x, i) => h('span', {}, (i ? '•  ' : '') + x)));
+  const ideo = SITE.ideology;
+  $('#pillars').append(...ideo.pillars.map((p) => h('div', { class: 'card pillar' }, h('div', { class: 'deva', lang: 'hi' }, p.word), h('h3', {}, p.title), h('p', {}, p.text))));
+  if (!isBlank(ideo.note)) fill($('#ideology-note'), ideo.note);
+
   // ---------- highlights, approach ----------
   $('#highlights').append(...SITE.highlights.map((x) => h('div', { class: 'card feature' }, h('div', { class: 'icon' }, x.icon), h('h3', {}, x.title), h('p', {}, x.text))));
   $('#steps').append(...SITE.approach.steps.map((s) => h('li', {}, h('h3', {}, s.title), h('p', {}, s.text))));

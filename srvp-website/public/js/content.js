@@ -32,7 +32,8 @@ const SITE = {
   // ---------------- BASIC INFO ----------------
   name: "SRVP",
   fullName: "Shri Ram Vidya Pratishthan",
-  tagline: "Curiosity first. Concepts for life. Results that speak.",
+  tagline: "Striving towards Academic & Spiritual Excellence",
+  mission: "Decolonising the Bhartiya Minds 🇮🇳🚩",
   logo: "images/logo.png",
   established: "[ADD: Year SRVP was founded, e.g. 2015]",
 
@@ -57,18 +58,21 @@ const SITE = {
 
   // ---------------- TOP BANNER (HERO) ----------------
   hero: {
-    eyebrow: "Foundation & Competitive Exam Classes · Lasur",
-    title: "Where young minds learn to think, question and excel",
+    eyebrow: "Striving towards Academic & Spiritual Excellence",
+    title: "Top Notch Academics & Shatrubodh",
     subtitle:
-      "SRVP brings big-city coaching to Lasur — smart-board classrooms, a curated library, debates from an early age, and live online classes for students anywhere.",
+      "Nurturing Nationalists & Indic Warriors through SHATRUBODH & SWAYAMBODH — with smart-board classrooms, a curated library, debates from an early age, and live online classes. Admissions open, offline & online.",
     primaryButton: "Apply for Admission",
     secondaryButton: "Explore Courses",
   },
 
+  // Navy strip under the banner (same as the poster)
+  programsStrip: ["Academics", "Competitive", "Foundation Programs"],
+
   // Numbers shown under the banner. Update them as you grow.
   stats: [
     { value: "250+", label: "Students (online + offline)" },
-    { value: "[ADD: number]", label: "Competitive exams prepared for" },
+    { value: "6+", label: "Competitive exams prepared for" },
     { value: "[ADD: number]", label: "Years of teaching" },
     { value: "[ADD: number]", label: "Selections / scholarship winners" },
   ],
@@ -91,6 +95,32 @@ const SITE = {
       // His philosophy / spiritual outlook, in his own words
       philosophy: "[ADD: A short quote or paragraph from the founder on his philosophy, values and spiritual outlook]",
     },
+  },
+
+  // ---------------- OUR PHILOSOPHY (what makes SRVP unique) ----------------
+  // ✏️ Ask the founder to check these definitions and rewrite them in his own words.
+  ideology: {
+    heading: "Shatrubodh & Swayambodh",
+    intro:
+      "Marks alone don't make a strong citizen. SRVP pairs top-notch academics with two kinds of awareness that most coaching classes never teach.",
+    pillars: [
+      {
+        word: "स्वयंबोध",
+        title: "Swayambodh — Knowing Oneself",
+        text: "Knowing who we are: our roots, our civilisation, our languages, our knowledge traditions and our values. A student who knows himself studies with confidence and purpose.",
+      },
+      {
+        word: "शत्रुबोध",
+        title: "Shatrubodh — Knowing the Challenges",
+        text: "Recognising what stands against the nation and against one's own growth: distorted narratives of history, misinformation, distraction and lack of discipline. Awareness is the first step to overcoming them.",
+      },
+      {
+        word: "विमुक्ति",
+        title: "Decolonising the Bhartiya Mind",
+        text: "Learning India's history, science and philosophy from Indian perspectives and sources, so that students think for themselves with pride, not borrowed inferiority.",
+      },
+    ],
+    note: "[ADD: Founder's own explanation of Shatrubodh & Swayambodh, and how it is taught in class — e.g. weekly sessions, books from the library, debates]",
   },
 
   // ---------------- WHAT MAKES SRVP DIFFERENT ----------------
@@ -139,15 +169,15 @@ const SITE = {
     // To add a course, copy one { ... }, block above and paste it here.
   ],
 
-  // Exams SRVP prepares students for — shown as tags.
-  // ⚠️ EXAMPLES ONLY: delete the ones SRVP does not teach and add the real ones.
+  // Exams SRVP prepares students for — shown as tags (taken from the SRVP poster).
   exams: [
-    "[ADD: Confirm this list of exams]",
-    "Navodaya (JNVST)",
-    "Maharashtra Scholarship (5th & 8th)",
-    "NMMS",
+    "Scholarship Exams",
+    "Homi Bhabha Bal Vaidnyanik",
+    "VVM (Vidyarthi Vigyan Manthan)",
     "Olympiads",
-    "Sainik School Entrance",
+    "NDA",
+    "UPSC Foundation",
+    "[ADD: Any other exams, e.g. Navodaya, NMMS, Sainik School — the poster was partly hidden]",
   ],
 
   // ---------------- LIBRARY ----------------
