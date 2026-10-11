@@ -15,7 +15,7 @@ const list = (k) => env(k).split(',').map((s) => s.trim()).filter(Boolean);
 const waTargets = () => list('WHATSAPP_ALERTS').map((pair) => {
   const [phone, key] = pair.split(':').map((x) => (x || '').trim());
   return { phone: phone.replace(/\D/g, ''), key };
-}).filter((t) => t.phone.length >= 10 && t.key);
+}).filter((t) => t.phone.length >= 10 && t.key && !/^KEY_FROM_BOT$/i.test(t.key)); // skip the README placeholder
 
 function channels() {
   return {
@@ -31,9 +31,11 @@ function mailer() {
   if (!transport) {
     const nodemailer = require('nodemailer');
     const port = Number(env('SMTP_PORT')) || 465;
+    // Google shows app passwords as "abcd efgh ijkl mnop"; the spaces are not part of it
+    const pass = /gmail\.com$/i.test(env('SMTP_HOST')) ? env('SMTP_PASS').replace(/\s+/g, '') : env('SMTP_PASS');
     transport = nodemailer.createTransport({
       host: env('SMTP_HOST'), port, secure: port === 465,
-      auth: { user: env('SMTP_USER'), pass: env('SMTP_PASS') },
+      auth: { user: env('SMTP_USER'), pass },
     });
   }
   return transport;

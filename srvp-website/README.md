@@ -82,8 +82,14 @@ srvp-website/
 ## 5. Enquiry alerts (WhatsApp + email + SMS)
 
 Every time a parent fills the demo or admission form, the enquiry is saved **and** sent to you.
-All settings go in the `.env` file. After editing it, restart the server and open
-Admin → Dashboard → **Send test alert**. It shows "sent" or the exact error for each channel.
+All settings go in the `.env` file (on your computer only, never upload it). After editing it, run
+
+```bash
+npm run test-alert
+```
+
+which sends one test alert and prints "sent" or the exact error for each channel. (Same as
+Admin → Dashboard → **Send test alert** once the server is running; restart the server after editing `.env`.)
 
 ### A. WhatsApp alerts (free, via CallMeBot) — do this once on EACH phone
 1. Open the official guide: https://www.callmebot.com/blog/free-api-whatsapp-messages/ and save the
@@ -107,6 +113,7 @@ CallMeBot is a free shared service, so a message can sometimes take a minute. Em
    SMTP_USER=address-that-sends@gmail.com
    SMTP_PASS=the16letterapppassword
    ```
+   (Spaces in the app password are fine; they are removed automatically.)
 Install the Gmail app on the phone with notifications on, and every enquiry pops up instantly.
 
 ### C. SMS (optional, paid)
