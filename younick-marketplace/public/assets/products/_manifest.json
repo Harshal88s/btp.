@@ -1,0 +1,4358 @@
+[
+ {
+  "id": "MUG-01",
+  "name": "6 Oz Tea Mug \u2013 Photo Print",
+  "category": "Mugs",
+  "page": 2,
+  "box": [
+   10,
+   225,
+   115,
+   343
+  ],
+  "price": 199,
+  "mrp": 249,
+  "size": "6 oz",
+  "tags": "photo,tea,return-gift",
+  "desc": "Compact ceramic tea mug with full-wrap photo print. Dishwasher safe.",
+  "image": "assets/products/MUG-01.webp"
+ },
+ {
+  "id": "MUG-02",
+  "name": "11 Oz Regular Photo Mug",
+  "category": "Mugs",
+  "page": 2,
+  "box": [
+   155,
+   225,
+   275,
+   343
+  ],
+  "price": 249,
+  "mrp": 329,
+  "size": "11 oz",
+  "tags": "photo,bestseller",
+  "desc": "Classic 11 oz white ceramic mug printed with your photo, name or quote.",
+  "image": "assets/products/MUG-02.webp"
+ },
+ {
+  "id": "MUG-03",
+  "name": "White Heart Handle Mug",
+  "category": "Mugs",
+  "page": 2,
+  "box": [
+   320,
+   225,
+   450,
+   343
+  ],
+  "price": 299,
+  "mrp": 379,
+  "size": "11 oz",
+  "tags": "heart,couple,valentine",
+  "desc": "White mug with a heart-shaped handle. Perfect for couples and anniversaries.",
+  "image": "assets/products/MUG-03.webp"
+ },
+ {
+  "id": "MUG-04",
+  "name": "Gold Metallic Mug",
+  "category": "Mugs",
+  "page": 2,
+  "box": [
+   495,
+   225,
+   615,
+   343
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "11 oz",
+  "tags": "premium,diwali,corporate",
+  "desc": "Metallic gold ceramic mug. A premium Diwali and corporate gifting pick.",
+  "image": "assets/products/MUG-04.webp"
+ },
+ {
+  "id": "MUG-05",
+  "name": "Silver Metallic Mug",
+  "category": "Mugs",
+  "page": 2,
+  "box": [
+   655,
+   225,
+   785,
+   343
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "11 oz",
+  "tags": "premium,diwali,corporate",
+  "desc": "Metallic silver ceramic mug with photo or logo print.",
+  "image": "assets/products/MUG-05.webp"
+ },
+ {
+  "id": "MUG-06",
+  "name": "3 Tone Inner Colour Mug",
+  "category": "Mugs",
+  "page": 2,
+  "box": [
+   80,
+   428,
+   318,
+   643
+  ],
+  "price": 279,
+  "mrp": 349,
+  "size": "11 oz",
+  "tags": "colour,return-gift",
+  "desc": "White mug with coloured inner wall and handle. 10+ colour options.",
+  "image": "assets/products/MUG-06.webp"
+ },
+ {
+  "id": "MUG-07",
+  "name": "3 Tone Heart Handle Mug",
+  "category": "Mugs",
+  "page": 2,
+  "box": [
+   437,
+   470,
+   640,
+   643
+  ],
+  "price": 329,
+  "mrp": 399,
+  "size": "11 oz",
+  "tags": "heart,colour",
+  "desc": "Coloured inner wall with a matching heart-shaped handle.",
+  "image": "assets/products/MUG-07.webp"
+ },
+ {
+  "id": "MUG-08",
+  "name": "11 Oz Black Patch Mug",
+  "category": "Mugs",
+  "page": 2,
+  "box": [
+   8,
+   720,
+   127,
+   825
+  ],
+  "price": 299,
+  "mrp": 379,
+  "size": "11 oz",
+  "tags": "black,patch",
+  "desc": "Black ceramic mug with a white print patch for your photo.",
+  "image": "assets/products/MUG-08.webp"
+ },
+ {
+  "id": "MUG-09",
+  "name": "11 Oz Red Patch Mug",
+  "category": "Mugs",
+  "page": 2,
+  "box": [
+   163,
+   720,
+   282,
+   825
+  ],
+  "price": 299,
+  "mrp": 379,
+  "size": "11 oz",
+  "tags": "red,patch",
+  "desc": "Red ceramic mug with a white print patch.",
+  "image": "assets/products/MUG-09.webp"
+ },
+ {
+  "id": "MUG-10",
+  "name": "11 Oz Navy Blue Patch Mug",
+  "category": "Mugs",
+  "page": 2,
+  "box": [
+   330,
+   720,
+   460,
+   825
+  ],
+  "price": 299,
+  "mrp": 379,
+  "size": "11 oz",
+  "tags": "blue,patch",
+  "desc": "Navy blue ceramic mug with a white print patch.",
+  "image": "assets/products/MUG-10.webp"
+ },
+ {
+  "id": "MUG-11",
+  "name": "Magic Mug (Matte)",
+  "category": "Mugs",
+  "page": 2,
+  "box": [
+   496,
+   720,
+   615,
+   825
+  ],
+  "price": 349,
+  "mrp": 449,
+  "size": "11 oz",
+  "tags": "magic,surprise,bestseller",
+  "desc": "Heat-sensitive matte mug: pour hot tea and your photo appears.",
+  "image": "assets/products/MUG-11.webp"
+ },
+ {
+  "id": "MUG-12",
+  "name": "Magic Mug (Glossy)",
+  "category": "Mugs",
+  "page": 2,
+  "box": [
+   651,
+   720,
+   782,
+   825
+  ],
+  "price": 349,
+  "mrp": 449,
+  "size": "11 oz",
+  "tags": "magic,surprise",
+  "desc": "Glossy black heat-reveal mug with your hidden photo.",
+  "image": "assets/products/MUG-12.webp"
+ },
+ {
+  "id": "MUG-13",
+  "name": "White Polymer Mug \u2013 Unbreakable",
+  "category": "Mugs",
+  "page": 2,
+  "box": [
+   65,
+   895,
+   215,
+   998
+  ],
+  "price": 249,
+  "mrp": 299,
+  "size": "11 oz",
+  "tags": "kids,unbreakable",
+  "desc": "Unbreakable polymer mug. Ideal for kids and travel.",
+  "image": "assets/products/MUG-13.webp"
+ },
+ {
+  "id": "MUG-14",
+  "name": "3 Tone Polymer Heart Handle Mug",
+  "category": "Mugs",
+  "page": 2,
+  "box": [
+   305,
+   895,
+   475,
+   990
+  ],
+  "price": 299,
+  "mrp": 369,
+  "size": "11 oz",
+  "tags": "kids,unbreakable,heart",
+  "desc": "Unbreakable polymer mug with coloured heart handle.",
+  "image": "assets/products/MUG-14.webp"
+ },
+ {
+  "id": "MUG-15",
+  "name": "3 Tone Polymer Mug \u2013 Unbreakable",
+  "category": "Mugs",
+  "page": 2,
+  "box": [
+   565,
+   895,
+   725,
+   998
+  ],
+  "price": 279,
+  "mrp": 349,
+  "size": "11 oz",
+  "tags": "kids,unbreakable",
+  "desc": "Unbreakable polymer mug in bright colours.",
+  "image": "assets/products/MUG-15.webp"
+ },
+ {
+  "id": "MUG-16",
+  "name": "Magic Mug with Heart Handle",
+  "category": "Mugs",
+  "page": 3,
+  "box": [
+   15,
+   180,
+   165,
+   322
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "11 oz",
+  "tags": "magic,heart,valentine",
+  "desc": "Heat-reveal magic mug with a heart handle.",
+  "image": "assets/products/MUG-16.webp"
+ },
+ {
+  "id": "MUG-17",
+  "name": "Frosted Beer Mug \u2013 Photo Print",
+  "category": "Mugs",
+  "page": 3,
+  "box": [
+   308,
+   178,
+   462,
+   347
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "500 ml",
+  "tags": "beer,friends,party",
+  "desc": "Frosted glass beer mug printed with photo or quote.",
+  "image": "assets/products/MUG-17.webp"
+ },
+ {
+  "id": "MUG-18",
+  "name": "White Mug with Inner Heart Handle",
+  "category": "Mugs",
+  "page": 3,
+  "box": [
+   583,
+   178,
+   772,
+   322
+  ],
+  "price": 329,
+  "mrp": 399,
+  "size": "11 oz",
+  "tags": "heart,couple",
+  "desc": "Elegant white mug with inner heart cut handle.",
+  "image": "assets/products/MUG-18.webp"
+ },
+ {
+  "id": "BOT-01",
+  "name": "Sipper Metal Bottle \u2013 White (Single Cap)",
+  "category": "Sipper Bottles",
+  "page": 3,
+  "box": [
+   10,
+   498,
+   282,
+   702
+  ],
+  "price": 349,
+  "mrp": 449,
+  "size": "400\u2013750 ml",
+  "tags": "sports,school,corporate",
+  "desc": "Aluminium sipper bottle with full photo print. 400/500/600/750 ml.",
+  "image": "assets/products/BOT-01.webp"
+ },
+ {
+  "id": "BOT-02",
+  "name": "Sipper Metal Bottle \u2013 Silver (Single Cap)",
+  "category": "Sipper Bottles",
+  "page": 3,
+  "box": [
+   478,
+   498,
+   788,
+   702
+  ],
+  "price": 349,
+  "mrp": 449,
+  "size": "400\u2013750 ml",
+  "tags": "sports,corporate,diwali",
+  "desc": "Silver aluminium sipper with photo or logo print.",
+  "image": "assets/products/BOT-02.webp"
+ },
+ {
+  "id": "BOT-03",
+  "name": "Sipper Metal Bottle \u2013 White (Double Cap)",
+  "category": "Sipper Bottles",
+  "page": 3,
+  "box": [
+   10,
+   800,
+   302,
+   1012
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "400\u2013750 ml",
+  "tags": "sports,school",
+  "desc": "Double-cap aluminium sipper with carabiner.",
+  "image": "assets/products/BOT-03.webp"
+ },
+ {
+  "id": "BOT-04",
+  "name": "Sipper Metal Bottle \u2013 Silver (Double Cap)",
+  "category": "Sipper Bottles",
+  "page": 3,
+  "box": [
+   468,
+   800,
+   788,
+   1012
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "400\u2013750 ml",
+  "tags": "sports,corporate",
+  "desc": "Silver double-cap sipper bottle.",
+  "image": "assets/products/BOT-04.webp"
+ },
+ {
+  "id": "KEY-01",
+  "name": "MDF Single Side Photo Keychain",
+  "category": "Keychains",
+  "page": 4,
+  "box": [
+   338,
+   690,
+   432,
+   816
+  ],
+  "price": 79,
+  "mrp": 99,
+  "size": "2 inch",
+  "tags": "photo,return-gift,budget",
+  "desc": "MDF photo keychain in 9 shapes (heart, star, apple, guitar\u2026). WS-01 to WS-09.",
+  "image": "assets/products/KEY-01.webp"
+ },
+ {
+  "id": "KEY-02",
+  "name": "MDF Double Side Photo Keychain",
+  "category": "Keychains",
+  "page": 4,
+  "box": [
+   272,
+   468,
+   358,
+   582
+  ],
+  "price": 99,
+  "mrp": 129,
+  "size": "2 inch",
+  "tags": "photo,double-side",
+  "desc": "Double-sided MDF keychain, 6 shapes. WD-01 to WD-06.",
+  "image": "assets/products/KEY-02.webp"
+ },
+ {
+  "id": "KEY-03",
+  "name": "Polymer Double Side Keychain",
+  "category": "Keychains",
+  "page": 4,
+  "box": [
+   10,
+   635,
+   788,
+   812
+  ],
+  "price": 129,
+  "mrp": 159,
+  "size": "2 inch",
+  "tags": "photo,double-side,premium",
+  "desc": "Glossy polymer keychain printed both sides. PK-01 to PK-06.",
+  "image": "assets/products/KEY-03.webp"
+ },
+ {
+  "id": "KEY-04",
+  "name": "Acrylic Single Side Keychain",
+  "category": "Keychains",
+  "page": 4,
+  "box": [
+   10,
+   858,
+   788,
+   1040
+  ],
+  "price": 99,
+  "mrp": 129,
+  "size": "2 inch",
+  "tags": "acrylic,photo",
+  "desc": "Acrylic photo keychain, 7 shapes. AK-01 to AK-07.",
+  "image": "assets/products/KEY-04.webp"
+ },
+ {
+  "id": "KEY-05",
+  "name": "Metal Double Side Keychain",
+  "category": "Keychains",
+  "page": 5,
+  "box": [
+   10,
+   228,
+   788,
+   400
+  ],
+  "price": 149,
+  "mrp": 199,
+  "size": "1.5 inch",
+  "tags": "metal,premium,corporate",
+  "desc": "Premium metal keychain printed both sides. MK-01 to MK-06.",
+  "image": "assets/products/KEY-05.webp"
+ },
+ {
+  "id": "KEY-06",
+  "name": "Emoji Photo Keychain",
+  "category": "Keychains",
+  "page": 23,
+  "box": [
+   363,
+   222,
+   762,
+   427
+  ],
+  "price": 99,
+  "mrp": 129,
+  "size": "2.5 inch",
+  "tags": "emoji,kids,fun",
+  "desc": "Plush emoji keychain with your photo on the back. Styles A\u2013E.",
+  "image": "assets/products/KEY-06.webp"
+ },
+ {
+  "id": "KEY-07",
+  "name": "Acrylic Alphabet Photo Keychain",
+  "category": "Keychains",
+  "page": 27,
+  "box": [
+   5,
+   748,
+   622,
+   1046
+  ],
+  "price": 129,
+  "mrp": 159,
+  "size": "2.5 inch",
+  "tags": "alphabet,name,photo",
+  "desc": "Sublimation alphabet keychain with photo inside the letter.",
+  "image": "assets/products/KEY-07.webp"
+ },
+ {
+  "id": "KEY-08",
+  "name": "Mini Pillow Keychain (Double Side)",
+  "category": "Keychains",
+  "page": 5,
+  "box": [
+   603,
+   758,
+   788,
+   938
+  ],
+  "price": 149,
+  "mrp": 179,
+  "size": "2.5 x 2.5 inch",
+  "tags": "pillow,cute,kids",
+  "desc": "Tiny printed pillow keychain, both sides printable.",
+  "image": "assets/products/KEY-08.webp"
+ },
+ {
+  "id": "BDG-01",
+  "name": "MDF Badge \u2013 Mr Right",
+  "category": "Badges & Coasters",
+  "page": 5,
+  "box": [
+   5,
+   523,
+   197,
+   652
+  ],
+  "price": 99,
+  "mrp": 129,
+  "size": "",
+  "tags": "badge,wedding,party",
+  "desc": "MDF pin badge, custom text/photo. MB-01.",
+  "image": "assets/products/BDG-01.webp"
+ },
+ {
+  "id": "BDG-02",
+  "name": "MDF Badge \u2013 Bride To Be",
+  "category": "Badges & Coasters",
+  "page": 5,
+  "box": [
+   193,
+   520,
+   362,
+   657
+  ],
+  "price": 99,
+  "mrp": 129,
+  "size": "",
+  "tags": "badge,wedding,bachelorette",
+  "desc": "Round MDF badge for bridal parties. MB-02.",
+  "image": "assets/products/BDG-02.webp"
+ },
+ {
+  "id": "CST-01",
+  "name": "MDF Photo Coaster \u2013 Square",
+  "category": "Badges & Coasters",
+  "page": 5,
+  "box": [
+   473,
+   523,
+   627,
+   662
+  ],
+  "price": 129,
+  "mrp": 169,
+  "size": "4 x 4 inch",
+  "tags": "coaster,corporate,diwali",
+  "desc": "Square MDF coaster with logo or photo. TC-01.",
+  "image": "assets/products/CST-01.webp"
+ },
+ {
+  "id": "CST-02",
+  "name": "MDF Photo Coaster \u2013 Round",
+  "category": "Badges & Coasters",
+  "page": 5,
+  "box": [
+   618,
+   523,
+   788,
+   662
+  ],
+  "price": 129,
+  "mrp": 169,
+  "size": "4 x 4 inch",
+  "tags": "coaster,photo",
+  "desc": "Round MDF photo coaster. TC-02.",
+  "image": "assets/products/CST-02.webp"
+ },
+ {
+  "id": "TIF-01",
+  "name": "Photo Tiffin Box",
+  "category": "Kids & School",
+  "page": 5,
+  "box": [
+   5,
+   748,
+   257,
+   952
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "8 x 6 inch",
+  "tags": "kids,school,lunch",
+  "desc": "Lunch box with photo printed lid and inner tray.",
+  "image": "assets/products/TIF-01.webp"
+ },
+ {
+  "id": "PNB-01",
+  "name": "Photo Pencil Box",
+  "category": "Kids & School",
+  "page": 5,
+  "box": [
+   248,
+   748,
+   437,
+   952
+  ],
+  "price": 299,
+  "mrp": 349,
+  "size": "3 x 8 inch",
+  "tags": "kids,school",
+  "desc": "Pencil box with 2 x 4 inch photo print area.",
+  "image": "assets/products/PNB-01.webp"
+ },
+ {
+  "id": "POP-01",
+  "name": "Photo Pop Socket",
+  "category": "Mobile Accessories",
+  "page": 5,
+  "box": [
+   418,
+   788,
+   592,
+   922
+  ],
+  "price": 149,
+  "mrp": 199,
+  "size": "",
+  "tags": "mobile,phone-grip",
+  "desc": "Phone grip pop socket with your photo.",
+  "image": "assets/products/POP-01.webp"
+ },
+ {
+  "id": "WAT-01",
+  "name": "Photo Wrist Watch",
+  "category": "Accessories",
+  "page": 6,
+  "box": [
+   8,
+   150,
+   212,
+   392
+  ],
+  "price": 499,
+  "mrp": 699,
+  "size": "",
+  "tags": "watch,kids,colour",
+  "desc": "Silicone strap watch with photo dial. 12 strap colours.",
+  "image": "assets/products/WAT-01.webp"
+ },
+ {
+  "id": "POU-01",
+  "name": "Photo Pouch",
+  "category": "Accessories",
+  "page": 6,
+  "box": [
+   243,
+   183,
+   567,
+   372
+  ],
+  "price": 199,
+  "mrp": 249,
+  "size": "",
+  "tags": "pouch,kids,return-gift",
+  "desc": "Zip pouch with photo print front.",
+  "image": "assets/products/POU-01.webp"
+ },
+ {
+  "id": "MSP-01",
+  "name": "Photo Mouse Pad",
+  "category": "Desk Gifts",
+  "page": 6,
+  "box": [
+   583,
+   213,
+   788,
+   352
+  ],
+  "price": 199,
+  "mrp": 249,
+  "size": "215 x 170 x 3 mm",
+  "tags": "office,corporate,desk",
+  "desc": "Rubber-base mouse pad with full photo print.",
+  "image": "assets/products/MSP-01.webp"
+ },
+ {
+  "id": "CUB-01",
+  "name": "Photo Cube 4 x 4",
+  "category": "Desk Gifts",
+  "page": 6,
+  "box": [
+   23,
+   503,
+   217,
+   687
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "4 x 4 inch",
+  "tags": "cube,photo,desk",
+  "desc": "Rotating photo cube with 6 photo faces.",
+  "image": "assets/products/CUB-01.webp"
+ },
+ {
+  "id": "CUB-02",
+  "name": "Photo Cube 6 x 6",
+  "category": "Desk Gifts",
+  "page": 6,
+  "box": [
+   238,
+   493,
+   467,
+   697
+  ],
+  "price": 599,
+  "mrp": 749,
+  "size": "6 x 6 inch",
+  "tags": "cube,photo,desk",
+  "desc": "Large rotating photo cube with 6 faces.",
+  "image": "assets/products/CUB-02.webp"
+ },
+ {
+  "id": "DIA-01",
+  "name": "Sublimation Photo Diary (100 pages)",
+  "category": "Desk Gifts",
+  "page": 6,
+  "box": [
+   498,
+   498,
+   788,
+   677
+  ],
+  "price": 349,
+  "mrp": 449,
+  "size": "6 x 8 inch",
+  "tags": "diary,corporate,diwali",
+  "desc": "Hard-cover diary with photo cover. Great corporate Diwali gift.",
+  "image": "assets/products/DIA-01.webp"
+ },
+ {
+  "id": "MIR-01",
+  "name": "Magic Mirror (Round)",
+  "category": "Lamps & Mirrors",
+  "page": 6,
+  "box": [
+   5,
+   805,
+   192,
+   1007
+  ],
+  "price": 799,
+  "mrp": 999,
+  "size": "",
+  "tags": "mirror,led,magic",
+  "desc": "LED magic mirror: photo appears when light turns on.",
+  "image": "assets/products/MIR-01.webp"
+ },
+ {
+  "id": "MIR-02",
+  "name": "Magic Mirror (Rectangle)",
+  "category": "Lamps & Mirrors",
+  "page": 6,
+  "box": [
+   273,
+   818,
+   502,
+   987
+  ],
+  "price": 799,
+  "mrp": 999,
+  "size": "",
+  "tags": "mirror,led,magic",
+  "desc": "Rectangle LED magic mirror with hidden photo.",
+  "image": "assets/products/MIR-02.webp"
+ },
+ {
+  "id": "MIR-03",
+  "name": "Magic Mirror with Clock",
+  "category": "Lamps & Mirrors",
+  "page": 6,
+  "box": [
+   558,
+   808,
+   788,
+   997
+  ],
+  "price": 999,
+  "mrp": 1199,
+  "size": "",
+  "tags": "mirror,clock,led",
+  "desc": "Magic mirror combined with a working clock.",
+  "image": "assets/products/MIR-03.webp"
+ },
+ {
+  "id": "CAR-01",
+  "name": "Fur Heart Car Hanger",
+  "category": "Accessories",
+  "page": 7,
+  "box": [
+   10,
+   203,
+   267,
+   437
+  ],
+  "price": 149,
+  "mrp": 199,
+  "size": "7 x 7 inch",
+  "tags": "car,heart,fur",
+  "desc": "Fur heart hanger with photo insert. 6 colours.",
+  "image": "assets/products/CAR-01.webp"
+ },
+ {
+  "id": "CAP-01",
+  "name": "Photo Printed Cap (Adults)",
+  "category": "Apparel",
+  "page": 7,
+  "box": [
+   338,
+   213,
+   788,
+   427
+  ],
+  "price": 249,
+  "mrp": 299,
+  "size": "Free size",
+  "tags": "cap,sports,event",
+  "desc": "Sublimation cap in blue, red or black.",
+  "image": "assets/products/CAP-01.webp"
+ },
+ {
+  "id": "PUZ-01",
+  "name": "Rectangle Photo Puzzle \u2013 A4",
+  "category": "Puzzles & Scrolls",
+  "page": 7,
+  "box": [
+   38,
+   523,
+   232,
+   677
+  ],
+  "price": 349,
+  "mrp": 449,
+  "size": "A4",
+  "tags": "puzzle,kids,photo",
+  "desc": "A4 jigsaw puzzle printed with your photo.",
+  "image": "assets/products/PUZ-01.webp"
+ },
+ {
+  "id": "PUZ-02",
+  "name": "Heart Photo Puzzle",
+  "category": "Puzzles & Scrolls",
+  "page": 7,
+  "box": [
+   268,
+   523,
+   457,
+   677
+  ],
+  "price": 349,
+  "mrp": 449,
+  "size": "7.5 x 7.5 inch",
+  "tags": "puzzle,heart,valentine",
+  "desc": "Heart-shaped jigsaw puzzle.",
+  "image": "assets/products/PUZ-02.webp"
+ },
+ {
+  "id": "PUZ-03",
+  "name": "Rectangle Photo Puzzle \u2013 A3",
+  "category": "Puzzles & Scrolls",
+  "page": 7,
+  "box": [
+   503,
+   523,
+   757,
+   697
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "A3",
+  "tags": "puzzle,large",
+  "desc": "Large A3 photo jigsaw puzzle.",
+  "image": "assets/products/PUZ-03.webp"
+ },
+ {
+  "id": "SCR-01",
+  "name": "Digital Photo Scroll",
+  "category": "Puzzles & Scrolls",
+  "page": 7,
+  "box": [
+   10,
+   808,
+   788,
+   1007
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "",
+  "tags": "scroll,wall,anniversary",
+  "desc": "Hanging satin photo scroll. Designs SS-01 to SS-05.",
+  "image": "assets/products/SCR-01.webp"
+ },
+ {
+  "id": "MOB-01",
+  "name": "Photo Mobile Cover",
+  "category": "Mobile Accessories",
+  "page": 8,
+  "box": [
+   8,
+   238,
+   327,
+   447
+  ],
+  "price": 299,
+  "mrp": 399,
+  "size": "All models",
+  "tags": "mobile,cover,phone",
+  "desc": "Printed back cover for any phone model.",
+  "image": "assets/products/MOB-01.webp"
+ },
+ {
+  "id": "MOB-02",
+  "name": "Photo Mobile Stand",
+  "category": "Mobile Accessories",
+  "page": 8,
+  "box": [
+   353,
+   248,
+   788,
+   402
+  ],
+  "price": 199,
+  "mrp": 249,
+  "size": "",
+  "tags": "mobile,stand,desk",
+  "desc": "Wooden photo mobile stand.",
+  "image": "assets/products/MOB-02.webp"
+ },
+ {
+  "id": "EXP-01",
+  "name": "Handmade Explosion Box",
+  "category": "Premium Gifts",
+  "page": 8,
+  "box": [
+   93,
+   628,
+   712,
+   1002
+  ],
+  "price": 899,
+  "mrp": 1199,
+  "size": "12 x 12 inch",
+  "tags": "explosion,handmade,surprise,bestseller",
+  "desc": "Handmade surprise explosion box with photos and messages.",
+  "image": "assets/products/EXP-01.webp"
+ },
+ {
+  "id": "LMP-01",
+  "name": "LED Spinning Photo Lamp (4 photos)",
+  "category": "Lamps & Mirrors",
+  "page": 9,
+  "box": [
+   172,
+   268,
+   402,
+   452
+  ],
+  "price": 899,
+  "mrp": 1099,
+  "size": "20 cm",
+  "tags": "lamp,led,diwali,bestseller",
+  "desc": "Rotating LED lamp with 4 photo panels. A Diwali favourite.",
+  "image": "assets/products/LMP-01.webp"
+ },
+ {
+  "id": "LMP-02",
+  "name": "Revolving Photo Lamp",
+  "category": "Lamps & Mirrors",
+  "page": 9,
+  "box": [
+   58,
+   498,
+   252,
+   792
+  ],
+  "price": 999,
+  "mrp": 1199,
+  "size": "",
+  "tags": "lamp,led,revolving",
+  "desc": "Tall revolving photo lamp with warm glow.",
+  "image": "assets/products/LMP-02.webp"
+ },
+ {
+  "id": "LMP-03",
+  "name": "Revolving LED Photo Cube (6 photos)",
+  "category": "Lamps & Mirrors",
+  "page": 9,
+  "box": [
+   333,
+   548,
+   788,
+   797
+  ],
+  "price": 1099,
+  "mrp": 1299,
+  "size": "4 x 4 inch",
+  "tags": "lamp,led,cube,diwali",
+  "desc": "Rotating LED cube light with 6 photo faces. Pink & white.",
+  "image": "assets/products/LMP-03.webp"
+ },
+ {
+  "id": "LMP-04",
+  "name": "LED Photo Lamp",
+  "category": "Lamps & Mirrors",
+  "page": 10,
+  "box": [
+   253,
+   248,
+   527,
+   582
+  ],
+  "price": 1199,
+  "mrp": 1499,
+  "size": "",
+  "tags": "lamp,led,premium,diwali",
+  "desc": "Cylindrical LED photo lamp, night-light style.",
+  "image": "assets/products/LMP-04.webp"
+ },
+ {
+  "id": "LMP-05",
+  "name": "Revolving Photo Wheel",
+  "category": "Lamps & Mirrors",
+  "page": 10,
+  "box": [
+   28,
+   543,
+   292,
+   832
+  ],
+  "price": 799,
+  "mrp": 999,
+  "size": "",
+  "tags": "revolving,photo,desk",
+  "desc": "Revolving double-frame photo wheel.",
+  "image": "assets/products/LMP-05.webp"
+ },
+ {
+  "id": "LMP-06",
+  "name": "Revolving Photo Hearts",
+  "category": "Lamps & Mirrors",
+  "page": 10,
+  "box": [
+   398,
+   583,
+   767,
+   832
+  ],
+  "price": 849,
+  "mrp": 1049,
+  "size": "",
+  "tags": "revolving,heart,couple",
+  "desc": "Twin heart revolving photo frame with LOVE base.",
+  "image": "assets/products/LMP-06.webp"
+ },
+ {
+  "id": "PLT-01",
+  "name": "Photo Plate with Stand \u2013 8 inch",
+  "category": "Trophies & Plates",
+  "page": 11,
+  "box": [
+   163,
+   216,
+   402,
+   437
+  ],
+  "price": 499,
+  "mrp": 649,
+  "size": "8 inch",
+  "tags": "plate,trophy,award",
+  "desc": "Ceramic plate with stand for photo or felicitation.",
+  "image": "assets/products/PLT-01.webp"
+ },
+ {
+  "id": "PLT-02",
+  "name": "Photo Plate with Stand \u2013 10 inch",
+  "category": "Trophies & Plates",
+  "page": 11,
+  "box": [
+   383,
+   216,
+   642,
+   437
+  ],
+  "price": 649,
+  "mrp": 799,
+  "size": "10 inch",
+  "tags": "plate,trophy,award",
+  "desc": "Large ceramic photo plate with stand.",
+  "image": "assets/products/PLT-02.webp"
+ },
+ {
+  "id": "PIL-01",
+  "name": "Rectangle Digital Pillow",
+  "category": "Pillows",
+  "page": 11,
+  "box": [
+   5,
+   498,
+   342,
+   712
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "12 x 18 inch",
+  "tags": "pillow,kids,cartoon",
+  "desc": "Rectangle printed pillow with cartoon border.",
+  "image": "assets/products/PIL-01.webp"
+ },
+ {
+  "id": "FRM-22",
+  "name": "MDF Frame \u2013 Best Couple Trophy (MF 22)",
+  "category": "Frames",
+  "page": 11,
+  "box": [
+   23,
+   798,
+   282,
+   987
+  ],
+  "price": 800,
+  "mrp": 950,
+  "size": "",
+  "tags": "frame,couple,trophy",
+  "desc": "MDF frame with trophy motif. Brochure price \u20b9800.",
+  "image": "assets/products/FRM-22.webp"
+ },
+ {
+  "id": "FRM-30",
+  "name": "MDF Frame \u2013 Family Tree (MF 30)",
+  "category": "Frames",
+  "page": 11,
+  "box": [
+   308,
+   798,
+   567,
+   977
+  ],
+  "price": 649,
+  "mrp": 799,
+  "size": "",
+  "tags": "frame,family",
+  "desc": "Round MDF photo frame with family tree.",
+  "image": "assets/products/FRM-30.webp"
+ },
+ {
+  "id": "FRM-34",
+  "name": "MDF Frame \u2013 Love You To The Moon (MF 34)",
+  "category": "Frames",
+  "page": 11,
+  "box": [
+   603,
+   773,
+   762,
+   1047
+  ],
+  "price": 649,
+  "mrp": 799,
+  "size": "",
+  "tags": "frame,love",
+  "desc": "Galaxy-print MDF frame.",
+  "image": "assets/products/FRM-34.webp"
+ },
+ {
+  "id": "WF-01",
+  "name": "Wooden Frame \u2013 You & Me",
+  "category": "Frames",
+  "page": 12,
+  "box": [
+   15,
+   233,
+   187,
+   347
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "5 x 9 inch",
+  "tags": "wood,couple",
+  "desc": "Wooden handicraft frame, laser-cut text.",
+  "image": "assets/products/WF-01.webp"
+ },
+ {
+  "id": "WF-02",
+  "name": "Wooden Frame \u2013 Best Couple",
+  "category": "Frames",
+  "page": 12,
+  "box": [
+   213,
+   233,
+   382,
+   347
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "5 x 9 inch",
+  "tags": "wood,couple,wedding",
+  "desc": "Wooden handicraft frame.",
+  "image": "assets/products/WF-02.webp"
+ },
+ {
+  "id": "WF-03",
+  "name": "Wooden Frame \u2013 Memories",
+  "category": "Frames",
+  "page": 12,
+  "box": [
+   393,
+   233,
+   582,
+   347
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "5 x 9 inch",
+  "tags": "wood,memories",
+  "desc": "Wooden handicraft frame.",
+  "image": "assets/products/WF-03.webp"
+ },
+ {
+  "id": "WF-04",
+  "name": "Wooden Frame \u2013 Best Husband",
+  "category": "Frames",
+  "page": 12,
+  "box": [
+   583,
+   233,
+   788,
+   347
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "5 x 9 inch",
+  "tags": "wood,husband",
+  "desc": "Wooden handicraft frame.",
+  "image": "assets/products/WF-04.webp"
+ },
+ {
+  "id": "WF-05",
+  "name": "Wooden Frame \u2013 Idol No.1",
+  "category": "Frames",
+  "page": 12,
+  "box": [
+   15,
+   393,
+   187,
+   505
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "5 x 9 inch",
+  "tags": "wood,father",
+  "desc": "Wooden handicraft frame.",
+  "image": "assets/products/WF-05.webp"
+ },
+ {
+  "id": "WF-06",
+  "name": "Wooden Frame \u2013 Best Friend",
+  "category": "Frames",
+  "page": 12,
+  "box": [
+   213,
+   393,
+   382,
+   505
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "5 x 9 inch",
+  "tags": "wood,friends",
+  "desc": "Wooden handicraft frame.",
+  "image": "assets/products/WF-06.webp"
+ },
+ {
+  "id": "WF-07",
+  "name": "Wooden Frame \u2013 Best Mother",
+  "category": "Frames",
+  "page": 12,
+  "box": [
+   393,
+   393,
+   582,
+   505
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "5 x 9 inch",
+  "tags": "wood,mother",
+  "desc": "Wooden handicraft frame.",
+  "image": "assets/products/WF-07.webp"
+ },
+ {
+  "id": "WF-08",
+  "name": "Wooden Frame \u2013 Family",
+  "category": "Frames",
+  "page": 12,
+  "box": [
+   583,
+   393,
+   788,
+   505
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "5 x 9 inch",
+  "tags": "wood,family,diwali",
+  "desc": "Wooden handicraft frame.",
+  "image": "assets/products/WF-08.webp"
+ },
+ {
+  "id": "WF-09",
+  "name": "Wooden Frame \u2013 Great Birthday",
+  "category": "Frames",
+  "page": 12,
+  "box": [
+   103,
+   558,
+   297,
+   657
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "5 x 9 inch",
+  "tags": "wood,birthday",
+  "desc": "Wooden handicraft frame.",
+  "image": "assets/products/WF-09.webp"
+ },
+ {
+  "id": "WF-10",
+  "name": "Wooden Frame \u2013 Great Anniversary",
+  "category": "Frames",
+  "page": 12,
+  "box": [
+   298,
+   558,
+   492,
+   657
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "5 x 9 inch",
+  "tags": "wood,anniversary",
+  "desc": "Wooden handicraft frame.",
+  "image": "assets/products/WF-10.webp"
+ },
+ {
+  "id": "WF-11",
+  "name": "Wooden Frame \u2013 Princess",
+  "category": "Frames",
+  "page": 12,
+  "box": [
+   503,
+   558,
+   682,
+   657
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "5 x 9 inch",
+  "tags": "wood,daughter",
+  "desc": "Wooden handicraft frame.",
+  "image": "assets/products/WF-11.webp"
+ },
+ {
+  "id": "WH-01",
+  "name": "MDF Standy Frame \u2013 Silhouette Couple",
+  "category": "Frames",
+  "page": 12,
+  "box": [
+   10,
+   728,
+   788,
+   912
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "7 x 9 inch",
+  "tags": "mdf,standy,couple",
+  "desc": "MDF standy frames WH-01 to WH-06.",
+  "image": "assets/products/WH-01.webp"
+ },
+ {
+  "id": "WH-08",
+  "name": "MDF Standy \u2013 Mr & Mrs",
+  "category": "Frames",
+  "page": 12,
+  "box": [
+   298,
+   903,
+   512,
+   1013
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "7 x 9 inch",
+  "tags": "mdf,standy,wedding",
+  "desc": "Mr & Mrs MDF standy frame.",
+  "image": "assets/products/WH-08.webp"
+ },
+ {
+  "id": "WH-09",
+  "name": "MDF Standy \u2013 LOVE",
+  "category": "Frames",
+  "page": 12,
+  "box": [
+   513,
+   903,
+   732,
+   1013
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "7 x 9 inch",
+  "tags": "mdf,standy,love",
+  "desc": "LOVE MDF standy frame.",
+  "image": "assets/products/WH-09.webp"
+ },
+ {
+  "id": "HF-20",
+  "name": "MDF Wall Clock \u2013 HF-20",
+  "category": "Wall Clocks",
+  "page": 13,
+  "box": [
+   13,
+   223,
+   212,
+   492
+  ],
+  "price": 899,
+  "mrp": 1099,
+  "size": "15 x 11 inch",
+  "tags": "clock,wall,diwali",
+  "desc": "MDF photo wall clock, 7 inch print area.",
+  "image": "assets/products/HF-20.webp"
+ },
+ {
+  "id": "HF-23",
+  "name": "MDF Wall Clock \u2013 HF-23 (9 photos)",
+  "category": "Wall Clocks",
+  "page": 13,
+  "box": [
+   253,
+   213,
+   472,
+   482
+  ],
+  "price": 999,
+  "mrp": 1199,
+  "size": "15 x 15 inch",
+  "tags": "clock,wall,family,diwali",
+  "desc": "Round MDF wall clock with 9 photo slots.",
+  "image": "assets/products/HF-23.webp"
+ },
+ {
+  "id": "HF-31",
+  "name": "MDF Wall Clock \u2013 HF-31",
+  "category": "Wall Clocks",
+  "page": 13,
+  "box": [
+   538,
+   213,
+   767,
+   472
+  ],
+  "price": 999,
+  "mrp": 1199,
+  "size": "12 x 12 inch",
+  "tags": "clock,wall",
+  "desc": "Square MDF collage wall clock.",
+  "image": "assets/products/HF-31.webp"
+ },
+ {
+  "id": "HF-36",
+  "name": "MDF Frame \u2013 Happy Anniversary (HF-36)",
+  "category": "Frames",
+  "page": 13,
+  "box": [
+   13,
+   558,
+   217,
+   762
+  ],
+  "price": 799,
+  "mrp": 999,
+  "size": "12 x 12 inch",
+  "tags": "anniversary,wall",
+  "desc": "Arch MDF anniversary frame.",
+  "image": "assets/products/HF-36.webp"
+ },
+ {
+  "id": "HF-37",
+  "name": "MDF Frame \u2013 Happy Birthday (HF-37)",
+  "category": "Frames",
+  "page": 13,
+  "box": [
+   563,
+   548,
+   788,
+   777
+  ],
+  "price": 799,
+  "mrp": 999,
+  "size": "12 x 12 inch",
+  "tags": "birthday,wall",
+  "desc": "Arch MDF birthday hanging frame.",
+  "image": "assets/products/HF-37.webp"
+ },
+ {
+  "id": "PEN-02",
+  "name": "Photo Pen",
+  "category": "Desk Gifts",
+  "page": 13,
+  "box": [
+   278,
+   758,
+   447,
+   987
+  ],
+  "price": 79,
+  "mrp": 99,
+  "size": "",
+  "tags": "pen,corporate,return-gift",
+  "desc": "Ball pen with photo bubble.",
+  "image": "assets/products/PEN-02.webp"
+ },
+ {
+  "id": "TIL-01",
+  "name": "Photo Tile 4 x 4",
+  "category": "Tiles",
+  "page": 14,
+  "box": [
+   18,
+   213,
+   212,
+   367
+  ],
+  "price": 249,
+  "mrp": 299,
+  "size": "4 x 4 inch",
+  "tags": "tile,ceramic",
+  "desc": "Ceramic photo tile.",
+  "image": "assets/products/TIL-01.webp"
+ },
+ {
+  "id": "TIL-02",
+  "name": "Photo Tile 6 x 6",
+  "category": "Tiles",
+  "page": 14,
+  "box": [
+   340,
+   215,
+   485,
+   340
+  ],
+  "price": 349,
+  "mrp": 399,
+  "size": "6 x 6 inch",
+  "tags": "tile,ceramic",
+  "desc": "Ceramic photo tile.",
+  "image": "assets/products/TIL-02.webp"
+ },
+ {
+  "id": "TIL-03",
+  "name": "Photo Tile 6 x 8",
+  "category": "Tiles",
+  "page": 14,
+  "box": [
+   615,
+   205,
+   750,
+   350
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "6 x 8 inch",
+  "tags": "tile,ceramic",
+  "desc": "Ceramic photo tile.",
+  "image": "assets/products/TIL-03.webp"
+ },
+ {
+  "id": "TIL-04",
+  "name": "Photo Tile 8 x 10",
+  "category": "Tiles",
+  "page": 14,
+  "box": [
+   18,
+   403,
+   212,
+   532
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "8 x 10 inch",
+  "tags": "tile,ceramic",
+  "desc": "Ceramic photo tile.",
+  "image": "assets/products/TIL-04.webp"
+ },
+ {
+  "id": "TIL-05",
+  "name": "Photo Tile 8 x 12",
+  "category": "Tiles",
+  "page": 14,
+  "box": [
+   268,
+   393,
+   502,
+   532
+  ],
+  "price": 649,
+  "mrp": 799,
+  "size": "8 x 12 inch",
+  "tags": "tile,ceramic",
+  "desc": "Ceramic photo tile.",
+  "image": "assets/products/TIL-05.webp"
+ },
+ {
+  "id": "TIL-06",
+  "name": "Plastic Stand Pair for Tiles",
+  "category": "Tiles",
+  "page": 14,
+  "box": [
+   600,
+   425,
+   720,
+   478
+  ],
+  "price": 49,
+  "mrp": 69,
+  "size": "",
+  "tags": "stand",
+  "desc": "Pair of plastic stands for tiles.",
+  "image": "assets/products/TIL-06.webp"
+ },
+ {
+  "id": "MF-21",
+  "name": "MDF Frame \u2013 Happy Birthday (MF-21)",
+  "category": "Frames",
+  "page": 14,
+  "box": [
+   5,
+   648,
+   172,
+   755
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "6 x 8 inch",
+  "tags": "mdf,birthday",
+  "desc": "MDF photo frame.",
+  "image": "assets/products/MF-21.webp"
+ },
+ {
+  "id": "MF-23",
+  "name": "MDF Frame \u2013 Best Couple (MF-23)",
+  "category": "Frames",
+  "page": 14,
+  "box": [
+   318,
+   648,
+   492,
+   755
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "6 x 8 inch",
+  "tags": "mdf,couple",
+  "desc": "MDF photo frame.",
+  "image": "assets/products/MF-23.webp"
+ },
+ {
+  "id": "MF-24",
+  "name": "MDF Frame \u2013 Happy Birthday (MF-24)",
+  "category": "Frames",
+  "page": 14,
+  "box": [
+   483,
+   648,
+   647,
+   755
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "6 x 8 inch",
+  "tags": "mdf,birthday",
+  "desc": "MDF photo frame.",
+  "image": "assets/products/MF-24.webp"
+ },
+ {
+  "id": "MF-25",
+  "name": "MDF Frame \u2013 Love You Forever (MF-25)",
+  "category": "Frames",
+  "page": 14,
+  "box": [
+   638,
+   648,
+   788,
+   755
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "6 x 8 inch",
+  "tags": "mdf,love",
+  "desc": "MDF photo frame.",
+  "image": "assets/products/MF-25.webp"
+ },
+ {
+  "id": "MF-26",
+  "name": "MDF Frame \u2013 Sweet Memories (MF-26)",
+  "category": "Frames",
+  "page": 14,
+  "box": [
+   5,
+   848,
+   152,
+   945
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "6 x 8 inch",
+  "tags": "mdf,memories",
+  "desc": "MDF photo frame.",
+  "image": "assets/products/MF-26.webp"
+ },
+ {
+  "id": "MF-28",
+  "name": "MDF Frame \u2013 Happy Birthday Cloud (MF-28)",
+  "category": "Frames",
+  "page": 14,
+  "box": [
+   258,
+   848,
+   402,
+   945
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "6 x 8 inch",
+  "tags": "mdf,birthday",
+  "desc": "MDF photo frame.",
+  "image": "assets/products/MF-28.webp"
+ },
+ {
+  "id": "MF-31",
+  "name": "MDF Frame \u2013 Twin Photo (MF-31)",
+  "category": "Frames",
+  "page": 14,
+  "box": [
+   653,
+   848,
+   788,
+   945
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "6 x 8 inch",
+  "tags": "mdf,family",
+  "desc": "MDF photo frame.",
+  "image": "assets/products/MF-31.webp"
+ },
+ {
+  "id": "BL-01",
+  "name": "Glass Photo Frame BL-01",
+  "category": "Glass & Rock Frames",
+  "page": 15,
+  "box": [
+   13,
+   203,
+   152,
+   392
+  ],
+  "price": 599,
+  "mrp": 749,
+  "size": "180 x 230 x 5 mm",
+  "tags": "glass,frame",
+  "desc": "Sublimation glass frame.",
+  "image": "assets/products/BL-01.webp"
+ },
+ {
+  "id": "BL-04",
+  "name": "Glass Photo Frame BL-04",
+  "category": "Glass & Rock Frames",
+  "page": 15,
+  "box": [
+   268,
+   203,
+   417,
+   392
+  ],
+  "price": 599,
+  "mrp": 749,
+  "size": "180 x 230 x 5 mm",
+  "tags": "glass,frame",
+  "desc": "Sublimation glass frame with border.",
+  "image": "assets/products/BL-04.webp"
+ },
+ {
+  "id": "BL-14",
+  "name": "Glass Photo Clock BL-14",
+  "category": "Glass & Rock Frames",
+  "page": 15,
+  "box": [
+   418,
+   203,
+   587,
+   392
+  ],
+  "price": 799,
+  "mrp": 949,
+  "size": "200 x 200 x 5 mm",
+  "tags": "glass,clock",
+  "desc": "Glass photo clock.",
+  "image": "assets/products/BL-14.webp"
+ },
+ {
+  "id": "BLX-25",
+  "name": "Glass Photo Clock BLX-25",
+  "category": "Glass & Rock Frames",
+  "page": 15,
+  "box": [
+   583,
+   203,
+   788,
+   392
+  ],
+  "price": 849,
+  "mrp": 999,
+  "size": "200 x 200 x 5 mm",
+  "tags": "glass,clock",
+  "desc": "Decorative glass photo clock.",
+  "image": "assets/products/BLX-25.webp"
+ },
+ {
+  "id": "BL-28",
+  "name": "Glass Photo Clock BL-28",
+  "category": "Glass & Rock Frames",
+  "page": 15,
+  "box": [
+   5,
+   463,
+   277,
+   632
+  ],
+  "price": 999,
+  "mrp": 1199,
+  "size": "300 x 180 x 5 mm",
+  "tags": "glass,clock",
+  "desc": "Wide glass frame with clock.",
+  "image": "assets/products/BL-28.webp"
+ },
+ {
+  "id": "BL-29",
+  "name": "Glass Photo Frame BL-29",
+  "category": "Glass & Rock Frames",
+  "page": 15,
+  "box": [
+   308,
+   463,
+   562,
+   642
+  ],
+  "price": 899,
+  "mrp": 1099,
+  "size": "300 x 180 x 5 mm",
+  "tags": "glass,frame",
+  "desc": "Wide glass frame with stand-offs.",
+  "image": "assets/products/BL-29.webp"
+ },
+ {
+  "id": "BL-30",
+  "name": "Glass Photo Frame BL-30",
+  "category": "Glass & Rock Frames",
+  "page": 15,
+  "box": [
+   573,
+   453,
+   788,
+   637
+  ],
+  "price": 849,
+  "mrp": 999,
+  "size": "270 x 180 x 5 mm",
+  "tags": "glass,frame",
+  "desc": "Glass frame with feet.",
+  "image": "assets/products/BL-30.webp"
+ },
+ {
+  "id": "SH-01",
+  "name": "Rock Photo Frame SH-01",
+  "category": "Glass & Rock Frames",
+  "page": 15,
+  "box": [
+   5,
+   722,
+   147,
+   850
+  ],
+  "price": 499,
+  "mrp": 649,
+  "size": "15 x 15 cm",
+  "tags": "rock,slate,frame",
+  "desc": "Natural slate rock frame with stand.",
+  "image": "assets/products/SH-01.webp"
+ },
+ {
+  "id": "SH-04",
+  "name": "Rock Photo Frame SH-04",
+  "category": "Glass & Rock Frames",
+  "page": 15,
+  "box": [
+   290,
+   725,
+   465,
+   850
+  ],
+  "price": 649,
+  "mrp": 799,
+  "size": "30 x 20 cm",
+  "tags": "rock,slate,frame",
+  "desc": "Rectangle slate rock frame.",
+  "image": "assets/products/SH-04.webp"
+ },
+ {
+  "id": "SH-15",
+  "name": "Rock Photo Frame SH-15",
+  "category": "Glass & Rock Frames",
+  "page": 15,
+  "box": [
+   470,
+   735,
+   655,
+   850
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "22 x 12 cm",
+  "tags": "rock,slate,frame",
+  "desc": "Slate rock frame.",
+  "image": "assets/products/SH-15.webp"
+ },
+ {
+  "id": "SH-59",
+  "name": "Heart Rock Frame SH-59",
+  "category": "Glass & Rock Frames",
+  "page": 15,
+  "box": [
+   215,
+   895,
+   370,
+   1015
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "15 x 15 cm",
+  "tags": "rock,heart",
+  "desc": "Heart slate rock frame.",
+  "image": "assets/products/SH-59.webp"
+ },
+ {
+  "id": "SH-60",
+  "name": "Heart Rock Frame SH-60",
+  "category": "Glass & Rock Frames",
+  "page": 15,
+  "box": [
+   370,
+   895,
+   515,
+   1015
+  ],
+  "price": 649,
+  "mrp": 799,
+  "size": "20 x 20 cm",
+  "tags": "rock,heart",
+  "desc": "Large heart slate rock frame.",
+  "image": "assets/products/SH-60.webp"
+ },
+ {
+  "id": "SFP-01",
+  "name": "Square Fur Pillow \u2013 Red",
+  "category": "Pillows",
+  "page": 16,
+  "box": [
+   8,
+   218,
+   157,
+   382
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "16 x 16 inch",
+  "tags": "fur,pillow,valentine",
+  "desc": "Soft fur pillow with photo panel.",
+  "image": "assets/products/SFP-01.webp"
+ },
+ {
+  "id": "SFP-02",
+  "name": "Square Fur Pillow \u2013 Pink",
+  "category": "Pillows",
+  "page": 16,
+  "box": [
+   153,
+   218,
+   312,
+   382
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "16 x 16 inch",
+  "tags": "fur,pillow",
+  "desc": "Soft fur pillow with photo panel.",
+  "image": "assets/products/SFP-02.webp"
+ },
+ {
+  "id": "SFP-03",
+  "name": "Square Fur Pillow \u2013 Blue",
+  "category": "Pillows",
+  "page": 16,
+  "box": [
+   308,
+   218,
+   467,
+   382
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "16 x 16 inch",
+  "tags": "fur,pillow",
+  "desc": "Soft fur pillow with photo panel.",
+  "image": "assets/products/SFP-03.webp"
+ },
+ {
+  "id": "SFP-04",
+  "name": "Square Fur Pillow \u2013 Yellow",
+  "category": "Pillows",
+  "page": 16,
+  "box": [
+   463,
+   218,
+   622,
+   382
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "16 x 16 inch",
+  "tags": "fur,pillow",
+  "desc": "Soft fur pillow with photo panel.",
+  "image": "assets/products/SFP-04.webp"
+ },
+ {
+  "id": "SFP-05",
+  "name": "Square Fur Pillow \u2013 Orange",
+  "category": "Pillows",
+  "page": 16,
+  "box": [
+   618,
+   218,
+   788,
+   382
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "16 x 16 inch",
+  "tags": "fur,pillow,diwali",
+  "desc": "Soft fur pillow with photo panel.",
+  "image": "assets/products/SFP-05.webp"
+ },
+ {
+  "id": "HFP-01",
+  "name": "Heart Fur Pillow \u2013 Red",
+  "category": "Pillows",
+  "page": 16,
+  "box": [
+   8,
+   480,
+   157,
+   657
+  ],
+  "price": 499,
+  "mrp": 599,
+  "size": "16 x 16 inch",
+  "tags": "fur,heart,valentine",
+  "desc": "Heart fur pillow with photo.",
+  "image": "assets/products/HFP-01.webp"
+ },
+ {
+  "id": "HFP-02",
+  "name": "Heart Fur Pillow \u2013 Pink",
+  "category": "Pillows",
+  "page": 16,
+  "box": [
+   153,
+   480,
+   312,
+   657
+  ],
+  "price": 499,
+  "mrp": 599,
+  "size": "16 x 16 inch",
+  "tags": "fur,heart",
+  "desc": "Heart fur pillow with photo.",
+  "image": "assets/products/HFP-02.webp"
+ },
+ {
+  "id": "HFP-03",
+  "name": "Heart Fur Pillow \u2013 Blue",
+  "category": "Pillows",
+  "page": 16,
+  "box": [
+   308,
+   480,
+   467,
+   657
+  ],
+  "price": 499,
+  "mrp": 599,
+  "size": "16 x 16 inch",
+  "tags": "fur,heart",
+  "desc": "Heart fur pillow with photo.",
+  "image": "assets/products/HFP-03.webp"
+ },
+ {
+  "id": "HFP-04",
+  "name": "Heart Fur Pillow \u2013 Yellow",
+  "category": "Pillows",
+  "page": 16,
+  "box": [
+   463,
+   480,
+   622,
+   657
+  ],
+  "price": 499,
+  "mrp": 599,
+  "size": "16 x 16 inch",
+  "tags": "fur,heart",
+  "desc": "Heart fur pillow with photo.",
+  "image": "assets/products/HFP-04.webp"
+ },
+ {
+  "id": "HFP-05",
+  "name": "Heart Fur Pillow \u2013 Orange",
+  "category": "Pillows",
+  "page": 16,
+  "box": [
+   618,
+   480,
+   788,
+   657
+  ],
+  "price": 499,
+  "mrp": 599,
+  "size": "16 x 16 inch",
+  "tags": "fur,heart",
+  "desc": "Heart fur pillow with photo.",
+  "image": "assets/products/HFP-05.webp"
+ },
+ {
+  "id": "LDP-01",
+  "name": "LED Photo Pillow 12 x 12",
+  "category": "Pillows",
+  "page": 16,
+  "box": [
+   8,
+   712,
+   217,
+   938
+  ],
+  "price": 599,
+  "mrp": 749,
+  "size": "12 x 12 inch",
+  "tags": "led,pillow,diwali",
+  "desc": "Glowing LED pillow with photo collage.",
+  "image": "assets/products/LDP-01.webp"
+ },
+ {
+  "id": "PIL-02",
+  "name": "Printed Pillow 16 x 16 \u2013 Best Friend",
+  "category": "Pillows",
+  "page": 16,
+  "box": [
+   233,
+   700,
+   552,
+   938
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "16 x 16 inch",
+  "tags": "pillow,friends",
+  "desc": "Satin printed pillow.",
+  "image": "assets/products/PIL-02.webp"
+ },
+ {
+  "id": "PIL-03",
+  "name": "Photo Pillow 12 x 12",
+  "category": "Pillows",
+  "page": 16,
+  "box": [
+   563,
+   723,
+   772,
+   938
+  ],
+  "price": 349,
+  "mrp": 449,
+  "size": "12 x 12 inch",
+  "tags": "pillow,photo,budget",
+  "desc": "Satin photo pillow.",
+  "image": "assets/products/PIL-03.webp"
+ },
+ {
+  "id": "SP-01",
+  "name": "Smiley Pillow \u2013 Heart Eyes (SP-01)",
+  "category": "Pillows",
+  "page": 17,
+  "box": [
+   33,
+   208,
+   377,
+   397
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "14 x 14 inch",
+  "tags": "emoji,pillow,kids",
+  "desc": "Emoji pillow with photo on the back.",
+  "image": "assets/products/SP-01.webp"
+ },
+ {
+  "id": "SP-02",
+  "name": "Smiley Pillow \u2013 Cool (SP-02)",
+  "category": "Pillows",
+  "page": 17,
+  "box": [
+   448,
+   208,
+   788,
+   397
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "14 x 14 inch",
+  "tags": "emoji,pillow,kids",
+  "desc": "Emoji pillow with photo on the back.",
+  "image": "assets/products/SP-02.webp"
+ },
+ {
+  "id": "SP-03",
+  "name": "Smiley Pillow \u2013 Happy (SP-03)",
+  "category": "Pillows",
+  "page": 17,
+  "box": [
+   33,
+   403,
+   377,
+   577
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "14 x 14 inch",
+  "tags": "emoji,pillow,kids",
+  "desc": "Emoji pillow with photo on the back.",
+  "image": "assets/products/SP-03.webp"
+ },
+ {
+  "id": "SP-04",
+  "name": "Smiley Pillow \u2013 Kiss (SP-04)",
+  "category": "Pillows",
+  "page": 17,
+  "box": [
+   448,
+   403,
+   788,
+   577
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "14 x 14 inch",
+  "tags": "emoji,pillow,kids",
+  "desc": "Emoji pillow with photo on the back.",
+  "image": "assets/products/SP-04.webp"
+ },
+ {
+  "id": "LDP-02",
+  "name": "LED Fur Pillow \u2013 Square",
+  "category": "Pillows",
+  "page": 17,
+  "box": [
+   8,
+   606,
+   217,
+   787
+  ],
+  "price": 699,
+  "mrp": 849,
+  "size": "16 x 16 inch",
+  "tags": "led,fur,diwali,bestseller",
+  "desc": "White fur pillow with colour-changing LED.",
+  "image": "assets/products/LDP-02.webp"
+ },
+ {
+  "id": "LDP-03",
+  "name": "LED Fur Pillow \u2013 Heart",
+  "category": "Pillows",
+  "page": 17,
+  "box": [
+   493,
+   603,
+   717,
+   792
+  ],
+  "price": 749,
+  "mrp": 899,
+  "size": "16 x 16 inch",
+  "tags": "led,fur,heart,diwali",
+  "desc": "Heart fur pillow with LED glow.",
+  "image": "assets/products/LDP-03.webp"
+ },
+ {
+  "id": "LDP-04",
+  "name": "LED Fur Pillow with Remote \u2013 Square",
+  "category": "Pillows",
+  "page": 17,
+  "box": [
+   8,
+   866,
+   247,
+   1057
+  ],
+  "price": 899,
+  "mrp": 1099,
+  "size": "16 x 16 inch",
+  "tags": "led,remote,premium,diwali",
+  "desc": "LED fur pillow with 16-colour remote.",
+  "image": "assets/products/LDP-04.webp"
+ },
+ {
+  "id": "LDP-05",
+  "name": "LED Fur Pillow with Remote \u2013 Heart",
+  "category": "Pillows",
+  "page": 17,
+  "box": [
+   483,
+   863,
+   752,
+   1057
+  ],
+  "price": 949,
+  "mrp": 1149,
+  "size": "16 x 16 inch",
+  "tags": "led,remote,heart,premium",
+  "desc": "Heart LED fur pillow with remote.",
+  "image": "assets/products/LDP-05.webp"
+ },
+ {
+  "id": "DSH-01",
+  "name": "Couple Pillow DSH-1 (Red)",
+  "category": "Pillows",
+  "page": 18,
+  "box": [
+   5,
+   212,
+   297,
+   348
+  ],
+  "price": 649,
+  "mrp": 799,
+  "size": "16 x 16 inch",
+  "tags": "couple,heart,fur",
+  "desc": "Double heart couple pillow.",
+  "image": "assets/products/DSH-01.webp"
+ },
+ {
+  "id": "DSH-02",
+  "name": "Couple Pillow DSH-2 (Pink)",
+  "category": "Pillows",
+  "page": 18,
+  "box": [
+   288,
+   212,
+   557,
+   348
+  ],
+  "price": 649,
+  "mrp": 799,
+  "size": "16 x 16 inch",
+  "tags": "couple,heart,fur",
+  "desc": "Double heart couple pillow.",
+  "image": "assets/products/DSH-02.webp"
+ },
+ {
+  "id": "RRP-01",
+  "name": "Red Rose Petal Pillow",
+  "category": "Pillows",
+  "page": 18,
+  "box": [
+   583,
+   205,
+   777,
+   382
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "",
+  "tags": "rose,heart,valentine",
+  "desc": "Rose petal textured heart pillow.",
+  "image": "assets/products/RRP-01.webp"
+ },
+ {
+  "id": "TVP-01",
+  "name": "Teddy Velvet Pillow \u2013 Pink",
+  "category": "Pillows",
+  "page": 18,
+  "box": [
+   13,
+   524,
+   212,
+   657
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "13 x 18 inch",
+  "tags": "teddy,velvet,kids",
+  "desc": "Velvet pillow with teddy corner.",
+  "image": "assets/products/TVP-01.webp"
+ },
+ {
+  "id": "TVP-02",
+  "name": "Teddy Velvet Pillow \u2013 Blue",
+  "category": "Pillows",
+  "page": 18,
+  "box": [
+   208,
+   524,
+   392,
+   657
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "13 x 18 inch",
+  "tags": "teddy,velvet,kids",
+  "desc": "Velvet pillow with teddy corner.",
+  "image": "assets/products/TVP-02.webp"
+ },
+ {
+  "id": "TVP-03",
+  "name": "Teddy Velvet Pillow \u2013 Red",
+  "category": "Pillows",
+  "page": 18,
+  "box": [
+   388,
+   524,
+   587,
+   657
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "13 x 18 inch",
+  "tags": "teddy,velvet,kids",
+  "desc": "Velvet pillow with teddy corner.",
+  "image": "assets/products/TVP-03.webp"
+ },
+ {
+  "id": "TVP-04",
+  "name": "Teddy Velvet Pillow \u2013 Yellow",
+  "category": "Pillows",
+  "page": 18,
+  "box": [
+   583,
+   524,
+   788,
+   657
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "13 x 18 inch",
+  "tags": "teddy,velvet,kids",
+  "desc": "Velvet pillow with teddy corner.",
+  "image": "assets/products/TVP-04.webp"
+ },
+ {
+  "id": "TED-01",
+  "name": "Teddy with LED Heart Cushion \u2013 Red",
+  "category": "Soft Toys",
+  "page": 18,
+  "box": [
+   48,
+   783,
+   277,
+   1022
+  ],
+  "price": 899,
+  "mrp": 1099,
+  "size": "14 inch",
+  "tags": "teddy,led,valentine,bestseller",
+  "desc": "Plush teddy holding a glowing LED photo heart.",
+  "image": "assets/products/TED-01.webp"
+ },
+ {
+  "id": "TED-02",
+  "name": "Teddy with LED Heart Cushion \u2013 White",
+  "category": "Soft Toys",
+  "page": 18,
+  "box": [
+   283,
+   783,
+   512,
+   1022
+  ],
+  "price": 899,
+  "mrp": 1099,
+  "size": "14 inch",
+  "tags": "teddy,led",
+  "desc": "Plush teddy holding a glowing LED photo heart.",
+  "image": "assets/products/TED-02.webp"
+ },
+ {
+  "id": "TED-03",
+  "name": "Teddy with LED Heart Cushion \u2013 Brown",
+  "category": "Soft Toys",
+  "page": 18,
+  "box": [
+   513,
+   783,
+   752,
+   1022
+  ],
+  "price": 899,
+  "mrp": 1099,
+  "size": "14 inch",
+  "tags": "teddy,led",
+  "desc": "Plush teddy holding a glowing LED photo heart.",
+  "image": "assets/products/TED-03.webp"
+ },
+ {
+  "id": "BHF-01",
+  "name": "Big Heart Fur Pillow \u2013 I Love You",
+  "category": "Pillows",
+  "page": 19,
+  "box": [
+   18,
+   196,
+   242,
+   412
+  ],
+  "price": 749,
+  "mrp": 899,
+  "size": "20 inch",
+  "tags": "big-heart,fur,valentine",
+  "desc": "20 inch fur heart pillow.",
+  "image": "assets/products/BHF-01.webp"
+ },
+ {
+  "id": "BHF-02",
+  "name": "Big Heart Fur Pillow \u2013 LOVE",
+  "category": "Pillows",
+  "page": 19,
+  "box": [
+   253,
+   196,
+   502,
+   412
+  ],
+  "price": 749,
+  "mrp": 899,
+  "size": "20 inch",
+  "tags": "big-heart,fur",
+  "desc": "20 inch fur heart pillow.",
+  "image": "assets/products/BHF-02.webp"
+ },
+ {
+  "id": "BHF-03",
+  "name": "Big Heart Fur Pillow \u2013 Collage",
+  "category": "Pillows",
+  "page": 19,
+  "box": [
+   503,
+   196,
+   767,
+   412
+  ],
+  "price": 749,
+  "mrp": 899,
+  "size": "20 inch",
+  "tags": "big-heart,fur,family",
+  "desc": "20 inch fur heart pillow with 4 photos.",
+  "image": "assets/products/BHF-03.webp"
+ },
+ {
+  "id": "BHF-04",
+  "name": "Big Heart Fur Pillow \u2013 Maroon LOVE",
+  "category": "Pillows",
+  "page": 19,
+  "box": [
+   18,
+   488,
+   242,
+   705
+  ],
+  "price": 749,
+  "mrp": 899,
+  "size": "20 inch",
+  "tags": "big-heart,fur",
+  "desc": "20 inch two-tone fur heart.",
+  "image": "assets/products/BHF-04.webp"
+ },
+ {
+  "id": "BHF-05",
+  "name": "Big Heart Fur Pillow \u2013 Blue LOVE",
+  "category": "Pillows",
+  "page": 19,
+  "box": [
+   253,
+   488,
+   502,
+   705
+  ],
+  "price": 749,
+  "mrp": 899,
+  "size": "20 inch",
+  "tags": "big-heart,fur",
+  "desc": "20 inch two-tone fur heart.",
+  "image": "assets/products/BHF-05.webp"
+ },
+ {
+  "id": "BHF-06",
+  "name": "Big Heart Fur Pillow \u2013 Orange LOVE",
+  "category": "Pillows",
+  "page": 19,
+  "box": [
+   503,
+   488,
+   767,
+   705
+  ],
+  "price": 749,
+  "mrp": 899,
+  "size": "20 inch",
+  "tags": "big-heart,fur,diwali",
+  "desc": "20 inch two-tone fur heart.",
+  "image": "assets/products/BHF-06.webp"
+ },
+ {
+  "id": "BHF-07",
+  "name": "Big Heart Fur Pillow \u2013 Pink LOVE",
+  "category": "Pillows",
+  "page": 19,
+  "box": [
+   18,
+   788,
+   242,
+   996
+  ],
+  "price": 749,
+  "mrp": 899,
+  "size": "20 inch",
+  "tags": "big-heart,fur",
+  "desc": "20 inch two-tone fur heart.",
+  "image": "assets/products/BHF-07.webp"
+ },
+ {
+  "id": "BHF-08",
+  "name": "Big Heart Fur Pillow \u2013 Purple LOVE",
+  "category": "Pillows",
+  "page": 19,
+  "box": [
+   253,
+   788,
+   502,
+   996
+  ],
+  "price": 749,
+  "mrp": 899,
+  "size": "20 inch",
+  "tags": "big-heart,fur",
+  "desc": "20 inch two-tone fur heart.",
+  "image": "assets/products/BHF-08.webp"
+ },
+ {
+  "id": "BHF-09",
+  "name": "Big Heart Fur Pillow \u2013 Yellow LOVE",
+  "category": "Pillows",
+  "page": 19,
+  "box": [
+   503,
+   788,
+   767,
+   996
+  ],
+  "price": 749,
+  "mrp": 899,
+  "size": "20 inch",
+  "tags": "big-heart,fur",
+  "desc": "20 inch two-tone fur heart.",
+  "image": "assets/products/BHF-09.webp"
+ },
+ {
+  "id": "MSQ-01",
+  "name": "Magic Sequin Pillow 16 x 16 \u2013 Pink",
+  "category": "Pillows",
+  "page": 20,
+  "box": [
+   188,
+   210,
+   367,
+   372
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "16 x 16 inch",
+  "tags": "sequin,magic,bestseller",
+  "desc": "Reversible sequin pillow that reveals your photo.",
+  "image": "assets/products/MSQ-01.webp"
+ },
+ {
+  "id": "MSQ-02",
+  "name": "Magic Sequin Pillow 16 x 16 \u2013 Blue",
+  "category": "Pillows",
+  "page": 20,
+  "box": [
+   423,
+   210,
+   607,
+   372
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "16 x 16 inch",
+  "tags": "sequin,magic",
+  "desc": "Reversible sequin pillow.",
+  "image": "assets/products/MSQ-02.webp"
+ },
+ {
+  "id": "MSQ-03",
+  "name": "Magic Sequin Pillow 16 x 16 \u2013 Red",
+  "category": "Pillows",
+  "page": 20,
+  "box": [
+   68,
+   378,
+   262,
+   562
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "16 x 16 inch",
+  "tags": "sequin,magic",
+  "desc": "Reversible sequin pillow.",
+  "image": "assets/products/MSQ-03.webp"
+ },
+ {
+  "id": "MSQ-04",
+  "name": "LED Magic Sequin Pillow (3 photos)",
+  "category": "Pillows",
+  "page": 20,
+  "box": [
+   260,
+   368,
+   497,
+   572
+  ],
+  "price": 799,
+  "mrp": 949,
+  "size": "16 x 16 inch",
+  "tags": "sequin,led,diwali",
+  "desc": "Sequin pillow with LED and 3 photos.",
+  "image": "assets/products/MSQ-04.webp"
+ },
+ {
+  "id": "MSQ-05",
+  "name": "Magic Sequin Pillow 16 x 16 \u2013 Gold",
+  "category": "Pillows",
+  "page": 20,
+  "box": [
+   488,
+   378,
+   692,
+   562
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "16 x 16 inch",
+  "tags": "sequin,magic,diwali",
+  "desc": "Reversible sequin pillow.",
+  "image": "assets/products/MSQ-05.webp"
+ },
+ {
+  "id": "MSQ-06",
+  "name": "Magic Sequin Pillow 16 x 16 \u2013 Rosy Gold",
+  "category": "Pillows",
+  "page": 20,
+  "box": [
+   118,
+   548,
+   282,
+   702
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "16 x 16 inch",
+  "tags": "sequin,magic",
+  "desc": "Reversible sequin pillow.",
+  "image": "assets/products/MSQ-06.webp"
+ },
+ {
+  "id": "MSQ-07",
+  "name": "Magic Sequin Pillow 16 x 16 \u2013 Silver",
+  "category": "Pillows",
+  "page": 20,
+  "box": [
+   293,
+   583,
+   497,
+   762
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "16 x 16 inch",
+  "tags": "sequin,magic",
+  "desc": "Reversible sequin pillow.",
+  "image": "assets/products/MSQ-07.webp"
+ },
+ {
+  "id": "MSQ-08",
+  "name": "Magic Sequin Pillow 16 x 16 \u2013 Black",
+  "category": "Pillows",
+  "page": 20,
+  "box": [
+   508,
+   558,
+   692,
+   727
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "16 x 16 inch",
+  "tags": "sequin,magic",
+  "desc": "Reversible sequin pillow.",
+  "image": "assets/products/MSQ-08.webp"
+ },
+ {
+  "id": "MSQ-09",
+  "name": "Magic Sequin Pillow 12 x 12 \u2013 Red",
+  "category": "Pillows",
+  "page": 20,
+  "box": [
+   5,
+   848,
+   152,
+   1002
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "12 x 12 inch",
+  "tags": "sequin,magic",
+  "desc": "Reversible sequin pillow.",
+  "image": "assets/products/MSQ-09.webp"
+ },
+ {
+  "id": "MSQ-10",
+  "name": "Magic Sequin Pillow 12 x 12 \u2013 Gold",
+  "category": "Pillows",
+  "page": 20,
+  "box": [
+   138,
+   848,
+   282,
+   1002
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "12 x 12 inch",
+  "tags": "sequin,magic,diwali",
+  "desc": "Reversible sequin pillow.",
+  "image": "assets/products/MSQ-10.webp"
+ },
+ {
+  "id": "MSQ-11",
+  "name": "Magic Sequin Pillow 12 x 12 \u2013 Pink",
+  "category": "Pillows",
+  "page": 20,
+  "box": [
+   268,
+   848,
+   402,
+   1002
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "12 x 12 inch",
+  "tags": "sequin,magic",
+  "desc": "Reversible sequin pillow.",
+  "image": "assets/products/MSQ-11.webp"
+ },
+ {
+  "id": "MSQ-12",
+  "name": "Magic Sequin Pillow 12 x 12 \u2013 Silver",
+  "category": "Pillows",
+  "page": 20,
+  "box": [
+   388,
+   848,
+   532,
+   1002
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "12 x 12 inch",
+  "tags": "sequin,magic",
+  "desc": "Reversible sequin pillow.",
+  "image": "assets/products/MSQ-12.webp"
+ },
+ {
+  "id": "MSQ-13",
+  "name": "Magic Sequin Pillow 12 x 12 \u2013 Black",
+  "category": "Pillows",
+  "page": 20,
+  "box": [
+   518,
+   848,
+   662,
+   1002
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "12 x 12 inch",
+  "tags": "sequin,magic",
+  "desc": "Reversible sequin pillow.",
+  "image": "assets/products/MSQ-13.webp"
+ },
+ {
+  "id": "CTN-01",
+  "name": "Cartoon Pillow 12 x 12 \u2013 Mickey Mouse",
+  "category": "Pillows",
+  "page": 21,
+  "box": [
+   5,
+   225,
+   402,
+   417
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "12 x 12 inch",
+  "tags": "cartoon,kids",
+  "desc": "Digital cartoon pillow with photo.",
+  "image": "assets/products/CTN-01.webp"
+ },
+ {
+  "id": "CTN-05",
+  "name": "Cartoon Pillow 12 x 12 \u2013 Barbie",
+  "category": "Pillows",
+  "page": 21,
+  "box": [
+   398,
+   225,
+   788,
+   417
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "12 x 12 inch",
+  "tags": "cartoon,kids",
+  "desc": "Digital cartoon pillow with photo.",
+  "image": "assets/products/CTN-05.webp"
+ },
+ {
+  "id": "CTN-02",
+  "name": "Cartoon Pillow 12 x 12 \u2013 Chota Bheem",
+  "category": "Pillows",
+  "page": 21,
+  "box": [
+   5,
+   418,
+   402,
+   607
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "12 x 12 inch",
+  "tags": "cartoon,kids",
+  "desc": "Digital cartoon pillow with photo.",
+  "image": "assets/products/CTN-02.webp"
+ },
+ {
+  "id": "CTN-06",
+  "name": "Cartoon Pillow 12 x 12 \u2013 Frozen",
+  "category": "Pillows",
+  "page": 21,
+  "box": [
+   398,
+   418,
+   788,
+   607
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "12 x 12 inch",
+  "tags": "cartoon,kids",
+  "desc": "Digital cartoon pillow with photo.",
+  "image": "assets/products/CTN-06.webp"
+ },
+ {
+  "id": "CTN-03",
+  "name": "Cartoon Pillow 12 x 12 \u2013 Winnie The Pooh",
+  "category": "Pillows",
+  "page": 21,
+  "box": [
+   5,
+   633,
+   402,
+   822
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "12 x 12 inch",
+  "tags": "cartoon,kids",
+  "desc": "Digital cartoon pillow with photo.",
+  "image": "assets/products/CTN-03.webp"
+ },
+ {
+  "id": "CTN-07",
+  "name": "Cartoon Pillow 12 x 12 \u2013 Unicorn",
+  "category": "Pillows",
+  "page": 21,
+  "box": [
+   398,
+   633,
+   788,
+   822
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "12 x 12 inch",
+  "tags": "cartoon,kids",
+  "desc": "Digital cartoon pillow with photo.",
+  "image": "assets/products/CTN-07.webp"
+ },
+ {
+  "id": "CTN-04",
+  "name": "Cartoon Pillow 12 x 12 \u2013 Spiderman",
+  "category": "Pillows",
+  "page": 21,
+  "box": [
+   5,
+   838,
+   402,
+   1037
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "12 x 12 inch",
+  "tags": "cartoon,kids",
+  "desc": "Digital cartoon pillow with photo.",
+  "image": "assets/products/CTN-04.webp"
+ },
+ {
+  "id": "CTN-08",
+  "name": "Cartoon Pillow 12 x 12 \u2013 Dora",
+  "category": "Pillows",
+  "page": 21,
+  "box": [
+   398,
+   838,
+   788,
+   1037
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "12 x 12 inch",
+  "tags": "cartoon,kids",
+  "desc": "Digital cartoon pillow with photo.",
+  "image": "assets/products/CTN-08.webp"
+ },
+ {
+  "id": "NDP-01",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-01 (Heart)",
+  "category": "Pillows",
+  "page": 22,
+  "box": [
+   8,
+   220,
+   217,
+   388
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "15 x 15 inch",
+  "tags": "digital,pillow,heart",
+  "desc": "Satin digital pillow with themed design and photo slot.",
+  "image": "assets/products/NDP-01.webp"
+ },
+ {
+  "id": "NDP-05",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-05 (Square)",
+  "category": "Pillows",
+  "page": 22,
+  "box": [
+   8,
+   418,
+   217,
+   595
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "15 x 15 inch",
+  "tags": "digital,pillow,square",
+  "desc": "Satin digital pillow with themed design and photo slot.",
+  "image": "assets/products/NDP-05.webp"
+ },
+ {
+  "id": "NDP-09",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-09 (Square)",
+  "category": "Pillows",
+  "page": 22,
+  "box": [
+   8,
+   633,
+   217,
+   815
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "15 x 15 inch",
+  "tags": "digital,pillow,square",
+  "desc": "Satin digital pillow with themed design and photo slot.",
+  "image": "assets/products/NDP-09.webp"
+ },
+ {
+  "id": "NDP-02",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-02 (Heart)",
+  "category": "Pillows",
+  "page": 22,
+  "box": [
+   213,
+   220,
+   407,
+   388
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "15 x 15 inch",
+  "tags": "digital,pillow,heart",
+  "desc": "Satin digital pillow with themed design and photo slot.",
+  "image": "assets/products/NDP-02.webp"
+ },
+ {
+  "id": "NDP-06",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-06 (Square)",
+  "category": "Pillows",
+  "page": 22,
+  "box": [
+   213,
+   418,
+   407,
+   595
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "15 x 15 inch",
+  "tags": "digital,pillow,square",
+  "desc": "Satin digital pillow with themed design and photo slot.",
+  "image": "assets/products/NDP-06.webp"
+ },
+ {
+  "id": "NDP-10",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-10 (Square)",
+  "category": "Pillows",
+  "page": 22,
+  "box": [
+   213,
+   633,
+   407,
+   815
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "15 x 15 inch",
+  "tags": "digital,pillow,square",
+  "desc": "Satin digital pillow with themed design and photo slot.",
+  "image": "assets/products/NDP-10.webp"
+ },
+ {
+  "id": "NDP-03",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-03 (Heart)",
+  "category": "Pillows",
+  "page": 22,
+  "box": [
+   403,
+   220,
+   597,
+   388
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "15 x 15 inch",
+  "tags": "digital,pillow,heart",
+  "desc": "Satin digital pillow with themed design and photo slot.",
+  "image": "assets/products/NDP-03.webp"
+ },
+ {
+  "id": "NDP-07",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-07 (Square)",
+  "category": "Pillows",
+  "page": 22,
+  "box": [
+   403,
+   418,
+   597,
+   595
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "15 x 15 inch",
+  "tags": "digital,pillow,square",
+  "desc": "Satin digital pillow with themed design and photo slot.",
+  "image": "assets/products/NDP-07.webp"
+ },
+ {
+  "id": "NDP-11",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-11 (Square)",
+  "category": "Pillows",
+  "page": 22,
+  "box": [
+   403,
+   633,
+   597,
+   815
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "15 x 15 inch",
+  "tags": "digital,pillow,square",
+  "desc": "Satin digital pillow with themed design and photo slot.",
+  "image": "assets/products/NDP-11.webp"
+ },
+ {
+  "id": "NDP-04",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-04 (Heart)",
+  "category": "Pillows",
+  "page": 22,
+  "box": [
+   593,
+   220,
+   788,
+   388
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "15 x 15 inch",
+  "tags": "digital,pillow,heart",
+  "desc": "Satin digital pillow with themed design and photo slot.",
+  "image": "assets/products/NDP-04.webp"
+ },
+ {
+  "id": "NDP-08",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-08 (Square)",
+  "category": "Pillows",
+  "page": 22,
+  "box": [
+   593,
+   418,
+   788,
+   595
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "15 x 15 inch",
+  "tags": "digital,pillow,square",
+  "desc": "Satin digital pillow with themed design and photo slot.",
+  "image": "assets/products/NDP-08.webp"
+ },
+ {
+  "id": "NDP-12",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-12 (Square)",
+  "category": "Pillows",
+  "page": 22,
+  "box": [
+   593,
+   633,
+   788,
+   815
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "15 x 15 inch",
+  "tags": "digital,pillow,square",
+  "desc": "Satin digital pillow with themed design and photo slot.",
+  "image": "assets/products/NDP-12.webp"
+ },
+ {
+  "id": "NCP-01",
+  "name": "New Couple Pillow 01 (Pair)",
+  "category": "Pillows",
+  "page": 22,
+  "box": [
+   18,
+   868,
+   407,
+   1022
+  ],
+  "price": 799,
+  "mrp": 999,
+  "size": "",
+  "tags": "couple,pair,wedding",
+  "desc": "Pair of matching couple pillows.",
+  "image": "assets/products/NCP-01.webp"
+ },
+ {
+  "id": "NCP-02",
+  "name": "New Couple Pillow 02 (Pair)",
+  "category": "Pillows",
+  "page": 22,
+  "box": [
+   418,
+   868,
+   788,
+   1022
+  ],
+  "price": 799,
+  "mrp": 999,
+  "size": "",
+  "tags": "couple,pair",
+  "desc": "Pair of matching Mr & Mrs pillows.",
+  "image": "assets/products/NCP-02.webp"
+ },
+ {
+  "id": "SPK-01",
+  "name": "Bluetooth Photo Speaker",
+  "category": "Electronics",
+  "page": 23,
+  "box": [
+   43,
+   203,
+   287,
+   462
+  ],
+  "price": 1299,
+  "mrp": 1599,
+  "size": "",
+  "tags": "speaker,bluetooth,diwali,premium",
+  "desc": "Bluetooth speaker with touch sensor, mic, SD card and photo print.",
+  "image": "assets/products/SPK-01.webp"
+ },
+ {
+  "id": "WHC-01",
+  "name": "Wall Hanging Cushion \u2013 Birthday (6 photos)",
+  "category": "Pillows",
+  "page": 23,
+  "box": [
+   8,
+   530,
+   247,
+   787
+  ],
+  "price": 799,
+  "mrp": 999,
+  "size": "",
+  "tags": "wall,hanging,birthday",
+  "desc": "Wall hanging with 6 mini photo cushions.",
+  "image": "assets/products/WHC-01.webp"
+ },
+ {
+  "id": "WHC-02",
+  "name": "Wall Hanging Cushion \u2013 Love (6 photos)",
+  "category": "Pillows",
+  "page": 23,
+  "box": [
+   283,
+   530,
+   522,
+   787
+  ],
+  "price": 799,
+  "mrp": 999,
+  "size": "",
+  "tags": "wall,hanging,love",
+  "desc": "Wall hanging with 6 mini photo cushions.",
+  "image": "assets/products/WHC-02.webp"
+ },
+ {
+  "id": "WHC-03",
+  "name": "Wall Hanging Cushion \u2013 Anniversary (6 photos)",
+  "category": "Pillows",
+  "page": 23,
+  "box": [
+   543,
+   530,
+   788,
+   787
+  ],
+  "price": 799,
+  "mrp": 999,
+  "size": "",
+  "tags": "wall,hanging,anniversary",
+  "desc": "Wall hanging with 6 mini photo cushions.",
+  "image": "assets/products/WHC-03.webp"
+ },
+ {
+  "id": "ODP-01",
+  "name": "Digital Pillow 16 x 16 \u2013 Made For Each Other",
+  "category": "Pillows",
+  "page": 23,
+  "box": [
+   5,
+   830,
+   162,
+   1002
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "16 x 16 inch",
+  "tags": "digital,couple",
+  "desc": "Satin digital pillow.",
+  "image": "assets/products/ODP-01.webp"
+ },
+ {
+  "id": "ODP-02",
+  "name": "Digital Pillow 16 x 16 \u2013 I Love You",
+  "category": "Pillows",
+  "page": 23,
+  "box": [
+   156,
+   823,
+   317,
+   1002
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "16 x 16 inch",
+  "tags": "digital,love",
+  "desc": "Satin digital pillow.",
+  "image": "assets/products/ODP-02.webp"
+ },
+ {
+  "id": "ODP-03",
+  "name": "Digital Pillow 16 x 16 \u2013 Love Is In The Air",
+  "category": "Pillows",
+  "page": 23,
+  "box": [
+   310,
+   823,
+   472,
+   1002
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "16 x 16 inch",
+  "tags": "digital,love",
+  "desc": "Satin digital pillow.",
+  "image": "assets/products/ODP-03.webp"
+ },
+ {
+  "id": "ODP-04",
+  "name": "Digital Pillow 16 x 16 \u2013 Happy Birthday",
+  "category": "Pillows",
+  "page": 23,
+  "box": [
+   464,
+   823,
+   627,
+   1002
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "16 x 16 inch",
+  "tags": "digital,birthday",
+  "desc": "Satin digital pillow.",
+  "image": "assets/products/ODP-04.webp"
+ },
+ {
+  "id": "ODP-05",
+  "name": "Digital Pillow 16 x 16 \u2013 Barbie",
+  "category": "Pillows",
+  "page": 23,
+  "box": [
+   618,
+   823,
+   788,
+   1002
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "16 x 16 inch",
+  "tags": "digital,kids",
+  "desc": "Satin digital pillow.",
+  "image": "assets/products/ODP-05.webp"
+ },
+ {
+  "id": "BAG-01",
+  "name": "Teddy Face School Bag",
+  "category": "Kids & School",
+  "page": 24,
+  "box": [
+   5,
+   226,
+   512,
+   427
+  ],
+  "price": 649,
+  "mrp": 799,
+  "size": "12 x 14 inch",
+  "tags": "bag,kids,school,teddy",
+  "desc": "Velvet teddy face school bag with photo panel.",
+  "image": "assets/products/BAG-01.webp"
+ },
+ {
+  "id": "BAG-02",
+  "name": "Teddy Face School Bag + Pouch Combo",
+  "category": "Kids & School",
+  "page": 24,
+  "box": [
+   5,
+   500,
+   512,
+   692
+  ],
+  "price": 799,
+  "mrp": 999,
+  "size": "12 x 14 inch",
+  "tags": "bag,kids,combo",
+  "desc": "Teddy school bag with matching pouch.",
+  "image": "assets/products/BAG-02.webp"
+ },
+ {
+  "id": "BAG-03",
+  "name": "Photo School Bag",
+  "category": "Kids & School",
+  "page": 24,
+  "box": [
+   288,
+   763,
+   492,
+   1022
+  ],
+  "price": 749,
+  "mrp": 899,
+  "size": "11 x 14 inch",
+  "tags": "bag,school",
+  "desc": "Sturdy school bag with photo flap.",
+  "image": "assets/products/BAG-03.webp"
+ },
+ {
+  "id": "DSB-01",
+  "name": "Drawstring Bag \u2013 Cartoon",
+  "category": "Kids & School",
+  "page": 25,
+  "box": [
+   10,
+   213,
+   788,
+   417
+  ],
+  "price": 299,
+  "mrp": 399,
+  "size": "",
+  "tags": "drawstring,kids,cartoon",
+  "desc": "Printed drawstring bag: Chota Bheem, Motu Patlu, Barbie, Frozen, Cinderella, Minion.",
+  "image": "assets/products/DSB-01.webp"
+ },
+ {
+  "id": "TSH-01",
+  "name": "Sublimation T-Shirt \u2013 White (Kids & Adults)",
+  "category": "Apparel",
+  "page": 25,
+  "box": [
+   28,
+   520,
+   197,
+   712
+  ],
+  "price": 349,
+  "mrp": 449,
+  "size": "18 to 46",
+  "tags": "tshirt,photo,couple,family",
+  "desc": "White polyester tee printed with photo/name. Sizes 18\u201346.",
+  "image": "assets/products/TSH-01.webp"
+ },
+ {
+  "id": "ROM-01",
+  "name": "Baby Romper \u2013 Blue Trim",
+  "category": "Apparel",
+  "page": 25,
+  "box": [
+   133,
+   752,
+   407,
+   1012
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "3M\u20131Y",
+  "tags": "baby,romper",
+  "desc": "Poly-cotton baby romper, photo print.",
+  "image": "assets/products/ROM-01.webp"
+ },
+ {
+  "id": "ROM-02",
+  "name": "Baby Romper \u2013 Red Trim",
+  "category": "Apparel",
+  "page": 25,
+  "box": [
+   398,
+   752,
+   652,
+   1012
+  ],
+  "price": 399,
+  "mrp": 499,
+  "size": "3M\u20131Y",
+  "tags": "baby,romper",
+  "desc": "Poly-cotton baby romper, photo print.",
+  "image": "assets/products/ROM-02.webp"
+ },
+ {
+  "id": "TSH-02",
+  "name": "Raglan T-Shirt \u2013 Red & White",
+  "category": "Apparel",
+  "page": 26,
+  "box": [
+   93,
+   213,
+   332,
+   442
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "XS\u2013XXL",
+  "tags": "tshirt,raglan",
+  "desc": "Full cotton front, polyester sleeves.",
+  "image": "assets/products/TSH-02.webp"
+ },
+ {
+  "id": "TSH-03",
+  "name": "Raglan T-Shirt \u2013 Black & White",
+  "category": "Apparel",
+  "page": 26,
+  "box": [
+   483,
+   213,
+   717,
+   442
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "XS\u2013XXL",
+  "tags": "tshirt,raglan",
+  "desc": "Full cotton front, polyester sleeves.",
+  "image": "assets/products/TSH-03.webp"
+ },
+ {
+  "id": "TSH-04",
+  "name": "Ringer T-Shirt \u2013 Black Trim",
+  "category": "Apparel",
+  "page": 26,
+  "box": [
+   23,
+   498,
+   297,
+   727
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "XS\u2013XXL",
+  "tags": "tshirt,ringer",
+  "desc": "White tee with black collar and cuffs.",
+  "image": "assets/products/TSH-04.webp"
+ },
+ {
+  "id": "TSH-05",
+  "name": "Ringer T-Shirt \u2013 Blue Trim",
+  "category": "Apparel",
+  "page": 26,
+  "box": [
+   498,
+   498,
+   788,
+   727
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "XS\u2013XXL",
+  "tags": "tshirt,ringer",
+  "desc": "White tee with blue collar and cuffs.",
+  "image": "assets/products/TSH-05.webp"
+ },
+ {
+  "id": "PLS-01",
+  "name": "Plush Photo Pillow \u2013 Mickey",
+  "category": "Soft Toys",
+  "page": 26,
+  "box": [
+   43,
+   763,
+   292,
+   917
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "",
+  "tags": "plush,kids,cartoon",
+  "desc": "Plush character pillow with photo back.",
+  "image": "assets/products/PLS-01.webp"
+ },
+ {
+  "id": "PLS-02",
+  "name": "Plush Photo Pillow \u2013 Dorami",
+  "category": "Soft Toys",
+  "page": 26,
+  "box": [
+   293,
+   763,
+   522,
+   917
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "",
+  "tags": "plush,kids,cartoon",
+  "desc": "Plush character pillow with photo back.",
+  "image": "assets/products/PLS-02.webp"
+ },
+ {
+  "id": "PLS-03",
+  "name": "Plush Photo Pillow \u2013 Doraemon",
+  "category": "Soft Toys",
+  "page": 26,
+  "box": [
+   518,
+   763,
+   762,
+   917
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "",
+  "tags": "plush,kids,cartoon",
+  "desc": "Plush character pillow with photo back.",
+  "image": "assets/products/PLS-03.webp"
+ },
+ {
+  "id": "PLS-04",
+  "name": "Plush Photo Pillow \u2013 Minnie",
+  "category": "Soft Toys",
+  "page": 26,
+  "box": [
+   43,
+   928,
+   292,
+   1057
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "",
+  "tags": "plush,kids,cartoon",
+  "desc": "Plush character pillow with photo back.",
+  "image": "assets/products/PLS-04.webp"
+ },
+ {
+  "id": "PLS-05",
+  "name": "Plush Photo Pillow \u2013 Pooh",
+  "category": "Soft Toys",
+  "page": 26,
+  "box": [
+   293,
+   928,
+   522,
+   1057
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "",
+  "tags": "plush,kids,cartoon",
+  "desc": "Plush character pillow with photo back.",
+  "image": "assets/products/PLS-05.webp"
+ },
+ {
+  "id": "PLS-06",
+  "name": "Plush Photo Pillow \u2013 Panda",
+  "category": "Soft Toys",
+  "page": 26,
+  "box": [
+   518,
+   928,
+   762,
+   1057
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "",
+  "tags": "plush,kids,cartoon",
+  "desc": "Plush character pillow with photo back.",
+  "image": "assets/products/PLS-06.webp"
+ },
+ {
+  "id": "CUR-01",
+  "name": "Photo Curtain 4 x 7 ft",
+  "category": "Home Decor",
+  "page": 27,
+  "box": [
+   13,
+   198,
+   372,
+   672
+  ],
+  "price": 1499,
+  "mrp": 1899,
+  "size": "4 x 7 ft",
+  "tags": "curtain,home,diwali,premium",
+  "desc": "Printed photo curtain with quote.",
+  "image": "assets/products/CUR-01.webp"
+ },
+ {
+  "id": "TSH-06",
+  "name": "Collar T-Shirt \u2013 Photo/Logo",
+  "category": "Apparel",
+  "page": 27,
+  "box": [
+   368,
+   318,
+   612,
+   597
+  ],
+  "price": 499,
+  "mrp": 599,
+  "size": "34\u201344",
+  "tags": "polo,corporate",
+  "desc": "Polo tee with logo or photo print.",
+  "image": "assets/products/TSH-06.webp"
+ },
+ {
+  "id": "SSH-01",
+  "name": "Satin Sash \u2013 Bride To Be",
+  "category": "Party",
+  "page": 28,
+  "box": [
+   18,
+   198,
+   212,
+   640
+  ],
+  "price": 199,
+  "mrp": 249,
+  "size": "",
+  "tags": "sash,wedding,bachelorette",
+  "desc": "Custom text satin sash, white.",
+  "image": "assets/products/SSH-01.webp"
+ },
+ {
+  "id": "SSH-02",
+  "name": "Satin Sash \u2013 Birthday / Princess",
+  "category": "Party",
+  "page": 28,
+  "box": [
+   228,
+   292,
+   617,
+   457
+  ],
+  "price": 199,
+  "mrp": 249,
+  "size": "",
+  "tags": "sash,birthday",
+  "desc": "Custom text satin sash in blue or pink.",
+  "image": "assets/products/SSH-02.webp"
+ },
+ {
+  "id": "SQP-01",
+  "name": "Sequin Pouch 4 x 7",
+  "category": "Accessories",
+  "page": 28,
+  "box": [
+   8,
+   618,
+   767,
+   872
+  ],
+  "price": 199,
+  "mrp": 249,
+  "size": "4 x 7 inch",
+  "tags": "sequin,pouch,return-gift",
+  "desc": "Reversible sequin zip pouch, 6 colours.",
+  "image": "assets/products/SQP-01.webp"
+ },
+ {
+  "id": "RK-01",
+  "name": "Photo Rakhi \u2013 Floral",
+  "category": "Festive",
+  "page": 29,
+  "box": [
+   23,
+   318,
+   342,
+   537
+  ],
+  "price": 149,
+  "mrp": 199,
+  "size": "",
+  "tags": "rakhi,rakshabandhan",
+  "desc": "Personalised photo rakhi.",
+  "image": "assets/products/RK-01.webp"
+ },
+ {
+  "id": "RK-02",
+  "name": "Photo Rakhi \u2013 Kundan Oval",
+  "category": "Festive",
+  "page": 29,
+  "box": [
+   363,
+   283,
+   762,
+   512
+  ],
+  "price": 199,
+  "mrp": 249,
+  "size": "",
+  "tags": "rakhi,rakshabandhan",
+  "desc": "Personalised photo rakhi.",
+  "image": "assets/products/RK-02.webp"
+ },
+ {
+  "id": "RK-03",
+  "name": "Photo Rakhi \u2013 Sunburst",
+  "category": "Festive",
+  "page": 29,
+  "box": [
+   23,
+   543,
+   342,
+   727
+  ],
+  "price": 149,
+  "mrp": 199,
+  "size": "",
+  "tags": "rakhi,rakshabandhan",
+  "desc": "Personalised photo rakhi.",
+  "image": "assets/products/RK-03.webp"
+ },
+ {
+  "id": "RK-04",
+  "name": "Photo Rakhi \u2013 Square Kundan",
+  "category": "Festive",
+  "page": 29,
+  "box": [
+   363,
+   518,
+   762,
+   727
+  ],
+  "price": 199,
+  "mrp": 249,
+  "size": "",
+  "tags": "rakhi,rakshabandhan",
+  "desc": "Personalised photo rakhi.",
+  "image": "assets/products/RK-04.webp"
+ },
+ {
+  "id": "RK-05",
+  "name": "Photo Rakhi \u2013 BRO",
+  "category": "Festive",
+  "page": 29,
+  "box": [
+   23,
+   723,
+   342,
+   942
+  ],
+  "price": 149,
+  "mrp": 199,
+  "size": "",
+  "tags": "rakhi,rakshabandhan",
+  "desc": "Personalised photo rakhi.",
+  "image": "assets/products/RK-05.webp"
+ },
+ {
+  "id": "RK-06",
+  "name": "Photo Rakhi \u2013 Royal Round",
+  "category": "Festive",
+  "page": 29,
+  "box": [
+   363,
+   713,
+   762,
+   942
+  ],
+  "price": 199,
+  "mrp": 249,
+  "size": "",
+  "tags": "rakhi,rakshabandhan",
+  "desc": "Personalised photo rakhi.",
+  "image": "assets/products/RK-06.webp"
+ },
+ {
+  "id": "CLP-01",
+  "name": "LED Photo Clips String Light",
+  "category": "Home Decor",
+  "page": 30,
+  "box": [
+   13,
+   245,
+   367,
+   602
+  ],
+  "price": 499,
+  "mrp": 649,
+  "size": "10 / 20 clips",
+  "tags": "led,string,diwali,decor,bestseller",
+  "desc": "Warm LED string with photo clips. 10 or 20 clips.",
+  "image": "assets/products/CLP-01.webp"
+ },
+ {
+  "id": "MSK-01",
+  "name": "Custom Mask \u2013 Dri-fit Single Layer",
+  "category": "Apparel",
+  "page": 30,
+  "box": [
+   5,
+   723,
+   262,
+   872
+  ],
+  "price": 99,
+  "mrp": 129,
+  "size": "4.5 x 8 inch",
+  "tags": "mask",
+  "desc": "Printed dri-fit mask with black border.",
+  "image": "assets/products/MSK-01.webp"
+ },
+ {
+  "id": "MSK-02",
+  "name": "Custom Mask \u2013 Lycra Single Layer",
+  "category": "Apparel",
+  "page": 30,
+  "box": [
+   273,
+   653,
+   457,
+   917
+  ],
+  "price": 99,
+  "mrp": 129,
+  "size": "S / M / L",
+  "tags": "mask",
+  "desc": "Lycra printed mask in 3 sizes.",
+  "image": "assets/products/MSK-02.webp"
+ },
+ {
+  "id": "MSK-03",
+  "name": "Custom Mask \u2013 Double Layer Satin",
+  "category": "Apparel",
+  "page": 30,
+  "box": [
+   558,
+   743,
+   788,
+   877
+  ],
+  "price": 129,
+  "mrp": 159,
+  "size": "",
+  "tags": "mask",
+  "desc": "Satin front, velvet back double-layer mask.",
+  "image": "assets/products/MSK-03.webp"
+ },
+ {
+  "id": "BED-01",
+  "name": "Custom Bedsheet with Pillow Covers \u2013 Black",
+  "category": "Home Decor",
+  "page": 31,
+  "box": [
+   18,
+   293,
+   397,
+   657
+  ],
+  "price": 2499,
+  "mrp": 2999,
+  "size": "Double",
+  "tags": "bedsheet,home,wedding,premium",
+  "desc": "Printed double bedsheet with 2 pillow covers.",
+  "image": "assets/products/BED-01.webp"
+ },
+ {
+  "id": "BED-02",
+  "name": "Custom Bedsheet with Pillow Covers \u2013 Red Love",
+  "category": "Home Decor",
+  "page": 31,
+  "box": [
+   408,
+   293,
+   767,
+   632
+  ],
+  "price": 2499,
+  "mrp": 2999,
+  "size": "Double",
+  "tags": "bedsheet,home,wedding,premium",
+  "desc": "Printed double bedsheet with 2 pillow covers.",
+  "image": "assets/products/BED-02.webp"
+ },
+ {
+  "id": "BED-03",
+  "name": "Custom Bedsheet with Pillow Covers \u2013 Red Floral",
+  "category": "Home Decor",
+  "page": 31,
+  "box": [
+   18,
+   643,
+   397,
+   1002
+  ],
+  "price": 2499,
+  "mrp": 2999,
+  "size": "Double",
+  "tags": "bedsheet,home,premium",
+  "desc": "Printed double bedsheet with 2 pillow covers.",
+  "image": "assets/products/BED-03.webp"
+ },
+ {
+  "id": "BED-04",
+  "name": "Custom Bedsheet with Pillow Covers \u2013 Navy",
+  "category": "Home Decor",
+  "page": 31,
+  "box": [
+   408,
+   643,
+   767,
+   1002
+  ],
+  "price": 2499,
+  "mrp": 2999,
+  "size": "Double",
+  "tags": "bedsheet,home,premium",
+  "desc": "Printed double bedsheet with 2 pillow covers.",
+  "image": "assets/products/BED-04.webp"
+ },
+ {
+  "id": "TSH-07",
+  "name": "Couple T-Shirt Set",
+  "category": "Apparel",
+  "page": 32,
+  "box": [
+   8,
+   248,
+   257,
+   515
+  ],
+  "price": 799,
+  "mrp": 999,
+  "size": "XS\u2013XXL",
+  "tags": "couple,tshirt,set",
+  "desc": "Matching couple tees (set of 2).",
+  "image": "assets/products/TSH-07.webp"
+ },
+ {
+  "id": "TSH-08",
+  "name": "Group T-Shirts",
+  "category": "Apparel",
+  "page": 32,
+  "box": [
+   248,
+   248,
+   512,
+   515
+  ],
+  "price": 349,
+  "mrp": 449,
+  "size": "XS\u2013XXL",
+  "tags": "group,tshirt,event",
+  "desc": "Group / event tees. Bulk pricing on request.",
+  "image": "assets/products/TSH-08.webp"
+ },
+ {
+  "id": "TSH-09",
+  "name": "Family T-Shirt Set",
+  "category": "Apparel",
+  "page": 32,
+  "box": [
+   498,
+   248,
+   788,
+   515
+  ],
+  "price": 1299,
+  "mrp": 1599,
+  "size": "Kids & Adults",
+  "tags": "family,tshirt,set",
+  "desc": "Matching family tees (set of 4).",
+  "image": "assets/products/TSH-09.webp"
+ },
+ {
+  "id": "TSH-10",
+  "name": "Best Friends Forever Tees",
+  "category": "Apparel",
+  "page": 32,
+  "box": [
+   5,
+   608,
+   482,
+   1002
+  ],
+  "price": 349,
+  "mrp": 449,
+  "size": "XS\u2013XXL",
+  "tags": "friends,tshirt",
+  "desc": "BFF printed tees.",
+  "image": "assets/products/TSH-10.webp"
+ },
+ {
+  "id": "TSH-11",
+  "name": "Corporate Polo with Logo",
+  "category": "Apparel",
+  "page": 32,
+  "box": [
+   478,
+   573,
+   788,
+   892
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "34\u201344",
+  "tags": "corporate,polo,logo",
+  "desc": "Corporate polo with embroidered/printed logo and mask.",
+  "image": "assets/products/TSH-11.webp"
+ },
+ {
+  "id": "CVR-01",
+  "name": "Heart Photo Cushion \u2013 Red Hearts",
+  "category": "Pillows",
+  "page": 0,
+  "box": [
+   73,
+   268,
+   237,
+   407
+  ],
+  "price": 449,
+  "mrp": 549,
+  "size": "12 x 12 inch",
+  "tags": "cushion,valentine",
+  "desc": "Satin cushion with red hearts border.",
+  "image": "assets/products/CVR-01.webp"
+ },
+ {
+  "id": "CVR-02",
+  "name": "Best Sister Wooden Frame",
+  "category": "Frames",
+  "page": 0,
+  "box": [
+   253,
+   268,
+   417,
+   407
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "",
+  "tags": "sister,frame,rakhi",
+  "desc": "Wooden frame with 'Best Sister' cut-out.",
+  "image": "assets/products/CVR-02.webp"
+ },
+ {
+  "id": "CVR-03",
+  "name": "Love Clock Frame",
+  "category": "Wall Clocks",
+  "page": 0,
+  "box": [
+   563,
+   268,
+   727,
+   407
+  ],
+  "price": 849,
+  "mrp": 999,
+  "size": "",
+  "tags": "love,clock",
+  "desc": "LOVE letters frame with working clock.",
+  "image": "assets/products/CVR-03.webp"
+ },
+ {
+  "id": "CVR-04",
+  "name": "Family Wooden Frame",
+  "category": "Frames",
+  "page": 0,
+  "box": [
+   58,
+   428,
+   247,
+   572
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "",
+  "tags": "family,frame,diwali",
+  "desc": "Wooden frame with 'Family' cut-out.",
+  "image": "assets/products/CVR-04.webp"
+ },
+ {
+  "id": "CVR-05",
+  "name": "Slate Photo Stand",
+  "category": "Glass & Rock Frames",
+  "page": 0,
+  "box": [
+   263,
+   428,
+   402,
+   572
+  ],
+  "price": 549,
+  "mrp": 699,
+  "size": "",
+  "tags": "slate,stand",
+  "desc": "Slate photo plaque with stand.",
+  "image": "assets/products/CVR-05.webp"
+ }
+]

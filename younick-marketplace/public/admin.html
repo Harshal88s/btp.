@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Younick Gifts – Orders admin</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .admin { max-width: 1240px; margin-inline: auto; padding: 1.5rem max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: 1.2rem; }
+  .login { display: flex; gap: .6rem; flex-wrap: wrap; align-items: center; }
+  .login input { border: 1.5px solid var(--line); border-radius: 999px; padding: .55rem .9rem; background: var(--surface); }
+  table { width: 100%; border-collapse: collapse; font-size: .88rem; background: var(--surface); border-radius: 14px; overflow: hidden; }
+  th, td { text-align: left; padding: .55rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--surface-2); font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; }
+  td select { border: 1px solid var(--line); border-radius: 8px; padding: .3rem; background: var(--surface); }
+  .tbl { overflow-x: auto; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .8rem; }
+  .kpi { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: .9rem 1rem; }
+  .kpi strong { display: block; font-family: var(--font-display); font-size: 1.5rem; }
+  .photo-links a { display: inline-block; margin-right: .4rem; }
+</style></head>
+<body>
+<div class="admin">
+  <div class="section-head"><div><p class="eyebrow">Younick Gifts</p><h2>Orders & feedback admin</h2></div><a class="btn btn-ghost" href="/">← Storefront</a></div>
+  <div class="login"><input id="token" type="password" placeholder="Admin token" aria-label="Admin token"><button class="btn btn-primary" id="load">Load orders</button><a class="btn btn-ghost" id="dl" href="#" hidden>Download orders.xlsx</a><span class="tiny">Default token is <code>younick-admin</code>; set ADMIN_TOKEN when starting the server to change it.</span></div>
+  <div class="kpis" id="kpis"></div>
+  <div class="tbl"><table id="orders"><thead><tr><th>Order</th><th>Customer</th><th>Items</th><th>Delivery</th><th>Total / Advance</th><th>Payment ref</th><th>Status</th></tr></thead><tbody></tbody></table></div>
+  <h3>Pending feedback</h3>
+  <div id="pending" class="tiny">Load orders first.</div>
+</div>
+<script>
+  const $ = (s) => document.querySelector(s); const inr = (n) => "₹" + Math.round(n).toLocaleString("en-IN");
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const STATUSES = ["Awaiting payment confirmation", "Advance received", "In production", "Ready for pickup", "Out for delivery", "Shipped (courier)", "Delivered", "Cancelled"];
+  const hdr = () => ({ "x-admin-token": $("#token").value.trim(), "Content-Type": "application/json" });
+  try { $("#token").value = localStorage.getItem("yn.admin") || ""; } catch {}
+  async function load() {
+    try { localStorage.setItem("yn.admin", $("#token").value.trim()); } catch {}
+    const r = await fetch("/api/orders", { headers: hdr() }); const d = await r.json();
+    if (!d.ok) { alert((d.errors || ["Error"]).join(", ")); return; }
+    $("#dl").hidden = false; $("#dl").href = "/api/orders.xlsx?token=" + encodeURIComponent($("#token").value.trim());
+    const o = d.orders; const rev = o.reduce((a, x) => a + x.totals.grand, 0), adv = o.reduce((a, x) => a + x.payment.advance, 0);
+    $("#kpis").innerHTML = `<div class="kpi"><span class="tiny">Orders</span><strong>${o.length}</strong></div><div class="kpi"><span class="tiny">Order value</span><strong>${inr(rev)}</strong></div><div class="kpi"><span class="tiny">Advance expected</span><strong>${inr(adv)}</strong></div><div class="kpi"><span class="tiny">Open orders</span><strong>${o.filter((x) => !/Delivered|Cancelled/.test(x.status)).length}</strong></div>`;
+    $("#orders tbody").innerHTML = o.map((x) => `<tr><td><strong>${esc(x.id)}</strong><br><span class="tiny">${new Date(x.createdAt).toLocaleString("en-IN")}</span></td>
+      <td>${esc(x.customer.name)}<br><span class="tiny">${esc(x.customer.phone)}${x.customer.email ? " · " + esc(x.customer.email) : ""}<br>${esc(x.customer.address)}, ${esc(x.customer.city)} ${esc(x.customer.pincode)}</span>${x.notes ? `<br><span class="tiny">Note: ${esc(x.notes)}</span>` : ""}</td>
+      <td>${x.items.map((it) => `${esc(it.name)} × ${it.qty}${it.note ? `<br><span class="tiny">✎ ${esc(it.note)}</span>` : ""}${it.photos.length ? `<br><span class="photo-links tiny">${it.photos.map((p, i) => `<a href="/${p}?token=${encodeURIComponent($("#token").value.trim())}" target="_blank">photo ${i + 1}</a>`).join("")}</span>` : ""}`).join("<br>")}</td>
+      <td>${esc(x.delivery.label)}<br><span class="tiny">${inr(x.delivery.charge)} · ${esc(x.delivery.eta)}</span></td>
+      <td>${inr(x.totals.grand)}<br><span class="tiny">adv ${inr(x.payment.advance)} · bal ${inr(x.payment.balance)}${x.promoCode ? " · " + esc(x.promoCode) : ""}</span></td>
+      <td>${esc(x.payment.reference) || "<span class='tiny'>—</span>"}</td>
+      <td><select data-id="${esc(x.id)}">${STATUSES.map((s) => `<option ${s === x.status ? "selected" : ""}>${s}</option>`).join("")}</select></td></tr>`).join("") || `<tr><td colspan="7" class="tiny">No orders yet.</td></tr>`;
+    const f = await (await fetch("/api/feedback/pending", { headers: hdr() })).json();
+    const pend = (f.feedback || []).map((x, i) => ({ ...x, i })).filter((x) => !x.approved);
+    $("#pending").innerHTML = pend.length ? pend.map((x) => `<div class="order-row"><strong>${esc(x.name)}</strong> (${esc(x.city)}) ${"★".repeat(x.rating)}<br>${esc(x.text)}<br><button class="btn btn-ghost" data-approve="${x.i}" style="margin-top:.4rem">Approve & publish</button></div>`).join("") : "No pending feedback.";
+  }
+  $("#load").addEventListener("click", load);
+  document.addEventListener("change", async (e) => { const s = e.target.closest("select[data-id]"); if (!s) return; await fetch("/api/orders/" + s.dataset.id, { method: "PATCH", headers: hdr(), body: JSON.stringify({ status: s.value }) }); });
+  document.addEventListener("click", async (e) => { const b = e.target.closest("[data-approve]"); if (!b) return; await fetch("/api/feedback/" + b.dataset.approve, { method: "PATCH", headers: hdr(), body: JSON.stringify({ approved: true }) }); load(); });
+</script>
+</body></html>

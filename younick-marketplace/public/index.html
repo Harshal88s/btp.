@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Younick Gifts</title>
+<meta name="description" content="Younick Gifts by Pari's Play Store, Nashik. Personalised photo gifts, mugs, pillows, lamps, frames and corporate gifting. Order online, pay a small advance, get it delivered.">
+<meta name="theme-color" content="#7c3aed">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- YN:BODY:START -->
+<div id="app" class="app">
+
+  <div class="announce" id="announce" hidden>
+    <div class="announce-track" id="announceTrack"></div>
+  </div>
+
+  <header class="topbar" id="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top" aria-label="Younick Gifts home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="40" height="40"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset=".55" stop-color="#ec4899"/><stop offset="1" stop-color="#f97316"/></linearGradient></defs><rect x="4" y="12" width="40" height="30" rx="7" fill="url(#lg)"/><rect x="4" y="12" width="40" height="9" rx="4" fill="#fff" opacity=".22"/><path d="M24 12v30" stroke="#fff" stroke-width="3" opacity=".85"/><path d="M14 12c0-6 10-7 10 0 0-7 10-6 10 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+        </span>
+        <span class="brand-text"><strong id="brandName">Younick Gifts</strong><small id="brandBy">by Pari's Play Store</small></span>
+      </a>
+      <nav class="mainnav" aria-label="Sections">
+        <a href="#picks">Season picks</a>
+        <a href="#shop">Shop</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#how">How it works</a>
+        <a href="#founder">About</a>
+      </nav>
+      <div class="search" role="search">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="searchInput" type="search" placeholder="Search mugs, pillows, lamps, keychains…" autocomplete="off" aria-label="Search products">
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Switch theme" title="Light / dark">
+          <svg class="sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></g></svg>
+          <svg class="moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="currentColor"/></svg>
+        </button>
+        <button class="icon-btn" id="ordersBtn" aria-label="My orders" title="My orders">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 3h12l1 4H5l1-4Zm-1 4h14v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 11a3 3 0 0 0 6 0" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </button>
+        <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.5L21 8H7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="20" r="1.5" fill="currentColor"/><circle cx="17" cy="20" r="1.5" fill="currentColor"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===================== HERO / SEASON SLIDESHOW ===================== -->
+    <section class="hero" id="hero" aria-label="Seasonal highlights">
+      <canvas id="heroParticles" class="hero-particles" aria-hidden="true"></canvas>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <span class="season-badge" id="seasonBadge"><span class="season-emoji" id="seasonEmoji">🪔</span><span id="seasonBadgeText">Diwali Special</span></span>
+          <h1 id="heroHeadline" class="hero-title">Light up every home with a gift that is truly theirs</h1>
+          <p id="heroSubline" class="hero-sub">Photo lamps, LED pillows, metallic mugs and corporate hampers printed in Nashik and delivered in 48 hours.</p>
+          <div class="hero-cta">
+            <a href="#picks" class="btn btn-primary btn-lg">Shop season picks</a>
+            <a href="#shop" class="btn btn-ghost btn-lg">Browse all gifts</a>
+          </div>
+          <div class="promo-chip" id="promoChip" hidden>
+            <span>Use code</span><code id="promoCode">DIWALI15</code><span id="promoText">for 15% off</span>
+            <button class="chip-copy" id="promoCopy" type="button">Copy</button>
+          </div>
+          <ul class="hero-trust" aria-label="Why Younick">
+            <li><strong id="statYears">9+</strong><span>years in Nashik</span></li>
+            <li><strong id="statProducts">250+</strong><span>gift designs</span></li>
+            <li><strong id="statCustomers">12,000+</strong><span>happy customers</span></li>
+          </ul>
+        </div>
+        <div class="hero-stage">
+          <div class="slides" id="heroSlides" aria-live="polite"></div>
+          <div class="slide-dots" id="heroDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CATEGORY STRIP ===================== -->
+    <section class="cats wrap" aria-label="Categories">
+      <div class="cats-scroll" id="catChips"></div>
+    </section>
+
+    <!-- ===================== SEASON PICKS ===================== -->
+    <section class="picks reveal" id="picks">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow" id="picksEyebrow">Diwali picks</p>
+            <h2 id="picksTitle">Gifts that glow this season</h2>
+          </div>
+          <div class="scroll-ctl"><button class="icon-btn" data-scroll="-1" aria-label="Scroll left">‹</button><button class="icon-btn" data-scroll="1" aria-label="Scroll right">›</button></div>
+        </div>
+        <div class="picks-row" id="picksRow"></div>
+      </div>
+    </section>
+
+    <!-- ===================== SHOP GRID ===================== -->
+    <section class="shop reveal" id="shop">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Marketplace</p>
+            <h2>Every gift, ready to personalise</h2>
+          </div>
+          <div class="toolbar">
+            <label class="select"><span>Sort</span>
+              <select id="sortSelect">
+                <option value="featured">Featured</option>
+                <option value="price-asc">Price: low to high</option>
+                <option value="price-desc">Price: high to low</option>
+                <option value="name">Name A–Z</option>
+              </select>
+            </label>
+            <label class="toggle"><input type="checkbox" id="seasonOnly"><span id="seasonOnlyLabel">Diwali only</span></label>
+          </div>
+        </div>
+        <p class="result-count" id="resultCount"></p>
+        <div class="grid" id="productGrid"></div>
+        <div class="empty" id="gridEmpty" hidden>
+          <p>No gifts match that search. Try “mug”, “pillow”, “lamp” or clear the filters.</p>
+          <button class="btn btn-ghost" id="clearFilters" type="button">Clear filters</button>
+        </div>
+        <div class="grid-more"><button class="btn btn-ghost" id="loadMore" type="button" hidden>Show more gifts</button></div>
+      </div>
+    </section>
+
+    <!-- ===================== DELIVERY STRIP ===================== -->
+    <section class="delivery-strip reveal" aria-label="Delivery options">
+      <div class="wrap delivery-cards" id="deliveryCards"></div>
+    </section>
+
+    <!-- ===================== REVIEWS SLIDESHOW ===================== -->
+    <section class="reviews reveal" id="reviews">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Customer love</p>
+            <h2>What Nashik says about us</h2>
+          </div>
+          <button class="btn btn-ghost" id="feedbackOpen" type="button">Share your experience</button>
+        </div>
+        <div class="review-stage">
+          <div class="review-track" id="reviewTrack"></div>
+          <div class="review-dots" id="reviewDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOW IT WORKS ===================== -->
+    <section class="how reveal" id="how">
+      <div class="wrap">
+        <div class="section-head"><div><p class="eyebrow">Simple ordering</p><h2>From photo to gift in four steps</h2></div></div>
+        <ol class="steps">
+          <li><span class="step-ic">🖼️</span><h3>Pick & personalise</h3><p>Choose a gift, add names, quotes and upload the photos you want printed.</p></li>
+          <li><span class="step-ic">📱</span><h3>Pay a small advance</h3><p>Scan the UPI QR for the token amount (<span id="advanceRule">20%, min ₹200</span>). The balance is due before dispatch.</p></li>
+          <li><span class="step-ic">🖨️</span><h3>We print in Nashik</h3><p>Our team checks your photos, prints and packs within 24–48 hours.</p></li>
+          <li><span class="step-ic">🛵</span><h3>Delivered your way</h3><p>Store pickup, Delivery Express in the city or Courier Express across India.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== FOUNDER ===================== -->
+    <section class="founder reveal" id="founder">
+      <div class="wrap founder-inner">
+        <div class="founder-card">
+          <div class="founder-avatar" aria-hidden="true"><span id="founderInitials">RN</span></div>
+          <div>
+            <p class="eyebrow">Meet the founder</p>
+            <h2 id="founderName">Ritesh Navandar</h2>
+            <p class="founder-title" id="founderTitle">Founder, Younick Gifts by Pari's Play Store</p>
+            <blockquote id="founderQuote">Every gift leaves our shop with a story on it. We print memories, not just products.</blockquote>
+          </div>
+        </div>
+        <div class="store-card">
+          <h3>Visit the store</h3>
+          <p id="storeAddress">Ishwar Sankul-A, Opp. Om Hospital, Gaikwad Mala<br>Nasik Road, Nashik - 422101</p>
+          <p class="store-hours" id="storeHours"></p>
+          <div class="contact-rows">
+            <div><span>Phone / WhatsApp</span><strong id="storePhone">9421356600</strong><button class="chip-copy" data-copy="#storePhone" type="button">Copy</button></div>
+            <div><span>Email</span><strong id="storeEmail">younickgifts@gmail.com</strong><button class="chip-copy" data-copy="#storeEmail" type="button">Copy</button></div>
+            <div><span>Instagram</span><strong id="storeInsta">@younick_gifts</strong></div>
+          </div>
+          <div class="store-links">
+            <a class="btn btn-primary" id="waLink" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a>
+            <a class="btn btn-ghost" id="mapLink" href="#" target="_blank" rel="noopener">Open in Maps</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services reveal" aria-label="Services">
+      <div class="wrap">
+        <div class="section-head"><div><p class="eyebrow">Services</p><h2>Everything we print</h2></div></div>
+        <div class="service-grid">
+          <div><h3>T-shirt printing</h3><p>Photo, name, couple, family, group, theme and corporate tees.</p></div>
+          <div><h3>Mug & sipper printing</h3><p>Birthday and return gifts, corporate logos, magic mugs.</p></div>
+          <div><h3>Mobile covers & stands</h3><p>Any phone model, printed with your photo.</p></div>
+          <div><h3>Pillows for every occasion</h3><p>Fur, LED, sequin, cartoon and couple pillows.</p></div>
+          <div><h3>Frames & wall clocks</h3><p>Wooden, MDF, glass and rock frames, laser-cut designs.</p></div>
+          <div><h3>Corporate & bulk gifting</h3><p>Diaries, coasters, badges, bottles with your branding. Up to 1000 pieces per line.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>
+        <strong id="footBrand">Younick Gifts by Pari's Play Store</strong>
+        <p id="footTag">The ultimate toys & personalised gifts shop, Nashik.</p>
+      </div>
+      <ul class="footer-terms">
+        <li>All prices exclusive of GST</li>
+        <li>Advance confirms the order; balance before dispatch</li>
+        <li>Prices as per the live catalogue; subject to change</li>
+        <li>Subject to Nashik jurisdiction</li>
+      </ul>
+      <p class="footer-note"><span id="footYear"></span> Younick Gifts · Live catalogue version <span id="catalogVersion">–</span> · <span id="modeLabel"></span></p>
+    </div>
+  </footer>
+
+  <!-- ===================== OVERLAYS ===================== -->
+  <div class="drawer-backdrop" id="backdrop" hidden></div>
+
+  <aside class="drawer" id="cartDrawer" aria-label="Shopping cart" hidden>
+    <div class="drawer-head"><h2>Your cart</h2><button class="icon-btn" data-close="cart" aria-label="Close cart">✕</button></div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-foot">
+      <div class="promo-row"><input id="promoInput" placeholder="Promo code" aria-label="Promo code"><button class="btn btn-ghost" id="promoApply" type="button">Apply</button></div>
+      <p class="promo-msg" id="promoMsg"></p>
+      <div class="totals">
+        <div><span>Subtotal</span><strong id="cartSubtotal">₹0</strong></div>
+        <div class="discount-row" id="discountRow" hidden><span>Discount</span><strong id="cartDiscount">−₹0</strong></div>
+      </div>
+      <button class="btn btn-primary btn-lg btn-block" id="checkoutBtn" type="button">Place order</button>
+      <p class="tiny" id="cartHint">Pay only a small advance now. Max 1000 pieces per product.</p>
+    </div>
+  </aside>
+
+  <div class="modal" id="productModal" hidden role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+    <div class="modal-card product-card-modal">
+      <button class="icon-btn modal-close" data-close="product" aria-label="Close">✕</button>
+      <div class="pm-media"><img id="pmImage" alt=""><span class="pm-badge" id="pmBadge" hidden></span></div>
+      <div class="pm-body">
+        <p class="eyebrow" id="pmCat"></p>
+        <h2 id="pmTitle"></h2>
+        <p class="pm-id"><span id="pmId"></span> · <span id="pmSize"></span></p>
+        <p class="pm-price"><strong id="pmPrice"></strong><s id="pmMrp"></s><em id="pmOff"></em></p>
+        <p class="pm-desc" id="pmDesc"></p>
+        <label class="field"><span>Personalisation (names, quote, colour, size…)</span><textarea id="pmNote" rows="2" maxlength="500" placeholder="e.g. Print 'Happy Diwali Aai-Baba' on the front, gold handle"></textarea></label>
+        <label class="field file-field"><span>Photos to print (up to 6)</span><input type="file" id="pmPhotos" accept="image/*" multiple><div class="thumbs" id="pmThumbs"></div></label>
+        <div class="qty-row">
+          <div class="qty" role="group" aria-label="Quantity">
+            <button type="button" data-q="-1" aria-label="Decrease">−</button>
+            <input id="pmQty" type="number" min="1" value="1" inputmode="numeric">
+            <button type="button" data-q="1" aria-label="Increase">+</button>
+          </div>
+          <span class="tiny" id="pmMax">Max 1000 pieces</span>
+        </div>
+        <div class="pm-actions">
+          <button class="btn btn-primary btn-lg" id="pmAdd" type="button">Add to cart</button>
+          <button class="btn btn-ghost btn-lg" id="pmBuy" type="button">Buy now</button>
+        </div>
+        <p class="tiny pm-stock" id="pmStock"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="checkoutModal" hidden role="dialog" aria-modal="true" aria-labelledby="coTitle">
+    <div class="modal-card checkout-card">
+      <button class="icon-btn modal-close" data-close="checkout" aria-label="Close">✕</button>
+      <h2 id="coTitle">Checkout</h2>
+      <ol class="stepper" id="stepper"><li class="on">Details</li><li>Delivery</li><li>Review</li><li>Pay advance</li><li>Done</li></ol>
+
+      <form class="co-step" id="step1" autocomplete="on">
+        <div class="form-grid">
+          <label class="field"><span>Full name *</span><input id="cName" required maxlength="80" placeholder="Sagar Bamb"></label>
+          <label class="field"><span>Mobile (10 digits) *</span><input id="cPhone" required inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" placeholder="9421356600"></label>
+          <label class="field"><span>Email</span><input id="cEmail" type="email" maxlength="100" placeholder="you@example.com"></label>
+          <label class="field"><span>PIN code *</span><input id="cPin" required inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="422101"></label>
+          <label class="field span2"><span>Address *</span><input id="cAddress" required maxlength="200" placeholder="Flat / street / landmark"></label>
+          <label class="field"><span>City *</span><input id="cCity" required maxlength="60" placeholder="Nashik"></label>
+          <label class="field"><span>Notes for the shop</span><input id="cNotes" maxlength="300" placeholder="Gift wrap, delivery time, anything else"></label>
+        </div>
+        <div class="co-actions"><button class="btn btn-primary btn-lg" type="submit">Continue to delivery</button></div>
+      </form>
+
+      <div class="co-step" id="step2" hidden>
+        <div class="delivery-options" id="deliveryOptions"></div>
+        <div class="co-actions"><button class="btn btn-ghost" type="button" data-step="1">Back</button><button class="btn btn-primary btn-lg" type="button" id="toReview">Review order</button></div>
+      </div>
+
+      <div class="co-step" id="step3" hidden>
+        <div class="review-box" id="reviewBox"></div>
+        <div class="co-actions"><button class="btn btn-ghost" type="button" data-step="2">Back</button><button class="btn btn-primary btn-lg" type="button" id="toPay">Pay advance</button></div>
+      </div>
+
+      <div class="co-step" id="step4" hidden>
+        <div class="pay-grid">
+          <div class="qr-box">
+            <img id="qrImage" src="assets/payment-qr.png" alt="UPI payment QR code">
+            <p class="tiny">Scan with any UPI app (GPay, PhonePe, Paytm, BHIM)</p>
+          </div>
+          <div class="pay-info">
+            <p class="pay-amount">Advance to pay now <strong id="payAdvance">₹0</strong></p>
+            <p class="tiny">Order total <strong id="payTotal">₹0</strong> · balance <strong id="payBalance">₹0</strong> before dispatch</p>
+            <div class="upi-row"><span>UPI ID</span><code id="upiId">younickgifts@upi</code><button class="chip-copy" data-copy="#upiId" type="button">Copy</button></div>
+            <a class="btn btn-ghost" id="upiLink" href="#" target="_blank" rel="noopener">Open UPI app</a>
+            <label class="field"><span>UPI transaction ID / UTR (optional)</span><input id="payRef" maxlength="60" placeholder="e.g. 4267xxxxxxx1"></label>
+            <p class="tiny">The shop verifies the advance and messages you on WhatsApp. No card details are collected on this site.</p>
+          </div>
+        </div>
+        <div class="co-actions"><button class="btn btn-ghost" type="button" data-step="3">Back</button><button class="btn btn-primary btn-lg" type="button" id="confirmOrder">I have paid · Confirm order</button></div>
+        <p class="form-error" id="orderError" hidden></p>
+      </div>
+
+      <div class="co-step" id="step5" hidden>
+        <div class="success" id="successBox"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="feedbackModal" hidden role="dialog" aria-modal="true" aria-labelledby="fbTitle">
+    <div class="modal-card small">
+      <button class="icon-btn modal-close" data-close="feedback" aria-label="Close">✕</button>
+      <h2 id="fbTitle">Share your experience</h2>
+      <form id="feedbackForm">
+        <div class="form-grid">
+          <label class="field"><span>Your name *</span><input id="fbName" required maxlength="60"></label>
+          <label class="field"><span>City</span><input id="fbCity" maxlength="40"></label>
+          <label class="field span2"><span>Rating</span><div class="stars" id="fbStars" role="radiogroup"><button type="button" data-r="1">★</button><button type="button" data-r="2">★</button><button type="button" data-r="3">★</button><button type="button" data-r="4">★</button><button type="button" data-r="5" class="on">★</button></div></label>
+          <label class="field span2"><span>What did you order and how was it? *</span><textarea id="fbText" rows="3" required maxlength="400"></textarea></label>
+        </div>
+        <div class="co-actions"><button class="btn btn-primary" type="submit">Send feedback</button></div>
+        <p class="tiny" id="fbMsg"></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="ordersModal" hidden role="dialog" aria-modal="true" aria-labelledby="omTitle">
+    <div class="modal-card small">
+      <button class="icon-btn modal-close" data-close="orders" aria-label="Close">✕</button>
+      <h2 id="omTitle">My orders on this device</h2>
+      <div id="ordersList"></div>
+    </div>
+  </div>
+
+  <div class="toast-stack" id="toasts" aria-live="polite"></div>
+  <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+</div>
+<!-- YN:BODY:END -->
+<script src="js/app.js"></script>
+</body>
+</html>
