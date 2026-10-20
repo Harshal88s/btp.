@@ -1,0 +1,36 @@
+# Rebuilds the static Younick Gifts site from the catalogue workbook and publishes it to GitHub Pages.
+# Runs on every push that touches the site, hourly (so a Google Sheet edit reaches the live site within an hour),
+# and on demand. To use a Google Sheet, add a repository secret YOUNICK_SHEET_URL with the sheet's xlsx export link.
+name: Publish Younick Gifts site
+on:
+  push:
+    paths: ["younick-marketplace/**"]
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency: { group: pages, cancel-in-progress: true }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: younick-marketplace } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: younick-marketplace/package-lock.json }
+      - run: npm ci
+      - run: npm run build
+        env:
+          YOUNICK_SHEET_URL: ${{ secrets.YOUNICK_SHEET_URL }}
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: younick-marketplace/dist }
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: { name: github-pages, url: ${{ steps.deployment.outputs.page_url }} }
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

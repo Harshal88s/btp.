@@ -1,5 +1,5 @@
 [
-  {"Method":"pickup","Label":"Store pickup - Nasik Road","Charge":0,"ETA":"Ready in 24-48 hrs","Description":"Collect from Ishwar Sankul-A, Opp. Om Hospital, Gaikwad Mala. We message you when it is ready.","Enabled":"YES"},
-  {"Method":"express","Label":"Delivery Express (Nashik city)","Charge":49,"ETA":"Same day / next day","Description":"Our own rider delivers inside Nashik city limits. Free on orders above Rs 999.","Enabled":"YES"},
-  {"Method":"courier","Label":"Courier Express (all India)","Charge":99,"ETA":"3-6 working days","Description":"Tracked courier anywhere in India. Fragile items are bubble-wrapped and boxed.","Enabled":"YES"}
+  {"Method":"pickup","Label":"Store pickup","Charge":0,"ETA":"Ready in 24-48 hrs","Description":"Collect from our store once we message you that it is ready.","Enabled":"YES"},
+  {"Method":"express","Label":"Local Express Delivery","Charge":49,"ETA":"Same day / next day","Description":"Our own rider delivers within the store's city. Free on orders above Rs 999.","Enabled":"YES"},
+  {"Method":"courier","Label":"Courier Express (all India)","Charge":99,"ETA":"3-6 working days","Description":"Tracked courier anywhere in India. Fragile items are bubble-wrapped and boxed; tracking shared on dispatch.","Enabled":"YES"}
 ]

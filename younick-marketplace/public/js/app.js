@@ -108,21 +108,20 @@
     $("#footYear").textContent = `© ${new Date().getFullYear()}`;
     $("#catalogVersion").textContent = c.version;
     $("#modeLabel").textContent = state.mode === "server" ? "live-linked to Excel" : "preview build (static catalogue)";
-    $("#statYears").textContent = s.stat_years || ""; $("#statProducts").textContent = s.stat_products || `${c.products.length}+`; $("#statCustomers").textContent = s.stat_customers || "";
+    $("#statProducts").textContent = String(c.products.length);
+    $("#statYearsLi").hidden = !s.stat_years; $("#statYears").textContent = s.stat_years || "";
+    $("#statCustomersLi").hidden = !s.stat_customers; $("#statCustomers").textContent = s.stat_customers || "";
     $("#founderName").textContent = s.founder_name || ""; $("#founderTitle").textContent = s.founder_title || ""; $("#founderQuote").textContent = s.founder_quote || "";
     $("#founderInitials").textContent = (s.founder_name || "YN").split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase();
-    $("#storeAddress").innerHTML = `${esc(s.address_line1)}<br>${esc(s.address_line2)}`;
-    $("#storeHours").textContent = s.store_hours || "";
-    $("#storePhone").textContent = s.phone || ""; $("#storeEmail").textContent = s.email || ""; $("#storeInsta").textContent = s.instagram ? "@" + s.instagram : "";
-    $("#waLink").href = `https://wa.me/${s.whatsapp || ""}?text=${encodeURIComponent("Hi Younick Gifts, I want to order a personalised gift.")}`;
-    $("#mapLink").href = s.maps_url || "#";
-    $("#upiId").textContent = s.upi_id || ""; $("#qrImage").src = s.qr_image || "assets/payment-qr.png";
+    $("#trustProd").textContent = s.production_time || "24–48 hours";
+    $("#qrImage").src = s.qr_image || "assets/payment-qr.png";
     $("#advanceRule").textContent = `${s.advance_percent || 20}%, min ${inr(s.advance_min || 200)}`;
+    renderContact(); renderSeo();
 
     // season theming
     if (se) {
       root.style.setProperty("--sa", se.colorA); root.style.setProperty("--sb", se.colorB); root.style.setProperty("--s-dark", se.colorDark);
-      $("#seasonEmoji").textContent = se.emoji || "🎁"; $("#seasonBadgeText").textContent = se.badge || se.name;
+      $("#seasonEmoji").textContent = se.emoji || "🎁"; $("#mbEmoji").textContent = se.emoji || "🎁"; $("#seasonBadgeText").textContent = se.badge || se.name;
       $("#heroHeadline").innerHTML = glowLastWords(se.headline || "Gifts that are truly theirs");
       $("#heroSubline").textContent = se.subline || "";
       $("#picksEyebrow").textContent = `${se.name} picks`; $("#picksTitle").textContent = pickTitle(se);
@@ -136,6 +135,48 @@
     if (ann) { annEl.hidden = false; const items = Array(6).fill(`<span>${esc(ann)} ✦</span>`).join(""); $("#announceTrack").innerHTML = items; } else annEl.hidden = true;
 
     renderHero(); renderChips(); renderPicks(); renderGrid(changed); renderDelivery(); renderReviews(); renderCart();
+  }
+  const todo = (label) => `<span class="todo">${esc(label)} to be added</span>`;
+  const mailto = (subject, body) => `mailto:${state.catalog.settings.email || ""}?subject=${encodeURIComponent(subject)}${body ? "&body=" + encodeURIComponent(body) : ""}`;
+  function renderContact() {
+    const s = state.catalog.settings, setup = state.catalog.setup || [];
+    $("#storeAddress").innerHTML = s.address_line1 || s.address_line2 ? `${esc(s.address_line1)}${s.address_line2 ? "<br>" + esc(s.address_line2) : ""}` : todo("Store address");
+    $("#storeHours").innerHTML = s.store_hours ? esc(s.store_hours) : todo("Store hours");
+    const rows = [
+      ["Email", s.email ? `<strong id="storeEmail">${esc(s.email)}</strong><button class="chip-copy" data-copy="#storeEmail" type="button">Copy</button>` : todo("Email")],
+      ["Phone", s.phone ? `<strong id="storePhone">${esc(s.phone)}</strong><button class="chip-copy" data-copy="#storePhone" type="button">Copy</button>` : todo("Phone number")],
+      ["WhatsApp", s.whatsapp ? `<strong>+${esc(s.whatsapp)}</strong>` : todo("WhatsApp number")],
+      ["Instagram", s.instagram ? `<strong>@${esc(s.instagram)}</strong>` : todo("Instagram handle")],
+      ["Facebook", s.facebook ? `<strong>${esc(s.facebook)}</strong>` : todo("Facebook page")],
+    ];
+    $("#contactRows").innerHTML = rows.map(([k, v]) => `<div><span>${k}</span>${v}</div>`).join("");
+    const links = [];
+    if (s.whatsapp) links.push(`<a class="btn btn-primary" href="https://wa.me/${esc(s.whatsapp)}?text=${encodeURIComponent("Hi Younick Gifts, I want to order a personalised gift.")}" target="_blank" rel="noopener">Chat on WhatsApp</a>`);
+    if (s.email) links.push(`<a class="btn ${s.whatsapp ? "btn-ghost" : "btn-primary"}" href="${mailto("Enquiry from the Younick Gifts website")}">Email us</a>`);
+    if (s.maps_url) links.push(`<a class="btn btn-ghost" href="${esc(s.maps_url)}" target="_blank" rel="noopener">Open in Maps</a>`);
+    if (s.instagram) links.push(`<a class="btn btn-ghost" href="https://instagram.com/${esc(s.instagram)}" target="_blank" rel="noopener">Instagram</a>`);
+    $("#storeLinks").innerHTML = links.join("");
+    const bulk = $("#bulkMail"); bulk.href = mailto("Bulk / corporate gifting quote", "Hi Younick Gifts,\n\nProduct(s):\nQuantity:\nDelivery city:\nNeeded by:\nArtwork / logo attached: yes / no\n");
+    $("#mbHelp").href = s.whatsapp ? `https://wa.me/${s.whatsapp}` : mailto("Help with my order");
+    $("#cartHelpMail").textContent = s.email || ""; $("#cartHelpMail").href = mailto("Help with my order");
+    $("#footContact").innerHTML = [s.email ? `<a href="${mailto("Enquiry")}">${esc(s.email)}</a>` : "", s.phone ? esc(s.phone) : "", s.gstin ? `GSTIN ${esc(s.gstin)}` : todo("GSTIN")].filter(Boolean).join(" · ");
+    $("#footerTerms").innerHTML = (s.terms || "").split("|").map((t) => t.trim()).filter(Boolean).map((t) => `<li>${esc(t)}</li>`).join("");
+    const box = $("#setupBox"); box.hidden = !setup.length;
+    $("#setupCount").textContent = setup.length; $("#setupList").innerHTML = setup.map((f) => `<li>${esc(f.label)} <code>${esc(f.where)}</code></li>`).join("");
+  }
+  function renderSeo() {
+    const s = state.catalog.settings, c = state.catalog;
+    if (s.seo_title) document.title = s.seo_title;
+    const md = document.querySelector('meta[name="description"]'); if (md && s.seo_description) md.setAttribute("content", s.seo_description);
+    const og = document.querySelector('meta[property="og:description"]'); if (og && s.seo_description) og.setAttribute("content", s.seo_description);
+    if (s.site_url) { let l = document.querySelector('link[rel="canonical"]'); if (!l) { l = document.createElement("link"); l.rel = "canonical"; document.head.appendChild(l); } l.href = s.site_url.replace(/\/+$/, "") + "/"; }
+    const base = (s.site_url || "").replace(/\/+$/, "");
+    const ld = [
+      { "@context": "https://schema.org", "@type": "Store", name: `${s.store_name} ${s.store_by}`.trim(), email: s.email || undefined, telephone: s.phone || undefined, url: base || undefined, founder: s.founder_name ? { "@type": "Person", name: s.founder_name } : undefined, areaServed: "IN", paymentAccepted: "UPI", address: s.address_line1 ? { "@type": "PostalAddress", streetAddress: s.address_line1, addressLocality: s.address_line2, addressCountry: "IN" } : undefined },
+      { "@context": "https://schema.org", "@type": "ItemList", itemListElement: c.products.filter((p) => p.featured).slice(0, 20).map((p, i) => ({ "@type": "ListItem", position: i + 1, item: { "@type": "Product", name: p.name, sku: p.sku, image: p.imageUrl, description: p.description, category: p.category, offers: { "@type": "Offer", priceCurrency: "INR", price: p.price, availability: p.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock", url: base ? `${base}/#${p.id}` : undefined } } })) },
+    ];
+    let tag = $("#ld-json"); if (!tag) { tag = document.createElement("script"); tag.id = "ld-json"; tag.type = "application/ld+json"; document.head.appendChild(tag); }
+    tag.textContent = JSON.stringify(ld);
   }
   function glowLastWords(text) {
     const words = text.split(" "); if (words.length < 3) return esc(text);
@@ -254,7 +295,11 @@
   function renderReviews() {
     const list = state.catalog.feedback; const track = $("#reviewTrack"), dots = $("#reviewDots");
     clearInterval(state.reviewTimer); track.innerHTML = ""; dots.innerHTML = "";
-    if (!list.length) { track.innerHTML = `<p class="tiny">Be the first to share your experience.</p>`; return; }
+    if (!list.length) {
+      track.innerHTML = `<div class="review-empty"><div class="stars-row" aria-hidden="true">★★★★★</div><h3>Be our first reviewer</h3><p>Verified customer reviews appear here as orders are delivered. Ordered from us already? Tell everyone how it turned out.</p><button class="btn btn-primary" type="button" id="reviewEmptyBtn">Write a review</button></div>`;
+      $("#reviewEmptyBtn").addEventListener("click", () => open("feedback"));
+      return;
+    }
     list.forEach((f, i) => {
       const p = state.byId.get(f.productId);
       const el = document.createElement("article"); el.className = "review" + (i === 0 ? " on" : "");
@@ -299,13 +344,14 @@
     $("#pmPrice").textContent = inr(p.price); $("#pmMrp").textContent = p.mrp > p.price ? inr(p.mrp) : ""; $("#pmOff").textContent = p.mrp > p.price ? `${Math.round(((p.mrp - p.price) / p.mrp) * 100)}% off` : "";
     $("#pmDesc").textContent = p.description || "Personalised with your photo, name or message."; $("#pmBadge").hidden = !p.badge; $("#pmBadge").textContent = p.badge;
     $("#pmNote").value = ""; $("#pmPhotos").value = ""; $("#pmThumbs").innerHTML = ""; $("#pmQty").value = 1; $("#pmQty").max = p.maxQty; $("#pmMax").textContent = `Max ${p.maxQty.toLocaleString("en-IN")} pieces per order`;
-    $("#pmStock").textContent = p.inStock ? "In stock · ready in 24–48 hrs" : "Currently out of stock"; $("#pmStock").classList.toggle("oos", !p.inStock);
+    $("#pmStock").textContent = p.inStock ? `${p.availability || "Made to order"}${p.leadTime ? " · ready in " + p.leadTime : ""}` : "Currently out of stock"; $("#pmStock").classList.toggle("oos", !p.inStock);
+    $("#pmQty").value = p.minQty || 1; $("#pmQty").min = p.minQty || 1;
     $("#pmAdd").disabled = !p.inStock; $("#pmBuy").disabled = !p.inStock;
     open("product");
   }
   $$("#productModal .qty button").forEach((b) => b.addEventListener("click", () => { const i = $("#pmQty"); i.value = clampQty(Number(i.value) + Number(b.dataset.q), state.pm.product.maxQty); }));
   $("#pmQty").addEventListener("change", (e) => { e.target.value = clampQty(e.target.value, state.pm.product.maxQty); });
-  function clampQty(v, max) { v = Math.floor(Number(v) || 1); return Math.min(Math.max(1, v), max || 1000); }
+  function clampQty(v, max, min = 1) { v = Math.floor(Number(v) || 1); return Math.min(Math.max(min || 1, v), max || 1000); }
   $("#pmPhotos").addEventListener("change", async (e) => {
     const files = [...e.target.files].slice(0, 6); state.pm.photos = [];
     $("#pmThumbs").innerHTML = "";
@@ -352,7 +398,7 @@
     return { subtotal, discount };
   }
   function renderCart() {
-    const n = state.cart.reduce((a, it) => a + it.qty, 0); $("#cartCount").textContent = n > 999 ? "999+" : n;
+    const n = state.cart.reduce((a, it) => a + it.qty, 0); $("#cartCount").textContent = n > 999 ? "999+" : n; $("#mbCount").textContent = n > 99 ? "99+" : n; $("#mbCount").hidden = !n;
     const body = $("#cartItems");
     if (!state.cart.length) body.innerHTML = `<div class="empty"><p>Your cart is empty. Add a gift and personalise it.</p><button class="btn btn-primary" data-close="cart" type="button">Start shopping</button></div>`;
     else body.innerHTML = state.cart.map((it, i) => `<div class="cart-item">
@@ -422,8 +468,12 @@
   $("#toPay").addEventListener("click", () => {
     const q = quote(), s = state.catalog.settings;
     $("#payAdvance").textContent = inr(q.advance); $("#payTotal").textContent = inr(q.grand); $("#payBalance").textContent = inr(q.balance);
-    const upi = `upi://pay?pa=${encodeURIComponent(s.upi_id || "")}&pn=${encodeURIComponent(s.upi_payee_name || s.store_name || "Younick Gifts")}&am=${q.advance}&cu=INR&tn=${encodeURIComponent("Younick advance")}`;
-    $("#upiLink").href = upi; setStep(4);
+    if (s.upi_id) {
+      $("#upiId").textContent = s.upi_id; $("#upiRow").querySelector(".chip-copy").hidden = false; $("#upiLink").hidden = false;
+      $("#upiLink").href = `upi://pay?pa=${encodeURIComponent(s.upi_id)}&pn=${encodeURIComponent(s.upi_payee_name || s.store_name || "Younick Gifts")}&am=${q.advance}&cu=INR&tn=${encodeURIComponent("Younick advance")}`;
+    } else { $("#upiId").innerHTML = todo("UPI ID"); $("#upiRow").querySelector(".chip-copy").hidden = true; $("#upiLink").hidden = true; }
+    $("#payNote").textContent = `The shop verifies the advance and confirms your order by ${s.whatsapp ? "WhatsApp" : "email"}. No card details are collected on this site.`;
+    setStep(4);
   });
   $("#confirmOrder").addEventListener("click", async () => {
     const btn = $("#confirmOrder"); btn.disabled = true; btn.textContent = "Placing order…"; $("#orderError").hidden = true;
@@ -460,13 +510,14 @@
   }
   function renderSuccess(o) {
     const s = state.catalog.settings; const txt = orderText(o);
-    const wa = `https://wa.me/${s.whatsapp}?text=${encodeURIComponent(txt)}`;
+    const sendHref = s.whatsapp ? `https://wa.me/${s.whatsapp}?text=${encodeURIComponent(txt)}` : mailto(`Younick Gifts order ${o.id}`, txt);
+    const sendLabel = s.whatsapp ? "Send on WhatsApp" : "Send by email";
     $("#successBox").innerHTML = `<div class="big">🎉</div><h3>${state.mode === "server" ? "Order placed!" : "Order ready to send!"}</h3>
-      <p>${state.mode === "server" ? "We have saved your order. The shop will verify the advance and confirm on WhatsApp." : o.savedToPreview ? "Your order is saved in the preview order book. Send it on WhatsApp too so the shop can confirm the advance." : "This is the preview build, so send the order to the shop on WhatsApp to confirm it."}</p>
+      <p>${state.mode === "server" ? "We have saved your order. The shop will verify the advance and confirm by " + (s.whatsapp ? "WhatsApp" : "email") + "." : o.savedToPreview ? "Your order is saved in the preview order book. Send it to the shop too so they can confirm the advance." : "This is the preview build, so send the order to the shop to confirm it."}</p>
       <div class="oid">${esc(o.id)}</div>
       <p class="tiny">Total ${inr(o.totals.grand)} · advance ${inr(o.payment.advance)} · balance ${inr(o.payment.balance)} · ${esc(o.delivery.label)}</p>
-      ${o.items.some((it) => (typeof it.photos === "number" ? it.photos : (it.photos || []).length)) && state.mode !== "server" ? `<p class="tiny">Attach your photos in the WhatsApp chat after sending the order.</p>` : ""}
-      <div class="acts"><a class="btn btn-primary btn-lg" href="${wa}" target="_blank" rel="noopener">Send on WhatsApp</a><button class="btn btn-ghost" type="button" id="copyOrder">Copy order details</button><button class="btn btn-ghost" type="button" data-close="checkout">Continue shopping</button></div>
+      ${o.items.some((it) => (typeof it.photos === "number" ? it.photos : (it.photos || []).length)) && state.mode !== "server" ? `<p class="tiny">Attach your photos in the ${s.whatsapp ? "WhatsApp chat" : "email"} after sending the order.</p>` : ""}
+      <div class="acts"><a class="btn btn-primary btn-lg" href="${sendHref}" target="_blank" rel="noopener">${sendLabel}</a><button class="btn btn-ghost" type="button" id="copyOrder">Copy order details</button><button class="btn btn-ghost" type="button" data-close="checkout">Continue shopping</button></div>
       <textarea readonly id="orderTextArea">${esc(txt)}</textarea>`;
     $("#copyOrder").addEventListener("click", (e) => copyText(txt, e.currentTarget));
   }
@@ -484,8 +535,10 @@
     if (state.mode === "server") {
       try { const r = await fetch("/api/feedback", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }); const d = await r.json(); $("#fbMsg").textContent = d.message || (d.errors || []).join(", "); if (d.ok) { toast("Thanks for the feedback!", "good"); setTimeout(() => close("feedback"), 1200); } } catch { $("#fbMsg").textContent = "Could not send right now."; }
     } else {
-      const s = state.catalog.settings; window.open(`https://wa.me/${s.whatsapp}?text=${encodeURIComponent(`Feedback from ${body.name} (${body.city}) – ${"★".repeat(body.rating)}: ${body.text}`)}`, "_blank", "noopener");
-      $("#fbMsg").textContent = "Opened WhatsApp with your feedback (preview mode).";
+      const s = state.catalog.settings; const txt = `Feedback from ${body.name}${body.city ? " (" + body.city + ")" : ""} – ${"★".repeat(body.rating)}: ${body.text}`;
+      const href = s.whatsapp ? `https://wa.me/${s.whatsapp}?text=${encodeURIComponent(txt)}` : mailto("Feedback for Younick Gifts", txt);
+      const a = document.createElement("a"); a.href = href; a.target = "_blank"; a.rel = "noopener"; document.body.appendChild(a); a.click(); a.remove();
+      $("#fbMsg").textContent = `Opened ${s.whatsapp ? "WhatsApp" : "your email app"} with your feedback (preview mode).`;
     }
   });
 
@@ -532,6 +585,12 @@
       if (++frames < 150) requestAnimationFrame(loop); else ctx.clearRect(0, 0, cv.width, cv.height);
     })();
   }
+
+  /* ------------------------------------------------------------ mobile bar, back to top */
+  $("#mbCart").addEventListener("click", () => open("cart"));
+  const backTop = $("#backTop");
+  addEventListener("scroll", () => { backTop.hidden = scrollY < 900; }, { passive: true });
+  backTop.addEventListener("click", () => scrollTo({ top: 0, behavior: "smooth" }));
 
   /* ------------------------------------------------------------ boot */
   (async () => {

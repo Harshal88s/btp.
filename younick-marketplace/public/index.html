@@ -4,8 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Younick Gifts</title>
-<meta name="description" content="Younick Gifts by Pari's Play Store, Nashik. Personalised photo gifts, mugs, pillows, lamps, frames and corporate gifting. Order online, pay a small advance, get it delivered.">
+<meta name="description" content="Personalised photo gifts printed to order: magic mugs, LED pillows, photo lamps, wooden frames, keychains, T-shirts and corporate gifts. Pay a small UPI advance, delivered across India.">
+<meta name="robots" content="index,follow">
 <meta name="theme-color" content="#7c3aed">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Younick Gifts">
+<meta property="og:title" content="Younick Gifts - Personalised Photo Gifts Online">
+<meta property="og:description" content="Magic mugs, LED pillows, photo lamps, frames and corporate gifts, printed with your photos and shipped across India.">
+<meta property="og:image" content="assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +22,7 @@
 <body>
 <!-- YN:BODY:START -->
 <div id="app" class="app">
+  <a class="skip-link" href="#shop">Skip to products</a>
 
   <div class="announce" id="announce" hidden>
     <div class="announce-track" id="announceTrack"></div>
@@ -65,7 +73,7 @@
         <div class="hero-copy">
           <span class="season-badge" id="seasonBadge"><span class="season-emoji" id="seasonEmoji">🪔</span><span id="seasonBadgeText">Diwali Special</span></span>
           <h1 id="heroHeadline" class="hero-title">Light up every home with a gift that is truly theirs</h1>
-          <p id="heroSubline" class="hero-sub">Photo lamps, LED pillows, metallic mugs and corporate hampers printed in Nashik and delivered in 48 hours.</p>
+          <p id="heroSubline" class="hero-sub">Photo lamps, LED pillows, metallic mugs and corporate hampers printed in-house and shipped across India.</p>
           <div class="hero-cta">
             <a href="#picks" class="btn btn-primary btn-lg">Shop season picks</a>
             <a href="#shop" class="btn btn-ghost btn-lg">Browse all gifts</a>
@@ -74,16 +82,28 @@
             <span>Use code</span><code id="promoCode">DIWALI15</code><span id="promoText">for 15% off</span>
             <button class="chip-copy" id="promoCopy" type="button">Copy</button>
           </div>
-          <ul class="hero-trust" aria-label="Why Younick">
-            <li><strong id="statYears">9+</strong><span>years in Nashik</span></li>
-            <li><strong id="statProducts">250+</strong><span>gift designs</span></li>
-            <li><strong id="statCustomers">12,000+</strong><span>happy customers</span></li>
+          <ul class="hero-trust" aria-label="Why Younick" id="heroTrust">
+            <li><strong id="statProducts">242</strong><span>gift designs</span></li>
+            <li><strong>1–1000</strong><span>pieces per order</span></li>
+            <li><strong>All India</strong><span>courier delivery</span></li>
+            <li id="statYearsLi" hidden><strong id="statYears"></strong><span>years of gifting</span></li>
+            <li id="statCustomersLi" hidden><strong id="statCustomers"></strong><span>happy customers</span></li>
           </ul>
         </div>
         <div class="hero-stage">
           <div class="slides" id="heroSlides" aria-live="polite"></div>
           <div class="slide-dots" id="heroDots"></div>
         </div>
+      </div>
+    </section>
+
+    <!-- ===================== TRUST STRIP ===================== -->
+    <section class="trust-strip" aria-label="Why order here">
+      <div class="wrap trust-inner">
+        <div><span class="t-ic">🖼️</span><div><strong>Your photos, printed to order</strong><span>Every piece is made for you</span></div></div>
+        <div><span class="t-ic">⚡</span><div><strong>Ready in <span id="trustProd">24–48 hours</span></strong><span>Then pickup, local express or courier</span></div></div>
+        <div><span class="t-ic">📱</span><div><strong>Small UPI advance</strong><span>Balance only before dispatch</span></div></div>
+        <div><span class="t-ic">📦</span><div><strong>Bulk up to 1000 pieces</strong><span>Corporate &amp; return gifts welcome</span></div></div>
       </div>
     </section>
 
@@ -147,7 +167,7 @@
         <div class="section-head">
           <div>
             <p class="eyebrow">Customer love</p>
-            <h2>What Nashik says about us</h2>
+            <h2>What customers say</h2>
           </div>
           <button class="btn btn-ghost" id="feedbackOpen" type="button">Share your experience</button>
         </div>
@@ -165,9 +185,30 @@
         <ol class="steps">
           <li><span class="step-ic">🖼️</span><h3>Pick & personalise</h3><p>Choose a gift, add names, quotes and upload the photos you want printed.</p></li>
           <li><span class="step-ic">📱</span><h3>Pay a small advance</h3><p>Scan the UPI QR for the token amount (<span id="advanceRule">20%, min ₹200</span>). The balance is due before dispatch.</p></li>
-          <li><span class="step-ic">🖨️</span><h3>We print in Nashik</h3><p>Our team checks your photos, prints and packs within 24–48 hours.</p></li>
-          <li><span class="step-ic">🛵</span><h3>Delivered your way</h3><p>Store pickup, Delivery Express in the city or Courier Express across India.</p></li>
+          <li><span class="step-ic">🖨️</span><h3>We print it in-house</h3><p>Our team checks your photos, prints and packs within 24–48 hours.</p></li>
+          <li><span class="step-ic">🛵</span><h3>Delivered your way</h3><p>Store pickup, Local Express Delivery or Courier Express anywhere in India.</p></li>
         </ol>
+      </div>
+    </section>
+
+    <!-- ===================== PACKING ===================== -->
+    <section class="packing reveal" id="packing" aria-label="Packing and dispatch">
+      <div class="wrap packing-inner">
+        <div class="packing-art">
+          <img src="assets/packing-orders.webp" alt="Dozens of gift-wrapped orders in holographic orange foil, packed and ready to ship" width="1239" height="512" loading="lazy" decoding="async">
+        </div>
+        <div class="packing-copy">
+          <p class="eyebrow">Packed with care</p>
+          <h2>Every order leaves gift-ready</h2>
+          <p>This is a real bulk order on our packing table. Each piece is checked, gift-wrapped in holographic foil, bubble-wrapped if fragile and boxed with a label before the courier picks it up.</p>
+          <ul class="packing-points">
+            <li><strong>Gift-wrapped</strong> as standard, no extra charge</li>
+            <li><strong>Fragile items</strong> bubble-wrapped and boxed</li>
+            <li><strong>Tracking</strong> shared the moment it is dispatched</li>
+            <li><strong>Bulk orders</strong> packed and labelled per recipient on request</li>
+          </ul>
+          <a href="#shop" class="btn btn-primary">Start an order</a>
+        </div>
       </div>
     </section>
 
@@ -184,18 +225,11 @@
           </div>
         </div>
         <div class="store-card">
-          <h3>Visit the store</h3>
-          <p id="storeAddress">Ishwar Sankul-A, Opp. Om Hospital, Gaikwad Mala<br>Nasik Road, Nashik - 422101</p>
+          <h3>Reach us</h3>
+          <p id="storeAddress"></p>
           <p class="store-hours" id="storeHours"></p>
-          <div class="contact-rows">
-            <div><span>Phone / WhatsApp</span><strong id="storePhone">9421356600</strong><button class="chip-copy" data-copy="#storePhone" type="button">Copy</button></div>
-            <div><span>Email</span><strong id="storeEmail">younickgifts@gmail.com</strong><button class="chip-copy" data-copy="#storeEmail" type="button">Copy</button></div>
-            <div><span>Instagram</span><strong id="storeInsta">@younick_gifts</strong></div>
-          </div>
-          <div class="store-links">
-            <a class="btn btn-primary" id="waLink" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a>
-            <a class="btn btn-ghost" id="mapLink" href="#" target="_blank" rel="noopener">Open in Maps</a>
-          </div>
+          <div class="contact-rows" id="contactRows"></div>
+          <div class="store-links" id="storeLinks"></div>
         </div>
       </div>
     </section>
@@ -211,6 +245,10 @@
           <div><h3>Frames & wall clocks</h3><p>Wooden, MDF, glass and rock frames, laser-cut designs.</p></div>
           <div><h3>Corporate & bulk gifting</h3><p>Diaries, coasters, badges, bottles with your branding. Up to 1000 pieces per line.</p></div>
         </div>
+        <div class="bulk-cta">
+          <div><strong>Planning 50 pieces or more?</strong><span>Email your requirement and artwork; we reply with a quote and a free digital mock-up.</span></div>
+          <a class="btn btn-primary" id="bulkMail" href="#">Email for a bulk quote</a>
+        </div>
       </div>
     </section>
   </main>
@@ -219,14 +257,14 @@
     <div class="wrap footer-inner">
       <div>
         <strong id="footBrand">Younick Gifts by Pari's Play Store</strong>
-        <p id="footTag">The ultimate toys & personalised gifts shop, Nashik.</p>
+        <p id="footTag">Personalised photo gifts, printed in-house and shipped across India.</p>
+        <p class="footer-contact" id="footContact"></p>
       </div>
-      <ul class="footer-terms">
-        <li>All prices exclusive of GST</li>
-        <li>Advance confirms the order; balance before dispatch</li>
-        <li>Prices as per the live catalogue; subject to change</li>
-        <li>Subject to Nashik jurisdiction</li>
-      </ul>
+      <ul class="footer-terms" id="footerTerms"></ul>
+      <details class="setup-box" id="setupBox" hidden>
+        <summary><span class="todo">Setup pending</span> <span id="setupCount"></span> details still to be added by the shop</summary>
+        <ul id="setupList"></ul>
+      </details>
       <p class="footer-note"><span id="footYear"></span> Younick Gifts · Live catalogue version <span id="catalogVersion">–</span> · <span id="modeLabel"></span></p>
     </div>
   </footer>
@@ -246,6 +284,7 @@
       </div>
       <button class="btn btn-primary btn-lg btn-block" id="checkoutBtn" type="button">Place order</button>
       <p class="tiny" id="cartHint">Pay only a small advance now. Max 1000 pieces per product.</p>
+      <p class="tiny">Need help? <a id="cartHelpMail" href="#">younickgifts@gmail.com</a></p>
     </div>
   </aside>
 
@@ -287,11 +326,11 @@
       <form class="co-step" id="step1" autocomplete="on">
         <div class="form-grid">
           <label class="field"><span>Full name *</span><input id="cName" required maxlength="80" placeholder="Sagar Bamb"></label>
-          <label class="field"><span>Mobile (10 digits) *</span><input id="cPhone" required inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" placeholder="9421356600"></label>
+          <label class="field"><span>Mobile (10 digits) *</span><input id="cPhone" required inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" placeholder="98XXXXXXXX"></label>
           <label class="field"><span>Email</span><input id="cEmail" type="email" maxlength="100" placeholder="you@example.com"></label>
           <label class="field"><span>PIN code *</span><input id="cPin" required inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="422101"></label>
           <label class="field span2"><span>Address *</span><input id="cAddress" required maxlength="200" placeholder="Flat / street / landmark"></label>
-          <label class="field"><span>City *</span><input id="cCity" required maxlength="60" placeholder="Nashik"></label>
+          <label class="field"><span>City *</span><input id="cCity" required maxlength="60" placeholder="Your city"></label>
           <label class="field"><span>Notes for the shop</span><input id="cNotes" maxlength="300" placeholder="Gift wrap, delivery time, anything else"></label>
         </div>
         <div class="co-actions"><button class="btn btn-primary btn-lg" type="submit">Continue to delivery</button></div>
@@ -316,10 +355,10 @@
           <div class="pay-info">
             <p class="pay-amount">Advance to pay now <strong id="payAdvance">₹0</strong></p>
             <p class="tiny">Order total <strong id="payTotal">₹0</strong> · balance <strong id="payBalance">₹0</strong> before dispatch</p>
-            <div class="upi-row"><span>UPI ID</span><code id="upiId">younickgifts@upi</code><button class="chip-copy" data-copy="#upiId" type="button">Copy</button></div>
+            <div class="upi-row" id="upiRow"><span>UPI ID</span><code id="upiId"></code><button class="chip-copy" data-copy="#upiId" type="button">Copy</button></div>
             <a class="btn btn-ghost" id="upiLink" href="#" target="_blank" rel="noopener">Open UPI app</a>
             <label class="field"><span>UPI transaction ID / UTR (optional)</span><input id="payRef" maxlength="60" placeholder="e.g. 4267xxxxxxx1"></label>
-            <p class="tiny">The shop verifies the advance and messages you on WhatsApp. No card details are collected on this site.</p>
+            <p class="tiny" id="payNote">The shop verifies the advance and confirms your order. No card details are collected on this site.</p>
           </div>
         </div>
         <div class="co-actions"><button class="btn btn-ghost" type="button" data-step="3">Back</button><button class="btn btn-primary btn-lg" type="button" id="confirmOrder">I have paid · Confirm order</button></div>
@@ -357,6 +396,13 @@
     </div>
   </div>
 
+  <nav class="mobile-bar" aria-label="Quick actions">
+    <a href="#shop"><span>🛍️</span>Shop</a>
+    <a href="#picks"><span id="mbEmoji">🪔</span>Picks</a>
+    <button type="button" id="mbCart"><span>🛒</span>Cart <em id="mbCount">0</em></button>
+    <a id="mbHelp" href="#"><span>✉️</span>Help</a>
+  </nav>
+  <button class="back-top" id="backTop" type="button" aria-label="Back to top" hidden>↑</button>
   <div class="toast-stack" id="toasts" aria-live="polite"></div>
   <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
 </div>

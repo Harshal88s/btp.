@@ -1,7 +1,7 @@
 [
  {
   "id": "MUG-01",
-  "name": "6 Oz Tea Mug – Photo Print",
+  "name": "6 Oz Tea Mug \u2013 Photo Print",
   "category": "Mugs",
   "price": 199,
   "mrp": 249,
@@ -11,7 +11,9 @@
   "image": "assets/products/MUG-01.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MUG-02",
@@ -25,7 +27,9 @@
   "image": "assets/products/MUG-02.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MUG-03",
@@ -39,7 +43,9 @@
   "image": "assets/products/MUG-03.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MUG-04",
@@ -53,7 +59,9 @@
   "image": "assets/products/MUG-04.webp",
   "featured": true,
   "badge": "Diwali Pick",
-  "season": "diwali,newyear"
+  "season": "diwali,newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MUG-05",
@@ -67,7 +75,9 @@
   "image": "assets/products/MUG-05.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali,newyear"
+  "season": "diwali,newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MUG-06",
@@ -81,7 +91,9 @@
   "image": "assets/products/MUG-06.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MUG-07",
@@ -95,7 +107,9 @@
   "image": "assets/products/MUG-07.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MUG-08",
@@ -109,7 +123,9 @@
   "image": "assets/products/MUG-08.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MUG-09",
@@ -123,7 +139,9 @@
   "image": "assets/products/MUG-09.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MUG-10",
@@ -137,7 +155,9 @@
   "image": "assets/products/MUG-10.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MUG-11",
@@ -151,7 +171,9 @@
   "image": "assets/products/MUG-11.webp",
   "featured": true,
   "badge": "Bestseller",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MUG-12",
@@ -165,11 +187,13 @@
   "image": "assets/products/MUG-12.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MUG-13",
-  "name": "White Polymer Mug – Unbreakable",
+  "name": "White Polymer Mug \u2013 Unbreakable",
   "category": "Mugs",
   "price": 249,
   "mrp": 299,
@@ -179,7 +203,9 @@
   "image": "assets/products/MUG-13.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MUG-14",
@@ -193,11 +219,13 @@
   "image": "assets/products/MUG-14.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine,birthday"
+  "season": "valentine,birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MUG-15",
-  "name": "3 Tone Polymer Mug – Unbreakable",
+  "name": "3 Tone Polymer Mug \u2013 Unbreakable",
   "category": "Mugs",
   "price": 279,
   "mrp": 349,
@@ -207,7 +235,9 @@
   "image": "assets/products/MUG-15.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MUG-16",
@@ -221,11 +251,13 @@
   "image": "assets/products/MUG-16.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MUG-17",
-  "name": "Frosted Beer Mug – Photo Print",
+  "name": "Frosted Beer Mug \u2013 Photo Print",
   "category": "Mugs",
   "price": 449,
   "mrp": 549,
@@ -235,7 +267,9 @@
   "image": "assets/products/MUG-17.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MUG-18",
@@ -249,63 +283,73 @@
   "image": "assets/products/MUG-18.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BOT-01",
-  "name": "Sipper Metal Bottle – White (Single Cap)",
+  "name": "Sipper Metal Bottle \u2013 White (Single Cap)",
   "category": "Sipper Bottles",
   "price": 349,
   "mrp": 449,
-  "size": "400–750 ml",
+  "size": "400\u2013750 ml",
   "tags": "sports,school,corporate",
   "desc": "Aluminium sipper bottle with full photo print. 400/500/600/750 ml.",
   "image": "assets/products/BOT-01.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali,newyear"
+  "season": "diwali,newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BOT-02",
-  "name": "Sipper Metal Bottle – Silver (Single Cap)",
+  "name": "Sipper Metal Bottle \u2013 Silver (Single Cap)",
   "category": "Sipper Bottles",
   "price": 349,
   "mrp": 449,
-  "size": "400–750 ml",
+  "size": "400\u2013750 ml",
   "tags": "sports,corporate,diwali",
   "desc": "Silver aluminium sipper with photo or logo print.",
   "image": "assets/products/BOT-02.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali,newyear"
+  "season": "diwali,newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BOT-03",
-  "name": "Sipper Metal Bottle – White (Double Cap)",
+  "name": "Sipper Metal Bottle \u2013 White (Double Cap)",
   "category": "Sipper Bottles",
   "price": 399,
   "mrp": 499,
-  "size": "400–750 ml",
+  "size": "400\u2013750 ml",
   "tags": "sports,school",
   "desc": "Double-cap aluminium sipper with carabiner.",
   "image": "assets/products/BOT-03.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BOT-04",
-  "name": "Sipper Metal Bottle – Silver (Double Cap)",
+  "name": "Sipper Metal Bottle \u2013 Silver (Double Cap)",
   "category": "Sipper Bottles",
   "price": 399,
   "mrp": 499,
-  "size": "400–750 ml",
+  "size": "400\u2013750 ml",
   "tags": "sports,corporate",
   "desc": "Silver double-cap sipper bottle.",
   "image": "assets/products/BOT-04.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali,newyear"
+  "season": "diwali,newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "KEY-01",
@@ -315,11 +359,13 @@
   "mrp": 99,
   "size": "2 inch",
   "tags": "photo,return-gift,budget",
-  "desc": "MDF photo keychain in 9 shapes (heart, star, apple, guitar…). WS-01 to WS-09.",
+  "desc": "MDF photo keychain in 9 shapes (heart, star, apple, guitar\u2026). WS-01 to WS-09.",
   "image": "assets/products/KEY-01.webp",
   "featured": false,
   "badge": "Budget Pick",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "KEY-02",
@@ -333,7 +379,9 @@
   "image": "assets/products/KEY-02.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "KEY-03",
@@ -347,7 +395,9 @@
   "image": "assets/products/KEY-03.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "KEY-04",
@@ -361,7 +411,9 @@
   "image": "assets/products/KEY-04.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "KEY-05",
@@ -375,7 +427,9 @@
   "image": "assets/products/KEY-05.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali,newyear"
+  "season": "diwali,newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "KEY-06",
@@ -385,11 +439,13 @@
   "mrp": 129,
   "size": "2.5 inch",
   "tags": "emoji,kids,fun",
-  "desc": "Plush emoji keychain with your photo on the back. Styles A–E.",
+  "desc": "Plush emoji keychain with your photo on the back. Styles A\u2013E.",
   "image": "assets/products/KEY-06.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "KEY-07",
@@ -403,7 +459,9 @@
   "image": "assets/products/KEY-07.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "KEY-08",
@@ -417,11 +475,13 @@
   "image": "assets/products/KEY-08.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BDG-01",
-  "name": "MDF Badge – Mr Right",
+  "name": "MDF Badge \u2013 Mr Right",
   "category": "Badges & Coasters",
   "price": 99,
   "mrp": 129,
@@ -431,11 +491,13 @@
   "image": "assets/products/BDG-01.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BDG-02",
-  "name": "MDF Badge – Bride To Be",
+  "name": "MDF Badge \u2013 Bride To Be",
   "category": "Badges & Coasters",
   "price": 99,
   "mrp": 129,
@@ -445,11 +507,13 @@
   "image": "assets/products/BDG-02.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CST-01",
-  "name": "MDF Photo Coaster – Square",
+  "name": "MDF Photo Coaster \u2013 Square",
   "category": "Badges & Coasters",
   "price": 129,
   "mrp": 169,
@@ -459,11 +523,13 @@
   "image": "assets/products/CST-01.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali,newyear"
+  "season": "diwali,newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CST-02",
-  "name": "MDF Photo Coaster – Round",
+  "name": "MDF Photo Coaster \u2013 Round",
   "category": "Badges & Coasters",
   "price": 129,
   "mrp": 169,
@@ -473,7 +539,9 @@
   "image": "assets/products/CST-02.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TIF-01",
@@ -487,7 +555,9 @@
   "image": "assets/products/TIF-01.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "PNB-01",
@@ -501,7 +571,9 @@
   "image": "assets/products/PNB-01.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "POP-01",
@@ -515,7 +587,9 @@
   "image": "assets/products/POP-01.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WAT-01",
@@ -529,7 +603,9 @@
   "image": "assets/products/WAT-01.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "POU-01",
@@ -543,7 +619,9 @@
   "image": "assets/products/POU-01.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MSP-01",
@@ -557,7 +635,9 @@
   "image": "assets/products/MSP-01.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali,newyear"
+  "season": "diwali,newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CUB-01",
@@ -571,7 +651,9 @@
   "image": "assets/products/CUB-01.webp",
   "featured": false,
   "badge": "",
-  "season": "newyear"
+  "season": "newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CUB-02",
@@ -585,7 +667,9 @@
   "image": "assets/products/CUB-02.webp",
   "featured": false,
   "badge": "",
-  "season": "newyear"
+  "season": "newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "DIA-01",
@@ -599,7 +683,9 @@
   "image": "assets/products/DIA-01.webp",
   "featured": true,
   "badge": "",
-  "season": "diwali,newyear"
+  "season": "diwali,newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MIR-01",
@@ -613,7 +699,9 @@
   "image": "assets/products/MIR-01.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MIR-02",
@@ -627,7 +715,9 @@
   "image": "assets/products/MIR-02.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MIR-03",
@@ -641,7 +731,9 @@
   "image": "assets/products/MIR-03.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali,newyear"
+  "season": "diwali,newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CAR-01",
@@ -655,7 +747,9 @@
   "image": "assets/products/CAR-01.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CAP-01",
@@ -669,11 +763,13 @@
   "image": "assets/products/CAP-01.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "PUZ-01",
-  "name": "Rectangle Photo Puzzle – A4",
+  "name": "Rectangle Photo Puzzle \u2013 A4",
   "category": "Puzzles & Scrolls",
   "price": 349,
   "mrp": 449,
@@ -683,7 +779,9 @@
   "image": "assets/products/PUZ-01.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "PUZ-02",
@@ -697,11 +795,13 @@
   "image": "assets/products/PUZ-02.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "PUZ-03",
-  "name": "Rectangle Photo Puzzle – A3",
+  "name": "Rectangle Photo Puzzle \u2013 A3",
   "category": "Puzzles & Scrolls",
   "price": 549,
   "mrp": 699,
@@ -711,7 +811,9 @@
   "image": "assets/products/PUZ-03.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SCR-01",
@@ -725,7 +827,9 @@
   "image": "assets/products/SCR-01.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MOB-01",
@@ -739,7 +843,9 @@
   "image": "assets/products/MOB-01.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MOB-02",
@@ -753,7 +859,9 @@
   "image": "assets/products/MOB-02.webp",
   "featured": false,
   "badge": "",
-  "season": "newyear"
+  "season": "newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "EXP-01",
@@ -767,7 +875,9 @@
   "image": "assets/products/EXP-01.webp",
   "featured": true,
   "badge": "Handmade",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "LMP-01",
@@ -781,7 +891,9 @@
   "image": "assets/products/LMP-01.webp",
   "featured": true,
   "badge": "Bestseller",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "LMP-02",
@@ -795,7 +907,9 @@
   "image": "assets/products/LMP-02.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "LMP-03",
@@ -809,7 +923,9 @@
   "image": "assets/products/LMP-03.webp",
   "featured": true,
   "badge": "New",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "LMP-04",
@@ -823,7 +939,9 @@
   "image": "assets/products/LMP-04.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "LMP-05",
@@ -837,7 +955,9 @@
   "image": "assets/products/LMP-05.webp",
   "featured": false,
   "badge": "",
-  "season": "newyear"
+  "season": "newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "LMP-06",
@@ -851,11 +971,13 @@
   "image": "assets/products/LMP-06.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "PLT-01",
-  "name": "Photo Plate with Stand – 8 inch",
+  "name": "Photo Plate with Stand \u2013 8 inch",
   "category": "Trophies & Plates",
   "price": 499,
   "mrp": 649,
@@ -865,11 +987,13 @@
   "image": "assets/products/PLT-01.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "PLT-02",
-  "name": "Photo Plate with Stand – 10 inch",
+  "name": "Photo Plate with Stand \u2013 10 inch",
   "category": "Trophies & Plates",
   "price": 649,
   "mrp": 799,
@@ -879,7 +1003,9 @@
   "image": "assets/products/PLT-02.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "PIL-01",
@@ -893,25 +1019,29 @@
   "image": "assets/products/PIL-01.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "FRM-22",
-  "name": "MDF Frame – Best Couple Trophy (MF 22)",
+  "name": "MDF Frame \u2013 Best Couple Trophy (MF 22)",
   "category": "Frames",
   "price": 800,
   "mrp": 950,
   "size": "",
   "tags": "frame,couple,trophy",
-  "desc": "MDF frame with trophy motif. Brochure price ₹800.",
+  "desc": "MDF frame with trophy motif. Brochure price \u20b9800.",
   "image": "assets/products/FRM-22.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "FRM-30",
-  "name": "MDF Frame – Family Tree (MF 30)",
+  "name": "MDF Frame \u2013 Family Tree (MF 30)",
   "category": "Frames",
   "price": 649,
   "mrp": 799,
@@ -921,11 +1051,13 @@
   "image": "assets/products/FRM-30.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "FRM-34",
-  "name": "MDF Frame – Love You To The Moon (MF 34)",
+  "name": "MDF Frame \u2013 Love You To The Moon (MF 34)",
   "category": "Frames",
   "price": 649,
   "mrp": 799,
@@ -935,11 +1067,13 @@
   "image": "assets/products/FRM-34.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WF-01",
-  "name": "Wooden Frame – You & Me",
+  "name": "Wooden Frame \u2013 You & Me",
   "category": "Frames",
   "price": 549,
   "mrp": 699,
@@ -949,11 +1083,13 @@
   "image": "assets/products/WF-01.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WF-02",
-  "name": "Wooden Frame – Best Couple",
+  "name": "Wooden Frame \u2013 Best Couple",
   "category": "Frames",
   "price": 549,
   "mrp": 699,
@@ -963,11 +1099,13 @@
   "image": "assets/products/WF-02.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WF-03",
-  "name": "Wooden Frame – Memories",
+  "name": "Wooden Frame \u2013 Memories",
   "category": "Frames",
   "price": 549,
   "mrp": 699,
@@ -977,11 +1115,13 @@
   "image": "assets/products/WF-03.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WF-04",
-  "name": "Wooden Frame – Best Husband",
+  "name": "Wooden Frame \u2013 Best Husband",
   "category": "Frames",
   "price": 549,
   "mrp": 699,
@@ -991,11 +1131,13 @@
   "image": "assets/products/WF-04.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WF-05",
-  "name": "Wooden Frame – Idol No.1",
+  "name": "Wooden Frame \u2013 Idol No.1",
   "category": "Frames",
   "price": 549,
   "mrp": 699,
@@ -1005,11 +1147,13 @@
   "image": "assets/products/WF-05.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WF-06",
-  "name": "Wooden Frame – Best Friend",
+  "name": "Wooden Frame \u2013 Best Friend",
   "category": "Frames",
   "price": 549,
   "mrp": 699,
@@ -1019,11 +1163,13 @@
   "image": "assets/products/WF-06.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WF-07",
-  "name": "Wooden Frame – Best Mother",
+  "name": "Wooden Frame \u2013 Best Mother",
   "category": "Frames",
   "price": 549,
   "mrp": 699,
@@ -1033,11 +1179,13 @@
   "image": "assets/products/WF-07.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WF-08",
-  "name": "Wooden Frame – Family",
+  "name": "Wooden Frame \u2013 Family",
   "category": "Frames",
   "price": 549,
   "mrp": 699,
@@ -1047,11 +1195,13 @@
   "image": "assets/products/WF-08.webp",
   "featured": true,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WF-09",
-  "name": "Wooden Frame – Great Birthday",
+  "name": "Wooden Frame \u2013 Great Birthday",
   "category": "Frames",
   "price": 549,
   "mrp": 699,
@@ -1061,11 +1211,13 @@
   "image": "assets/products/WF-09.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WF-10",
-  "name": "Wooden Frame – Great Anniversary",
+  "name": "Wooden Frame \u2013 Great Anniversary",
   "category": "Frames",
   "price": 549,
   "mrp": 699,
@@ -1075,11 +1227,13 @@
   "image": "assets/products/WF-10.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WF-11",
-  "name": "Wooden Frame – Princess",
+  "name": "Wooden Frame \u2013 Princess",
   "category": "Frames",
   "price": 549,
   "mrp": 699,
@@ -1089,11 +1243,13 @@
   "image": "assets/products/WF-11.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WH-01",
-  "name": "MDF Standy Frame – Silhouette Couple",
+  "name": "MDF Standy Frame \u2013 Silhouette Couple",
   "category": "Frames",
   "price": 399,
   "mrp": 499,
@@ -1103,11 +1259,13 @@
   "image": "assets/products/WH-01.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WH-08",
-  "name": "MDF Standy – Mr & Mrs",
+  "name": "MDF Standy \u2013 Mr & Mrs",
   "category": "Frames",
   "price": 449,
   "mrp": 549,
@@ -1117,11 +1275,13 @@
   "image": "assets/products/WH-08.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WH-09",
-  "name": "MDF Standy – LOVE",
+  "name": "MDF Standy \u2013 LOVE",
   "category": "Frames",
   "price": 449,
   "mrp": 549,
@@ -1131,11 +1291,13 @@
   "image": "assets/products/WH-09.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "HF-20",
-  "name": "MDF Wall Clock – HF-20",
+  "name": "MDF Wall Clock \u2013 HF-20",
   "category": "Wall Clocks",
   "price": 899,
   "mrp": 1099,
@@ -1145,11 +1307,13 @@
   "image": "assets/products/HF-20.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali,newyear"
+  "season": "diwali,newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "HF-23",
-  "name": "MDF Wall Clock – HF-23 (9 photos)",
+  "name": "MDF Wall Clock \u2013 HF-23 (9 photos)",
   "category": "Wall Clocks",
   "price": 999,
   "mrp": 1199,
@@ -1159,11 +1323,13 @@
   "image": "assets/products/HF-23.webp",
   "featured": true,
   "badge": "Diwali Pick",
-  "season": "diwali,newyear"
+  "season": "diwali,newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "HF-31",
-  "name": "MDF Wall Clock – HF-31",
+  "name": "MDF Wall Clock \u2013 HF-31",
   "category": "Wall Clocks",
   "price": 999,
   "mrp": 1199,
@@ -1173,11 +1339,13 @@
   "image": "assets/products/HF-31.webp",
   "featured": false,
   "badge": "",
-  "season": "newyear"
+  "season": "newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "HF-36",
-  "name": "MDF Frame – Happy Anniversary (HF-36)",
+  "name": "MDF Frame \u2013 Happy Anniversary (HF-36)",
   "category": "Frames",
   "price": 799,
   "mrp": 999,
@@ -1187,11 +1355,13 @@
   "image": "assets/products/HF-36.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "HF-37",
-  "name": "MDF Frame – Happy Birthday (HF-37)",
+  "name": "MDF Frame \u2013 Happy Birthday (HF-37)",
   "category": "Frames",
   "price": 799,
   "mrp": 999,
@@ -1201,7 +1371,9 @@
   "image": "assets/products/HF-37.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "PEN-02",
@@ -1215,7 +1387,9 @@
   "image": "assets/products/PEN-02.webp",
   "featured": false,
   "badge": "Return Gift",
-  "season": "diwali,newyear"
+  "season": "diwali,newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TIL-01",
@@ -1229,7 +1403,9 @@
   "image": "assets/products/TIL-01.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TIL-02",
@@ -1243,7 +1419,9 @@
   "image": "assets/products/TIL-02.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TIL-03",
@@ -1257,7 +1435,9 @@
   "image": "assets/products/TIL-03.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TIL-04",
@@ -1271,7 +1451,9 @@
   "image": "assets/products/TIL-04.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TIL-05",
@@ -1285,7 +1467,9 @@
   "image": "assets/products/TIL-05.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TIL-06",
@@ -1299,11 +1483,13 @@
   "image": "assets/products/TIL-06.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MF-21",
-  "name": "MDF Frame – Happy Birthday (MF-21)",
+  "name": "MDF Frame \u2013 Happy Birthday (MF-21)",
   "category": "Frames",
   "price": 449,
   "mrp": 549,
@@ -1313,11 +1499,13 @@
   "image": "assets/products/MF-21.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MF-23",
-  "name": "MDF Frame – Best Couple (MF-23)",
+  "name": "MDF Frame \u2013 Best Couple (MF-23)",
   "category": "Frames",
   "price": 449,
   "mrp": 549,
@@ -1327,11 +1515,13 @@
   "image": "assets/products/MF-23.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MF-24",
-  "name": "MDF Frame – Happy Birthday (MF-24)",
+  "name": "MDF Frame \u2013 Happy Birthday (MF-24)",
   "category": "Frames",
   "price": 449,
   "mrp": 549,
@@ -1341,11 +1531,13 @@
   "image": "assets/products/MF-24.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MF-25",
-  "name": "MDF Frame – Love You Forever (MF-25)",
+  "name": "MDF Frame \u2013 Love You Forever (MF-25)",
   "category": "Frames",
   "price": 449,
   "mrp": 549,
@@ -1355,11 +1547,13 @@
   "image": "assets/products/MF-25.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MF-26",
-  "name": "MDF Frame – Sweet Memories (MF-26)",
+  "name": "MDF Frame \u2013 Sweet Memories (MF-26)",
   "category": "Frames",
   "price": 449,
   "mrp": 549,
@@ -1369,11 +1563,13 @@
   "image": "assets/products/MF-26.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MF-28",
-  "name": "MDF Frame – Happy Birthday Cloud (MF-28)",
+  "name": "MDF Frame \u2013 Happy Birthday Cloud (MF-28)",
   "category": "Frames",
   "price": 449,
   "mrp": 549,
@@ -1383,11 +1579,13 @@
   "image": "assets/products/MF-28.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MF-31",
-  "name": "MDF Frame – Twin Photo (MF-31)",
+  "name": "MDF Frame \u2013 Twin Photo (MF-31)",
   "category": "Frames",
   "price": 449,
   "mrp": 549,
@@ -1397,7 +1595,9 @@
   "image": "assets/products/MF-31.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BL-01",
@@ -1411,7 +1611,9 @@
   "image": "assets/products/BL-01.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BL-04",
@@ -1425,7 +1627,9 @@
   "image": "assets/products/BL-04.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BL-14",
@@ -1439,7 +1643,9 @@
   "image": "assets/products/BL-14.webp",
   "featured": false,
   "badge": "",
-  "season": "newyear"
+  "season": "newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BLX-25",
@@ -1453,7 +1659,9 @@
   "image": "assets/products/BLX-25.webp",
   "featured": false,
   "badge": "",
-  "season": "newyear"
+  "season": "newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BL-28",
@@ -1467,7 +1675,9 @@
   "image": "assets/products/BL-28.webp",
   "featured": false,
   "badge": "",
-  "season": "newyear"
+  "season": "newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BL-29",
@@ -1481,7 +1691,9 @@
   "image": "assets/products/BL-29.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BL-30",
@@ -1495,7 +1707,9 @@
   "image": "assets/products/BL-30.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SH-01",
@@ -1509,7 +1723,9 @@
   "image": "assets/products/SH-01.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SH-04",
@@ -1523,7 +1739,9 @@
   "image": "assets/products/SH-04.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SH-15",
@@ -1537,7 +1755,9 @@
   "image": "assets/products/SH-15.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SH-59",
@@ -1551,7 +1771,9 @@
   "image": "assets/products/SH-59.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SH-60",
@@ -1565,11 +1787,13 @@
   "image": "assets/products/SH-60.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SFP-01",
-  "name": "Square Fur Pillow – Red",
+  "name": "Square Fur Pillow \u2013 Red",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -1579,11 +1803,13 @@
   "image": "assets/products/SFP-01.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SFP-02",
-  "name": "Square Fur Pillow – Pink",
+  "name": "Square Fur Pillow \u2013 Pink",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -1593,11 +1819,13 @@
   "image": "assets/products/SFP-02.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SFP-03",
-  "name": "Square Fur Pillow – Blue",
+  "name": "Square Fur Pillow \u2013 Blue",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -1607,11 +1835,13 @@
   "image": "assets/products/SFP-03.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SFP-04",
-  "name": "Square Fur Pillow – Yellow",
+  "name": "Square Fur Pillow \u2013 Yellow",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -1621,11 +1851,13 @@
   "image": "assets/products/SFP-04.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SFP-05",
-  "name": "Square Fur Pillow – Orange",
+  "name": "Square Fur Pillow \u2013 Orange",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -1635,11 +1867,13 @@
   "image": "assets/products/SFP-05.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "HFP-01",
-  "name": "Heart Fur Pillow – Red",
+  "name": "Heart Fur Pillow \u2013 Red",
   "category": "Pillows",
   "price": 499,
   "mrp": 599,
@@ -1649,11 +1883,13 @@
   "image": "assets/products/HFP-01.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "HFP-02",
-  "name": "Heart Fur Pillow – Pink",
+  "name": "Heart Fur Pillow \u2013 Pink",
   "category": "Pillows",
   "price": 499,
   "mrp": 599,
@@ -1663,11 +1899,13 @@
   "image": "assets/products/HFP-02.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "HFP-03",
-  "name": "Heart Fur Pillow – Blue",
+  "name": "Heart Fur Pillow \u2013 Blue",
   "category": "Pillows",
   "price": 499,
   "mrp": 599,
@@ -1677,11 +1915,13 @@
   "image": "assets/products/HFP-03.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "HFP-04",
-  "name": "Heart Fur Pillow – Yellow",
+  "name": "Heart Fur Pillow \u2013 Yellow",
   "category": "Pillows",
   "price": 499,
   "mrp": 599,
@@ -1691,11 +1931,13 @@
   "image": "assets/products/HFP-04.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "HFP-05",
-  "name": "Heart Fur Pillow – Orange",
+  "name": "Heart Fur Pillow \u2013 Orange",
   "category": "Pillows",
   "price": 499,
   "mrp": 599,
@@ -1705,7 +1947,9 @@
   "image": "assets/products/HFP-05.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "LDP-01",
@@ -1719,11 +1963,13 @@
   "image": "assets/products/LDP-01.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "PIL-02",
-  "name": "Printed Pillow 16 x 16 – Best Friend",
+  "name": "Printed Pillow 16 x 16 \u2013 Best Friend",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -1733,7 +1979,9 @@
   "image": "assets/products/PIL-02.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "PIL-03",
@@ -1747,11 +1995,13 @@
   "image": "assets/products/PIL-03.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SP-01",
-  "name": "Smiley Pillow – Heart Eyes (SP-01)",
+  "name": "Smiley Pillow \u2013 Heart Eyes (SP-01)",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -1761,11 +2011,13 @@
   "image": "assets/products/SP-01.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SP-02",
-  "name": "Smiley Pillow – Cool (SP-02)",
+  "name": "Smiley Pillow \u2013 Cool (SP-02)",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -1775,11 +2027,13 @@
   "image": "assets/products/SP-02.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SP-03",
-  "name": "Smiley Pillow – Happy (SP-03)",
+  "name": "Smiley Pillow \u2013 Happy (SP-03)",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -1789,11 +2043,13 @@
   "image": "assets/products/SP-03.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SP-04",
-  "name": "Smiley Pillow – Kiss (SP-04)",
+  "name": "Smiley Pillow \u2013 Kiss (SP-04)",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -1803,11 +2059,13 @@
   "image": "assets/products/SP-04.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "LDP-02",
-  "name": "LED Fur Pillow – Square",
+  "name": "LED Fur Pillow \u2013 Square",
   "category": "Pillows",
   "price": 699,
   "mrp": 849,
@@ -1817,11 +2075,13 @@
   "image": "assets/products/LDP-02.webp",
   "featured": true,
   "badge": "Diwali Pick",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "LDP-03",
-  "name": "LED Fur Pillow – Heart",
+  "name": "LED Fur Pillow \u2013 Heart",
   "category": "Pillows",
   "price": 749,
   "mrp": 899,
@@ -1831,11 +2091,13 @@
   "image": "assets/products/LDP-03.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali,valentine"
+  "season": "diwali,valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "LDP-04",
-  "name": "LED Fur Pillow with Remote – Square",
+  "name": "LED Fur Pillow with Remote \u2013 Square",
   "category": "Pillows",
   "price": 899,
   "mrp": 1099,
@@ -1845,11 +2107,13 @@
   "image": "assets/products/LDP-04.webp",
   "featured": true,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "LDP-05",
-  "name": "LED Fur Pillow with Remote – Heart",
+  "name": "LED Fur Pillow with Remote \u2013 Heart",
   "category": "Pillows",
   "price": 949,
   "mrp": 1149,
@@ -1859,7 +2123,9 @@
   "image": "assets/products/LDP-05.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali,valentine"
+  "season": "diwali,valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "DSH-01",
@@ -1873,7 +2139,9 @@
   "image": "assets/products/DSH-01.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "DSH-02",
@@ -1887,7 +2155,9 @@
   "image": "assets/products/DSH-02.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "RRP-01",
@@ -1901,11 +2171,13 @@
   "image": "assets/products/RRP-01.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TVP-01",
-  "name": "Teddy Velvet Pillow – Pink",
+  "name": "Teddy Velvet Pillow \u2013 Pink",
   "category": "Pillows",
   "price": 549,
   "mrp": 699,
@@ -1915,11 +2187,13 @@
   "image": "assets/products/TVP-01.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TVP-02",
-  "name": "Teddy Velvet Pillow – Blue",
+  "name": "Teddy Velvet Pillow \u2013 Blue",
   "category": "Pillows",
   "price": 549,
   "mrp": 699,
@@ -1929,11 +2203,13 @@
   "image": "assets/products/TVP-02.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TVP-03",
-  "name": "Teddy Velvet Pillow – Red",
+  "name": "Teddy Velvet Pillow \u2013 Red",
   "category": "Pillows",
   "price": 549,
   "mrp": 699,
@@ -1943,11 +2219,13 @@
   "image": "assets/products/TVP-03.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TVP-04",
-  "name": "Teddy Velvet Pillow – Yellow",
+  "name": "Teddy Velvet Pillow \u2013 Yellow",
   "category": "Pillows",
   "price": 549,
   "mrp": 699,
@@ -1957,11 +2235,13 @@
   "image": "assets/products/TVP-04.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TED-01",
-  "name": "Teddy with LED Heart Cushion – Red",
+  "name": "Teddy with LED Heart Cushion \u2013 Red",
   "category": "Soft Toys",
   "price": 899,
   "mrp": 1099,
@@ -1971,11 +2251,13 @@
   "image": "assets/products/TED-01.webp",
   "featured": true,
   "badge": "Bestseller",
-  "season": "diwali,valentine"
+  "season": "diwali,valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TED-02",
-  "name": "Teddy with LED Heart Cushion – White",
+  "name": "Teddy with LED Heart Cushion \u2013 White",
   "category": "Soft Toys",
   "price": 899,
   "mrp": 1099,
@@ -1985,11 +2267,13 @@
   "image": "assets/products/TED-02.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TED-03",
-  "name": "Teddy with LED Heart Cushion – Brown",
+  "name": "Teddy with LED Heart Cushion \u2013 Brown",
   "category": "Soft Toys",
   "price": 899,
   "mrp": 1099,
@@ -1999,11 +2283,13 @@
   "image": "assets/products/TED-03.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BHF-01",
-  "name": "Big Heart Fur Pillow – I Love You",
+  "name": "Big Heart Fur Pillow \u2013 I Love You",
   "category": "Pillows",
   "price": 749,
   "mrp": 899,
@@ -2013,11 +2299,13 @@
   "image": "assets/products/BHF-01.webp",
   "featured": true,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BHF-02",
-  "name": "Big Heart Fur Pillow – LOVE",
+  "name": "Big Heart Fur Pillow \u2013 LOVE",
   "category": "Pillows",
   "price": 749,
   "mrp": 899,
@@ -2027,11 +2315,13 @@
   "image": "assets/products/BHF-02.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BHF-03",
-  "name": "Big Heart Fur Pillow – Collage",
+  "name": "Big Heart Fur Pillow \u2013 Collage",
   "category": "Pillows",
   "price": 749,
   "mrp": 899,
@@ -2041,11 +2331,13 @@
   "image": "assets/products/BHF-03.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BHF-04",
-  "name": "Big Heart Fur Pillow – Maroon LOVE",
+  "name": "Big Heart Fur Pillow \u2013 Maroon LOVE",
   "category": "Pillows",
   "price": 749,
   "mrp": 899,
@@ -2055,11 +2347,13 @@
   "image": "assets/products/BHF-04.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BHF-05",
-  "name": "Big Heart Fur Pillow – Blue LOVE",
+  "name": "Big Heart Fur Pillow \u2013 Blue LOVE",
   "category": "Pillows",
   "price": 749,
   "mrp": 899,
@@ -2069,11 +2363,13 @@
   "image": "assets/products/BHF-05.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BHF-06",
-  "name": "Big Heart Fur Pillow – Orange LOVE",
+  "name": "Big Heart Fur Pillow \u2013 Orange LOVE",
   "category": "Pillows",
   "price": 749,
   "mrp": 899,
@@ -2083,11 +2379,13 @@
   "image": "assets/products/BHF-06.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BHF-07",
-  "name": "Big Heart Fur Pillow – Pink LOVE",
+  "name": "Big Heart Fur Pillow \u2013 Pink LOVE",
   "category": "Pillows",
   "price": 749,
   "mrp": 899,
@@ -2097,11 +2395,13 @@
   "image": "assets/products/BHF-07.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BHF-08",
-  "name": "Big Heart Fur Pillow – Purple LOVE",
+  "name": "Big Heart Fur Pillow \u2013 Purple LOVE",
   "category": "Pillows",
   "price": 749,
   "mrp": 899,
@@ -2111,11 +2411,13 @@
   "image": "assets/products/BHF-08.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BHF-09",
-  "name": "Big Heart Fur Pillow – Yellow LOVE",
+  "name": "Big Heart Fur Pillow \u2013 Yellow LOVE",
   "category": "Pillows",
   "price": 749,
   "mrp": 899,
@@ -2125,11 +2427,13 @@
   "image": "assets/products/BHF-09.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MSQ-01",
-  "name": "Magic Sequin Pillow 16 x 16 – Pink",
+  "name": "Magic Sequin Pillow 16 x 16 \u2013 Pink",
   "category": "Pillows",
   "price": 549,
   "mrp": 699,
@@ -2139,11 +2443,13 @@
   "image": "assets/products/MSQ-01.webp",
   "featured": true,
   "badge": "Trending",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MSQ-02",
-  "name": "Magic Sequin Pillow 16 x 16 – Blue",
+  "name": "Magic Sequin Pillow 16 x 16 \u2013 Blue",
   "category": "Pillows",
   "price": 549,
   "mrp": 699,
@@ -2153,11 +2459,13 @@
   "image": "assets/products/MSQ-02.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MSQ-03",
-  "name": "Magic Sequin Pillow 16 x 16 – Red",
+  "name": "Magic Sequin Pillow 16 x 16 \u2013 Red",
   "category": "Pillows",
   "price": 549,
   "mrp": 699,
@@ -2167,7 +2475,9 @@
   "image": "assets/products/MSQ-03.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MSQ-04",
@@ -2181,11 +2491,13 @@
   "image": "assets/products/MSQ-04.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MSQ-05",
-  "name": "Magic Sequin Pillow 16 x 16 – Gold",
+  "name": "Magic Sequin Pillow 16 x 16 \u2013 Gold",
   "category": "Pillows",
   "price": 549,
   "mrp": 699,
@@ -2195,11 +2507,13 @@
   "image": "assets/products/MSQ-05.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MSQ-06",
-  "name": "Magic Sequin Pillow 16 x 16 – Rosy Gold",
+  "name": "Magic Sequin Pillow 16 x 16 \u2013 Rosy Gold",
   "category": "Pillows",
   "price": 549,
   "mrp": 699,
@@ -2209,11 +2523,13 @@
   "image": "assets/products/MSQ-06.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MSQ-07",
-  "name": "Magic Sequin Pillow 16 x 16 – Silver",
+  "name": "Magic Sequin Pillow 16 x 16 \u2013 Silver",
   "category": "Pillows",
   "price": 549,
   "mrp": 699,
@@ -2223,11 +2539,13 @@
   "image": "assets/products/MSQ-07.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MSQ-08",
-  "name": "Magic Sequin Pillow 16 x 16 – Black",
+  "name": "Magic Sequin Pillow 16 x 16 \u2013 Black",
   "category": "Pillows",
   "price": 549,
   "mrp": 699,
@@ -2237,11 +2555,13 @@
   "image": "assets/products/MSQ-08.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MSQ-09",
-  "name": "Magic Sequin Pillow 12 x 12 – Red",
+  "name": "Magic Sequin Pillow 12 x 12 \u2013 Red",
   "category": "Pillows",
   "price": 399,
   "mrp": 499,
@@ -2251,11 +2571,13 @@
   "image": "assets/products/MSQ-09.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MSQ-10",
-  "name": "Magic Sequin Pillow 12 x 12 – Gold",
+  "name": "Magic Sequin Pillow 12 x 12 \u2013 Gold",
   "category": "Pillows",
   "price": 399,
   "mrp": 499,
@@ -2265,11 +2587,13 @@
   "image": "assets/products/MSQ-10.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MSQ-11",
-  "name": "Magic Sequin Pillow 12 x 12 – Pink",
+  "name": "Magic Sequin Pillow 12 x 12 \u2013 Pink",
   "category": "Pillows",
   "price": 399,
   "mrp": 499,
@@ -2279,11 +2603,13 @@
   "image": "assets/products/MSQ-11.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MSQ-12",
-  "name": "Magic Sequin Pillow 12 x 12 – Silver",
+  "name": "Magic Sequin Pillow 12 x 12 \u2013 Silver",
   "category": "Pillows",
   "price": 399,
   "mrp": 499,
@@ -2293,11 +2619,13 @@
   "image": "assets/products/MSQ-12.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MSQ-13",
-  "name": "Magic Sequin Pillow 12 x 12 – Black",
+  "name": "Magic Sequin Pillow 12 x 12 \u2013 Black",
   "category": "Pillows",
   "price": 399,
   "mrp": 499,
@@ -2307,11 +2635,13 @@
   "image": "assets/products/MSQ-13.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CTN-01",
-  "name": "Cartoon Pillow 12 x 12 – Mickey Mouse",
+  "name": "Cartoon Pillow 12 x 12 \u2013 Mickey Mouse",
   "category": "Pillows",
   "price": 399,
   "mrp": 499,
@@ -2321,11 +2651,13 @@
   "image": "assets/products/CTN-01.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CTN-05",
-  "name": "Cartoon Pillow 12 x 12 – Barbie",
+  "name": "Cartoon Pillow 12 x 12 \u2013 Barbie",
   "category": "Pillows",
   "price": 399,
   "mrp": 499,
@@ -2335,11 +2667,13 @@
   "image": "assets/products/CTN-05.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CTN-02",
-  "name": "Cartoon Pillow 12 x 12 – Chota Bheem",
+  "name": "Cartoon Pillow 12 x 12 \u2013 Chota Bheem",
   "category": "Pillows",
   "price": 399,
   "mrp": 499,
@@ -2349,11 +2683,13 @@
   "image": "assets/products/CTN-02.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CTN-06",
-  "name": "Cartoon Pillow 12 x 12 – Frozen",
+  "name": "Cartoon Pillow 12 x 12 \u2013 Frozen",
   "category": "Pillows",
   "price": 399,
   "mrp": 499,
@@ -2363,11 +2699,13 @@
   "image": "assets/products/CTN-06.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CTN-03",
-  "name": "Cartoon Pillow 12 x 12 – Winnie The Pooh",
+  "name": "Cartoon Pillow 12 x 12 \u2013 Winnie The Pooh",
   "category": "Pillows",
   "price": 399,
   "mrp": 499,
@@ -2377,11 +2715,13 @@
   "image": "assets/products/CTN-03.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CTN-07",
-  "name": "Cartoon Pillow 12 x 12 – Unicorn",
+  "name": "Cartoon Pillow 12 x 12 \u2013 Unicorn",
   "category": "Pillows",
   "price": 399,
   "mrp": 499,
@@ -2391,11 +2731,13 @@
   "image": "assets/products/CTN-07.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CTN-04",
-  "name": "Cartoon Pillow 12 x 12 – Spiderman",
+  "name": "Cartoon Pillow 12 x 12 \u2013 Spiderman",
   "category": "Pillows",
   "price": 399,
   "mrp": 499,
@@ -2405,11 +2747,13 @@
   "image": "assets/products/CTN-04.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CTN-08",
-  "name": "Cartoon Pillow 12 x 12 – Dora",
+  "name": "Cartoon Pillow 12 x 12 \u2013 Dora",
   "category": "Pillows",
   "price": 399,
   "mrp": 499,
@@ -2419,11 +2763,13 @@
   "image": "assets/products/CTN-08.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "NDP-01",
-  "name": "Digital Pillow 15 x 15 – NDP-01 (Heart)",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-01 (Heart)",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -2433,11 +2779,13 @@
   "image": "assets/products/NDP-01.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "NDP-05",
-  "name": "Digital Pillow 15 x 15 – NDP-05 (Square)",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-05 (Square)",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -2447,11 +2795,13 @@
   "image": "assets/products/NDP-05.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "NDP-09",
-  "name": "Digital Pillow 15 x 15 – NDP-09 (Square)",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-09 (Square)",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -2461,11 +2811,13 @@
   "image": "assets/products/NDP-09.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "NDP-02",
-  "name": "Digital Pillow 15 x 15 – NDP-02 (Heart)",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-02 (Heart)",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -2475,11 +2827,13 @@
   "image": "assets/products/NDP-02.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "NDP-06",
-  "name": "Digital Pillow 15 x 15 – NDP-06 (Square)",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-06 (Square)",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -2489,11 +2843,13 @@
   "image": "assets/products/NDP-06.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "NDP-10",
-  "name": "Digital Pillow 15 x 15 – NDP-10 (Square)",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-10 (Square)",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -2503,11 +2859,13 @@
   "image": "assets/products/NDP-10.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "NDP-03",
-  "name": "Digital Pillow 15 x 15 – NDP-03 (Heart)",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-03 (Heart)",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -2517,11 +2875,13 @@
   "image": "assets/products/NDP-03.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "NDP-07",
-  "name": "Digital Pillow 15 x 15 – NDP-07 (Square)",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-07 (Square)",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -2531,11 +2891,13 @@
   "image": "assets/products/NDP-07.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "NDP-11",
-  "name": "Digital Pillow 15 x 15 – NDP-11 (Square)",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-11 (Square)",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -2545,11 +2907,13 @@
   "image": "assets/products/NDP-11.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "NDP-04",
-  "name": "Digital Pillow 15 x 15 – NDP-04 (Heart)",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-04 (Heart)",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -2559,11 +2923,13 @@
   "image": "assets/products/NDP-04.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "NDP-08",
-  "name": "Digital Pillow 15 x 15 – NDP-08 (Square)",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-08 (Square)",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -2573,11 +2939,13 @@
   "image": "assets/products/NDP-08.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "NDP-12",
-  "name": "Digital Pillow 15 x 15 – NDP-12 (Square)",
+  "name": "Digital Pillow 15 x 15 \u2013 NDP-12 (Square)",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -2587,7 +2955,9 @@
   "image": "assets/products/NDP-12.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "NCP-01",
@@ -2601,7 +2971,9 @@
   "image": "assets/products/NCP-01.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "NCP-02",
@@ -2615,7 +2987,9 @@
   "image": "assets/products/NCP-02.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SPK-01",
@@ -2629,11 +3003,13 @@
   "image": "assets/products/SPK-01.webp",
   "featured": true,
   "badge": "New",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WHC-01",
-  "name": "Wall Hanging Cushion – Birthday (6 photos)",
+  "name": "Wall Hanging Cushion \u2013 Birthday (6 photos)",
   "category": "Pillows",
   "price": 799,
   "mrp": 999,
@@ -2643,11 +3019,13 @@
   "image": "assets/products/WHC-01.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WHC-02",
-  "name": "Wall Hanging Cushion – Love (6 photos)",
+  "name": "Wall Hanging Cushion \u2013 Love (6 photos)",
   "category": "Pillows",
   "price": 799,
   "mrp": 999,
@@ -2657,11 +3035,13 @@
   "image": "assets/products/WHC-02.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "WHC-03",
-  "name": "Wall Hanging Cushion – Anniversary (6 photos)",
+  "name": "Wall Hanging Cushion \u2013 Anniversary (6 photos)",
   "category": "Pillows",
   "price": 799,
   "mrp": 999,
@@ -2671,11 +3051,13 @@
   "image": "assets/products/WHC-03.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "ODP-01",
-  "name": "Digital Pillow 16 x 16 – Made For Each Other",
+  "name": "Digital Pillow 16 x 16 \u2013 Made For Each Other",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -2685,11 +3067,13 @@
   "image": "assets/products/ODP-01.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "ODP-02",
-  "name": "Digital Pillow 16 x 16 – I Love You",
+  "name": "Digital Pillow 16 x 16 \u2013 I Love You",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -2699,11 +3083,13 @@
   "image": "assets/products/ODP-02.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "ODP-03",
-  "name": "Digital Pillow 16 x 16 – Love Is In The Air",
+  "name": "Digital Pillow 16 x 16 \u2013 Love Is In The Air",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -2713,11 +3099,13 @@
   "image": "assets/products/ODP-03.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "ODP-04",
-  "name": "Digital Pillow 16 x 16 – Happy Birthday",
+  "name": "Digital Pillow 16 x 16 \u2013 Happy Birthday",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -2727,11 +3115,13 @@
   "image": "assets/products/ODP-04.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "ODP-05",
-  "name": "Digital Pillow 16 x 16 – Barbie",
+  "name": "Digital Pillow 16 x 16 \u2013 Barbie",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -2741,7 +3131,9 @@
   "image": "assets/products/ODP-05.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BAG-01",
@@ -2755,7 +3147,9 @@
   "image": "assets/products/BAG-01.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BAG-02",
@@ -2769,7 +3163,9 @@
   "image": "assets/products/BAG-02.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BAG-03",
@@ -2783,11 +3179,13 @@
   "image": "assets/products/BAG-03.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "DSB-01",
-  "name": "Drawstring Bag – Cartoon",
+  "name": "Drawstring Bag \u2013 Cartoon",
   "category": "Kids & School",
   "price": 299,
   "mrp": 399,
@@ -2797,109 +3195,125 @@
   "image": "assets/products/DSB-01.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TSH-01",
-  "name": "Sublimation T-Shirt – White (Kids & Adults)",
+  "name": "Sublimation T-Shirt \u2013 White (Kids & Adults)",
   "category": "Apparel",
   "price": 349,
   "mrp": 449,
   "size": "18 to 46",
   "tags": "tshirt,photo,couple,family",
-  "desc": "White polyester tee printed with photo/name. Sizes 18–46.",
+  "desc": "White polyester tee printed with photo/name. Sizes 18\u201346.",
   "image": "assets/products/TSH-01.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "ROM-01",
-  "name": "Baby Romper – Blue Trim",
+  "name": "Baby Romper \u2013 Blue Trim",
   "category": "Apparel",
   "price": 399,
   "mrp": 499,
-  "size": "3M–1Y",
+  "size": "3M\u20131Y",
   "tags": "baby,romper",
   "desc": "Poly-cotton baby romper, photo print.",
   "image": "assets/products/ROM-01.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "ROM-02",
-  "name": "Baby Romper – Red Trim",
+  "name": "Baby Romper \u2013 Red Trim",
   "category": "Apparel",
   "price": 399,
   "mrp": 499,
-  "size": "3M–1Y",
+  "size": "3M\u20131Y",
   "tags": "baby,romper",
   "desc": "Poly-cotton baby romper, photo print.",
   "image": "assets/products/ROM-02.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TSH-02",
-  "name": "Raglan T-Shirt – Red & White",
+  "name": "Raglan T-Shirt \u2013 Red & White",
   "category": "Apparel",
   "price": 449,
   "mrp": 549,
-  "size": "XS–XXL",
+  "size": "XS\u2013XXL",
   "tags": "tshirt,raglan",
   "desc": "Full cotton front, polyester sleeves.",
   "image": "assets/products/TSH-02.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TSH-03",
-  "name": "Raglan T-Shirt – Black & White",
+  "name": "Raglan T-Shirt \u2013 Black & White",
   "category": "Apparel",
   "price": 449,
   "mrp": 549,
-  "size": "XS–XXL",
+  "size": "XS\u2013XXL",
   "tags": "tshirt,raglan",
   "desc": "Full cotton front, polyester sleeves.",
   "image": "assets/products/TSH-03.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TSH-04",
-  "name": "Ringer T-Shirt – Black Trim",
+  "name": "Ringer T-Shirt \u2013 Black Trim",
   "category": "Apparel",
   "price": 449,
   "mrp": 549,
-  "size": "XS–XXL",
+  "size": "XS\u2013XXL",
   "tags": "tshirt,ringer",
   "desc": "White tee with black collar and cuffs.",
   "image": "assets/products/TSH-04.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TSH-05",
-  "name": "Ringer T-Shirt – Blue Trim",
+  "name": "Ringer T-Shirt \u2013 Blue Trim",
   "category": "Apparel",
   "price": 449,
   "mrp": 549,
-  "size": "XS–XXL",
+  "size": "XS\u2013XXL",
   "tags": "tshirt,ringer",
   "desc": "White tee with blue collar and cuffs.",
   "image": "assets/products/TSH-05.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "PLS-01",
-  "name": "Plush Photo Pillow – Mickey",
+  "name": "Plush Photo Pillow \u2013 Mickey",
   "category": "Soft Toys",
   "price": 549,
   "mrp": 699,
@@ -2909,11 +3323,13 @@
   "image": "assets/products/PLS-01.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "PLS-02",
-  "name": "Plush Photo Pillow – Dorami",
+  "name": "Plush Photo Pillow \u2013 Dorami",
   "category": "Soft Toys",
   "price": 549,
   "mrp": 699,
@@ -2923,11 +3339,13 @@
   "image": "assets/products/PLS-02.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "PLS-03",
-  "name": "Plush Photo Pillow – Doraemon",
+  "name": "Plush Photo Pillow \u2013 Doraemon",
   "category": "Soft Toys",
   "price": 549,
   "mrp": 699,
@@ -2937,11 +3355,13 @@
   "image": "assets/products/PLS-03.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "PLS-04",
-  "name": "Plush Photo Pillow – Minnie",
+  "name": "Plush Photo Pillow \u2013 Minnie",
   "category": "Soft Toys",
   "price": 549,
   "mrp": 699,
@@ -2951,11 +3371,13 @@
   "image": "assets/products/PLS-04.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "PLS-05",
-  "name": "Plush Photo Pillow – Pooh",
+  "name": "Plush Photo Pillow \u2013 Pooh",
   "category": "Soft Toys",
   "price": 549,
   "mrp": 699,
@@ -2965,11 +3387,13 @@
   "image": "assets/products/PLS-05.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "PLS-06",
-  "name": "Plush Photo Pillow – Panda",
+  "name": "Plush Photo Pillow \u2013 Panda",
   "category": "Soft Toys",
   "price": 549,
   "mrp": 699,
@@ -2979,7 +3403,9 @@
   "image": "assets/products/PLS-06.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CUR-01",
@@ -2993,25 +3419,29 @@
   "image": "assets/products/CUR-01.webp",
   "featured": true,
   "badge": "Premium",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TSH-06",
-  "name": "Collar T-Shirt – Photo/Logo",
+  "name": "Collar T-Shirt \u2013 Photo/Logo",
   "category": "Apparel",
   "price": 499,
   "mrp": 599,
-  "size": "34–44",
+  "size": "34\u201344",
   "tags": "polo,corporate",
   "desc": "Polo tee with logo or photo print.",
   "image": "assets/products/TSH-06.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali,newyear"
+  "season": "diwali,newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SSH-01",
-  "name": "Satin Sash – Bride To Be",
+  "name": "Satin Sash \u2013 Bride To Be",
   "category": "Party",
   "price": 199,
   "mrp": 249,
@@ -3021,11 +3451,13 @@
   "image": "assets/products/SSH-01.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SSH-02",
-  "name": "Satin Sash – Birthday / Princess",
+  "name": "Satin Sash \u2013 Birthday / Princess",
   "category": "Party",
   "price": 199,
   "mrp": 249,
@@ -3035,7 +3467,9 @@
   "image": "assets/products/SSH-02.webp",
   "featured": false,
   "badge": "",
-  "season": "birthday"
+  "season": "birthday",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "SQP-01",
@@ -3049,11 +3483,13 @@
   "image": "assets/products/SQP-01.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "RK-01",
-  "name": "Photo Rakhi – Floral",
+  "name": "Photo Rakhi \u2013 Floral",
   "category": "Festive",
   "price": 149,
   "mrp": 199,
@@ -3063,11 +3499,13 @@
   "image": "assets/products/RK-01.webp",
   "featured": false,
   "badge": "",
-  "season": "rakhi"
+  "season": "rakhi",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "RK-02",
-  "name": "Photo Rakhi – Kundan Oval",
+  "name": "Photo Rakhi \u2013 Kundan Oval",
   "category": "Festive",
   "price": 199,
   "mrp": 249,
@@ -3077,11 +3515,13 @@
   "image": "assets/products/RK-02.webp",
   "featured": false,
   "badge": "",
-  "season": "rakhi"
+  "season": "rakhi",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "RK-03",
-  "name": "Photo Rakhi – Sunburst",
+  "name": "Photo Rakhi \u2013 Sunburst",
   "category": "Festive",
   "price": 149,
   "mrp": 199,
@@ -3091,11 +3531,13 @@
   "image": "assets/products/RK-03.webp",
   "featured": false,
   "badge": "",
-  "season": "rakhi"
+  "season": "rakhi",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "RK-04",
-  "name": "Photo Rakhi – Square Kundan",
+  "name": "Photo Rakhi \u2013 Square Kundan",
   "category": "Festive",
   "price": 199,
   "mrp": 249,
@@ -3105,11 +3547,13 @@
   "image": "assets/products/RK-04.webp",
   "featured": false,
   "badge": "",
-  "season": "rakhi"
+  "season": "rakhi",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "RK-05",
-  "name": "Photo Rakhi – BRO",
+  "name": "Photo Rakhi \u2013 BRO",
   "category": "Festive",
   "price": 149,
   "mrp": 199,
@@ -3119,11 +3563,13 @@
   "image": "assets/products/RK-05.webp",
   "featured": false,
   "badge": "",
-  "season": "rakhi"
+  "season": "rakhi",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "RK-06",
-  "name": "Photo Rakhi – Royal Round",
+  "name": "Photo Rakhi \u2013 Royal Round",
   "category": "Festive",
   "price": 199,
   "mrp": 249,
@@ -3133,7 +3579,9 @@
   "image": "assets/products/RK-06.webp",
   "featured": false,
   "badge": "",
-  "season": "rakhi"
+  "season": "rakhi",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CLP-01",
@@ -3147,11 +3595,13 @@
   "image": "assets/products/CLP-01.webp",
   "featured": true,
   "badge": "Diwali Pick",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MSK-01",
-  "name": "Custom Mask – Dri-fit Single Layer",
+  "name": "Custom Mask \u2013 Dri-fit Single Layer",
   "category": "Apparel",
   "price": 99,
   "mrp": 129,
@@ -3161,11 +3611,13 @@
   "image": "assets/products/MSK-01.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MSK-02",
-  "name": "Custom Mask – Lycra Single Layer",
+  "name": "Custom Mask \u2013 Lycra Single Layer",
   "category": "Apparel",
   "price": 99,
   "mrp": 129,
@@ -3175,11 +3627,13 @@
   "image": "assets/products/MSK-02.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "MSK-03",
-  "name": "Custom Mask – Double Layer Satin",
+  "name": "Custom Mask \u2013 Double Layer Satin",
   "category": "Apparel",
   "price": 129,
   "mrp": 159,
@@ -3189,11 +3643,13 @@
   "image": "assets/products/MSK-03.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BED-01",
-  "name": "Custom Bedsheet with Pillow Covers – Black",
+  "name": "Custom Bedsheet with Pillow Covers \u2013 Black",
   "category": "Home Decor",
   "price": 2499,
   "mrp": 2999,
@@ -3203,11 +3659,13 @@
   "image": "assets/products/BED-01.webp",
   "featured": false,
   "badge": "Premium",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BED-02",
-  "name": "Custom Bedsheet with Pillow Covers – Red Love",
+  "name": "Custom Bedsheet with Pillow Covers \u2013 Red Love",
   "category": "Home Decor",
   "price": 2499,
   "mrp": 2999,
@@ -3217,11 +3675,13 @@
   "image": "assets/products/BED-02.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BED-03",
-  "name": "Custom Bedsheet with Pillow Covers – Red Floral",
+  "name": "Custom Bedsheet with Pillow Covers \u2013 Red Floral",
   "category": "Home Decor",
   "price": 2499,
   "mrp": 2999,
@@ -3231,11 +3691,13 @@
   "image": "assets/products/BED-03.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "BED-04",
-  "name": "Custom Bedsheet with Pillow Covers – Navy",
+  "name": "Custom Bedsheet with Pillow Covers \u2013 Navy",
   "category": "Home Decor",
   "price": 2499,
   "mrp": 2999,
@@ -3245,7 +3707,9 @@
   "image": "assets/products/BED-04.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TSH-07",
@@ -3253,13 +3717,15 @@
   "category": "Apparel",
   "price": 799,
   "mrp": 999,
-  "size": "XS–XXL",
+  "size": "XS\u2013XXL",
   "tags": "couple,tshirt,set",
   "desc": "Matching couple tees (set of 2).",
   "image": "assets/products/TSH-07.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TSH-08",
@@ -3267,13 +3733,15 @@
   "category": "Apparel",
   "price": 349,
   "mrp": 449,
-  "size": "XS–XXL",
+  "size": "XS\u2013XXL",
   "tags": "group,tshirt,event",
   "desc": "Group / event tees. Bulk pricing on request.",
   "image": "assets/products/TSH-08.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TSH-09",
@@ -3287,7 +3755,9 @@
   "image": "assets/products/TSH-09.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TSH-10",
@@ -3295,13 +3765,15 @@
   "category": "Apparel",
   "price": 349,
   "mrp": 449,
-  "size": "XS–XXL",
+  "size": "XS\u2013XXL",
   "tags": "friends,tshirt",
   "desc": "BFF printed tees.",
   "image": "assets/products/TSH-10.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "TSH-11",
@@ -3309,17 +3781,19 @@
   "category": "Apparel",
   "price": 549,
   "mrp": 699,
-  "size": "34–44",
+  "size": "34\u201344",
   "tags": "corporate,polo,logo",
   "desc": "Corporate polo with embroidered/printed logo and mask.",
   "image": "assets/products/TSH-11.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali,newyear"
+  "season": "diwali,newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CVR-01",
-  "name": "Heart Photo Cushion – Red Hearts",
+  "name": "Heart Photo Cushion \u2013 Red Hearts",
   "category": "Pillows",
   "price": 449,
   "mrp": 549,
@@ -3329,7 +3803,9 @@
   "image": "assets/products/CVR-01.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine"
+  "season": "valentine",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CVR-02",
@@ -3343,7 +3819,9 @@
   "image": "assets/products/CVR-02.webp",
   "featured": false,
   "badge": "",
-  "season": "rakhi"
+  "season": "rakhi",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CVR-03",
@@ -3357,7 +3835,9 @@
   "image": "assets/products/CVR-03.webp",
   "featured": false,
   "badge": "",
-  "season": "valentine,newyear"
+  "season": "valentine,newyear",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CVR-04",
@@ -3371,7 +3851,9 @@
   "image": "assets/products/CVR-04.webp",
   "featured": false,
   "badge": "",
-  "season": "diwali"
+  "season": "diwali",
+  "leadTime": "2-3 days",
+  "minQty": 1
  },
  {
   "id": "CVR-05",
@@ -3385,6 +3867,8 @@
   "image": "assets/products/CVR-05.webp",
   "featured": false,
   "badge": "",
-  "season": ""
+  "season": "",
+  "leadTime": "2-3 days",
+  "minQty": 1
  }
 ]

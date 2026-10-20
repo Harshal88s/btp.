@@ -19,6 +19,11 @@ const ORDERS_XLSX = path.join(DATA, "orders.xlsx");
 const FEEDBACK_PENDING = path.join(DATA, "feedback-pending.json");
 const UPLOADS = path.join(DATA, "uploads");
 const PORT = Number(process.env.PORT) || 3000;
+// Optional: a Google Sheet (Share > Anyone with the link, Viewer) exported as xlsx, e.g.
+// https://docs.google.com/spreadsheets/d/<SHEET_ID>/export?format=xlsx  — polled every SHEET_POLL_SECONDS.
+const SHEET_URL = process.env.YOUNICK_SHEET_URL || "";
+const SHEET_POLL = Math.max(15, Number(process.env.SHEET_POLL_SECONDS) || 60);
+const REMOTE_WORKBOOK = path.join(DATA, "younick-catalog.remote.xlsx");
 const ADMIN_TOKEN = process.env.ADMIN_TOKEN || "younick-admin";
 
 const app = express();
@@ -28,10 +33,34 @@ app.use(express.json({ limit: "25mb" }));
 const { loadCatalog: readWorkbook, num, str } = require("./lib/catalog");
 let catalog = null;
 let catalogVersion = 0;
+function activeWorkbook() { return SHEET_URL && fs.existsSync(REMOTE_WORKBOOK) ? REMOTE_WORKBOOK : WORKBOOK; }
 function loadCatalog() {
   catalogVersion += 1;
-  catalog = { ...readWorkbook(WORKBOOK, { version: catalogVersion, pendingFeedbackPath: FEEDBACK_PENDING }), mode: "server" };
+  const next = readWorkbook(activeWorkbook(), { version: catalogVersion, pendingFeedbackPath: FEEDBACK_PENDING, publicDir: path.join(ROOT, "public") });
+  catalog = { ...next, mode: "server", source: SHEET_URL ? "google-sheet" : "excel-file" };
+  if (next.issues.length) console.warn(`[catalog] ${next.issues.length} issue(s) in the workbook:\n  - ` + next.issues.join("\n  - "));
   return catalog;
+}
+
+/* ---------------------------------------------------- remote sheet polling */
+let lastRemoteHash = "";
+async function pollRemoteSheet() {
+  if (!SHEET_URL) return;
+  try {
+    const res = await fetch(SHEET_URL, { redirect: "follow", headers: { "User-Agent": "younick-gifts-site" } });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const buf = Buffer.from(await res.arrayBuffer());
+    if (buf.length < 1000) throw new Error("response too small to be a workbook (is the sheet shared / published?)");
+    const hash = crypto.createHash("sha1").update(buf).digest("hex");
+    if (hash === lastRemoteHash) return;
+    fs.mkdirSync(DATA, { recursive: true });
+    fs.writeFileSync(REMOTE_WORKBOOK + ".tmp", buf);
+    fs.renameSync(REMOTE_WORKBOOK + ".tmp", REMOTE_WORKBOOK);
+    lastRemoteHash = hash;
+    scheduleReload("google sheet changed");
+  } catch (e) {
+    console.warn("[sheet] could not fetch the Google Sheet, keeping the last good catalogue:", e.message);
+  }
 }
 
 /* ---------------------------------------------------------------- watching */
@@ -63,6 +92,12 @@ app.get("/api/catalog", (req, res) => {
   if (!catalog) loadCatalog();
   res.set("Cache-Control", "no-store");
   res.json(catalog);
+});
+
+app.get("/api/health", (req, res) => {
+  if (!catalog) loadCatalog();
+  res.set("Cache-Control", "no-store");
+  res.json({ ok: true, version: catalog.version, source: catalog.source, workbook: activeWorkbook(), products: catalog.products.length, issues: catalog.issues, setup: catalog.setup, generatedAt: catalog.generatedAt });
 });
 
 app.get("/api/events", (req, res) => {
@@ -225,9 +260,22 @@ app.use("/data/uploads", requireAdmin, express.static(UPLOADS));
 app.use(express.static(path.join(ROOT, "public"), { extensions: ["html"] }));
 app.get("/health", (req, res) => res.json({ ok: true, version: catalog ? catalog.version : 0 }));
 
+// sitemap + robots (uses site_url from the Settings sheet when present)
+app.get("/sitemap.xml", (req, res) => {
+  if (!catalog) loadCatalog();
+  const base = (catalog.settings.site_url || `${req.protocol}://${req.get("host")}`).replace(/\/+$/, "");
+  const urls = [`${base}/`, ...catalog.products.map((p) => `${base}/#${p.id}`)];
+  res.type("application/xml").send(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc></url>`).join("\n")}\n</urlset>`);
+});
+app.get("/robots.txt", (req, res) => res.type("text/plain").send("User-agent: *\nAllow: /\nDisallow: /admin.html\nDisallow: /api/\nSitemap: /sitemap.xml\n"));
+
 loadCatalog();
+if (SHEET_URL) { pollRemoteSheet(); setInterval(pollRemoteSheet, SHEET_POLL * 1000); }
 app.listen(PORT, () => {
   console.log(`\n  Younick Gifts marketplace  ->  http://localhost:${PORT}`);
   console.log(`  Admin orders page          ->  http://localhost:${PORT}/admin.html  (token: ${ADMIN_TOKEN})`);
-  console.log(`  Catalogue workbook         ->  ${WORKBOOK}  (${catalog.products.length} products, watching for changes)\n`);
+  console.log(`  Catalogue workbook         ->  ${WORKBOOK}  (${catalog.products.length} products, watching for changes)`);
+  if (SHEET_URL) console.log(`  Google Sheet source        ->  ${SHEET_URL}  (polled every ${SHEET_POLL}s, overrides the local file)`);
+  if (catalog.setup.length) console.log(`  Setup checklist            ->  ${catalog.setup.length} detail(s) still blank; see /admin.html`);
+  console.log("");
 });
