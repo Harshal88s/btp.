@@ -8,18 +8,16 @@
       <a href="#play">Play</a>
       <a href="#fighters">Fighters</a>
       <a href="#controls">Controls</a>
-      <a href="#assets">HD assets</a>
-      <a href="#deploy">Host it free</a>
     </nav>
-    <span class="badge">Fan game · Free</span>
+    <span class="badge">Free to play</span>
   </div>
 </header>
 
 <main id="top">
   <section class="hero wrap">
-    <p class="eyebrow">An unofficial Marvel fan fighting game for the browser</p>
+    <p class="eyebrow">Browser fighting game · No download</p>
     <h1>Heroes. Villains. <span>One Arena.</span></h1>
-    <p class="lede">Ten of the most famous Marvel characters, drawn from scratch, each with their own signature move set. Throw Cap's shield, clap like Hulk, snap like Thanos. Play against the CPU or a friend on one keyboard. Nothing to install.</p>
+    <p class="lede">Ten legendary heroes and villains, each with a signature special and a cinematic super. Throw the shield, clap the thunder, snap the universe. Play against the CPU or a friend on one keyboard, on desktop or phone.</p>
     <div class="cta">
       <a class="btn btn-primary" href="#play">▶ Play now</a>
       <a class="btn btn-ghost" href="#fighters">Meet the fighters</a>
@@ -92,7 +90,7 @@
           <div class="set-grid">
             <label class="set-row">Movement sensitivity <span class="set-ctl"><input type="range" id="set-sens" min="0.6" max="1.8" step="0.05" value="1"><output id="set-sens-out">100%</output></span></label>
             <label class="set-row">CPU difficulty <span class="set-ctl"><select id="set-diff"><option value="0">Easy</option><option value="1">Medium</option><option value="2">Hard</option></select></span></label>
-            <label class="set-row">Voice lines <span class="set-ctl"><select id="set-voice"><option value="fx">Character sounds (roars, growls, effects)</option><option value="auto">Sounds + spoken lines</option><option value="clips">Your clips only</option><option value="off">Off</option></select></span></label>
+            <label class="set-row">Voice lines <span class="set-ctl"><select id="set-voice"><option value="fx">Character sounds (roars, growls, effects)</option><option value="auto">Sounds + spoken lines</option><option value="clips">Audio clips only</option><option value="off">Off</option></select></span></label>
             <label class="set-row">Volume <span class="set-ctl"><input type="range" id="set-vol" min="0" max="1" step="0.05" value="0.9"><output id="set-vol-out">90%</output></span></label>
             <label class="set-row">Sound effects <span class="set-ctl"><input type="checkbox" id="set-sfx" checked></span></label>
           </div>
@@ -132,7 +130,7 @@
     <div class="section-head">
       <p class="eyebrow">The roster</p>
       <h2>Seven heroes. Three villains. Ten move sets.</h2>
-      <p>Every fighter has a special on a short cooldown and a super that needs a full meter. Flyers get a second jump. Heavyweights hit harder and take more.</p>
+      <p>Every fighter has a special on a short cooldown and a super that needs a full meter. Flyers get a second jump. Heavyweights hit harder in close.</p>
     </div>
     <div class="roster" id="roster"></div>
   </section>
@@ -141,7 +139,7 @@
     <div class="section-head">
       <p class="eyebrow">How to fight</p>
       <h2>Controls</h2>
-      <p>Defaults below. Every key can be changed in <b>Settings</b> (title screen, or pause and press O), along with movement sensitivity, CPU difficulty and voices. In 1P vs CPU both key sets control you. Double-tap left or right to dash. On a phone, turn it sideways and tap <b>Fullscreen</b>: the arena fills the screen with the touch pad on top of it.</p>
+      <p>Every key can be changed in <b>Settings</b>, along with movement sensitivity, CPU difficulty and sound. In 1P mode both key sets control you. Double-tap left or right to dash. On a phone, turn it sideways: the arena fills the screen with the touch pad on top.</p>
     </div>
     <div class="controls">
       <div class="table-wrap">
@@ -170,93 +168,10 @@
     </div>
   </section>
 
-  <section class="section wrap" id="assets">
-    <div class="section-head">
-      <p class="eyebrow">Your own HD art and movie sounds</p>
-      <h2>Drop files in, no code changes</h2>
-      <p>The game draws every character in code, but it will swap in your files automatically. Add an <code>assets</code> folder next to <code>index.html</code>.</p>
-    </div>
-    <div class="deploy">
-      <div class="step">
-        <h3>HD character images</h3>
-        <ol>
-          <li>Save one PNG per fighter with a <b>transparent background</b>, full body, facing right.</li>
-          <li>Name them <code>assets/sprites/ironman.png</code>, <code>cap.png</code>, <code>thor.png</code>, <code>hulk.png</code>, <code>spiderman.png</code>, <code>panther.png</code>, <code>strange.png</code>, <code>thanos.png</code>, <code>loki.png</code>, <code>venom.png</code>.</li>
-          <li>Reload. The image becomes the in-fight sprite, the select portrait and the roster card. Missing files fall back to the drawn version. All ten fighters ship with HD cut-outs. Replace any of them with your own image of the same name.</li>
-          <li>Stage photos: drop <code>assets/stages/newyork.jpg</code>, <code>wakanda.jpg</code>, <code>titan.jpg</code> or <code>arena.jpg</code> (wide, 1920×800 or similar) and that stage uses your photo with the live floor, reflections and camera on top.</li>
-        </ol>
-      </div>
-      <div class="step">
-        <h3>Voice lines and sound effects</h3>
-        <ol>
-          <li>Put clips in <code>assets/sounds/&lt;id&gt;/</code>, for example <code>assets/sounds/venom/</code>.</li>
-          <li>Name them by moment: <code>intro</code> (signature line at round start), <code>special</code>, <code>super</code>, <code>hit</code> (grunt), <code>win</code>. Use <code>.mp3</code>, <code>.ogg</code>, <code>.wav</code> or <code>.m4a</code>.</li>
-          <li>Without clips, each character has designed sounds instead of a robotic voice: Hulk and Venom roar, Thanos hums with sub-bass, Thor brings thunder, Loki laughs, Spider-Man thwips, Strange chimes, Iron Man's suit whines and fires. Every special and super has its own sound, including the finger snap and the boom that follows. Spoken lines from the browser's speech engine can be switched on in Settings if you want them.</li>
-          <li>For variety add <code>hit2.mp3</code>, <code>hit3.mp3</code>, <code>special2.mp3</code>: one is picked at random each time.</li>
-          <li>Global effects go in <code>assets/sounds/</code> as <code>punch</code>, <code>kick</code>, <code>hit</code>, <code>block</code>, <code>ko</code>, <code>round</code>.</li>
-        </ol>
-      </div>
-      <div class="step">
-        <h3>Good to know</h3>
-        <ol>
-          <li>Clips from films are copyrighted. Fine for you and your friends, not for a public site.</li>
-          <li>Keep clips short (under 3 seconds) and normalise the volume so grunts are not louder than lines.</li>
-          <li>Sound only starts after the first tap or key press. That is a browser rule, not a bug.</li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <section class="section wrap" id="deploy">
-    <div class="section-head">
-      <p class="eyebrow">Host it free</p>
-      <h2>Put it on the internet in five minutes</h2>
-      <p>The whole game is three files: <code>index.html</code>, <code>style.css</code>, <code>game.js</code>. Any free static host will serve it.</p>
-    </div>
-    <div class="deploy">
-      <div class="step">
-        <h3>GitHub Pages</h3>
-        <ol>
-          <li>Create a public repository and upload the three files to its root.</li>
-          <li>Open <b>Settings → Pages</b>, set Source to <b>Deploy from a branch</b>, pick <code>main</code> and <code>/ (root)</code>, save.</li>
-          <li>Your game is live at <code>https://&lt;username&gt;.github.io/&lt;repo&gt;/</code> within a minute or two.</li>
-        </ol>
-      </div>
-      <div class="step">
-        <h3>Netlify Drop</h3>
-        <ol>
-          <li>Go to <a href="https://app.netlify.com/drop" rel="noopener">app.netlify.com/drop</a>.</li>
-          <li>Drag the folder with the three files onto the page.</li>
-          <li>You get a <code>something.netlify.app</code> link instantly. Rename it in Site settings.</li>
-        </ol>
-      </div>
-      <div class="step">
-        <h3>Vercel or Cloudflare Pages</h3>
-        <ol>
-          <li>Push the folder to GitHub.</li>
-          <li>Import the repo in <a href="https://vercel.com/new" rel="noopener">Vercel</a> or <a href="https://pages.cloudflare.com" rel="noopener">Cloudflare Pages</a>. Framework: <b>None</b>. Build command: empty. Output directory: <code>/</code>.</li>
-          <li>Deploy. A custom domain is optional and also free to attach.</li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <section class="section wrap" id="about">
-    <div class="about">
-      <div>
-        <p class="eyebrow">About</p>
-        <p>Infinity Brawl is a small, free, browser-only fighting game in the spirit of the viral two-button brawlers. All art is drawn procedurally in code, so the page loads in a blink and works offline once opened. No account, no download, no ads, no tracking. Your win tally is stored only in this browser.</p>
-      </div>
-      <aside class="side">
-        <p><b>Unofficial fan project.</b> Marvel characters, names and catchphrases are trademarks of Marvel Entertainment and The Walt Disney Company. This game is not affiliated with, endorsed by or sponsored by them. It is made by fans, for free, and must not be sold or monetised.</p>
-        <p><b>Open source.</b> Plain HTML, CSS and JavaScript. Fork it, reskin it, add a fighter.</p>
-      </aside>
-    </div>
-  </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>© <span id="year">2026</span> Infinity Brawl fan game. Characters © Marvel. Made with canvas, keyboard and a full meter.</span>
+    <span>© <span id="year">2026</span> Infinity Brawl. Unofficial fan game, free to play. Characters are trademarks of Marvel Entertainment / The Walt Disney Company; not affiliated with or endorsed by them.</span>
   </div>
 </footer>
