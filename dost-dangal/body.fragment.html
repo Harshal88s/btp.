@@ -1,0 +1,236 @@
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Dost Dangal home">
+      <svg class="chair" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="9" r="4" fill="#f28c28"/><circle cx="16" cy="9" r="4" fill="#3fb7ff"/><path fill="#f5c542" d="M3 22c0-4 3-7 6-7h6c3 0 6 3 6 7z"/></svg>
+      DOST <em>DANGAL</em>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#play">Play</a>
+      <a href="#studio">Fighter Studio</a>
+      <a href="#fighters">Roster</a>
+      <a href="#controls">Controls</a>
+    </nav>
+    <span class="badge">Free · No login</span>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <p class="eyebrow">A browser fighting game starring your friend group</p>
+    <h1>Dosti apni jagah. <span>Dangal apni jagah.</span></h1>
+    <p class="lede">Turn your friends into fighters. Build each one in the Fighter Studio with their look, catchphrase, special and super, then settle every group-chat argument on the hostel terrace. Play against the CPU or a friend on one keyboard. Nothing to install.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#play">▶ Play now</a>
+      <a class="btn btn-ghost" href="#studio">Create a fighter</a>
+    </div>
+  </section>
+
+  <section class="arena-section wrap" id="play">
+    <div class="arena" id="arena">
+      <canvas id="game" width="960" height="540" aria-label="Dost Dangal fight arena"></canvas>
+
+      <div class="screen" id="scr-title">
+        <div class="title-art">DOST<br>DANGAL<small>Hostel Edition</small></div>
+        <p class="sub">Your friends, your rules. Combos, specials, supers and a very long list of grudges.</p>
+        <div class="row">
+          <button class="btn btn-primary" id="btn-vs-cpu" type="button">1P vs CPU</button>
+          <button class="btn btn-ghost" id="btn-vs-2p" type="button">2P on one keyboard</button>
+        </div>
+        <p class="blink" id="title-hint">PRESS ENTER OR TAP TO START</p>
+      </div>
+
+      <div class="screen" id="scr-select" hidden>
+        <div class="select-head">
+          <span class="who p1c" id="sel-who">PLAYER 1 — PICK YOUR DOST</span>
+          <button class="btn btn-ghost btn-sm" id="btn-random" type="button">Random</button>
+        </div>
+        <div class="select-grid" id="select-grid" role="listbox" aria-label="Fighter roster"></div>
+        <p class="fighter-bio" id="sel-bio">Hover or tap a fighter to read their file.</p>
+        <div class="opts">
+          <label id="lbl-diff">CPU level
+            <select id="opt-diff">
+              <option value="0">Fresher</option>
+              <option value="1" selected>Senior</option>
+              <option value="2">Warden</option>
+            </select>
+          </label>
+          <label>Stage
+            <select id="opt-stage">
+              <option value="-1" selected>Random</option>
+              <option value="0">Hostel Terrace</option>
+              <option value="1">Canteen</option>
+              <option value="2">College Gate</option>
+            </select>
+          </label>
+          <button class="btn btn-ghost btn-sm" id="btn-back-title" type="button">Back</button>
+        </div>
+      </div>
+
+      <div class="screen" id="scr-result" hidden>
+        <h2 id="res-title">PLAYER 1 WINS</h2>
+        <div class="result-card">
+          <div class="eyebrow" id="res-name">Fighter</div>
+          <p class="winline" id="res-line"></p>
+          <p class="tally" id="res-tally"></p>
+        </div>
+        <div class="row">
+          <button class="btn btn-primary" id="btn-rematch" type="button">Rematch</button>
+          <button class="btn btn-ghost" id="btn-reselect" type="button">Change fighters</button>
+          <button class="btn btn-ghost" id="btn-home" type="button">Title</button>
+        </div>
+      </div>
+
+    </div>
+    <div class="touch" id="touch" aria-hidden="true">
+      <div class="tcluster">
+        <button class="tbtn" data-k="KeyW" type="button">JUMP</button>
+        <button class="tbtn" data-k="KeyA" type="button">◀</button>
+        <button class="tbtn" data-k="KeyD" type="button">▶</button>
+        <button class="tbtn" data-k="KeyS" type="button">BLOCK</button>
+      </div>
+      <p class="touch-tip">Rotate your phone for a bigger arena.</p>
+      <div class="tcluster r">
+        <button class="tbtn" data-k="KeyJ" type="button">PUNCH</button>
+        <button class="tbtn" data-k="KeyK" type="button">KICK</button>
+        <button class="tbtn sp" data-k="KeyL" type="button">SPECIAL</button>
+        <button class="tbtn su" data-k="KeyI" type="button">SUPER</button>
+      </div>
+    </div>
+    <div class="arena-foot">
+      <span class="kbd-hint">P1: <kbd>W A S D</kbd> move · <kbd>J</kbd> punch · <kbd>K</kbd> kick · <kbd>L</kbd> special · <kbd>I</kbd> super · <kbd>Esc</kbd> pause</span>
+      <span class="row">
+        <button class="icon-btn" id="btn-sound" type="button" aria-pressed="true">🔊 Sound on</button>
+        <button class="icon-btn" id="btn-touch" type="button" aria-pressed="false">📱 Touch pad</button>
+      </span>
+    </div>
+  </section>
+
+  <section class="section wrap" id="studio">
+    <div class="section-head">
+      <p class="eyebrow">Fighter Studio</p>
+      <h2>Put your friends in the game</h2>
+      <p>Build a fighter from their look, their one-liners and the move set they deserve. Fighters are saved in this browser. Use Share code to send the whole roster to a friend's phone.</p>
+    </div>
+    <div class="studio">
+      <div class="studio-preview">
+        <canvas id="ed-preview" width="300" height="360" aria-label="Fighter preview"></canvas>
+        <div class="preview-name" id="ed-preview-name">New fighter</div>
+        <div class="row">
+          <button class="btn btn-ghost btn-sm" id="ed-pose" type="button">Next pose</button>
+          <button class="btn btn-ghost btn-sm" id="ed-randomise" type="button">Randomise look</button>
+        </div>
+      </div>
+      <form class="studio-form" id="ed-form" autocomplete="off">
+        <fieldset>
+          <legend>Identity</legend>
+          <label>Name <input id="ed-name" maxlength="16" placeholder="Rohan" required></label>
+          <label>Title <input id="ed-title" maxlength="28" placeholder="The Late Replier"></label>
+          <label>Catchphrase <input id="ed-quote" maxlength="60" placeholder="Bhai 5 min mein aata hoon."></label>
+          <label>Win line <input id="ed-win" maxlength="60" placeholder="Bola tha na, 5 min."></label>
+        </fieldset>
+        <fieldset>
+          <legend>Look</legend>
+          <label>Skin <select id="ed-skin"></select></label>
+          <label>Hair <select id="ed-hair"></select></label>
+          <label>Hair colour <input type="color" id="ed-haircol" value="#1b1b1b"></label>
+          <label>Face <select id="ed-face"></select></label>
+          <label>Glasses <select id="ed-glasses"><option value="none">None</option><option value="round">Round</option><option value="square">Square</option><option value="shades">Shades</option></select></label>
+          <label>Outfit <select id="ed-outfit"></select></label>
+          <label>Outfit colour <input type="color" id="ed-col1" value="#3a7bd5"></label>
+          <label>Accent colour <input type="color" id="ed-col2" value="#f5c542"></label>
+          <label>Prop <select id="ed-prop"></select></label>
+        </fieldset>
+        <fieldset>
+          <legend>Stats <span class="budget" id="ed-budget">18 / 18 points</span></legend>
+          <label class="range">Power <input type="range" id="ed-power" min="2" max="10" value="6"><output id="o-power">6</output></label>
+          <label class="range">Speed <input type="range" id="ed-speed" min="2" max="10" value="6"><output id="o-speed">6</output></label>
+          <label class="range">Guard <input type="range" id="ed-guard" min="2" max="10" value="6"><output id="o-guard">6</output></label>
+        </fieldset>
+        <fieldset>
+          <legend>Moves</legend>
+          <label>Special type <select id="ed-spkind"></select></label>
+          <label>Special name <input id="ed-spname" maxlength="24" placeholder="Assignment Toss"></label>
+          <label>Super type <select id="ed-sukind"></select></label>
+          <label>Super name <input id="ed-suname" maxlength="24" placeholder="Surprise Viva"></label>
+        </fieldset>
+        <div class="studio-actions">
+          <button class="btn btn-primary" id="ed-save" type="submit">Save fighter</button>
+          <button class="btn btn-ghost" id="ed-new" type="button">New</button>
+          <button class="btn btn-ghost" id="ed-delete" type="button" hidden>Delete</button>
+          <span class="form-msg" id="ed-msg"></span>
+        </div>
+      </form>
+    </div>
+    <details class="share">
+      <summary>Share code: copy or paste a roster</summary>
+      <p>Copy this code and send it to a friend. They paste it here and press Import to get the same fighters.</p>
+      <textarea id="share-code" rows="4" spellcheck="false"></textarea>
+      <div class="row">
+        <button class="btn btn-ghost btn-sm" id="btn-copy" type="button">Copy code</button>
+        <button class="btn btn-ghost btn-sm" id="btn-import" type="button">Import</button>
+        <button class="btn btn-ghost btn-sm" id="btn-reset" type="button">Reset to starter roster</button>
+        <span class="form-msg" id="share-msg"></span>
+      </div>
+    </details>
+  </section>
+
+  <section class="section wrap" id="fighters">
+    <div class="section-head">
+      <p class="eyebrow">The roster</p>
+      <h2>Who's fighting</h2>
+      <p>Four starter fighters come with the game. Edit them, delete them, or add up to twelve of your own in the Studio.</p>
+    </div>
+    <div class="roster" id="roster"></div>
+  </section>
+
+  <section class="section wrap" id="controls">
+    <div class="section-head">
+      <p class="eyebrow">How to fight</p>
+      <h2>Controls</h2>
+      <p>Keyboard for desktop, on-screen pad on phones and tablets. Two players share one keyboard.</p>
+    </div>
+    <div class="controls">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Action</th><th>Player 1</th><th>Player 2</th></tr></thead>
+          <tbody>
+            <tr><td>Move</td><td><kbd>A</kbd> <kbd>D</kbd></td><td><kbd>←</kbd> <kbd>→</kbd></td></tr>
+            <tr><td>Jump</td><td><kbd>W</kbd></td><td><kbd>↑</kbd></td></tr>
+            <tr><td>Block (hold)</td><td><kbd>S</kbd></td><td><kbd>↓</kbd></td></tr>
+            <tr><td>Punch</td><td><kbd>J</kbd></td><td><kbd>,</kbd> or <kbd>Num 1</kbd></td></tr>
+            <tr><td>Kick</td><td><kbd>K</kbd></td><td><kbd>.</kbd> or <kbd>Num 2</kbd></td></tr>
+            <tr><td>Special</td><td><kbd>L</kbd></td><td><kbd>/</kbd> or <kbd>Num 3</kbd></td></tr>
+            <tr><td>Super (full meter)</td><td><kbd>I</kbd></td><td><kbd>'</kbd> or <kbd>Num 0</kbd></td></tr>
+            <tr><td>Pause</td><td colspan="2"><kbd>Esc</kbd> or <kbd>P</kbd></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tips">
+        <div class="tip"><b>Combos.</b> Hits that land while the opponent is still reeling chain into a combo. Damage scales down after the third hit, so finish with a special.</div>
+        <div class="tip"><b>Meter.</b> Dealing and taking damage fills the gold bar. At 100% press Super for a cinematic that cannot be blocked.</div>
+        <div class="tip"><b>Blocking.</b> Holding block cuts damage to a fifth and prevents stun. Specials still push you back.</div>
+        <div class="tip"><b>Rounds.</b> Best of three, 60 seconds each. When time runs out the fighter with more health takes the round.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="about">
+    <div class="about">
+      <div>
+        <p class="eyebrow">About</p>
+        <p>Dost Dangal is a small, free, browser-only fighting game in the spirit of the viral two-button brawlers. The twist is the cast: it is whoever you put in it. Everything runs on this page. No account, no download, no ads, no tracking. Your fighters and win tally live only in this browser unless you share the code.</p>
+      </div>
+      <aside class="side">
+        <p><b>Be kind.</b> Only add friends who are in on the joke. Keep catchphrases something you would say to their face.</p>
+        <p><b>Open source.</b> Plain HTML, CSS and JavaScript. Fork it, reskin it, add your own moves.</p>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Dost Dangal. A game between friends.</span>
+    <span>Made with canvas, keyboard and cutting chai.</span>
+  </div>
+</footer>
