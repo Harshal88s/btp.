@@ -26,7 +26,6 @@
     <nav class="nav" aria-label="Sections">
       <a href="#play">Play</a>
       <a href="#fighters">Fighters</a>
-      <a href="#create">Create</a>
       <a href="#controls">Controls</a>
     </nav>
     <span class="badge">Free to play</span>
@@ -150,66 +149,9 @@
     <div class="section-head">
       <p class="eyebrow">The roster</p>
       <h2>Seven heroes. Three villains. Ten move sets.</h2>
-      <p>Every fighter has a special on a short cooldown and a super that needs a full meter. Flyers get a second jump. Heavyweights hit harder in close. Fighters you create appear here too.</p>
+      <p>Every fighter has a special on a short cooldown and a super that needs a full meter. Flyers get a second jump. Heavyweights hit harder in close.</p>
     </div>
     <div class="roster" id="roster"></div>
-  </section>
-
-  <section class="section wrap" id="create">
-    <div class="section-head">
-      <p class="eyebrow">Create your fighter</p>
-      <h2>Add any character you want</h2>
-      <p>Wanda, Deadpool, Wolverine, your own creation: name them, upload a picture, pick their powers and they join the select screen next to the ten. Saved in this browser.</p>
-    </div>
-    <div class="studio">
-      <div class="studio-preview">
-        <canvas id="cf-preview" width="300" height="360" aria-label="Fighter preview"></canvas>
-        <div class="preview-name" id="cf-preview-name">New fighter</div>
-        <div class="row"><button class="btn btn-ghost btn-sm" id="cf-pose" type="button">Next pose</button></div>
-      </div>
-      <form class="studio-form" id="cf-form" autocomplete="off">
-        <fieldset>
-          <legend>Identity</legend>
-          <label>Name <input id="cf-name" maxlength="18" placeholder="Wanda" required></label>
-          <label>Title <input id="cf-alias" maxlength="28" placeholder="Scarlet Witch"></label>
-          <label>Side <select id="cf-side"><option value="hero">Hero</option><option value="villain">Villain</option></select></label>
-          <label>Theme colour <input type="color" id="cf-color" value="#c0243a"></label>
-          <label>Signature line <input id="cf-line" maxlength="70" placeholder="You took everything from me."></label>
-          <label>Win line <input id="cf-win" maxlength="70" placeholder="I'm not done yet."></label>
-        </fieldset>
-        <fieldset>
-          <legend>Picture</legend>
-          <label class="wide">Image (PNG with transparent background is best; JPG works) <input type="file" id="cf-file" accept="image/*"></label>
-          <label class="check"><input type="checkbox" id="cf-rembg" checked> Remove plain background (solid white, green or similar)</label>
-          <label class="check"><input type="checkbox" id="cf-hover"> Picture stops above the feet: make them levitate</label>
-          <label class="range">Size <input type="range" id="cf-scale" min="0.9" max="1.3" step="0.05" value="1"><output id="cfo-scale">1x</output></label>
-        </fieldset>
-        <fieldset>
-          <legend>Stats</legend>
-          <label class="range">Health <input type="range" id="cf-hp" min="80" max="140" step="5" value="100"><output id="cfo-hp">100</output></label>
-          <label class="range">Power <input type="range" id="cf-power" min="2" max="10" value="6"><output id="cfo-power">6</output></label>
-          <label class="range">Speed <input type="range" id="cf-speed" min="2" max="10" value="6"><output id="cfo-speed">6</output></label>
-          <label class="range">Guard <input type="range" id="cf-guard" min="2" max="10" value="6"><output id="cfo-guard">6</output></label>
-          <label>Movement <select id="cf-mobility"><option value="none">Grounded</option><option value="fly">Flyer (hover jump)</option><option value="double">Double jump</option></select></label>
-        </fieldset>
-        <fieldset>
-          <legend>Powers</legend>
-          <label>Special type <select id="cf-spkind"></select><small class="hint" id="cf-sphint"></small></label>
-          <label>Special name <input id="cf-spname" maxlength="26" placeholder="Chaos Bolt"></label>
-          <label class="wide">Special description <input id="cf-spdesc" maxlength="90" placeholder="A hex of chaos magic that cracks reality."></label>
-          <label>Super type <select id="cf-sukind"></select><small class="hint" id="cf-suhint"></small></label>
-          <label>Super name <input id="cf-suname" maxlength="26" placeholder="Hex Reality"></label>
-          <label class="wide">Super description <input id="cf-sudesc" maxlength="90" placeholder="Rewrites the arena for a few seconds."></label>
-          <label>Sound and effects style <select id="cf-like"></select><small class="hint">Borrow a voice, hit sounds and power visuals from an existing fighter.</small></label>
-        </fieldset>
-        <div class="studio-actions">
-          <button class="btn btn-primary" id="cf-save" type="submit">Save fighter</button>
-          <button class="btn btn-ghost" id="cf-new" type="button">New</button>
-          <button class="btn btn-ghost" id="cf-delete" type="button" hidden>Delete</button>
-          <span class="form-msg" id="cf-msg"></span>
-        </div>
-      </form>
-    </div>
   </section>
 
   <section class="section wrap" id="controls">
