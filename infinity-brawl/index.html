@@ -106,7 +106,7 @@
           <div class="set-grid">
             <label class="set-row">Movement sensitivity <span class="set-ctl"><input type="range" id="set-sens" min="0.6" max="1.8" step="0.05" value="1"><output id="set-sens-out">100%</output></span></label>
             <label class="set-row">CPU difficulty <span class="set-ctl"><select id="set-diff"><option value="0">Easy</option><option value="1">Medium</option><option value="2">Hard</option></select></span></label>
-            <label class="set-row">Voice lines <span class="set-ctl"><select id="set-voice"><option value="auto">Clips, else spoken</option><option value="clips">Clips only</option><option value="off">Off</option></select></span></label>
+            <label class="set-row">Voice lines <span class="set-ctl"><select id="set-voice"><option value="fx">Character sounds (roars, growls, effects)</option><option value="auto">Sounds + spoken lines</option><option value="clips">Your clips only</option><option value="off">Off</option></select></span></label>
             <label class="set-row">Volume <span class="set-ctl"><input type="range" id="set-vol" min="0" max="1" step="0.05" value="0.9"><output id="set-vol-out">90%</output></span></label>
             <label class="set-row">Sound effects <span class="set-ctl"><input type="checkbox" id="set-sfx" checked></span></label>
           </div>
@@ -122,7 +122,7 @@
         <button class="tbtn" data-k="jump" type="button">JUMP</button>
         <button class="tbtn" data-k="left" type="button">◀</button>
         <button class="tbtn" data-k="right" type="button">▶</button>
-        <button class="tbtn" data-k="block" type="button">BLOCK</button>
+        <button class="tbtn" data-k="crouch" type="button">CROUCH</button>
       </div>
       <p class="touch-tip">Rotate your phone: the arena fills the screen and the pad floats over it.</p>
       <div class="tcluster r">
@@ -133,7 +133,7 @@
       </div>
     </div>
     <div class="arena-foot">
-      <span class="kbd-hint"><kbd>← ↑ → ↓</kbd> or <kbd>W A S D</kbd> move · <kbd>Z</kbd>/<kbd>J</kbd> punch · <kbd>X</kbd>/<kbd>K</kbd> kick · <kbd>C</kbd>/<kbd>L</kbd> special · <kbd>V</kbd>/<kbd>I</kbd> super · <kbd>Esc</kbd> pause</span>
+      <span class="kbd-hint"><kbd>← ↑ →</kbd> or <kbd>W A D</kbd> move · <kbd>↓</kbd>/<kbd>S</kbd> crouch · <kbd>Z</kbd>/<kbd>J</kbd> punch · <kbd>X</kbd>/<kbd>K</kbd> kick · <kbd>C</kbd>/<kbd>L</kbd> special · <kbd>V</kbd>/<kbd>I</kbd> super · <kbd>Esc</kbd> pause</span>
       <span class="row">
         <button class="icon-btn" id="btn-sound" type="button" aria-pressed="true">🔊 Sound on</button>
         <button class="icon-btn" id="btn-touch" type="button" aria-pressed="false">📱 Touch pad</button>
@@ -164,7 +164,9 @@
           <tbody>
             <tr><td>Move</td><td><kbd>←</kbd> <kbd>→</kbd></td><td><kbd>A</kbd> <kbd>D</kbd></td></tr>
             <tr><td>Jump (flyers: press again to hover-jump)</td><td><kbd>↑</kbd></td><td><kbd>W</kbd></td></tr>
-            <tr><td>Block (hold)</td><td><kbd>↓</kbd></td><td><kbd>S</kbd></td></tr>
+            <tr><td>Crouch (hold) — ducks under projectiles</td><td><kbd>↓</kbd></td><td><kbd>S</kbd></td></tr>
+            <tr><td>Uppercut (launches)</td><td><kbd>↓</kbd> + <kbd>Z</kbd></td><td><kbd>S</kbd> + <kbd>J</kbd></td></tr>
+            <tr><td>Sweep (trips)</td><td><kbd>↓</kbd> + <kbd>X</kbd></td><td><kbd>S</kbd> + <kbd>K</kbd></td></tr>
             <tr><td>Punch</td><td><kbd>Z</kbd> or <kbd>Num 1</kbd></td><td><kbd>J</kbd></td></tr>
             <tr><td>Kick</td><td><kbd>X</kbd> or <kbd>Num 2</kbd></td><td><kbd>K</kbd></td></tr>
             <tr><td>Special</td><td><kbd>C</kbd> or <kbd>Num 3</kbd></td><td><kbd>L</kbd></td></tr>
@@ -175,8 +177,8 @@
       </div>
       <div class="tips">
         <div class="tip"><b>Combos.</b> Hits that land while the opponent is reeling chain together. Damage scales down after the third hit, so finish with a special.</div>
-        <div class="tip"><b>Meter.</b> Dealing and taking damage fills the gold bar. At 100% press Super for a cinematic that cannot be blocked.</div>
-        <div class="tip"><b>Blocking.</b> Holding block cuts damage to a fifth and prevents stun. Thanos' snap and every other super still land.</div>
+        <div class="tip"><b>Powers.</b> Every special does 12 damage and every super does 30, so the fight is about timing, not the character. While a power plays, the opponent is held in place and the camera focuses on the move.</div>
+        <div class="tip"><b>Crouching.</b> Hold down to duck under beams, shields, orbs and daggers. Punch while crouched for an uppercut that launches, kick for a sweep that trips.</div>
         <div class="tip"><b>Rounds.</b> Best of three, 60 seconds each. When time runs out, the fighter with more health takes the round.</div>
       </div>
     </div>
@@ -203,7 +205,7 @@
         <ol>
           <li>Put clips in <code>assets/sounds/&lt;id&gt;/</code>, for example <code>assets/sounds/venom/</code>.</li>
           <li>Name them by moment: <code>intro</code> (signature line at round start), <code>special</code>, <code>super</code>, <code>hit</code> (grunt), <code>win</code>. Use <code>.mp3</code>, <code>.ogg</code>, <code>.wav</code> or <code>.m4a</code>.</li>
-          <li>Until a clip exists, lines are spoken by the browser's speech engine with a per-character pitch, pace and vocal effect: Hulk and Venom get a monster growl under the voice, Thanos a sub-bass rumble, Thor thunder, Iron Man a suit-radio click, Strange a mystic chord. Turn this off or make it clips-only in Settings.</li>
+          <li>Without clips, each character has designed sounds instead of a robotic voice: Hulk and Venom roar, Thanos hums with sub-bass, Thor brings thunder, Loki laughs, Spider-Man thwips, Strange chimes, Iron Man's suit whines and fires. Every special and super has its own sound, including the finger snap and the boom that follows. Spoken lines from the browser's speech engine can be switched on in Settings if you want them.</li>
           <li>For variety add <code>hit2.mp3</code>, <code>hit3.mp3</code>, <code>special2.mp3</code>: one is picked at random each time.</li>
           <li>Global effects go in <code>assets/sounds/</code> as <code>punch</code>, <code>kick</code>, <code>hit</code>, <code>block</code>, <code>ko</code>, <code>round</code>.</li>
         </ol>

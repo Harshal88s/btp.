@@ -35,7 +35,7 @@ Turn the phone sideways and tap **Fullscreen**. The arena fills the screen and t
 - 2P on one keyboard
 - Stages: New York Street (rain, neon), Wakanda (dusk, fireflies), Titan (dust storm, embers), Grandmaster's Arena (crowd, spotlights). Dynamic camera, floor reflections, vignette.
 - Double-tap left/right to dash
-- Best of three rounds, 60 seconds each; combos, blocking, meter, specials, unblockable supers
+- Best of three rounds, 60 seconds each; combos, crouch/uppercut/sweep, meter, specials (12 damage each, opponent held while the move plays) and cinematic supers (30 damage each)
 - Touch pad for phones and tablets
 
 ## Controls
@@ -44,7 +44,9 @@ Turn the phone sideways and tap **Fullscreen**. The arena fills the screen and t
 | --- | --- | --- |
 | Move | A / D | ← / → |
 | Jump | W | ↑ |
-| Block (hold) | S | ↓ |
+| Crouch (hold) | ↓ | S |
+| Uppercut | ↓ + Z | S + J |
+| Sweep | ↓ + X | S + K |
 | Punch | J | , or Num 1 |
 | Kick | K | . or Num 2 |
 | Special | L | / or Num 3 |
