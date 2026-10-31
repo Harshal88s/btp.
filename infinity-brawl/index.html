@@ -22,6 +22,7 @@
       <a href="#play">Play</a>
       <a href="#fighters">Fighters</a>
       <a href="#controls">Controls</a>
+      <a href="#assets">HD assets</a>
       <a href="#deploy">Host it free</a>
     </nav>
     <span class="badge">Fan game · Free</span>
@@ -40,7 +41,7 @@
   </section>
 
   <section class="arena-section wrap" id="play">
-    <div class="arena" id="arena">
+    <div class="arena" id="arena" tabindex="0" aria-label="Game arena. Click to focus, then use the keyboard.">
       <canvas id="game" width="960" height="540" aria-label="Infinity Brawl fight arena"></canvas>
 
       <div class="screen" id="scr-title">
@@ -96,21 +97,21 @@
     </div>
     <div class="touch" id="touch" aria-hidden="true">
       <div class="tcluster">
-        <button class="tbtn" data-k="KeyW" type="button">JUMP</button>
-        <button class="tbtn" data-k="KeyA" type="button">◀</button>
-        <button class="tbtn" data-k="KeyD" type="button">▶</button>
-        <button class="tbtn" data-k="KeyS" type="button">BLOCK</button>
+        <button class="tbtn" data-k="jump" type="button">JUMP</button>
+        <button class="tbtn" data-k="left" type="button">◀</button>
+        <button class="tbtn" data-k="right" type="button">▶</button>
+        <button class="tbtn" data-k="block" type="button">BLOCK</button>
       </div>
       <p class="touch-tip">Rotate your phone for a bigger arena.</p>
       <div class="tcluster r">
-        <button class="tbtn" data-k="KeyJ" type="button">PUNCH</button>
-        <button class="tbtn" data-k="KeyK" type="button">KICK</button>
-        <button class="tbtn sp" data-k="KeyL" type="button">SPECIAL</button>
-        <button class="tbtn su" data-k="KeyI" type="button">SUPER</button>
+        <button class="tbtn" data-k="punch" type="button">PUNCH</button>
+        <button class="tbtn" data-k="kick" type="button">KICK</button>
+        <button class="tbtn sp" data-k="special" type="button">SPECIAL</button>
+        <button class="tbtn su" data-k="super" type="button">SUPER</button>
       </div>
     </div>
     <div class="arena-foot">
-      <span class="kbd-hint">P1: <kbd>W A S D</kbd> move · <kbd>J</kbd> punch · <kbd>K</kbd> kick · <kbd>L</kbd> special · <kbd>I</kbd> super · <kbd>Esc</kbd> pause</span>
+      <span class="kbd-hint"><kbd>← ↑ → ↓</kbd> or <kbd>W A S D</kbd> move · <kbd>Z</kbd>/<kbd>J</kbd> punch · <kbd>X</kbd>/<kbd>K</kbd> kick · <kbd>C</kbd>/<kbd>L</kbd> special · <kbd>V</kbd>/<kbd>I</kbd> super · <kbd>Esc</kbd> pause</span>
       <span class="row">
         <button class="icon-btn" id="btn-sound" type="button" aria-pressed="true">🔊 Sound on</button>
         <button class="icon-btn" id="btn-touch" type="button" aria-pressed="false">📱 Touch pad</button>
@@ -131,20 +132,20 @@
     <div class="section-head">
       <p class="eyebrow">How to fight</p>
       <h2>Controls</h2>
-      <p>Keyboard on desktop, on-screen pad on phones and tablets. Two players share one keyboard.</p>
+      <p>In 1P vs CPU, both key sets control you, so arrows or WASD both work. In 2P mode, Player 1 takes the arrows and Z X C V, Player 2 takes WASD and J K L I. Click the arena once if keys seem ignored.</p>
     </div>
     <div class="controls">
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Action</th><th>Player 1</th><th>Player 2</th></tr></thead>
+          <thead><tr><th>Action</th><th>Player 1</th><th>Player 2 (2P mode)</th></tr></thead>
           <tbody>
-            <tr><td>Move</td><td><kbd>A</kbd> <kbd>D</kbd></td><td><kbd>←</kbd> <kbd>→</kbd></td></tr>
-            <tr><td>Jump (flyers: press again to hover-jump)</td><td><kbd>W</kbd></td><td><kbd>↑</kbd></td></tr>
-            <tr><td>Block (hold)</td><td><kbd>S</kbd></td><td><kbd>↓</kbd></td></tr>
-            <tr><td>Punch</td><td><kbd>J</kbd></td><td><kbd>,</kbd> or <kbd>Num 1</kbd></td></tr>
-            <tr><td>Kick</td><td><kbd>K</kbd></td><td><kbd>.</kbd> or <kbd>Num 2</kbd></td></tr>
-            <tr><td>Special</td><td><kbd>L</kbd></td><td><kbd>/</kbd> or <kbd>Num 3</kbd></td></tr>
-            <tr><td>Super (full meter)</td><td><kbd>I</kbd></td><td><kbd>'</kbd> or <kbd>Num 0</kbd></td></tr>
+            <tr><td>Move</td><td><kbd>←</kbd> <kbd>→</kbd></td><td><kbd>A</kbd> <kbd>D</kbd></td></tr>
+            <tr><td>Jump (flyers: press again to hover-jump)</td><td><kbd>↑</kbd></td><td><kbd>W</kbd></td></tr>
+            <tr><td>Block (hold)</td><td><kbd>↓</kbd></td><td><kbd>S</kbd></td></tr>
+            <tr><td>Punch</td><td><kbd>Z</kbd> or <kbd>Num 1</kbd></td><td><kbd>J</kbd></td></tr>
+            <tr><td>Kick</td><td><kbd>X</kbd> or <kbd>Num 2</kbd></td><td><kbd>K</kbd></td></tr>
+            <tr><td>Special</td><td><kbd>C</kbd> or <kbd>Num 3</kbd></td><td><kbd>L</kbd></td></tr>
+            <tr><td>Super (full meter)</td><td><kbd>V</kbd> or <kbd>Space</kbd></td><td><kbd>I</kbd></td></tr>
             <tr><td>Pause</td><td colspan="2"><kbd>Esc</kbd> or <kbd>P</kbd></td></tr>
           </tbody>
         </table>
@@ -154,6 +155,41 @@
         <div class="tip"><b>Meter.</b> Dealing and taking damage fills the gold bar. At 100% press Super for a cinematic that cannot be blocked.</div>
         <div class="tip"><b>Blocking.</b> Holding block cuts damage to a fifth and prevents stun. Thanos' snap and every other super still land.</div>
         <div class="tip"><b>Rounds.</b> Best of three, 60 seconds each. When time runs out, the fighter with more health takes the round.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="assets">
+    <div class="section-head">
+      <p class="eyebrow">Your own HD art and movie sounds</p>
+      <h2>Drop files in, no code changes</h2>
+      <p>The game draws every character in code, but it will swap in your files automatically. Add an <code>assets</code> folder next to <code>index.html</code>.</p>
+    </div>
+    <div class="deploy">
+      <div class="step">
+        <h3>HD character images</h3>
+        <ol>
+          <li>Save one PNG per fighter with a <b>transparent background</b>, full body, facing right.</li>
+          <li>Name them <code>assets/sprites/ironman.png</code>, <code>cap.png</code>, <code>thor.png</code>, <code>hulk.png</code>, <code>spiderman.png</code>, <code>panther.png</code>, <code>strange.png</code>, <code>thanos.png</code>, <code>loki.png</code>, <code>venom.png</code>.</li>
+          <li>Reload. The image becomes the in-fight sprite, the select portrait and the roster card. Missing files fall back to the drawn version.</li>
+        </ol>
+      </div>
+      <div class="step">
+        <h3>Voice lines and sound effects</h3>
+        <ol>
+          <li>Put clips in <code>assets/sounds/&lt;id&gt;/</code>, for example <code>assets/sounds/venom/</code>.</li>
+          <li>Name them by moment: <code>intro</code> (signature line at round start), <code>special</code>, <code>super</code>, <code>hit</code> (grunt), <code>win</code>. Use <code>.mp3</code>, <code>.ogg</code>, <code>.wav</code> or <code>.m4a</code>.</li>
+          <li>For variety add <code>hit2.mp3</code>, <code>hit3.mp3</code>, <code>special2.mp3</code>: one is picked at random each time.</li>
+          <li>Global effects go in <code>assets/sounds/</code> as <code>punch</code>, <code>kick</code>, <code>hit</code>, <code>block</code>, <code>ko</code>, <code>round</code>.</li>
+        </ol>
+      </div>
+      <div class="step">
+        <h3>Good to know</h3>
+        <ol>
+          <li>Clips from films are copyrighted. Fine for you and your friends, not for a public site.</li>
+          <li>Keep clips short (under 3 seconds) and normalise the volume so grunts are not louder than lines.</li>
+          <li>Sound only starts after the first tap or key press. That is a browser rule, not a bug.</li>
+        </ol>
       </div>
     </div>
   </section>
