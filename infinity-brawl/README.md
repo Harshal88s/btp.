@@ -21,9 +21,17 @@ An unofficial Marvel fan fighting game for the browser. Plain HTML, CSS and Java
 
 Each fighter opens the round with their signature line in a speech bubble. Flyers (Iron Man, Thor, Doctor Strange) can hover-jump; Spider-Man double jumps.
 
+## Settings
+
+On the title screen (or pause and press O): movement sensitivity, CPU difficulty (Easy / Medium / Hard), voice lines (clips, else spoken by the browser speech engine; clips only; off), volume, and full key remapping for both players. Saved in the browser.
+
+## Phones
+
+Turn the phone sideways and tap **Fullscreen**. The arena fills the screen and the touch pad floats on top of it. Tap ✕ to leave.
+
 ## Modes
 
-- 1P vs CPU (Rookie / Avenger / Titan)
+- 1P vs CPU (Easy / Medium / Hard)
 - 2P on one keyboard
 - Stages: New York Street (rain, neon), Wakanda (dusk, fireflies), Titan (dust storm, embers), Grandmaster's Arena (crowd, spotlights). Dynamic camera, floor reflections, vignette.
 - Double-tap left/right to dash
@@ -59,6 +67,8 @@ The game is three files: `index.html`, `style.css`, `game.js`. Any static host w
 **Netlify Drop**: open https://app.netlify.com/drop and drag the folder in. You get a link immediately.
 
 **Vercel / Cloudflare Pages**: import the repo, framework *None*, no build command, output directory `/`.
+
+**Cost.** All three are free for a static site like this. Vercel's Hobby plan costs nothing and includes a `*.vercel.app` URL, HTTPS, custom domains and 100 GB of bandwidth a month, but its terms allow personal, non-commercial use only. GitHub Pages and Cloudflare Pages are free with no commercial restriction. None of them need a credit card.
 
 ## Files
 

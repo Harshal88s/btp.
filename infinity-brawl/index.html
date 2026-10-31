@@ -50,6 +50,7 @@
         <div class="row">
           <button class="btn btn-primary" id="btn-vs-cpu" type="button">1P vs CPU</button>
           <button class="btn btn-ghost" id="btn-vs-2p" type="button">2P on one keyboard</button>
+          <button class="btn btn-ghost" id="btn-settings" type="button">⚙ Settings</button>
         </div>
         <p class="blink" id="title-hint">PRESS ENTER OR TAP TO START</p>
       </div>
@@ -64,9 +65,9 @@
         <div class="opts">
           <label id="lbl-diff">CPU level
             <select id="opt-diff">
-              <option value="0">Rookie</option>
-              <option value="1" selected>Avenger</option>
-              <option value="2">Titan</option>
+              <option value="0">Easy</option>
+              <option value="1" selected>Medium</option>
+              <option value="2">Hard</option>
               <option value="3">Grandmaster's Arena</option>
             </select>
           </label>
@@ -94,8 +95,26 @@
           <button class="btn btn-primary" id="btn-rematch" type="button">Rematch</button>
           <button class="btn btn-ghost" id="btn-reselect" type="button">Change fighters</button>
           <button class="btn btn-ghost" id="btn-home" type="button">Title</button>
+          <button class="btn btn-ghost" id="btn-settings-result" type="button">⚙ Settings</button>
         </div>
       </div>
+
+      <div class="screen scroll" id="scr-settings" hidden>
+        <div class="settings">
+          <div class="set-head"><h2>Settings</h2><button class="btn btn-primary btn-sm" id="btn-settings-close" type="button">Done</button></div>
+          <div class="set-grid">
+            <label class="set-row">Movement sensitivity <span class="set-ctl"><input type="range" id="set-sens" min="0.6" max="1.8" step="0.05" value="1"><output id="set-sens-out">100%</output></span></label>
+            <label class="set-row">CPU difficulty <span class="set-ctl"><select id="set-diff"><option value="0">Easy</option><option value="1">Medium</option><option value="2">Hard</option></select></span></label>
+            <label class="set-row">Voice lines <span class="set-ctl"><select id="set-voice"><option value="auto">Clips, else spoken</option><option value="clips">Clips only</option><option value="off">Off</option></select></span></label>
+            <label class="set-row">Volume <span class="set-ctl"><input type="range" id="set-vol" min="0" max="1" step="0.05" value="0.9"><output id="set-vol-out">90%</output></span></label>
+            <label class="set-row">Sound effects <span class="set-ctl"><input type="checkbox" id="set-sfx" checked></span></label>
+          </div>
+          <div class="set-head small"><h3>Controls</h3><button class="btn btn-ghost btn-sm" id="set-reset-keys" type="button">Reset defaults</button></div>
+          <p class="set-note">Click a key, then press the new key. Player 1 keys also drive the touch pad. In 1P mode both sets control you.</p>
+          <div class="table-wrap"><table class="bind-table" id="bind-table"></table></div>
+        </div>
+      </div>
+      <button class="fs-exit" id="fs-exit" type="button" hidden aria-label="Exit fullscreen">✕</button>
     </div>
     <div class="touch" id="touch" aria-hidden="true">
       <div class="tcluster">
@@ -117,6 +136,7 @@
       <span class="row">
         <button class="icon-btn" id="btn-sound" type="button" aria-pressed="true">🔊 Sound on</button>
         <button class="icon-btn" id="btn-touch" type="button" aria-pressed="false">📱 Touch pad</button>
+        <button class="icon-btn" id="btn-fs" type="button" aria-pressed="false">⛶ Fullscreen</button>
       </span>
     </div>
   </section>
@@ -134,7 +154,7 @@
     <div class="section-head">
       <p class="eyebrow">How to fight</p>
       <h2>Controls</h2>
-      <p>In 1P vs CPU, both key sets control you, so arrows or WASD both work. In 2P mode, Player 1 takes the arrows and Z X C V, Player 2 takes WASD and J K L I. Click the arena once if keys seem ignored. Double-tap left or right to dash.</p>
+      <p>Defaults below. Every key can be changed in <b>Settings</b> (title screen, or pause and press O), along with movement sensitivity, CPU difficulty and voices. In 1P vs CPU both key sets control you. Double-tap left or right to dash. On a phone, turn it sideways and tap <b>Fullscreen</b>: the arena fills the screen with the touch pad on top of it.</p>
     </div>
     <div class="controls">
       <div class="table-wrap">
@@ -182,6 +202,7 @@
         <ol>
           <li>Put clips in <code>assets/sounds/&lt;id&gt;/</code>, for example <code>assets/sounds/venom/</code>.</li>
           <li>Name them by moment: <code>intro</code> (signature line at round start), <code>special</code>, <code>super</code>, <code>hit</code> (grunt), <code>win</code>. Use <code>.mp3</code>, <code>.ogg</code>, <code>.wav</code> or <code>.m4a</code>.</li>
+          <li>Until a clip exists, lines are spoken by the browser's speech engine with a per-character pitch and pace. Turn this off or make it clips-only in Settings.</li>
           <li>For variety add <code>hit2.mp3</code>, <code>hit3.mp3</code>, <code>special2.mp3</code>: one is picked at random each time.</li>
           <li>Global effects go in <code>assets/sounds/</code> as <code>punch</code>, <code>kick</code>, <code>hit</code>, <code>block</code>, <code>ko</code>, <code>round</code>.</li>
         </ol>
