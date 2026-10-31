@@ -187,9 +187,14 @@ footer .wrap { display: grid; gap: 8px; }
 body.fs { overflow: hidden; background: #000; }
 body.fs .site-head, body.fs .hero, body.fs .arena-foot, body.fs footer, body.fs .section { display: none; }
 body.fs .arena-section { position: fixed; inset: 0; margin: 0; padding: 0; max-width: none; display: flex; align-items: center; justify-content: center; background: #000; z-index: 20; }
-body.fs .arena { width: min(100vw, calc(100vh * 16 / 9)); height: min(100vh, calc(100vw * 9 / 16)); aspect-ratio: auto; border: 0; border-radius: 0; box-shadow: none; }
+body.fs .arena { width: min(100vw, calc(100vh * 16 / 9)); height: min(100vh, calc(100vw * 9 / 16)); width: min(100dvw, calc(100dvh * 16 / 9)); height: min(100dvh, calc(100dvw * 9 / 16)); aspect-ratio: auto; border: 0; border-radius: 0; box-shadow: none; }
+body.fs .arena-section { height: 100vh; height: 100dvh; }
+body.fs .screen { padding: 10px; gap: 8px; }
 body.fs .touch { position: fixed; left: 0; right: 0; bottom: 0; padding: 0 calc(10px + env(safe-area-inset-left, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) calc(10px + env(safe-area-inset-right, 0px)); z-index: 25; pointer-events: none; justify-content: space-between; }
 body.fs .touch .tcluster { pointer-events: none; }
 body.fs .tbtn { pointer-events: auto; opacity: .72; background: rgba(26,31,61,.75); border-color: rgba(255,255,255,.35); }
 body.fs .touch-tip { display: none; }
 @media (max-height: 420px) { body.fs .tbtn { width: 48px; height: 48px; font-size: .7rem; } body.fs .tcluster { grid-template-columns: repeat(3, 48px); } body.fs .tcluster.r { grid-template-columns: repeat(2, 48px); } }
+
+.touch-only { display: none; }
+@media (pointer: coarse) { .touch-only { display: inline-flex; } }

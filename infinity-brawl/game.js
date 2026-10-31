@@ -12,6 +12,7 @@ const DEFAULT_KEYS = { p1: { left: ['ArrowLeft'], right: ['ArrowRight'], jump: [
 const SETTINGS = Object.assign({ sens: 1, difficulty: 1, voice: 'auto', sfx: true, volume: .9, keys: JSON.parse(JSON.stringify(DEFAULT_KEYS)) }, store.get('ib-settings', {}));
 if (!SETTINGS.keys || !SETTINGS.keys.p1) SETTINGS.keys = JSON.parse(JSON.stringify(DEFAULT_KEYS));
 const saveSettings = () => store.set('ib-settings', SETTINGS);
+const coarse = matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 /* ============================================================ */
@@ -871,14 +872,21 @@ $('#set-reset-keys').addEventListener('click', () => { SETTINGS.keys = JSON.pars
 $('#opt-diff').addEventListener('change', e => { SETTINGS.difficulty = +e.target.value; saveSettings(); });
 $('#opt-diff').value = String(SETTINGS.difficulty);
 /* ---------------- fullscreen ---------------- */
-function setFullscreen(on) {
+let fsUserExited = false;
+function requestDeviceFullscreen() { try { const el = document.documentElement; const req = el.requestFullscreen || el.webkitRequestFullscreen; if (req && !document.fullscreenElement) { const p = req.call(el, { navigationUI: 'hide' }); if (p && p.catch) p.catch(() => {}); } } catch { /* iframe or browser without fullscreen: in-page layout still applies */ } try { if (screen.orientation && screen.orientation.lock) screen.orientation.lock('landscape').catch(() => {}); } catch { /* ignore */ } }
+function setFullscreen(on, opts = {}) {
   document.body.classList.toggle('fs', on); $('#btn-fs').setAttribute('aria-pressed', String(on)); $('#fs-exit').hidden = !on;
-  try { if (on && !document.fullscreenElement && document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(() => {}); if (!on && document.fullscreenElement) document.exitFullscreen().catch(() => {}); } catch { /* ignore */ }
-  try { if (on && screen.orientation && screen.orientation.lock) screen.orientation.lock('landscape').catch(() => {}); } catch { /* ignore */ }
-  if (on) setTouch(touchOn || coarse);
+  if (on) { if (!opts.auto) requestDeviceFullscreen(); setTouch(touchOn || coarse); window.scrollTo(0, 0); }
+  else { try { if (document.fullscreenElement) document.exitFullscreen().catch(() => {}); } catch { /* ignore */ } }
 }
+const landscape = () => matchMedia('(orientation: landscape)').matches;
+function autoFullscreen() { if (!coarse) return; if (landscape() && !fsUserExited && !document.body.classList.contains('fs')) setFullscreen(true, { auto: true }); if (!landscape()) { fsUserExited = false; if (document.body.classList.contains('fs') && !document.fullscreenElement) setFullscreen(false); } }
+window.addEventListener('resize', () => setTimeout(autoFullscreen, 60)); window.addEventListener('orientationchange', () => setTimeout(autoFullscreen, 120));
+// the first touch inside fullscreen layout is a user gesture: use it to ask the browser for real fullscreen
+document.addEventListener('pointerdown', () => { if (document.body.classList.contains('fs') && coarse && !document.fullscreenElement) requestDeviceFullscreen(); }, { passive: true });
 $('#btn-fs').addEventListener('click', () => setFullscreen(!document.body.classList.contains('fs')));
-$('#fs-exit').addEventListener('click', () => setFullscreen(false));
+$('#btn-fs-title').addEventListener('click', () => { audio.init(); setFullscreen(true); });
+$('#fs-exit').addEventListener('click', () => { fsUserExited = true; setFullscreen(false); });
 document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && document.body.classList.contains('fs') && coarse) { /* keep in-page fullscreen layout on phones */ } });
 $('#btn-rematch').addEventListener('click', () => { showScreen(null); game.screen = 'fight'; game.startMatch(); });
 $('#btn-reselect').addEventListener('click', () => openSelect(game.mode));
@@ -901,7 +909,7 @@ window.addEventListener('keydown', e => {
 });
 window.addEventListener('keyup', e => keys.delete(e.code)); window.addEventListener('blur', () => keys.clear());
 
-const touchEl = $('#touch'), coarse = matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window; let touchOn = store.get('ib-touch', coarse);
+const touchEl = $('#touch'); let touchOn = store.get('ib-touch', coarse);
 function setTouch(on) { touchOn = on; touchEl.classList.toggle('show', on); touchEl.setAttribute('aria-hidden', String(!on)); $('#btn-touch').setAttribute('aria-pressed', String(on)); store.set('ib-touch', on); }
 setTouch(touchOn); $('#btn-touch').addEventListener('click', () => setTouch(!touchOn));
 touchEl.querySelectorAll('.tbtn').forEach(b => { const k = 'T_' + b.dataset.k; const down = e => { e.preventDefault(); audio.init(); if (!keys.has(k)) pressed.add(k); keys.add(k); b.classList.add('on'); }, up = e => { e.preventDefault(); keys.delete(k); b.classList.remove('on'); }; b.addEventListener('pointerdown', down); b.addEventListener('pointerup', up); b.addEventListener('pointercancel', up); b.addEventListener('pointerleave', up); b.addEventListener('contextmenu', e => e.preventDefault()); });
@@ -924,5 +932,6 @@ let last = performance.now(), acc = 0; const STEP = 1 / 120;
 function loop(now) { const dt = Math.min(.1, (now - last) / 1000); last = now; acc += dt; while (acc >= STEP) { game.update(STEP); pressed.clear(); acc -= STEP; } fitCanvas(); game.draw(); requestAnimationFrame(loop); }
 document.addEventListener('visibilitychange', () => { if (document.hidden && game.screen === 'fight') game.paused = true; });
 window.__infinityBrawl = { game, HEROES, assets, SETTINGS };
+autoFullscreen();
 requestAnimationFrame(loop);
 })();
