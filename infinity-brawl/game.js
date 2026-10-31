@@ -101,9 +101,9 @@ function speak(id, text) {
 }
 const heroClip = (id, name, vol) => playClip(id + ':' + name, vol);
 /* Character sound design: non-verbal vocalisations and power sounds built from the synth. */
-function charSfx(id, kind) {
+function charSfx(id, kind, scale = 1) {
   if (!audio.on) return; audio.init(); if (!audio.ctx) return; const c = audio.ctx, t0 = c.currentTime;
-  const at = (ms, fn) => setTimeout(fn, ms);
+  const at = (ms, fn) => setTimeout(fn, ms * scale);
   const sweep = (type, f0, f1, dur, g) => { const o = c.createOscillator(), gg = c.createGain(); o.type = type; o.frequency.setValueAtTime(f0, c.currentTime); o.frequency.exponentialRampToValueAtTime(Math.max(20, f1), c.currentTime + dur); gg.gain.setValueAtTime(g * audio.vol, c.currentTime); gg.gain.exponentialRampToValueAtTime(.0001, c.currentTime + dur); o.connect(gg).connect(c.destination); o.start(); o.stop(c.currentTime + dur + .05); };
   const roar = (f, dur, g) => { sweep('sawtooth', f, f * 1.6, dur, g); sweep('square', f * .5, f * .9, dur, g * .6); audio.crack(dur, g * 2.2, 300 + f * 2, .5); };
   const laugh = (n, f) => { for (let i = 0; i < n; i++) at(i * 110, () => sweep('triangle', f * (1 + i * .04), f * .8, .09, .08)); };
@@ -118,6 +118,22 @@ function charSfx(id, kind) {
     case 'panther:intro': sweep('sawtooth', 55, 40, 1, .09); audio.crack(.9, .2, 180, .4); break; case 'panther:special': sweep('sine', 300, 1400, .4, .07); at(300, () => audio.crack(.12, .5, 2600, 2)); break; case 'panther:super': sweep('sine', 120, 900, 1, .09); at(950, () => { audio.thump(70, 1, .7); sweep('sawtooth', 1200, 100, 1.2, .08); }); break;
     case 'strange:intro': [220, 277, 330, 440].forEach((f, i) => at(i * 120, () => sweep('sine', f, f * 1.005, 1.2, .05))); break; case 'strange:special': audio.crack(.5, .3, 3500, .8); sweep('triangle', 600, 1800, .5, .05); break; case 'strange:super': for (let i = 0; i < 8; i++) at(i * 260, () => sweep('square', 1600, 1600, .04, .05)); [330, 415, 494].forEach(f => sweep('sine', f, f, 2.4, .04)); break;
     case 'loki:intro': laugh(5, 420); break; case 'loki:special': for (let i = 0; i < 3; i++) at(i * 70, () => sweep('sawtooth', 2000, 400, .15, .05)); at(300, () => laugh(3, 460)); break; case 'loki:super': laugh(6, 400); [880, 1320, 1760].forEach((f, i) => at(600 + i * 90, () => sweep('triangle', f, f * .98, .5, .04))); for (let i = 0; i < 5; i++) at(1000 + i * 220, () => audio.crack(.1, .5, 2000, 2)); break;
+  }
+}
+/* Each character's punches and kicks carry a flavour on top of the base hit: metal, wet, electric, heavy... */
+function attackSfx(id, kind) {
+  if (!audio.on || !audio.ctx) return; const heavy = kind !== 'punch';
+  switch (id) {
+    case 'ironman': audio.crack(.08, .35, 3200, 4); audio.tone(1800, .08, 'square', .03, -900); break;
+    case 'cap': audio.crack(.06, .3, 2800, 5); audio.tone(2200, .12, 'triangle', .04, -400); break;
+    case 'thor': audio.crack(.1, .3, 2600, 2); audio.tone(900, .1, 'sawtooth', .03, 1500); break;
+    case 'hulk': audio.thump(70, .22, .35); audio.crack(.15, .3, 400, .5); break;
+    case 'spiderman': audio.crack(.05, .35, 4200, 6); break;
+    case 'panther': audio.crack(heavy ? .14 : .1, .35, 2000, .7); audio.tone(300, .12, 'sine', .05, 900); break;
+    case 'strange': audio.tone(1200, .15, 'sine', .05, 600); audio.crack(.08, .2, 3400, 3); break;
+    case 'thanos': audio.thump(60, .25, .4); audio.crack(.12, .3, 600, .7); break;
+    case 'loki': audio.crack(.07, .3, 3000, 3); audio.tone(1600, .1, 'triangle', .03, -600); break;
+    case 'venom': audio.noise(.12, .3, 500); audio.crack(.1, .3, 900, .5); break;
   }
 }
 function heroVoice(id, name, text) {
@@ -534,10 +550,10 @@ class Fighter {
       const crouching = inp.crouch && this.grounded;
       if (inp.super && this.meter >= 100 && this.grounded) game.startSuper(this, opp);
       else if (inp.special && this.spCool <= 0 && this.grounded) this.startSpecial(opp, game);
-      else if (inp.punch && crouching) { this.setState('uppercut'); audio.sfx('kick'); audio.sfx('whoosh'); game.fx.push({ kind: 'swipe', f: this, dy: -80, t: 0, life: 260, delay: 90, big: true, up: true }); }
-      else if (inp.kick && crouching) { this.setState('sweep'); audio.sfx('kick'); game.fx.push({ kind: 'swipe', f: this, dy: -22, t: 0, life: 260, delay: 110, big: true }); }
-      else if (inp.punch && this.grounded) { this.setState('punch'); audio.sfx('punch'); game.fx.push({ kind: 'swipe', f: this, dy: -108, t: 0, life: 200, delay: 60 }); }
-      else if (inp.kick && this.grounded) { this.setState('kick'); audio.sfx('kick'); game.fx.push({ kind: 'swipe', f: this, dy: -60, t: 0, life: 260, delay: 130, big: true }); }
+      else if (inp.punch && crouching) { this.setState('uppercut'); audio.sfx('kick'); audio.sfx('whoosh'); attackSfx(this.def.id, 'kick'); game.fx.push({ kind: 'swipe', f: this, dy: -80, t: 0, life: 260, delay: 90, big: true, up: true }); }
+      else if (inp.kick && crouching) { this.setState('sweep'); audio.sfx('kick'); attackSfx(this.def.id, 'kick'); game.fx.push({ kind: 'swipe', f: this, dy: -22, t: 0, life: 260, delay: 110, big: true }); }
+      else if (inp.punch && this.grounded) { this.setState('punch'); audio.sfx('punch'); attackSfx(this.def.id, 'punch'); game.fx.push({ kind: 'swipe', f: this, dy: -108, t: 0, life: 200, delay: 60 }); game.fx.push({ kind: 'flare', f: this, id: this.def.id, dy: -104, reach: 74, t: 0, life: 230, delay: 40 }); }
+      else if (inp.kick && this.grounded) { this.setState('kick'); audio.sfx('kick'); attackSfx(this.def.id, 'kick'); game.fx.push({ kind: 'swipe', f: this, dy: -60, t: 0, life: 260, delay: 130, big: true }); game.fx.push({ kind: 'flare', f: this, id: this.def.id, dy: -58, reach: 100, t: 0, life: 300, delay: 100 }); }
       else if (crouching) { if (this.state !== 'crouch') this.setState('crouch'); this.vx = 0; }
       else {
         if (this.state === 'crouch') this.setState('idle');
@@ -563,7 +579,7 @@ class Fighter {
     const k = this.def.special.kind; this.specialKind = k; this.spCool = 2200; this.setState('special'); this.vx = 0; this.spLaunched = false; this.tpDone = false;
     this.actTotal = { repulsor: 420, shield: 380, lightning: 520, clap: 560, web: 440, kinetic: 460, portal: 520, powerstone: 500, daggers: 480, tendril: 480 }[k] * SP_SLOW;
     game.focus = { att: this, def: opp, t: 0, dur: this.actTotal }; opp.frozen = true; opp.vx = 0;
-    this.targetX = opp.x; audio.sfx(k === 'lightning' ? 'thunder' : k === 'repulsor' ? 'beam' : 'special'); heroVoice(this.def.id, 'special', null); charSfx(this.def.id, 'special');
+    this.targetX = opp.x; audio.sfx(k === 'lightning' ? 'thunder' : k === 'repulsor' ? 'beam' : 'special'); heroVoice(this.def.id, 'special', null); charSfx(this.def.id, 'special', 1 / .7);
     game.fx.push({ kind: 'charge', f: this, t: 0, life: 220, c: this.def.color }); game.fx.push({ kind: 'sig', f: this, id: this.def.id, t: 0, life: this.actTotal, phase: 'special' }); game.banner(this.def.special.name, this.side === 0 ? '#ff6b6b' : '#3fa9ff', 700, true);
   }
   updateSpecial(opp, game) {
@@ -661,7 +677,7 @@ const SUPER_HITS = { unibeam: 3, assemble: 4, stormbreaker: 4, smash: 2, webswin
 
 const game = {
   screen: 'title', mode: 'cpu', difficulty: 1, stageIdx: 0, phase: 'idle', phaseT: 0, round: 1, timer: ROUND_TIME,
-  fighters: [], projectiles: [], fx: [], banners: [], hitstop: 0, focus: null, shakeT: 0, shakeA: 0, flash: 0, paused: false, cine: null, picks: [null, null], picker: 0, cursor: 0, winner: -1,
+  fighters: [], projectiles: [], fx: [], banners: [], hitstop: 0, focus: null, ts: 1, letterbox: 0, shakeT: 0, shakeA: 0, flash: 0, paused: false, cine: null, picks: [null, null], picker: 0, cursor: 0, winner: -1,
   tally: store.get('ib-tally', { w: 0, l: 0 }),
   startMatch() { this.fighters = [new Fighter(this.picks[0], 0), new Fighter(this.picks[1], 1)]; this.picks.forEach(d => loadHeroSounds(d.id)); this.introPlayed = [false, false]; this.round = 1; const s = +$('#opt-stage').value; this.stageIdx = s >= 0 ? s : Math.floor(Math.random() * STAGES.length); this.difficulty = +$('#opt-diff').value; SETTINGS.difficulty = this.difficulty; saveSettings(); this.startRound(); },
   startRound() { this.introPlayed = [false, false]; this.focus = null; this.fighters.forEach(f => f.resetRound()); this.projectiles = []; this.fx = []; this.banners = []; this.cine = null; this.timer = ROUND_TIME; this.phase = 'intro'; this.phaseT = 0; audio.sfx('round'); },
@@ -690,7 +706,7 @@ const game = {
     this.cine = { att, def, kind, t: 0, hits, dmgEach: total / n, connects: true, knockdown: ['smash', 'snap', 'wakanda'].includes(kind), end: { smash: 2500, snap: 3600 }[kind] || 2700, startX: att.x, startY: att.y, items: [], runners: [] };
     if (kind === 'assemble') { const allies = HEROES.filter(h => !h.villain && h.id !== att.def.id); for (let i = 0; i < 4; i++) this.cine.runners.push({ def: allies[(i * 2 + 1) % allies.length], x: att.facing > 0 ? -80 - i * 190 - 350 : W + 80 + i * 190 + 350, vx: att.facing * 900, y: GROUND }); }
     if (kind === 'purpose') { for (let i = 0; i < 5; i++) this.cine.items.push({ clone: true, x: clamp(def.x + [-150, 150, -80, 80, 0][i], 40, W - 40), facing: [1, -1, 1, -1, def.x >= att.x ? -1 : 1][i], show: 750 + i * 160 }); }
-    heroVoice(att.def.id, 'super', null); charSfx(att.def.id, 'super'); this.banner(att.def.sup.name, '#ffd166', 1200);
+    heroVoice(att.def.id, 'super', null); charSfx(att.def.id, 'super', 1 / .5); this.banner(att.def.sup.name, '#ffd166', 1200);
     this.fx.push({ kind: 'speedlines', f: att, t: 0, life: 700 }); this.fx.push({ kind: 'aura', f: att, t: 0, life: this.cine.end, c: att.def.color }); this.fx.push({ kind: 'sig', f: att, id: att.def.id, t: 0, life: this.cine.end, phase: 'super' }); this.flash = .6; this.shake(6);
   },
   updateCine(dt) {
@@ -720,16 +736,21 @@ const game = {
     if (t >= c.end) { att.frozen = false; def.frozen = false; att.y = GROUND; att.grounded = true; att.setState('idle'); if (!['hit', 'down', 'ko'].includes(def.state)) def.setState('idle'); def.dust = 0; def.dusting = false; this.cine = null; }
   },
   update(dt) {
-    this.phaseT += dt * 1000; this.banners.forEach(b => b.t += dt * 1000); this.banners = this.banners.filter(b => b.t < b.life);
-    if (this.shakeT > 0) { this.shakeT -= dt * 1000; if (this.shakeT <= 0) this.shakeA = 0; } this.flash = Math.max(0, this.flash - dt * 2.5);
+    // slow motion: supers run at 45% speed, specials at 70%; banners, shake and hit-stop stay in real time
+    const tsTarget = this.cine ? .5 : (this.focus ? .7 : 1); this.ts = lerp(this.ts, tsTarget, tsTarget < this.ts ? .25 : .08); if (Math.abs(this.ts - tsTarget) < .01) this.ts = tsTarget;
+    this.letterbox = lerp(this.letterbox, this.cine ? 1 : 0, .12);
+    const rdt = dt; dt = dt * this.ts;
+    this.phaseT += rdt * 1000; this.banners.forEach(b => b.t += rdt * 1000); this.banners = this.banners.filter(b => b.t < b.life);
+    if (this.shakeT > 0) { this.shakeT -= rdt * 1000; if (this.shakeT <= 0) this.shakeA = 0; } this.flash = Math.max(0, this.flash - rdt * 2.5);
     this.fx.forEach(e => { e.t += dt * 1000; if (e.kind === 'dust') { e.x += e.vx * dt; e.y += e.vy * dt; } }); this.fx = this.fx.filter(e => e.t < e.life);
     if (this.screen !== 'fight' || this.paused) return;
     const [a, b] = this.fighters;
+    if (this.cine && Math.floor(this.cine.t / 70) !== Math.floor((this.cine.t - dt * 1000) / 70)) this.fx.push({ kind: 'ghost', f: this.cine.att, x: this.cine.att.x, y: this.cine.att.y, state: this.cine.att.state, t: 0, life: 420 });
     if (this.phase === 'intro') { if (this.phaseT > 350 && !this.introPlayed[0]) { this.introPlayed[0] = true; heroVoice(a.def.id, 'intro', a.def.line); } if (this.phaseT > 1250 && !this.introPlayed[1]) { this.introPlayed[1] = true; heroVoice(b.def.id, 'intro', b.def.line); } if (this.phaseT > 2200) { this.phase = 'fight'; this.phaseT = 0; audio.sfx('round'); } }
-    if (this.hitstop > 0) { this.hitstop -= dt * 1000; return; }
+    if (this.hitstop > 0) { this.hitstop -= rdt * 1000; return; }
     if (this.phase === 'fight') {
       if (this.cine) this.updateCine(dt); else { this.timer -= dt; if (this.timer <= 0) { this.timer = 0; this.timeUp(); } }
-      if (this.focus) { this.focus.t += dt * 1000; if (this.focus.t > this.focus.dur + 150 || this.focus.att.state !== 'special') { if (this.focus.def.frozen) this.focus.def.frozen = false; this.focus = null; } }
+      if (this.focus) { this.focus.t += dt * 1000; if (this.focus.t > this.focus.dur + 300 || this.focus.att.state !== 'special') { if (this.focus.def.frozen) this.focus.def.frozen = false; this.focus = null; } }
       const i1 = this.cine ? {} : readInput(P1), i2 = this.cine ? {} : (this.mode === '2p' ? readInput(P2) : cpuIntent(b, a, this, dt));
       a.update(dt, i1, b, this); b.update(dt, i2, a, this);
       for (const p of this.projectiles) p.update(dt, this); this.projectiles = this.projectiles.filter(p => !p.dead);
@@ -753,7 +774,7 @@ const game = {
     const t = performance.now(); ctx.save(); const dpr = canvas.width / W; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     // dynamic camera: zooms in when fighters are close, follows the midpoint
     const cam = this.cam || (this.cam = { z: 1.06, x: W / 2 }); let zT = 1.06, xT = W / 2;
-    if (this.fighters.length && (this.screen === 'fight' || this.screen === 'result')) { const [a, b] = this.fighters; const dist = Math.abs(a.x - b.x); zT = clamp(1.3 - dist / W * .55, 1.06, 1.24); xT = (a.x + b.x) / 2; if (this.focus) { zT = 1.32; xT = lerp(this.focus.att.x, this.focus.def.x, .35); } if (this.cine) { zT = Math.max(zT, 1.18); } }
+    if (this.fighters.length && (this.screen === 'fight' || this.screen === 'result')) { const [a, b] = this.fighters; const dist = Math.abs(a.x - b.x); zT = clamp(1.3 - dist / W * .55, 1.06, 1.24); xT = (a.x + b.x) / 2; if (this.focus) { zT = 1.32; xT = lerp(this.focus.att.x, this.focus.def.x, .35); } if (this.cine) { zT = Math.max(zT, 1.26); xT = lerp(this.cine.att.x, this.cine.def.x, .45); } }
     cam.z = lerp(cam.z, zT, .04); cam.x = lerp(cam.x, xT, .08);
     const lim = (W - W / cam.z) / 2 - 2, px = clamp((cam.x - W / 2) * .5, -lim, lim);
     ctx.save();
@@ -785,6 +806,7 @@ const game = {
     if (this.screen === 'fight' || this.screen === 'result') {
       this.drawHud(t);
     }
+    if (this.letterbox > .01) { const h = 46 * this.letterbox; ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, h); ctx.fillRect(0, H - h, W, h); ctx.fillStyle = `rgba(255,255,255,${.55 * this.letterbox})`; ctx.font = '13px Rubik, sans-serif'; ctx.textAlign = 'right'; ctx.textBaseline = 'middle'; ctx.fillText('SLOW MOTION', W - 16, H - h / 2); }
     if (this.flash > 0) { ctx.fillStyle = `rgba(255,255,255,${this.flash * .85})`; ctx.fillRect(-20, -20, W + 40, H + 40); }
     for (const b of this.banners) { const p = b.t / b.life, a = p < .1 ? p / .1 : (p > .8 ? (1 - p) / .2 : 1), sc = b.small ? .5 : 1; ctx.save(); ctx.globalAlpha = a; ctx.translate(W / 2, b.small ? 150 : H / 2 - 20); ctx.rotate(b.small ? 0 : -.04); ctx.scale(sc * (1 + (1 - a) * .3), sc * (1 + (1 - a) * .3)); ctx.font = '72px Bangers, Impact, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.lineWidth = 10; ctx.strokeStyle = 'rgba(0,0,0,.85)'; ctx.strokeText(b.text, 0, 0); ctx.fillStyle = b.color; ctx.fillText(b.text, 0, 0); ctx.restore(); }
     if (this.screen === 'fight' && this.phase === 'intro') { if (this.round === 1 && this.phaseT < 2200) { ctx.save(); ctx.font = '600 15px Rubik, sans-serif'; ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(0,0,0,.6)'; rrect(ctx, W / 2 - 300, 300, 600, 30, 8); ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText(this.mode === 'cpu' ? 'ARROWS or WASD move · ↓ crouch (↓+punch uppercut, ↓+kick sweep) · Z/J punch · X/K kick · C/L special · V/I super' : 'P1: ARROWS + Z X C V    ·    P2: WASD + J K L I', W / 2, 321); ctx.restore(); } const txt = this.phaseT < 1500 ? `ROUND ${this.round}` : 'FIGHT!'; ctx.save(); ctx.font = '84px Bangers, Impact, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.lineWidth = 12; ctx.strokeStyle = 'rgba(0,0,0,.85)'; ctx.strokeText(txt, W / 2, 230); ctx.fillStyle = this.phaseT < 1500 ? '#fff' : '#f0b429'; ctx.fillText(txt, W / 2, 230); ctx.restore(); }
@@ -793,7 +815,8 @@ const game = {
   },
   drawFxBack(t) {
     for (const e of this.fx) { const p = e.t / e.life, a = 1 - p;
-      if (e.kind === 'speedlines') { const f = e.f; ctx.save(); ctx.globalAlpha = a * .7; ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.beginPath(); for (let i = 0; i < 48; i++) { const an = i / 48 * TAU + e.t * .002, r0 = 90 + ((i * 37) % 60), r1 = 900; ctx.moveTo(f.x + Math.cos(an) * r0, f.y - 90 + Math.sin(an) * r0); ctx.lineTo(f.x + Math.cos(an) * r1, f.y - 90 + Math.sin(an) * r1); } ctx.stroke(); ctx.restore(); }
+      if (e.kind === 'ghost') { ctx.save(); ctx.globalAlpha = .3 * a; drawFighter(ctx, { ...e.f, x: e.x, y: e.y, state: e.state, t: e.f.t, anim: e.f.anim }, t, { noShadow: true, noUpdate: true, tint: 'saturate(0) brightness(1.6)' }); ctx.restore(); }
+      else if (e.kind === 'speedlines') { const f = e.f; ctx.save(); ctx.globalAlpha = a * .7; ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.beginPath(); for (let i = 0; i < 48; i++) { const an = i / 48 * TAU + e.t * .002, r0 = 90 + ((i * 37) % 60), r1 = 900; ctx.moveTo(f.x + Math.cos(an) * r0, f.y - 90 + Math.sin(an) * r0); ctx.lineTo(f.x + Math.cos(an) * r1, f.y - 90 + Math.sin(an) * r1); } ctx.stroke(); ctx.restore(); }
       else if (e.kind === 'aura') { const f = e.f, sc = f.def.scale || 1; ctx.save(); ctx.globalAlpha = Math.min(1, a * 2) * .9; for (let i = 0; i < 14; i++) { const an = e.t * .004 + i / 14 * TAU, r = 70 * sc + Math.sin(e.t * .006 + i) * 14, yy = f.y - 95 * sc + Math.sin(an * 2) * 60 * sc; ctx.fillStyle = i % 3 ? e.c : '#fff'; ctx.shadowColor = e.c; ctx.shadowBlur = 12; ctx.beginPath(); ctx.arc(f.x + Math.cos(an) * r, yy, 3 + (i % 3), 0, TAU); ctx.fill(); } ctx.restore(); }
       else if (e.kind === 'charge') { const f = e.f; ctx.save(); ctx.globalAlpha = a; ctx.strokeStyle = e.c; ctx.lineWidth = 4; ctx.shadowColor = e.c; ctx.shadowBlur = 14; ctx.beginPath(); ctx.arc(f.x, f.y - 90, 120 * a + 20, 0, TAU); ctx.stroke(); for (let i = 0; i < 8; i++) { const an = i / 8 * TAU + e.t * .01; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(f.x + Math.cos(an) * (110 * a + 20), f.y - 90 + Math.sin(an) * (110 * a + 20), 3, 0, TAU); ctx.fill(); } ctx.restore(); }
       else if (e.kind === 'sig') { this.drawSignature(e, t); }
@@ -815,6 +838,19 @@ const game = {
       else if (e.kind === 'ring') { ctx.save(); ctx.globalAlpha = a; ctx.strokeStyle = e.c; ctx.lineWidth = 6 * a + 1; ctx.beginPath(); ctx.ellipse(e.x, e.y, e.r * p + 10, (e.r * p + 10) * (e.y >= GROUND ? .3 : 1), 0, 0, TAU); ctx.stroke(); ctx.restore(); }
       else if (e.kind === 'clap') { ctx.save(); ctx.globalAlpha = a; ctx.strokeStyle = '#fff'; ctx.lineWidth = 6; for (let i = 0; i < 4; i++) { const r = 30 + i * 30 + p * 170; ctx.beginPath(); ctx.arc(e.x, e.y, r, e.dir > 0 ? -.9 : Math.PI - .9, e.dir > 0 ? .9 : Math.PI + .9); ctx.stroke(); } ctx.font = '40px Bangers, Impact, sans-serif'; ctx.fillStyle = '#ffd166'; ctx.textAlign = 'center'; ctx.fillText('CLAP!', e.x + e.dir * (60 + p * 60), e.y - 40 - p * 30); ctx.restore(); }
       else if (e.kind === 'impact') { ctx.save(); ctx.translate(e.x, e.y); ctx.globalAlpha = a; const r = (e.big ? 44 : 30) * (0.6 + p * .8); ctx.fillStyle = '#fff'; ctx.beginPath(); for (let i = 0; i < 14; i++) { const rr = i % 2 ? r * .55 : r, an = i / 14 * TAU + e.t * .004; ctx.lineTo(Math.cos(an) * rr, Math.sin(an) * rr); } ctx.closePath(); ctx.fill(); ctx.fillStyle = e.big ? '#ffd166' : '#ff9f43'; ctx.beginPath(); for (let i = 0; i < 14; i++) { const rr = (i % 2 ? r * .55 : r) * .62, an = i / 14 * TAU + e.t * .004; ctx.lineTo(Math.cos(an) * rr, Math.sin(an) * rr); } ctx.closePath(); ctx.fill(); if (e.big) { ctx.font = '28px Bangers, Impact, sans-serif'; ctx.fillStyle = '#1a1a1a'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('POW!', 0, 0); } ctx.restore(); }
+      else if (e.kind === 'flare') { if (e.t > e.delay) { const q = (e.t - e.delay) / (e.life - e.delay), f = e.f, sc = f.def.scale || 1, x = f.x + f.facing * (e.reach * (0.5 + q * .6)) * sc, y = f.y + e.dy * sc; ctx.save(); ctx.globalAlpha = (1 - q) * .95; ctx.translate(x, y); ctx.scale(f.facing, 1);
+        switch (e.id) {
+          case 'panther': ctx.strokeStyle = '#d9c8ff'; ctx.shadowColor = '#9b5cff'; ctx.shadowBlur = 10; ctx.lineWidth = 3; for (let i = -1; i <= 1; i++) { ctx.beginPath(); ctx.moveTo(-30, -26 + i * 14); ctx.lineTo(26 + q * 20, 14 + i * 14); ctx.stroke(); } break;
+          case 'venom': ctx.strokeStyle = '#0e0e14'; ctx.lineWidth = 7; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-40, 10); ctx.quadraticCurveTo(0, -30 - q * 20, 30 + q * 20, 0); ctx.stroke(); ctx.fillStyle = '#fff'; for (let i = 0; i < 3; i++) poly(ctx, [[10 + i * 8, -6], [13 + i * 8, 2], [16 + i * 8, -6]], '#fff'); break;
+          case 'ironman': ctx.fillStyle = '#bfefff'; ctx.shadowColor = '#7fd9ff'; ctx.shadowBlur = 16; ctx.beginPath(); ctx.arc(0, 0, 8 + q * 10, 0, TAU); ctx.fill(); break;
+          case 'thor': ctx.strokeStyle = '#bfefff'; ctx.shadowColor = '#7fd9ff'; ctx.shadowBlur = 12; ctx.lineWidth = 2; for (let i = 0; i < 4; i++) { let px = 0, py = 0; ctx.beginPath(); ctx.moveTo(0, 0); for (let k = 0; k < 3; k++) { px += rnd(-18, 22); py += rnd(-18, 18); ctx.lineTo(px, py); } ctx.stroke(); } break;
+          case 'hulk': ctx.fillStyle = 'rgba(200,190,170,.7)'; for (let i = 0; i < 5; i++) { ctx.beginPath(); ctx.arc(-10 + i * 10, 8 + Math.sin(i) * 6 - q * 20, 6 + q * 6, 0, TAU); ctx.fill(); } break;
+          case 'spiderman': ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5; for (let i = 0; i < 6; i++) { const an = i / 6 * TAU; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(Math.cos(an) * (10 + q * 16), Math.sin(an) * (10 + q * 16)); ctx.stroke(); } break;
+          case 'strange': ctx.strokeStyle = '#ffb347'; ctx.shadowColor = '#ff8c1a'; ctx.shadowBlur = 10; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(0, 0, 10 + q * 14, 0, TAU); ctx.stroke(); for (let i = 0; i < 6; i++) { const an = i / 6 * TAU + e.t * .01; ctx.beginPath(); ctx.moveTo(Math.cos(an) * 10, Math.sin(an) * 10); ctx.lineTo(Math.cos(an) * (18 + q * 10), Math.sin(an) * (18 + q * 10)); ctx.stroke(); } break;
+          case 'thanos': ctx.fillStyle = '#9b5cff'; ctx.shadowColor = '#9b5cff'; ctx.shadowBlur = 16; ctx.beginPath(); ctx.arc(0, 0, 7 + q * 12, 0, TAU); ctx.fill(); break;
+          case 'loki': ctx.fillStyle = '#7dffb0'; ctx.shadowColor = '#35c26b'; ctx.shadowBlur = 10; for (let i = 0; i < 6; i++) { const an = i / 6 * TAU + q * 3; ctx.beginPath(); ctx.arc(Math.cos(an) * (8 + q * 18), Math.sin(an) * (8 + q * 18), 2.5, 0, TAU); ctx.fill(); } break;
+          case 'cap': star(ctx, 0, 0, 10 + q * 8, 'rgba(255,255,255,.9)'); break;
+        } ctx.restore(); } }
       else if (e.kind === 'universe') { ctx.save(); const q = p; ctx.globalAlpha = Math.min(1, (1 - q) * 1.6); ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; for (let i = 0; i < 16; i++) { const an = i / 16 * TAU + .3; let x = e.x, y = e.y; ctx.beginPath(); ctx.moveTo(x, y); for (let k = 0; k < 6; k++) { x += Math.cos(an + (k % 2 ? .4 : -.4)) * 90 * q; y += Math.sin(an + (k % 2 ? .4 : -.4)) * 90 * q; ctx.lineTo(x, y); } ctx.stroke(); } for (let i = 0; i < 60; i++) { const an = i * 2.4 + e.t * .001, r = (1 - q) * 520 + 20, px = e.x + Math.cos(an) * r * (1 + (i % 5) * .1), py = e.y + Math.sin(an) * r * .6; ctx.fillStyle = ['#fff', '#9b5cff', '#f0b429', '#3fa9ff'][i % 4]; ctx.globalAlpha = (1 - q) * .9; ctx.fillRect(px, py, 2 + (i % 3), 2 + (i % 3)); } ctx.globalAlpha = q < .5 ? q * 1.4 : (1 - q) * 1.4; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(e.x, e.y, 30 + q * 90, 0, TAU); ctx.fill(); ctx.restore(); }
       else if (e.kind === 'debris') { e.vy += 1400 / 120; e.x += e.vx / 120; e.y += e.vy / 120; if (e.y > GROUND) { e.y = GROUND; e.vy *= -.4; } ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = e.c; ctx.translate(e.x, e.y); ctx.rotate(e.t * .01); ctx.fillRect(-4, -4, 8, 8); ctx.restore(); }
       else if (e.kind === 'puff') { const n = e.big ? 7 : 4; ctx.save(); ctx.globalAlpha = a * .5; ctx.fillStyle = '#d8d0c4'; for (let i = 0; i < n; i++) { const an = Math.PI + (i / (n - 1)) * Math.PI, r = (e.big ? 28 : 16) * p + 8; ctx.beginPath(); ctx.arc(e.x + Math.cos(an) * r * 1.6, e.y - 4 + Math.sin(an) * r * .5, (e.big ? 8 : 5) * (1 - p * .5), 0, TAU); ctx.fill(); } ctx.restore(); }
