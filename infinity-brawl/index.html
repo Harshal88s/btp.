@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Infinity Brawl</title>
+<meta name="description" content="Infinity Brawl: a free unofficial Marvel fan fighting game for the browser. Ten heroes and villains with signature specials and cinematic supers. Play vs CPU or a friend.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Rubik:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23e23636' d='M12 2 2 7v10l10 5 10-5V7z'/%3E%3Cpath fill='%23f0b429' d='M12 6 6 9v6l6 3 6-3V9z'/%3E%3Ccircle cx='12' cy='12' r='2.4' fill='%233fa9ff'/%3E%3C/svg%3E">
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Infinity Brawl home">
+      <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e23636" d="M12 2 2 7v10l10 5 10-5V7z"/><path fill="#f0b429" d="M12 6 6 9v6l6 3 6-3V9z"/><circle cx="12" cy="12" r="2.4" fill="#3fa9ff"/></svg>
+      INFINITY <em>BRAWL</em>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#play">Play</a>
+      <a href="#fighters">Fighters</a>
+      <a href="#controls">Controls</a>
+      <a href="#deploy">Host it free</a>
+    </nav>
+    <span class="badge">Fan game · Free</span>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <p class="eyebrow">An unofficial Marvel fan fighting game for the browser</p>
+    <h1>Heroes. Villains. <span>One Arena.</span></h1>
+    <p class="lede">Ten of the most famous Marvel characters, drawn from scratch, each with their own signature move set. Throw Cap's shield, clap like Hulk, snap like Thanos. Play against the CPU or a friend on one keyboard. Nothing to install.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#play">▶ Play now</a>
+      <a class="btn btn-ghost" href="#fighters">Meet the fighters</a>
+    </div>
+  </section>
+
+  <section class="arena-section wrap" id="play">
+    <div class="arena" id="arena">
+      <canvas id="game" width="960" height="540" aria-label="Infinity Brawl fight arena"></canvas>
+
+      <div class="screen" id="scr-title">
+        <div class="title-art">INFINITY<br>BRAWL<small>Heroes vs Villains</small></div>
+        <p class="sub">Ten legends. Signature specials. Cinematic supers. Pick your side.</p>
+        <div class="row">
+          <button class="btn btn-primary" id="btn-vs-cpu" type="button">1P vs CPU</button>
+          <button class="btn btn-ghost" id="btn-vs-2p" type="button">2P on one keyboard</button>
+        </div>
+        <p class="blink" id="title-hint">PRESS ENTER OR TAP TO START</p>
+      </div>
+
+      <div class="screen" id="scr-select" hidden>
+        <div class="select-head">
+          <span class="who p1c" id="sel-who">PLAYER 1 — CHOOSE YOUR FIGHTER</span>
+          <button class="btn btn-ghost btn-sm" id="btn-random" type="button">Random</button>
+        </div>
+        <div class="select-grid" id="select-grid" role="listbox" aria-label="Fighter roster"></div>
+        <p class="fighter-bio" id="sel-bio">Hover or tap a fighter.</p>
+        <div class="opts">
+          <label id="lbl-diff">CPU level
+            <select id="opt-diff">
+              <option value="0">Rookie</option>
+              <option value="1" selected>Avenger</option>
+              <option value="2">Titan</option>
+            </select>
+          </label>
+          <label>Stage
+            <select id="opt-stage">
+              <option value="-1" selected>Random</option>
+              <option value="0">New York Street</option>
+              <option value="1">Wakanda</option>
+              <option value="2">Titan</option>
+            </select>
+          </label>
+          <button class="btn btn-ghost btn-sm" id="btn-back-title" type="button">Back</button>
+        </div>
+      </div>
+
+      <div class="screen" id="scr-result" hidden>
+        <h2 id="res-title">PLAYER 1 WINS</h2>
+        <div class="result-card">
+          <div class="eyebrow" id="res-name">Fighter</div>
+          <p class="winline" id="res-line"></p>
+          <p class="tally" id="res-tally"></p>
+        </div>
+        <div class="row">
+          <button class="btn btn-primary" id="btn-rematch" type="button">Rematch</button>
+          <button class="btn btn-ghost" id="btn-reselect" type="button">Change fighters</button>
+          <button class="btn btn-ghost" id="btn-home" type="button">Title</button>
+        </div>
+      </div>
+    </div>
+    <div class="touch" id="touch" aria-hidden="true">
+      <div class="tcluster">
+        <button class="tbtn" data-k="KeyW" type="button">JUMP</button>
+        <button class="tbtn" data-k="KeyA" type="button">◀</button>
+        <button class="tbtn" data-k="KeyD" type="button">▶</button>
+        <button class="tbtn" data-k="KeyS" type="button">BLOCK</button>
+      </div>
+      <p class="touch-tip">Rotate your phone for a bigger arena.</p>
+      <div class="tcluster r">
+        <button class="tbtn" data-k="KeyJ" type="button">PUNCH</button>
+        <button class="tbtn" data-k="KeyK" type="button">KICK</button>
+        <button class="tbtn sp" data-k="KeyL" type="button">SPECIAL</button>
+        <button class="tbtn su" data-k="KeyI" type="button">SUPER</button>
+      </div>
+    </div>
+    <div class="arena-foot">
+      <span class="kbd-hint">P1: <kbd>W A S D</kbd> move · <kbd>J</kbd> punch · <kbd>K</kbd> kick · <kbd>L</kbd> special · <kbd>I</kbd> super · <kbd>Esc</kbd> pause</span>
+      <span class="row">
+        <button class="icon-btn" id="btn-sound" type="button" aria-pressed="true">🔊 Sound on</button>
+        <button class="icon-btn" id="btn-touch" type="button" aria-pressed="false">📱 Touch pad</button>
+      </span>
+    </div>
+  </section>
+
+  <section class="section wrap" id="fighters">
+    <div class="section-head">
+      <p class="eyebrow">The roster</p>
+      <h2>Seven heroes. Three villains. Ten move sets.</h2>
+      <p>Every fighter has a special on a short cooldown and a super that needs a full meter. Flyers get a second jump. Heavyweights hit harder and take more.</p>
+    </div>
+    <div class="roster" id="roster"></div>
+  </section>
+
+  <section class="section wrap" id="controls">
+    <div class="section-head">
+      <p class="eyebrow">How to fight</p>
+      <h2>Controls</h2>
+      <p>Keyboard on desktop, on-screen pad on phones and tablets. Two players share one keyboard.</p>
+    </div>
+    <div class="controls">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Action</th><th>Player 1</th><th>Player 2</th></tr></thead>
+          <tbody>
+            <tr><td>Move</td><td><kbd>A</kbd> <kbd>D</kbd></td><td><kbd>←</kbd> <kbd>→</kbd></td></tr>
+            <tr><td>Jump (flyers: press again to hover-jump)</td><td><kbd>W</kbd></td><td><kbd>↑</kbd></td></tr>
+            <tr><td>Block (hold)</td><td><kbd>S</kbd></td><td><kbd>↓</kbd></td></tr>
+            <tr><td>Punch</td><td><kbd>J</kbd></td><td><kbd>,</kbd> or <kbd>Num 1</kbd></td></tr>
+            <tr><td>Kick</td><td><kbd>K</kbd></td><td><kbd>.</kbd> or <kbd>Num 2</kbd></td></tr>
+            <tr><td>Special</td><td><kbd>L</kbd></td><td><kbd>/</kbd> or <kbd>Num 3</kbd></td></tr>
+            <tr><td>Super (full meter)</td><td><kbd>I</kbd></td><td><kbd>'</kbd> or <kbd>Num 0</kbd></td></tr>
+            <tr><td>Pause</td><td colspan="2"><kbd>Esc</kbd> or <kbd>P</kbd></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tips">
+        <div class="tip"><b>Combos.</b> Hits that land while the opponent is reeling chain together. Damage scales down after the third hit, so finish with a special.</div>
+        <div class="tip"><b>Meter.</b> Dealing and taking damage fills the gold bar. At 100% press Super for a cinematic that cannot be blocked.</div>
+        <div class="tip"><b>Blocking.</b> Holding block cuts damage to a fifth and prevents stun. Thanos' snap and every other super still land.</div>
+        <div class="tip"><b>Rounds.</b> Best of three, 60 seconds each. When time runs out, the fighter with more health takes the round.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="deploy">
+    <div class="section-head">
+      <p class="eyebrow">Host it free</p>
+      <h2>Put it on the internet in five minutes</h2>
+      <p>The whole game is three files: <code>index.html</code>, <code>style.css</code>, <code>game.js</code>. Any free static host will serve it.</p>
+    </div>
+    <div class="deploy">
+      <div class="step">
+        <h3>GitHub Pages</h3>
+        <ol>
+          <li>Create a public repository and upload the three files to its root.</li>
+          <li>Open <b>Settings → Pages</b>, set Source to <b>Deploy from a branch</b>, pick <code>main</code> and <code>/ (root)</code>, save.</li>
+          <li>Your game is live at <code>https://&lt;username&gt;.github.io/&lt;repo&gt;/</code> within a minute or two.</li>
+        </ol>
+      </div>
+      <div class="step">
+        <h3>Netlify Drop</h3>
+        <ol>
+          <li>Go to <a href="https://app.netlify.com/drop" rel="noopener">app.netlify.com/drop</a>.</li>
+          <li>Drag the folder with the three files onto the page.</li>
+          <li>You get a <code>something.netlify.app</code> link instantly. Rename it in Site settings.</li>
+        </ol>
+      </div>
+      <div class="step">
+        <h3>Vercel or Cloudflare Pages</h3>
+        <ol>
+          <li>Push the folder to GitHub.</li>
+          <li>Import the repo in <a href="https://vercel.com/new" rel="noopener">Vercel</a> or <a href="https://pages.cloudflare.com" rel="noopener">Cloudflare Pages</a>. Framework: <b>None</b>. Build command: empty. Output directory: <code>/</code>.</li>
+          <li>Deploy. A custom domain is optional and also free to attach.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="about">
+    <div class="about">
+      <div>
+        <p class="eyebrow">About</p>
+        <p>Infinity Brawl is a small, free, browser-only fighting game in the spirit of the viral two-button brawlers. All art is drawn procedurally in code, so the page loads in a blink and works offline once opened. No account, no download, no ads, no tracking. Your win tally is stored only in this browser.</p>
+      </div>
+      <aside class="side">
+        <p><b>Unofficial fan project.</b> Marvel characters, names and catchphrases are trademarks of Marvel Entertainment and The Walt Disney Company. This game is not affiliated with, endorsed by or sponsored by them. It is made by fans, for free, and must not be sold or monetised.</p>
+        <p><b>Open source.</b> Plain HTML, CSS and JavaScript. Fork it, reskin it, add a fighter.</p>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Infinity Brawl fan game. Characters © Marvel. Made with canvas, keyboard and a full meter.</span>
+  </div>
+</footer>
+<script src="game.js"></script>
+</body>
+</html>
