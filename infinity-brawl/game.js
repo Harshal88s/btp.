@@ -46,7 +46,7 @@ const HEROES = [
 const ASSET_BASE = (document.currentScript && document.currentScript.src ? document.currentScript.src.replace(/[^/]*$/, '') : '') + 'assets/';
 const assets = { sprites: {}, clips: {}, manifest: null, portraitCanvases: [], faded: {}, stages: {} };
 /* bust: image stops above the feet, so the fighter levitates and the hem fades out. cut = fraction of full body height the image covers. */
-const SPRITE_META = { strange: { bust: true, cut: .8 }, thor: { bust: true, cut: .84 } };
+const SPRITE_META = { strange: { bust: true, cut: .8, hover: true }, thor: { bust: true, cut: .84, hover: true }, cap: { bust: true, cut: .9 } };
 function fadedSprite(id, img) {
   if (assets.faded[id]) return assets.faded[id]; const c = document.createElement('canvas'); c.width = img.width; c.height = img.height; const x = c.getContext('2d'); x.drawImage(img, 0, 0);
   x.globalCompositeOperation = 'destination-out'; const g = x.createLinearGradient(0, img.height * .78, 0, img.height); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,1)'); x.fillStyle = g; x.fillRect(0, img.height * .78, img.width, img.height * .22);
@@ -252,11 +252,11 @@ function drawSpriteFighter(ctx, f, t, img, opts = {}) {
     case 'super': T.glow = 1; T.sy = 1 + Math.sin(t * .03) * .02; T.dy = -4; break;
   }
   if (f.dashT > 0) { T.rot = .2; T.sx = 1.08; }
-  if (meta.bust) T.dy += -10 + Math.sin(t * .0028 + f.side) * 4;
+  if (meta.hover) T.dy += -10 + Math.sin(t * .0028 + f.side) * 4;
   let A; if (opts.flat) A = T; else if (opts.noUpdate) A = f.anim || T; else { A = f.anim || (f.anim = { ...T }); const k = ['down', 'ko', 'getup'].includes(s) ? 1 : .3; for (const key in T) A[key] = lerp(A[key], T[key], k); }
   ctx.save(); ctx.translate(f.x, f.y); ctx.globalAlpha = (opts.alpha == null ? 1 : opts.alpha) * (1 - (f.dust || 0)) * (s === 'special' && f.specialKind === 'portal' && st > 200 && st < 300 ? 0 : 1);
   if (!opts.noShadow) { const lift = clamp((GROUND - f.y) / 300, 0, 1); ctx.fillStyle = `rgba(0,0,0,${.38 - lift * .2})`; ctx.beginPath(); ctx.ellipse(0, 3, wdt * .34 * (1 - lift * .3), 7 * (1 - lift * .3), 0, 0, TAU); ctx.fill(); }
-  if (meta.bust && !opts.flat) { ctx.save(); ctx.globalAlpha *= .55; ctx.fillStyle = d.color; ctx.filter = 'blur(10px)'; ctx.beginPath(); ctx.ellipse(0, -14, wdt * .3, 14, 0, 0, TAU); ctx.fill(); ctx.restore(); }
+  if (meta.bust && !opts.flat) { ctx.save(); ctx.globalAlpha *= meta.hover ? .55 : .35; ctx.fillStyle = meta.hover ? d.color : '#9aa0b8'; ctx.filter = 'blur(10px)'; ctx.beginPath(); ctx.ellipse(0, meta.hover ? -14 : -8, wdt * .34, meta.hover ? 14 : 10, 0, 0, TAU); ctx.fill(); ctx.restore(); }
   ctx.translate(0, A.dy); ctx.scale(f.facing, 1); ctx.rotate(A.rot);
   if (A.glow > .02 && !opts.flat) { ctx.save(); ctx.globalAlpha *= A.glow * .5; ctx.fillStyle = s === 'super' ? '#ffd166' : d.color; ctx.filter = 'blur(18px)'; ctx.beginPath(); ctx.ellipse(0, -full / 2, wdt * .5, full * .52, 0, 0, TAU); ctx.fill(); ctx.restore(); }
   if (f.flashHit > 0 && !opts.flat) ctx.filter = 'brightness(1.9) saturate(.2)'; if (opts.tint) ctx.filter = opts.tint;

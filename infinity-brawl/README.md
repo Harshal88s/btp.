@@ -53,7 +53,7 @@ Turn the phone sideways and tap **Fullscreen**. The arena fills the screen and t
 
 ## HD assets
 
-Five characters ship with HD cut-out sprites in `assets/sprites/` (Loki, Doctor Strange, Black Panther, Thor, Spider-Man). Add the other five as transparent PNGs named by id. Stage photos go in `assets/stages/<id>.jpg`. Sound clips go in `assets/sounds/<id>/`. See `assets/README.md`.
+Nine characters ship with HD cut-out sprites in `assets/sprites/`; only Iron Man still uses the drawn version. Add `ironman.png` (transparent, full body) to complete the set. Stage photos go in `assets/stages/<id>.jpg`. Sound clips go in `assets/sounds/<id>/`. See `assets/README.md`.
 
 ## Host it for free
 
