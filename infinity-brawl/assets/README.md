@@ -21,6 +21,10 @@ One PNG per fighter, **transparent background, full body, facing right**. Portra
 
 The image is used as the in-fight sprite (animated with lunges, tilts, flashes and glows), the select-screen portrait, and the roster card. The top square of the image is used for portraits, so keep the head in the upper part.
 
+## Stage photos → `assets/stages/`
+
+Optional wide images (`newyork.jpg`, `wakanda.jpg`, `titan.jpg`, `arena.jpg`, PNG also works). The photo replaces the drawn background; the floor, reflections, camera and colour grade stay. Use something at least 1600 px wide with the horizon near the bottom third.
+
 ## Sounds → `assets/sounds/<id>/`
 
 Per character, in a folder named by the id above (for example `assets/sounds/venom/`):

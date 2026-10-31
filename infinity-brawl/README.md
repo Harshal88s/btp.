@@ -25,7 +25,8 @@ Each fighter opens the round with their signature line in a speech bubble. Flyer
 
 - 1P vs CPU (Rookie / Avenger / Titan)
 - 2P on one keyboard
-- Stages: New York Street, Wakanda, Titan
+- Stages: New York Street (rain, neon), Wakanda (dusk, fireflies), Titan (dust storm, embers), Grandmaster's Arena (crowd, spotlights). Dynamic camera, floor reflections, vignette.
+- Double-tap left/right to dash
 - Best of three rounds, 60 seconds each; combos, blocking, meter, specials, unblockable supers
 - Touch pad for phones and tablets
 
@@ -41,6 +42,10 @@ Each fighter opens the round with their signature line in a speech bubble. Flyer
 | Special | L | / or Num 3 |
 | Super | I | ' or Num 0 |
 | Pause | Esc or P | |
+
+## HD assets
+
+Five characters ship with HD cut-out sprites in `assets/sprites/` (Loki, Doctor Strange, Black Panther, Thor, Spider-Man). Add the other five as transparent PNGs named by id. Stage photos go in `assets/stages/<id>.jpg`. Sound clips go in `assets/sounds/<id>/`. See `assets/README.md`.
 
 ## Host it for free
 

@@ -53,6 +53,7 @@
               <option value="0">Rookie</option>
               <option value="1" selected>Avenger</option>
               <option value="2">Titan</option>
+              <option value="3">Grandmaster's Arena</option>
             </select>
           </label>
           <label>Stage
@@ -61,6 +62,7 @@
               <option value="0">New York Street</option>
               <option value="1">Wakanda</option>
               <option value="2">Titan</option>
+              <option value="3">Grandmaster's Arena</option>
             </select>
           </label>
           <button class="btn btn-ghost btn-sm" id="btn-back-title" type="button">Back</button>
@@ -118,7 +120,7 @@
     <div class="section-head">
       <p class="eyebrow">How to fight</p>
       <h2>Controls</h2>
-      <p>In 1P vs CPU, both key sets control you, so arrows or WASD both work. In 2P mode, Player 1 takes the arrows and Z X C V, Player 2 takes WASD and J K L I. Click the arena once if keys seem ignored.</p>
+      <p>In 1P vs CPU, both key sets control you, so arrows or WASD both work. In 2P mode, Player 1 takes the arrows and Z X C V, Player 2 takes WASD and J K L I. Click the arena once if keys seem ignored. Double-tap left or right to dash.</p>
     </div>
     <div class="controls">
       <div class="table-wrap">
@@ -157,7 +159,8 @@
         <ol>
           <li>Save one PNG per fighter with a <b>transparent background</b>, full body, facing right.</li>
           <li>Name them <code>assets/sprites/ironman.png</code>, <code>cap.png</code>, <code>thor.png</code>, <code>hulk.png</code>, <code>spiderman.png</code>, <code>panther.png</code>, <code>strange.png</code>, <code>thanos.png</code>, <code>loki.png</code>, <code>venom.png</code>.</li>
-          <li>Reload. The image becomes the in-fight sprite, the select portrait and the roster card. Missing files fall back to the drawn version.</li>
+          <li>Reload. The image becomes the in-fight sprite, the select portrait and the roster card. Missing files fall back to the drawn version. Loki, Doctor Strange, Black Panther, Thor and Spider-Man already ship with HD cut-outs.</li>
+          <li>Stage photos: drop <code>assets/stages/newyork.jpg</code>, <code>wakanda.jpg</code>, <code>titan.jpg</code> or <code>arena.jpg</code> (wide, 1920×800 or similar) and that stage uses your photo with the live floor, reflections and camera on top.</li>
         </ol>
       </div>
       <div class="step">
