@@ -53,7 +53,7 @@ Turn the phone sideways and tap **Fullscreen**. The arena fills the screen and t
 
 ## HD assets
 
-Nine characters ship with HD cut-out sprites in `assets/sprites/`; only Iron Man still uses the drawn version. Add `ironman.png` (transparent, full body) to complete the set. Stage photos go in `assets/stages/<id>.jpg`. Sound clips go in `assets/sounds/<id>/`. See `assets/README.md`.
+All ten characters ship with HD cut-out sprites in `assets/sprites/`. Replace any file of the same name with your own transparent PNG. Stage photos go in `assets/stages/<id>.jpg`. Sound clips go in `assets/sounds/<id>/`. See `assets/README.md`.
 
 ## Host it for free
 

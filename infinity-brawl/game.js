@@ -46,7 +46,7 @@ const HEROES = [
 const ASSET_BASE = (document.currentScript && document.currentScript.src ? document.currentScript.src.replace(/[^/]*$/, '') : '') + 'assets/';
 const assets = { sprites: {}, clips: {}, manifest: null, portraitCanvases: [], faded: {}, stages: {} };
 /* bust: image stops above the feet, so the fighter levitates and the hem fades out. cut = fraction of full body height the image covers. */
-const SPRITE_META = { strange: { bust: true, cut: .8, hover: true }, thor: { bust: true, cut: .84, hover: true }, cap: { bust: true, cut: .9 } };
+const SPRITE_META = { strange: { bust: true, cut: .8, hover: true }, thor: { bust: true, cut: .84, hover: true }, cap: { bust: true, cut: .9 }, ironman: { hover: true, cut: .96 } };
 function fadedSprite(id, img) {
   if (assets.faded[id]) return assets.faded[id]; const c = document.createElement('canvas'); c.width = img.width; c.height = img.height; const x = c.getContext('2d'); x.drawImage(img, 0, 0);
   x.globalCompositeOperation = 'destination-out'; const g = x.createLinearGradient(0, img.height * .78, 0, img.height); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,1)'); x.fillStyle = g; x.fillRect(0, img.height * .78, img.width, img.height * .22);
