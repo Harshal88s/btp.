@@ -121,7 +121,7 @@ namespace Shehar.UI
             foreach (var l in idx.landmarks)
             {
                 Vector2 s = W2S(l.x, l.z);
-                bool hover = (UIKit.Mouse - new Vector2(r.x, r.y) - s).magnitude < 10f;
+                bool hover = (UIKit.Mouse - s).magnitude < 10f;
                 if (hover) hoverLm = l;
                 UIKit.Icon(UIKit.Circle, s, hover ? 16 : 11, 0, Blip("landmark"));
                 UIKit.Label(new Rect(s.x + 8, s.y - 10, 260, 22), l.name, labelStyleSize, new Color(0.1f, 0.15f, 0.4f), TextAnchor.UpperLeft, true, false);
@@ -139,7 +139,7 @@ namespace Shehar.UI
             if (pc != null) UIKit.Icon(UIKit.Arrow, W2S(pc.Position.x, pc.Position.z), 24, pc.Focus.eulerAngles.y, new Color(0.1f, 0.4f, 1f));
 
             // interaction
-            Vector2 mouse = UIKit.Mouse - new Vector2(r.x, r.y);
+            Vector2 mouse = UIKit.Mouse; // already relative to the BeginGroup
             bool inside = mouse.x >= 0 && mouse.y >= 0 && mouse.x <= r.width && mouse.y <= r.height;
             if (inside)
             {

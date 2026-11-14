@@ -212,6 +212,7 @@ namespace Shehar.AI
         {
             Active = false; Knocked = false;
             if (Manager != null) Manager.Release(this);
+            if (Vc.Rig.Rider != null) Vc.Rig.Rider.gameObject.SetActive(false); // the rider gets off the bike
             Vc.IsKinematic = false;
             Vc.Body.velocity = transform.forward * speed;
             Vector3 exit = Vc.transform.TransformPoint(Vc.Rig.ExitLocal + new Vector3(0.6f, 0, 0));

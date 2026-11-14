@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Shehar.City;
 using Shehar.Core;
 using Shehar.Player;
+using Shehar.Vehicles;
 using UnityEngine;
 
 namespace Shehar.Navigation
@@ -46,6 +47,7 @@ namespace Shehar.Navigation
             g.line.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
             g.line.positionCount = 0;
             g.beacon = MarkerFactory.Beacon(go.transform, new Color(0.62f, 0.25f, 0.95f, 0.5f), 3f, 60f);
+            g.beacon.transform.rotation = Quaternion.identity; // parent is rotated to lay the line flat
             g.beacon.SetActive(false);
             return g;
         }
@@ -211,6 +213,7 @@ namespace Shehar.Navigation
             var rr = ring.AddComponent<MeshRenderer>();
             rr.sharedMaterial = new Material(Materials.Unlit) { color = new Color(c.r, c.g, c.b, 0.85f) };
             rr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            go.AddComponent<OwnedAssets>().Materials.AddRange(new[] { m, rr.sharedMaterial });
             return go;
         }
 

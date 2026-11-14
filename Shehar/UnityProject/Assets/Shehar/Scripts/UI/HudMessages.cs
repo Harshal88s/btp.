@@ -55,6 +55,7 @@ namespace Shehar.UI
                 Object.DontDestroyOnLoad(go);
                 src = go.AddComponent<AudioSource>();
                 src.spatialBlend = 0;
+                src.ignoreListenerPause = true; // menu clicks must play while the game is paused
             }
             src.PlayOneShot(c, vol * VehicleAudio.MasterVolume);
         }

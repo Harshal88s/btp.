@@ -38,6 +38,13 @@ namespace Shehar.Audio
             SetPlayer(isPlayer);
         }
 
+        void OnEnable()
+        {
+            // pooled / re-activated vehicles: looping sources stop when the GameObject is deactivated
+            if (engine != null && !engine.isPlaying) engine.Play();
+            if (skid != null && !skid.isPlaying) skid.Play();
+        }
+
         public void SetPlayer(bool isPlayer)
         {
             player = isPlayer;

@@ -137,8 +137,14 @@ namespace Shehar.City
             else Debug.LogException(tMap.Exception);
 
             // pre-load the chunks around the spawn point so the player starts in a complete street
-            if (Focus == null) Focus = transform;
             Vector3 spawn = new Vector3(Index.spawnX, 0, Index.spawnZ);
+            if (Focus == null)
+            {
+                var lf = new GameObject("LoadFocus").transform; // streaming centre until the player exists
+                lf.SetParent(transform, false);
+                lf.position = spawn;
+                Focus = lf;
+            }
             Scan(spawn);
             int total = Mathf.Max(1, pending.Count);
             while (pending.Count > 0)

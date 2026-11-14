@@ -26,6 +26,7 @@ namespace Shehar.Player
             var root = new GameObject("Humanoid");
             root.transform.SetParent(parent, false);
             var h = root.AddComponent<Humanoid>();
+            root.AddComponent<Vehicles.OwnedAssets>();
             h.Root = root.transform;
             Outfit outfit = forced ?? (Outfit)rng.Next(0, 3);
             Color32 skin = Skins[rng.Next(Skins.Length)];

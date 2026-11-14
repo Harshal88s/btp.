@@ -72,7 +72,7 @@ namespace Shehar.Missions
                     Body = run => Fares(run, 3)
                 });
 
-            var vaishali = w.Index.pois.FirstOrDefault(p => p.kind == "food" && p.name == "Vaishali") ?? w.NearestPoi(V(fergusson ?? station), "food", 3000f, true);
+            var vaishali = w.Index.pois.FirstOrDefault(p => p.kind == "food" && p.name == "Vaishali") ?? ((fergusson ?? station) != null ? w.NearestPoi(V(fergusson ?? station), "food", 3000f, true) : null);
             if (vaishali != null)
                 r.All.Add(new Mission
                 {
@@ -242,11 +242,11 @@ namespace Shehar.Missions
             {
                 var w = r.World;
                 var pick = RandomPoi(w, r.Player.Position, 250f, 900f) ?? RandomPoi(w, r.Player.Position, 100f, 2000f);
-                if (pick == null) yield break;
+                if (pick == null) { r.Fail("No passengers around here - try closer to the city centre"); yield break; }
                 Vector3 pp = r.Kerb(V(pick));
                 yield return r.GoTo(pp, "Fare " + (i + 1) + "/" + count + ": pick up the passenger at " + pick.name, pick.name, 16f, true, true, -1f, IsCommercial, "Get back in your auto / taxi");
                 var drop = RandomPoi(w, pp, 900f, 2600f) ?? RandomPoi(w, pp, 400f, 4000f);
-                if (drop == null) yield break;
+                if (drop == null) { r.Fail("The passenger changed their mind"); yield break; }
                 string[] lines = { "Bhau, " + drop.name + " - and take the shortcut!", "To " + drop.name + " please. Meter chalu karo.", drop.name + " jaana hai. I'm late!", "Can you drop me at " + drop.name + "?" };
                 yield return r.Say("Passenger", lines[Random.Range(0, lines.Length)], 3f);
                 Vector3 dp = r.Kerb(V(drop));
@@ -312,6 +312,7 @@ namespace Shehar.Missions
                 yield return r.Say("Control room", "Emergency call! Your ambulance is parked right next to you - get in and switch the siren on.", 4f);
                 while (!pc.InVehicle || pc.Vehicle.Spec.Class != VehicleClass.Ambulance)
                 {
+                    if (amb == null) { r.Fail("You left the ambulance behind"); yield break; }
                     r.Objective = "Get in the ambulance (" + GameInput.KeyName(GameInput.Get(GameAction.EnterExit)) + ")";
                     yield return null;
                 }

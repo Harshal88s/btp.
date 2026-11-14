@@ -44,7 +44,11 @@ namespace Shehar.Missions
         Coroutine running;
 
         void Awake() { Instance = this; }
-        void OnDestroy() { if (Instance == this) Instance = null; }
+        void OnDestroy()
+        {
+            foreach (var g in spawned) if (g != null) Destroy(g); // quitting mid-mission must not leave NPCs behind
+            if (Instance == this) Instance = null;
+        }
 
         public CityWorld World { get { return CityWorld.Instance; } }
         public PlayerController Player { get { return PlayerController.Instance; } }
@@ -145,7 +149,7 @@ namespace Shehar.Missions
         {
             Prompt = null; NearbyStart = null;
             var pc = Player;
-            if (pc == null) return;
+            if (pc == null || GameState.Paused) return;
             if (Active == null)
             {
                 foreach (var m in All)
@@ -243,6 +247,7 @@ namespace Shehar.Missions
         public GameObject SpawnPerson(Vector3 pos, Outfit? outfit = null)
         {
             var go = new GameObject("MissionNPC");
+            go.transform.SetParent(transform, true);
             go.transform.position = new Vector3(pos.x, Ground.ColliderTop, pos.z);
             var h = Humanoid.Build(go.transform, new System.Random(Environment.TickCount), outfit);
             h.Speed = 0;

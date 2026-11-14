@@ -30,6 +30,24 @@ namespace Shehar.Vehicles
         public string Plate;
         public Color Paint;
         public Transform Rider;
+
+        void OnDestroy()
+        {
+            // procedural meshes and the per-vehicle physic material are not freed with the GameObject
+            foreach (var mf in GetComponentsInChildren<MeshFilter>(true)) if (mf.sharedMesh != null) Destroy(mf.sharedMesh);
+            foreach (var c in GetComponentsInChildren<Collider>(true)) if (c.sharedMaterial != null) Destroy(c.sharedMaterial);
+        }
+    }
+
+    /// <summary>Frees procedural meshes (and listed per-instance materials) when the owning GameObject is destroyed.</summary>
+    public sealed class OwnedAssets : MonoBehaviour
+    {
+        public readonly List<Material> Materials = new List<Material>();
+        void OnDestroy()
+        {
+            foreach (var mf in GetComponentsInChildren<MeshFilter>(true)) if (mf.sharedMesh != null) Destroy(mf.sharedMesh);
+            foreach (var m in Materials) if (m != null) Destroy(m);
+        }
     }
 
     public static class VehicleFactory
@@ -251,6 +269,8 @@ namespace Shehar.Vehicles
             rig.ExitLocal = new Vector3(0.9f, 0, 0);
             if (withRider)
             {
+                var riderMb = new MeshBuilder();
+                dark = riderMb; // rider is its own part so it can be removed when the bike is taken
                 var shirt = new Color32((byte)Random.Range(40, 230), (byte)Random.Range(40, 230), (byte)Random.Range(40, 230), 255);
                 dark.Box(new Vector3(0, 1.2f, -0.18f), new Vector3(0.42f, 0.6f, 0.25f), shirt);
                 dark.Blob(new Vector3(0, 1.62f, -0.12f), new Vector3(0.15f, 0.16f, 0.17f), 8, 5, new Color32(30, 30, 30, 255)); // helmet
@@ -259,6 +279,8 @@ namespace Shehar.Vehicles
                     dark.Box(new Vector3(sx * 0.13f, 0.78f, 0.02f), new Vector3(0.13f, 0.14f, 0.5f), new Color32(40, 40, 60, 255));
                     dark.Box(new Vector3(sx * 0.25f, 1.25f, 0.22f), new Vector3(0.09f, 0.09f, 0.5f), shirt);
                 }
+                var riderPart = Part(rig.Body, "Rider", riderMb, Materials.Tyre);
+                if (riderPart != null) rig.Rider = riderPart.transform;
             }
         }
 

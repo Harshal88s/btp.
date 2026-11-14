@@ -116,7 +116,14 @@ namespace Shehar
             world.LoadRadius = GameSettings.Current.DrawDistance;
             world.NearRadius = Mathf.Min(400f, world.LoadRadius * 0.55f);
             yield return world.Load(selectedCity, (p, l) => { loadProgress = p; loadLabel = l; });
-            if (world.Ctx == null) { loadLabel = "Could not load " + selectedCity + ". See console."; yield break; }
+            if (world.Ctx == null)
+            {
+                HudMessages.Notify("Could not load " + selectedCity + ": " + loadLabel, UIKit.Bad, 12f);
+                Destroy(worldRoot);
+                menu = MenuScene.Create(cam);
+                screen = Screen.Main;
+                yield break;
+            }
 
             DayNightCycle.Create(worldRoot.transform).Hour = selectedMode == GameMode.Story ? 8.5f : 9.5f;
             WeatherSystem.Create(worldRoot.transform);
@@ -168,6 +175,7 @@ namespace Shehar
         {
             StopAllCoroutines();
             Time.timeScale = 1f;
+            AudioListener.pause = false;
             GameState.Playing = false; GameState.Paused = false;
             if (GameState.PersistentProgress) SaveData.Current.Save(); else SaveData.Reload();
             TrafficManager.Instance?.ClearAll();
