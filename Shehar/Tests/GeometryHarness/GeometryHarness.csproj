@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Runs the REAL city-generation code (ChunkBuilder, MeshBuilder, MapRaster, Core) outside Unity on every
+       chunk, using a tiny pure-C# stand-in for the UnityEngine maths types (UnityShim.cs). Exports meshes for the
+       browser preview (Tools/preview) and the map texture as an image. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <DefineConstants>$(DefineConstants);SHEHAR_HEADLESS</DefineConstants>
+    <NoWarn>CS0649;CS0414</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../UnityProject/Assets/Shehar/Scripts/Core/**/*.cs" />
+    <Compile Include="../../UnityProject/Assets/Shehar/Scripts/City/MeshBuilder.cs" />
+    <Compile Include="../../UnityProject/Assets/Shehar/Scripts/City/ChunkBuilder.cs" />
+    <Compile Include="../../UnityProject/Assets/Shehar/Scripts/City/MapRaster.cs" />
+    <Compile Include="UnityShim.cs" />
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+</Project>

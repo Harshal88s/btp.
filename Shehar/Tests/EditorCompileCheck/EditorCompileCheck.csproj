@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Compiles runtime + editor script + PlayMode test. UnityEditor.dll comes from the NuGet package Unity3D.SDK
+       (2021.1 reference assembly, see fetch step in Tests/README.md); the Unity Test Framework's [UnityTest]
+       attribute is stubbed in TestFrameworkStub.cs because that package is not distributed on NuGet. -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <NoWarn>CS0649;CS0414;CS1701;CS1702</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../UnityProject/Assets/Shehar/Scripts/**/*.cs" />
+    <Compile Include="../../UnityProject/Assets/Shehar/Editor/**/*.cs" />
+    <Compile Include="../../UnityProject/Assets/Shehar/Tests/**/*.cs" />
+    <Compile Include="TestFrameworkStub.cs" />
+    <PackageReference Include="UnityEngine.Modules" Version="2021.3.33" IncludeAssets="compile" PrivateAssets="all" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <Reference Include="UnityEditor"><HintPath>ref/UnityEditor.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+</Project>
