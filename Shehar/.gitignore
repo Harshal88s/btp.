@@ -1,0 +1,21 @@
+# Unity
+UnityProject/[Ll]ibrary/
+UnityProject/[Tt]emp/
+UnityProject/[Oo]bj/
+UnityProject/[Bb]uild/
+UnityProject/[Bb]uilds/
+UnityProject/[Ll]ogs/
+UnityProject/[Uu]ser[Ss]ettings/
+UnityProject/MemoryCaptures/
+UnityProject/*.csproj
+UnityProject/*.sln
+UnityProject/.vs/
+UnityProject/.vscode/
+# .NET check projects
+Tests/**/bin/
+Tests/**/obj/
+Tests/EditorCompileCheck/ref/
+# raw OSM downloads (re-fetch with Tools/osm_pipeline/fetch_osm.py)
+Tools/osm_pipeline/raw/
+Tools/**/__pycache__/
+Tools/preview/out/

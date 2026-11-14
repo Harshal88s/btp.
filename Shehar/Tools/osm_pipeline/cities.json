@@ -1,0 +1,11 @@
+{
+  "pune": {
+    "name": "Pune",
+    "state": "Maharashtra",
+    "comment": "Phase-1 playable area: central Pune - Shivajinagar, Deccan, FC Road, JM Road, University Circle, the Peths, Swargate, Pune Station, Bund Garden.",
+    "bbox": [18.497, 73.818, 18.557, 73.878],
+    "tile_step": 0.01,
+    "chunk_size": 250,
+    "default_spawn": "Deccan Gymkhana"
+  }
+}

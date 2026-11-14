@@ -32,3 +32,8 @@ $ python main.py
 2. Ankita Upadhyay
 3. Manav Arya
 4. Asjad Nirban   
+---
+
+## Shehar – Open-World India (game prototype)
+
+The [`Shehar/`](Shehar/) folder holds a separate project: an open-world driving and adventure game set in a geographically accurate **Pune**, built from OpenStreetMap data in **Unity**. Start with [`Shehar/README.md`](Shehar/README.md).
