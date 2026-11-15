@@ -16,13 +16,13 @@ export class GPS {
   private mesh: THREE.Mesh | null = null;
   private mat = new THREE.MeshBasicMaterial({ color: 0xa040f0, transparent: true, opacity: 0.65, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -3, polygonOffsetUnits: -6 });
   beacon: THREE.Mesh;
-  constructor(private g: RoadGraph, private scene: THREE.Object3D) {
+  constructor(private g: RoadGraph, private scene: THREE.Object3D, private ter: { h(x: number, z: number): number } = { h: () => 0 }) {
     const geo = new THREE.CylinderGeometry(3, 3, 60, 20, 1, true); geo.translate(0, 30, 0);
     this.beacon = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ color: 0xa040f0, transparent: true, opacity: 0.28, depthWrite: false, side: THREE.DoubleSide }));
     this.beacon.visible = false; scene.add(this.beacon);
   }
   set(x: number, z: number, label: string, px: number, pz: number, car: boolean) {
-    this.target = { x, z, label }; this.beacon.position.set(x, 0, -z); this.beacon.visible = true;
+    this.target = { x, z, label }; this.beacon.position.set(x, this.ter.h(x, z), -z); this.beacon.visible = true;
     this.recompute(px, pz, car);
   }
   clear() { this.target = null; this.route = []; this.nodes = []; this.instruction = ''; this.beacon.visible = false; if (this.mesh) { this.scene.remove(this.mesh); this.mesh.geometry.dispose(); this.mesh = null; } }
@@ -46,7 +46,7 @@ export class GPS {
       pts.push(v3(this.route[i][0], 0, this.route[i][1]));
     }
     if (pts.length < 2) return;
-    const mb = new MeshBuilder(); mb.ribbon(pts, 1.6, 0, 0.3, [255, 255, 255], 1e6);
+    const mb = new MeshBuilder(); mb.drape = this.ter; mb.ribbon(subdiv(pts, 5), 1.6, 0, 0.45, [255, 255, 255], 1e6);
     this.mesh = new THREE.Mesh(geoOf(mb), this.mat); this.mesh.renderOrder = 2;
     this.scene.add(this.mesh);
   }
@@ -91,6 +91,11 @@ export class GPS {
     }
     this.turn = 0; this.instruction = 'Continue - ' + fmtDist(this.remaining) + ' to ' + t.label;
   }
+}
+function subdiv(l: { x: number; y: number; z: number }[], m: number) {
+  const o = [l[0]];
+  for (let i = 1; i < l.length; i++) { const a = l[i - 1], b = l[i], n = Math.ceil(Math.hypot(b.x - a.x, b.z - a.z) / m); for (let k = 1; k <= n; k++) o.push(v3(a.x + (b.x - a.x) * k / n, 0, a.z + (b.z - a.z) * k / n)); }
+  return o;
 }
 function segDist(px: number, pz: number, a: [number, number], b: [number, number]) {
   const dx = b[0] - a[0], dz = b[1] - a[1], l2 = dx * dx + dz * dz;

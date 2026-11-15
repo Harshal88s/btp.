@@ -24,7 +24,7 @@
     <div id="prompt" class="hidden"></div>
     <div id="big" class="hidden"><div id="bigT"></div><div id="bigS"></div></div>
     <div id="dialog" class="hidden"><div id="dlgWho"></div><div id="dlgLine"></div></div>
-    <div id="attrib">&copy; OpenStreetMap contributors</div>
+    <div id="attrib">&copy; OpenStreetMap contributors &middot; terrain: SRTM / AWS Terrain Tiles</div>
     <div id="fps" class="hidden"></div>
   </div>
 
@@ -47,6 +47,46 @@
     </div>
   </div>
 
+  <!-- desktop + mobile utility bar -->
+  <div id="utilBar" class="hidden">
+    <button id="uHostel" class="ub" title="Navigate to Rathi Maheshwari Hostel">&#x1F3E0; Hostel</button>
+    <button id="uCheat" class="ub" title="Cheat codes (` or T)">&#x2328; Cheats</button>
+    <button id="uSettings" class="ub" title="Settings">&#x2699; Settings</button>
+    <button id="uHelp" class="ub" title="Tutorial">?</button>
+  </div>
+
+  <div id="cheat" class="overlay hidden">
+    <div class="panel">
+      <h2>Cheat code</h2>
+      <input id="cheatInput" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="type a code, e.g. HELIPUNE" />
+      <div class="row2"><button id="cheatGo" class="btn primary">Activate</button><button id="cheatClose" class="btn">Close</button></div>
+      <div id="cheatMsg" class="help"></div>
+      <div class="help">Known codes: <b>HELIPUNE</b> (car &rarr; helicopter) &middot; <b>CARMODE</b> (land, then helicopter &rarr; car) &middot; <b>MONSOON</b> (rain on/off) &middot; <b>NIGHTRIDER</b> (night) &middot; <b>SUNRISE</b> (morning) &middot; <b>FULLTANK</b> (repair + fuel) &middot; <b>RICKSHAW</b> (spawn an auto)</div>
+    </div>
+  </div>
+
+  <div id="settingsView" class="overlay hidden">
+    <div class="panel wide">
+      <h2>Settings</h2>
+      <div id="sliders"></div>
+      <div class="srow"><label>Gyroscope camera (phones)</label><button id="gyroBtn" class="btn small">Off</button></div>
+      <div class="srow"><label>Invert vertical look</label><button id="invBtn" class="btn small">Off</button></div>
+      <div class="srow"><label>Graphics quality</label><select id="qualitySet"><option value="auto">Auto</option><option value="low">Low (phones)</option><option value="high">High</option></select></div>
+      <div class="row2"><button id="setReset" class="btn">Reset to defaults</button><button id="setTut" class="btn">Replay tutorial</button><button id="setClose" class="btn primary">Done</button></div>
+    </div>
+  </div>
+
+  <div id="tutorial" class="hidden">
+    <div id="tutCard">
+      <div id="tutStep"></div>
+      <div id="tutTitle"></div>
+      <div id="tutText"></div>
+      <div id="tutKeys"></div>
+      <div id="tutCheck"></div>
+      <div class="tutBtns"><button id="tutSkip" class="btn small">Skip tutorial</button><button id="tutBack" class="btn small">Back</button><button id="tutNext" class="btn small primary">Next &rarr;</button></div>
+    </div>
+  </div>
+
   <div id="menu" class="overlay">
     <div class="panel menuPanel">
       <h1>SHEHAR</h1>
@@ -54,10 +94,12 @@
       <div class="tricolor"><i></i><i></i><i></i></div>
       <div class="city">
         <div class="cityName">Pune <span>Maharashtra</span></div>
-        <div class="cityInfo">Shivajinagar &middot; Deccan &middot; FC Road &middot; JM Road &middot; the Peths &middot; Swargate &middot; Pune Station &mdash; every road from OpenStreetMap.</div>
+        <div class="cityInfo">Shivajinagar &middot; Deccan &middot; FC &amp; JM Road &middot; the Peths &middot; Swargate &middot; Pune Station &middot; Parvati &middot; Bibwewadi &middot; Taljai hills &mdash; real roads (OpenStreetMap) on real terrain (SRTM).</div>
       </div>
-      <button id="playFree" class="btn primary">Free Roam</button>
+      <button id="playFree" class="btn primary">Free Roam &ndash; Deccan Gymkhana</button>
+      <button id="playHostel" class="btn">Free Roam &ndash; Rathi Maheshwari Hostel, Bibwewadi</button>
       <button id="playMissions" class="btn">Missions</button>
+      <div class="row2"><button id="menuSettings" class="btn">&#x2699; Settings</button><button id="menuTutorial" class="btn">? Tutorial</button></div>
       <div class="row"><label>Graphics</label>
         <select id="quality"><option value="auto">Auto</option><option value="low">Low (phones)</option><option value="high">High</option></select>
       </div>
@@ -82,7 +124,12 @@
       <button class="btn primary" data-a="resume">Resume</button>
       <button class="btn" data-a="missions">Missions</button>
       <button class="btn" data-a="map">City map</button>
+      <button class="btn" data-a="hostel">Navigate to Rathi Maheshwari Hostel</button>
+      <button class="btn" data-a="travel">Fast travel to the hostel</button>
+      <button class="btn" data-a="settings">Settings</button>
+      <button class="btn" data-a="cheat">Cheat codes</button>
       <button class="btn" data-a="time">Time +3 h</button>
+      <button class="btn" data-a="rain">Rain on / off</button>
       <button class="btn" data-a="quality">Graphics: <span id="qLabel"></span></button>
       <button class="btn" data-a="abort" id="abortBtn">Abandon mission</button>
       <button class="btn danger" data-a="quit">Main menu</button>
@@ -97,6 +144,7 @@
     <canvas id="mapCanvas"></canvas>
     <div id="mapHint">Drag to pan &middot; scroll / pinch to zoom &middot; tap a street or landmark to set GPS</div>
     <button id="mapClose" class="btn small">Close</button>
+    <div id="mapBtns"><button id="mapHostel" class="btn small primary">&#x1F3E0; Navigate to Rathi Maheshwari Hostel</button><button id="mapTravel" class="btn small">Fast travel there</button><button id="mapMe" class="btn small">Centre on me</button></div>
     <div id="mapInfo"></div>
   </div>
 

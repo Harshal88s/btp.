@@ -7,6 +7,7 @@ import { NodeFlags } from './types';
 import { MeshBuilder, RGB, v3 } from './mesh';
 import { SPECS, Spec, VClass, Vehicle } from './vehicles';
 import { World } from './world';
+import { Character } from './character';
 
 // ---------------------------------------------------------------- signals
 export type Light = 'green' | 'amber' | 'red' | 'none';
@@ -18,6 +19,7 @@ export class Signals {
   private offset: number[] = [];
   private poles: { cluster: number; major: THREE.MeshBasicMaterial[]; minor: THREE.MeshBasicMaterial[]; obj: THREE.Object3D; chunk: number }[] = [];
   time = 0;
+  h: ((x: number, z: number) => number) | null = null;
   constructor(private g: RoadGraph) {
     const sig: number[] = [];
     for (let n = 0; n < g.n; n++) if ((g.flags[n] & NodeFlags.TrafficSignal) && g.degree(n) > 0) sig.push(n);
@@ -55,7 +57,7 @@ export class Signals {
     const r = s.yaw * Math.PI / 180, rx = Math.cos(r), rz = -Math.sin(r); // road's right vector (data space)
     const px = s.x - rx * (s.width / 2 + 1.2), pz = s.z - rz * (s.width / 2 + 1.2); // left kerb
     const obj = new THREE.Group();
-    obj.position.set(px, 0, -pz);
+    obj.position.set(px, this.h ? this.h(px, pz) : 0, -pz);
     obj.rotation.y = -Math.atan2(a[0], a[1]);
     const pole = new THREE.Mesh(POLE_GEO, POLE_MAT); obj.add(pole);
     const major: THREE.MeshBasicMaterial[] = [], minor: THREE.MeshBasicMaterial[] = [];
@@ -96,7 +98,7 @@ export function geoOf(mb: MeshBuilder) {
 }
 
 // ---------------------------------------------------------------- traffic
-const MIX: [VClass, number][] = [['hatch', 22], ['sedan', 9], ['suv', 9], ['auto', 18], ['scooter', 16], ['bike', 13], ['taxi', 3], ['bus', 4], ['truck', 3], ['police', 1]];
+const MIX: [VClass, number][] = [['hatch', 22], ['sedan', 9], ['suv', 9], ['auto', 18], ['scooter', 16], ['bike', 13], ['taxi', 3], ['bus', 4], ['truck', 3]]; // no police - relaxed free roam
 
 export interface Obstacle { x: number; z: number; r: number }
 
@@ -208,7 +210,7 @@ export class Traffic {
     const all = obstacles.concat(this.agents.map(a => ({ x: a.veh.x, z: a.veh.z, r: a.veh.radius })));
     for (const a of this.agents) {
       if (a.update(dt, this.signals, all, sirenNear)) onHonk(a.veh);
-      a.veh.sync(dt);
+      a.veh.sync(dt, this.world.terrain);
     }
     this.tick -= dt;
     if (this.tick > 0) return;
@@ -244,7 +246,7 @@ export class Traffic {
     veh.ai = true;
     const a = new TrafficAgent(veh, g); a.init(n, next);
     this.scene.add(veh.model.group);
-    veh.sync(0);
+    veh.sync(0, this.world.terrain);
     this.agents.push(a);
   }
 
@@ -266,41 +268,8 @@ export function disposeModel(v: Vehicle) {
 }
 
 // ---------------------------------------------------------------- pedestrians
-const SKIN: RGB[] = [[198, 140, 100], [170, 115, 80], [140, 95, 65], [214, 165, 125]];
-const CLOTH: RGB[] = [[220, 40, 60], [240, 150, 30], [30, 120, 200], [40, 150, 90], [150, 50, 160], [245, 210, 60], [240, 240, 235], [180, 30, 100]];
-const HUMAN_MAT = new THREE.MeshLambertMaterial({ vertexColors: true });
-
-export class Humanoid {
-  root = new THREE.Group(); legL: THREE.Object3D; legR: THREE.Object3D; armL: THREE.Object3D; armR: THREE.Object3D; phase = Math.random() * 6;
-  constructor(shirt?: RGB, saree = Math.random() < 0.35) {
-    const skin = SKIN[Math.floor(Math.random() * SKIN.length)], cloth = shirt || CLOTH[Math.floor(Math.random() * CLOTH.length)];
-    const pants: RGB = Math.random() < 0.6 ? [40, 45, 70] : [90, 80, 70];
-    const t = new MeshBuilder();
-    t.frustum(v3(0, 0.9, 0), 0.34, 0.2, 0.42, 0.23, 0.58, 0, cloth);
-    if (saree) t.frustum(v3(0, 0.04, 0), 0.5, 0.38, 0.34, 0.24, 0.88, 0, cloth);
-    t.blob(v3(0, 1.67, 0), 0.105, 0.125, 0.115, 7, 5, skin);
-    t.blob(v3(0, 1.72, -0.015), 0.11, 0.09, 0.115, 7, 3, [20, 18, 16]);
-    this.root.add(new THREE.Mesh(geoOf(t), HUMAN_MAT));
-    const limb = (x: number, y: number, len: number, w: number, col: RGB) => {
-      const p = new THREE.Object3D(); p.position.set(x, y, 0);
-      const mb = new MeshBuilder(); mb.box(v3(0, -len / 2, 0), w, len, w, col);
-      p.add(new THREE.Mesh(geoOf(mb), HUMAN_MAT)); this.root.add(p); return p;
-    };
-    this.legL = limb(-0.1, 0.9, 0.86, 0.14, saree ? skin : pants); this.legR = limb(0.1, 0.9, 0.86, 0.14, saree ? skin : pants);
-    this.armL = limb(-0.25, 1.45, 0.62, 0.1, saree ? skin : cloth); this.armR = limb(0.25, 1.45, 0.62, 0.1, saree ? skin : cloth);
-    this.root.traverse(o => { o.castShadow = true; });
-  }
-  animate(speed: number, dt: number, seated = false) {
-    if (seated) { for (const l of [this.legL, this.legR]) l.rotation.x = 1.4; for (const a of [this.armL, this.armR]) a.rotation.x = 1.0; return; }
-    this.phase += dt * (2.2 + speed * 1.6);
-    const amp = Math.min(1, speed / 1.4) * (speed > 3.5 ? 0.85 : 0.55), s = Math.sin(this.phase) * amp;
-    this.legL.rotation.x = s; this.legR.rotation.x = -s; this.armL.rotation.x = -s * 0.8; this.armR.rotation.x = s * 0.8;
-  }
-  dispose() { this.root.traverse(o => { const m = o as THREE.Mesh; if (m.geometry) m.geometry.dispose(); }); }
-}
-
 export class Pedestrians {
-  peds: { h: Humanoid; x: number; z: number; tx: number; tz: number; speed: number; down: number; yaw: number }[] = [];
+  peds: { h: Character; x: number; z: number; tx: number; tz: number; speed: number; down: number; yaw: number }[] = [];
   max = 18;
   private tick = 0;
   constructor(private world: World, private scene: THREE.Object3D) {}
@@ -314,25 +283,31 @@ export class Pedestrians {
 
   update(dt: number, px: number, pz: number, vehicles: Vehicle[], onPlayerHit: () => void, playerVeh: Vehicle | null) {
     for (const p of this.peds) {
-      if (p.down > 0) { p.down -= dt; if (p.down <= 0) p.h.root.rotation.x = 0; continue; }
+      if (p.down > 0) { p.down -= dt; if (p.down <= 0) p.h.down = false; p.h.animate(dt, 0); continue; }
       const dx = p.tx - p.x, dz = p.tz - p.z, d = Math.hypot(dx, dz);
+      let sp = p.speed;
       if (d < 1.2) {
         const s = this.spots(p.x, p.z, 8, 45);
         if (s.length) { const t = s[Math.floor(Math.random() * s.length)]; p.tx = t[0]; p.tz = t[1]; }
         else { p.tx = p.x + (Math.random() - 0.5) * 20; p.tz = p.z + (Math.random() - 0.5) * 20; }
-      } else { p.x += dx / d * p.speed * dt; p.z += dz / d * p.speed * dt; p.yaw = Math.atan2(dx, dz); }
+        sp = 0;
+      } else {
+        p.x += dx / d * p.speed * dt; p.z += dz / d * p.speed * dt;
+        const want = Math.atan2(dx, dz), dy = ((want - p.yaw + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
+        p.yaw += dy * Math.min(1, dt * 6);
+      }
       for (const v of vehicles) {
-        if (v.kmh < 7) continue;
+        if (v.kmh < 7 || v.heli) continue;
         if (Math.hypot(v.x - p.x, v.z - p.z) < v.radius + 0.4) {
-          p.down = 6; p.h.root.rotation.x = -1.45;
+          p.down = 6; p.h.down = true;
           const [fx, fz] = v.forward(); p.x += fx * 1.5; p.z += fz * 1.5;
           if (v === playerVeh) onPlayerHit();
           break;
         }
       }
-      p.h.root.position.set(p.x, 0.06, -p.z);
+      p.h.root.position.set(p.x, this.world.h(p.x, p.z), -p.z);
       p.h.root.rotation.y = -p.yaw;
-      p.h.animate(p.down > 0 ? 0 : p.speed, dt);
+      p.h.animate(dt, sp);
     }
     this.tick -= dt; if (this.tick > 0) return; this.tick = 0.5;
     this.peds = this.peds.filter(p => { if (Math.hypot(p.x - px, p.z - pz) > 140) { this.scene.remove(p.h.root); p.h.dispose(); return false; } return true; });
@@ -340,7 +315,7 @@ export class Pedestrians {
       const s = this.spots(px, pz, 25, 110);
       for (let i = 0; i < 3 && s.length && this.peds.length < this.max; i++) {
         const [x, z] = s[Math.floor(Math.random() * s.length)];
-        const h = new Humanoid(); this.scene.add(h.root);
+        const h = new Character({ saree: Math.random() < 0.3 }, false); this.scene.add(h.root);
         this.peds.push({ h, x, z, tx: x, tz: z, speed: 1 + Math.random() * 0.6, down: 0, yaw: 0 });
       }
     }

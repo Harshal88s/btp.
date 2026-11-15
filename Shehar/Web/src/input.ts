@@ -1,5 +1,5 @@
 // Unified input: keyboard (WASD etc.), gamepad, and on-screen touch controls (joystick + buttons) for mobile.
-export type Action = 'enter' | 'interact' | 'camera' | 'map' | 'missions' | 'pause' | 'reset' | 'horn' | 'lights';
+export type Action = 'enter' | 'interact' | 'camera' | 'map' | 'missions' | 'pause' | 'reset' | 'horn' | 'lights' | 'cheat' | 'jump';
 
 export class Input {
   throttle = 0; steer = 0; handbrake = false; boost = false; lookX = 0; lookY = 0;
@@ -9,11 +9,15 @@ export class Input {
   private touchBrake = false; private touchBoost = false; private touchHorn = false;
   private look = { id: -1, x: 0, y: 0 };
   touch = false;
-  bindings: Record<string, Action> = { KeyE: 'enter', KeyF: 'interact', KeyC: 'camera', KeyM: 'map', Tab: 'missions', Escape: 'pause', KeyR: 'reset', KeyL: 'lights' };
+  bindings: Record<string, Action> = { KeyE: 'enter', KeyF: 'interact', KeyC: 'camera', KeyM: 'map', Tab: 'missions', Escape: 'pause', KeyR: 'reset', KeyL: 'lights', Backquote: 'cheat', KeyT: 'cheat', Space: 'jump' };
+  /** true while a text box (cheat console) has focus: game keys are ignored */
+  typing = false;
+  down = false; // heli descend (Shift / DOWN button)
 
   constructor(private touchRoot: HTMLElement) {
     addEventListener('keydown', e => {
-      if (e.code === 'Tab') e.preventDefault();
+      if (this.typing || (e.target as HTMLElement)?.tagName === 'INPUT') return;
+      if (e.code === 'Tab' || e.code === 'Space') e.preventDefault();
       if (!e.repeat && this.bindings[e.code]) this.pressed.add(this.bindings[e.code]);
       this.keys.add(e.code);
     });
@@ -49,7 +53,7 @@ export class Input {
     lookZone.addEventListener('pointerdown', e => { this.look = { id: e.pointerId, x: e.clientX, y: e.clientY }; try { lookZone.setPointerCapture(e.pointerId); } catch { /* best-effort */ } });
     lookZone.addEventListener('pointermove', e => {
       if (e.pointerId !== this.look.id) return;
-      this.lookX += (e.clientX - this.look.x) * 0.25; this.lookY += (e.clientY - this.look.y) * 0.25;
+      this.lookX += (e.clientX - this.look.x) * 1.4; this.lookY += (e.clientY - this.look.y) * 1.4; // raw pixels, scaled by the camera
       this.look.x = e.clientX; this.look.y = e.clientY;
     });
     const lend = (e: PointerEvent) => { if (e.pointerId === this.look.id) this.look.id = -1; };
@@ -60,7 +64,7 @@ export class Input {
       const up = () => { set(false); b.classList.remove('on'); };
       b.addEventListener('pointerup', up); b.addEventListener('pointercancel', up);
     };
-    hold('#bBrake', v => (this.touchBrake = v)); hold('#bBoost', v => (this.touchBoost = v)); hold('#bHorn', v => (this.touchHorn = v));
+    hold('#bBrake', v => { this.touchBrake = v; if (v) this.pressed.add('jump'); }); hold('#bBoost', v => (this.touchBoost = v)); hold('#bHorn', v => (this.touchHorn = v));
     const tap = (id: string, a: Action) => (root.querySelector(id) as HTMLElement).addEventListener('pointerdown', e => { this.pressed.add(a); e.preventDefault(); });
     tap('#bEnter', 'enter'); tap('#bCam', 'camera'); tap('#bAct', 'interact'); tap('#bMap', 'map'); tap('#bMenu', 'pause'); tap('#bReset', 'reset');
   }
@@ -76,6 +80,7 @@ export class Input {
     let s = (k.has('KeyD') || k.has('ArrowRight') ? 1 : 0) - (k.has('KeyA') || k.has('ArrowLeft') ? 1 : 0);
     this.handbrake = k.has('Space') || this.touchBrake;
     this.boost = k.has('ShiftLeft') || k.has('ShiftRight') || this.touchBoost;
+    this.down = k.has('ShiftLeft') || k.has('ShiftRight') || k.has('ControlLeft') || this.touchBoost;
     if (this.joy.id >= 0) {
       const dx = (this.joy.x - this.joy.x0) / 55, dy = (this.joy.y - this.joy.y0) / 55;
       s = Math.max(-1, Math.min(1, dx)); t = Math.max(-1, Math.min(1, -dy));
@@ -88,8 +93,8 @@ export class Input {
       t = rt - lt || (Math.abs(pad.axes[1]) > 0.15 ? -pad.axes[1] : 0);
       if (pad.buttons[0]?.pressed) this.handbrake = true;
       if (pad.buttons[5]?.pressed) this.boost = true;
-      if (Math.abs(pad.axes[2]) > 0.15) this.lookX += pad.axes[2] * 4;
-      if (Math.abs(pad.axes[3]) > 0.15) this.lookY += pad.axes[3] * 4;
+      if (Math.abs(pad.axes[2]) > 0.15) this.lookX += pad.axes[2] * 18;
+      if (Math.abs(pad.axes[3]) > 0.15) this.lookY += pad.axes[3] * 18;
       const map: [number, Action][] = [[3, 'enter'], [2, 'interact'], [1, 'camera'], [8, 'map'], [9, 'pause']];
       for (const [b, a] of map) { const on = !!pad.buttons[b]?.pressed; if (on && !this.padPrev[b]) this.pressed.add(a); this.padPrev[b] = on; }
     }
@@ -98,5 +103,5 @@ export class Input {
   private padPrev: boolean[] = [];
 
   consumeLook(): [number, number] { const r: [number, number] = [this.lookX, this.lookY]; this.lookX = 0; this.lookY = 0; return r; }
-  mouseLook(dx: number, dy: number) { this.lookX += dx * 0.15; this.lookY += dy * 0.15; }
+  mouseLook(dx: number, dy: number) { this.lookX += dx; this.lookY += dy; }
 }

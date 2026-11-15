@@ -22,7 +22,7 @@ export class Audio {
 
   engine(on: boolean, rpm01: number, kind: string) {
     if (!this.ctx || !this.eng) return;
-    const t = this.ctx.currentTime, base = kind === 'auto' ? 24 : kind === 'two' ? 34 : kind === 'heavy' ? 28 : 45;
+    const t = this.ctx.currentTime, base = kind === 'heli' ? 11 : kind === 'auto' ? 24 : kind === 'two' ? 34 : kind === 'heavy' ? 28 : 45;
     const f = base * (1 + rpm01 * 2.4);
     this.eng.frequency.setTargetAtTime(f, t, 0.05); this.eng2!.frequency.setTargetAtTime(f / 2, t, 0.05);
     this.filt!.frequency.setTargetAtTime(300 + rpm01 * 1400, t, 0.05);

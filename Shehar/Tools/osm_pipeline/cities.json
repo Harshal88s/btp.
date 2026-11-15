@@ -2,10 +2,28 @@
   "pune": {
     "name": "Pune",
     "state": "Maharashtra",
-    "comment": "Phase-1 playable area: central Pune - Shivajinagar, Deccan, FC Road, JM Road, University Circle, the Peths, Swargate, Pune Station, Bund Garden.",
-    "bbox": [18.497, 73.818, 18.557, 73.878],
+    "comment": "Playable area: central Pune - Shivajinagar, Deccan, FC/JM Road, University Road, the Peths, Swargate, Pune Station, Parvati, Bibwewadi, Taljai hills and Kondhwa Budruk (Rathi Maheshwari Hostel).",
+    "bbox": [
+      18.445,
+      73.818,
+      18.557,
+      73.888
+    ],
     "tile_step": 0.01,
     "chunk_size": 250,
-    "default_spawn": "Deccan Gymkhana"
+    "default_spawn": "Deccan Gymkhana",
+    "special_buildings": [
+      {
+        "name": "RATHI MAHESHWARI HOSTEL",
+        "full_name": "Seth Shri Gangadhar Bansilal Rathi Maheshwari Hostel (ABMECT)",
+        "lat": 18.4545933,
+        "lon": 73.8759129,
+        "levels": 4,
+        "kind": "hostel",
+        "max_dist": 45,
+        "min_area": 300,
+        "source": "Coordinates: kondhwa.in business directory (latitude also on Justdial); address Sai Nagar / Shatrunjay Nagar, Kondhwa Budruk, Pune 411048 (ABMECT). 4 storeys per hostel description. Footprint = nearest large OSM building (OSM has no name for it)."
+      }
+    ]
   }
 }

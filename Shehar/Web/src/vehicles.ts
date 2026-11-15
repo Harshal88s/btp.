@@ -4,7 +4,7 @@
 import * as THREE from 'three';
 import { MeshBuilder, RGB, v3 } from './mesh';
 
-export type VClass = 'hatch' | 'sedan' | 'suv' | 'sports' | 'auto' | 'scooter' | 'bike' | 'taxi' | 'police' | 'bus' | 'truck';
+export type VClass = 'hatch' | 'sedan' | 'suv' | 'sports' | 'auto' | 'scooter' | 'bike' | 'taxi' | 'bus' | 'truck';
 export interface Spec {
   id: VClass; name: string; maxKmh: number; accel: number; brake: number; steer: number; grip: number;
   L: number; W: number; H: number; wb: number; track: number; R: number; two?: boolean; three?: boolean; commercial?: boolean;
@@ -19,7 +19,6 @@ export const SPECS: Record<VClass, Spec> = {
   scooter: { id: 'scooter', name: '110cc Scooter', maxKmh: 85, accel: 3.6, brake: 7, steer: 30, grip: 7.5, L: 1.8, W: 0.7, H: 1.15, wb: 1.26, track: 0.36, R: 0.25, two: true, colors: [[240, 240, 240], [26, 102, 190], [190, 26, 38], [52, 52, 52]], horn: 610 },
   bike: { id: 'bike', name: '150cc Motorcycle', maxKmh: 115, accel: 5.0, brake: 8, steer: 28, grip: 8.0, L: 2.0, W: 0.75, H: 1.1, wb: 1.33, track: 0.36, R: 0.31, two: true, colors: [[26, 26, 26], [190, 14, 14], [26, 52, 152]], horn: 640 },
   taxi: { id: 'taxi', name: 'City Taxi', maxKmh: 165, accel: 5.0, brake: 9, steer: 33, grip: 8.5, L: 4.25, W: 1.7, H: 1.5, wb: 2.6, track: 1.48, R: 0.3, commercial: true, colors: [[242, 242, 236]], horn: 420 },
-  police: { id: 'police', name: 'Police Interceptor', maxKmh: 180, accel: 6.0, brake: 9, steer: 32, grip: 8.6, L: 4.5, W: 1.84, H: 1.8, wb: 2.7, track: 1.58, R: 0.36, colors: [[245, 245, 245]], horn: 380 },
   bus: { id: 'bus', name: 'City Bus', maxKmh: 80, accel: 1.8, brake: 5, steer: 38, grip: 5.5, L: 11.5, W: 2.55, H: 3.2, wb: 6.1, track: 2.05, R: 0.5, commercial: true, colors: [[216, 90, 30], [38, 115, 64], [52, 90, 166]], horn: 240 },
   truck: { id: 'truck', name: 'Goods Truck', maxKmh: 80, accel: 1.9, brake: 5, steer: 36, grip: 5.5, L: 8.5, W: 2.5, H: 3.4, wb: 4.8, track: 2.0, R: 0.5, commercial: true, colors: [[242, 128, 12], [26, 90, 178], [204, 26, 26]], horn: 250 },
 };
@@ -54,7 +53,7 @@ const sharedMats = {
   tyre: new THREE.MeshLambertMaterial({ color: 0x1c1c1c }),
 };
 
-export interface VehicleModel { group: THREE.Group; body: THREE.Group; wheels: { obj: THREE.Object3D; front: boolean; r: number }[]; tail: THREE.Mesh; head: THREE.Mesh; seatY: number; headY: number; headX: number; headZ: number }
+export interface VehicleModel { group: THREE.Group; body: THREE.Group; wheels: { obj: THREE.Object3D; front: boolean; r: number }[]; tail: THREE.Mesh; head: THREE.Mesh; seatY: number; headY: number; headX: number; headZ: number; door: THREE.Object3D | null }
 
 /** builds a model in three space; local forward is -z, right-hand-drive seat at +x */
 export function buildModel(s: Spec, paint: RGB, plate: string, rider = false): VehicleModel {
@@ -62,6 +61,7 @@ export function buildModel(s: Spec, paint: RGB, plate: string, rider = false): V
   const { L, W, H, R } = s;
   const trim: RGB = [32, 32, 34], glass: RGB = [36, 48, 60];
   let headY = H * 0.85, headX = 0, headZ = 0, seatY = 0.5;
+  let doorDef: { mb: MeshBuilder; x: number; y: number; z: number } | null = null;
   if (s.id === 'auto') {
     const black: RGB = [22, 22, 22], yellow: RGB = [245, 196, 20];
     mb.box(v3(0, 0.36, -0.15), W, 0.12, L * 0.8, black);
@@ -120,7 +120,7 @@ export function buildModel(s: Spec, paint: RGB, plate: string, rider = false): V
     const clear = R * 0.55, belt = clear + (H - clear) * 0.48;
     let Lc = L * 0.5, zc = -L * 0.03, topK = 0.68;
     if (s.id === 'hatch') { Lc = L * 0.6; zc = -L * 0.1; topK = 0.78; }
-    if (s.id === 'suv' || s.id === 'police') { Lc = L * 0.7; zc = -L * 0.1; topK = 0.86; }
+    if (s.id === 'suv') { Lc = L * 0.7; zc = -L * 0.1; topK = 0.86; }
     if (s.id === 'sports') { Lc = L * 0.42; zc = -L * 0.08; topK = 0.55; }
     mb.frustum(v3(0, clear, 0), W, L, W * 0.97, L * 0.95, belt - clear, 0, paint);
     mb.frustum(v3(0, belt, zc), W * 0.92, Lc, W * 0.78, Lc * topK, H - belt - 0.06, -Lc * 0.04, glass);
@@ -136,11 +136,11 @@ export function buildModel(s: Spec, paint: RGB, plate: string, rider = false): V
     mb.box(v3(0, belt - 0.02, zc + Lc * 0.4), W * 0.86, 0.2, 0.3, [45, 42, 40]);          // dashboard
     mb.cylinder(v3(W * 0.22, belt + 0.1, zc + Lc * 0.3), v3(0, 0.45, -1), 0.17, 0.035, 10, trim); // RHD steering wheel
     if (s.id === 'taxi') mb.box(v3(0, H + 0.12, zc), 0.6, 0.2, 0.22, [250, 205, 20]);
-    if (s.id === 'police') {
-      mb.box(v3(0, belt - 0.05, 0), W * 0.985, 0.14, L * 0.9, [25, 60, 150]);
-      mb.box(v3(-W * 0.16, H + 0.12, zc), W * 0.26, 0.1, 0.22, [230, 20, 20]);
-      mb.box(v3(W * 0.16, H + 0.12, zc), W * 0.26, 0.1, 0.22, [20, 60, 230]);
-    }
+    // driver door (right side - Indian cars are right-hand drive): separate panel hinged at its front edge
+    const door = new MeshBuilder();
+    door.box(v3(0.03, (belt - clear) / 2 + 0.02, -0.5), 0.05, belt - clear - 0.06, 1.0, paint);
+    door.box(v3(0.08, belt - 0.12, -0.85), 0.05, 0.04, 0.16, [200, 200, 200]); // handle
+    doorDef = { mb: door, x: W / 2 + 0.005, y: clear, z: zc + Lc * 0.38 };
     headY = belt + 0.38; headX = W * 0.22; headZ = zc - Lc * 0.06; seatY = clear + 0.4;
   }
   const group = new THREE.Group(), body = new THREE.Group();
@@ -167,7 +167,12 @@ export function buildModel(s: Spec, paint: RGB, plate: string, rider = false): V
     const w = new THREE.Mesh(wgeo, sharedMats.tyre); pivot.add(w);
     group.add(pivot); wheels.push({ obj: pivot, front, r: R });
   }
-  return { group, body, wheels, tail: tailMesh, head: headMesh, seatY, headY, headX, headZ: -headZ };
+  let doorPivot: THREE.Object3D | null = null;
+  if (doorDef) {
+    doorPivot = new THREE.Object3D(); doorPivot.position.set(doorDef.x, doorDef.y, -doorDef.z);
+    const dm = new THREE.Mesh(toGeo(doorDef.mb), sharedMats.body); dm.castShadow = true; doorPivot.add(dm); body.add(doorPivot);
+  }
+  return { group, body, wheels, tail: tailMesh, head: headMesh, seatY, headY, headX, headZ: -headZ, door: doorPivot };
 }
 
 function toGeo(mb: MeshBuilder): THREE.BufferGeometry {
@@ -184,6 +189,7 @@ export interface Controls { throttle: number; steer: number; handbrake: boolean;
 export class Vehicle {
   x = 0; z = 0; yaw = 0; v = 0; steer = 0; health = 100; fuel = 1;
   drift = 0; yawRate = 0; braking = false; occupied = false; ai = false;
+  heli: import('./heli').Helicopter | null = null;
   model: VehicleModel; spin = 0; pitch = 0; roll = 0;
   readonly radius: number;
   constructor(public spec: Spec, paint?: RGB, public plate = randomPlate(), rider = false) {
@@ -194,10 +200,11 @@ export class Vehicle {
   get maxV() { return this.spec.maxKmh / 3.6; }
 
   /** arcade physics step (player-driven) */
-  drive(c: Controls, dt: number, grip = 1) {
+  /** slope = rise per metre along the heading (from the terrain); steerSens from settings */
+  drive(c: Controls, dt: number, grip = 1, slope = 0, steerSens = 1) {
     const s = this.spec, v = this.v, sp = Math.abs(v);
-    const steerMax = s.steer * (1 - 0.75 * Math.min(1, sp / 40));
-    this.steer += Math.sign(c.steer * steerMax - this.steer) * Math.min(Math.abs(c.steer * steerMax - this.steer), s.steer * 4 * dt);
+    const steerMax = s.steer * (1 - 0.75 * Math.min(1, sp / 40)) * Math.min(1.4, 0.6 + 0.4 * steerSens);
+    this.steer += Math.sign(c.steer * steerMax - this.steer) * Math.min(Math.abs(c.steer * steerMax - this.steer), s.steer * 4 * steerSens * dt);
     const dead = this.health <= 0 || this.fuel <= 0;
     let a = 0;
     this.braking = false;
@@ -210,7 +217,9 @@ export class Vehicle {
       else if (!dead) a = v > -6 ? s.accel * 0.6 * c.throttle : 0;
     } else a = -Math.sign(v) * Math.min(Math.abs(v) / dt, 1.2);
     if (c.handbrake) { a += -Math.sign(v) * Math.min(Math.abs(v) / dt, 5.5); this.braking = true; }
+    a -= 9.81 * Math.max(-0.35, Math.min(0.35, slope)) * 0.85; // gravity on Pune's slopes
     this.v = v + a * dt - v * Math.abs(v) * 0.0012 * dt;
+    if (Math.abs(this.v) < 0.05 && Math.abs(c.throttle) < 0.05) this.v = 0;
     // steering: bicycle model limited by tyre grip (lateral acceleration)
     let yawRate = this.v / s.wb * Math.tan(this.steer * Math.PI / 180);
     const gripA = s.grip * grip * (c.handbrake ? 0.55 : 1);
@@ -229,10 +238,24 @@ export class Vehicle {
   }
 
   /** writes x/z/yaw into the three.js object (three space: x, -z, rotation.y = -yaw) */
-  sync(dt: number) {
+  y = 0; tPitch = 0; tRoll = 0; doorOpen = 0;
+  sync(dt: number, ter?: { h(x: number, z: number): number }) {
     const m = this.model;
-    m.group.position.set(this.x, 0.06, -this.z);
-    m.group.rotation.y = -this.yaw * Math.PI / 180;
+    if (ter) {
+      // sit on the terrain: height at the centre, pitch / roll from the ground under the wheels
+      const r = this.yaw * Math.PI / 180, fx = Math.sin(r), fz = Math.cos(r), rx = Math.cos(r), rz = -Math.sin(r);
+      const hb = Math.max(1.6, this.spec.wb * 0.75), ht = Math.max(1.2, this.spec.track * 0.9); // wide baseline smooths SRTM noise
+      const hf = ter.h(this.x + fx * hb, this.z + fz * hb), hr = ter.h(this.x - fx * hb, this.z - fz * hb);
+      const hR = ter.h(this.x + rx * ht, this.z + rz * ht), hL = ter.h(this.x - rx * ht, this.z - rz * ht);
+      const k = Math.min(1, dt * 10);
+      this.y += ((hf + hr + hR + hL) / 4 - this.y) * (this.y === 0 ? 1 : k);
+      const pt = Math.max(-0.2, Math.min(0.2, Math.atan2(hf - hr, 2 * hb))), rl = this.spec.two ? 0 : Math.max(-0.1, Math.min(0.1, Math.atan2(hR - hL, 2 * ht)));
+      this.tPitch += (pt - this.tPitch) * k;
+      this.tRoll += (rl - this.tRoll) * k;
+    }
+    m.group.position.set(this.x, this.y + 0.06, -this.z);
+    m.group.rotation.set(this.tPitch, -this.yaw * Math.PI / 180, this.tRoll, 'YXZ');
+    if (m.door) m.door.rotation.y = this.doorOpen * 1.15;
     const two = this.spec.two;
     m.body.rotation.x = two ? 0 : this.pitch;
     m.body.rotation.z = two ? Math.max(-0.5, Math.min(0.5, -this.steer / this.spec.steer * Math.min(1, Math.abs(this.v) / 6) * 0.45)) : this.roll;

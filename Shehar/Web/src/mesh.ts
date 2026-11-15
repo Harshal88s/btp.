@@ -16,12 +16,19 @@ const rotY = (x: number, z: number, yawDeg: number): [number, number] => {
 };
 export const yawOf = (dx: number, dz: number) => Math.atan2(dx, dz) * 180 / Math.PI;
 
+export interface HeightFn { h(x: number, z: number): number }
+
 export class MeshBuilder {
   p: number[] = []; c: number[] = []; uv: number[] = []; t: number[] = [];
+  /** constant lift for rigid objects (e.g. a building seated on the terrain) */
+  baseY = 0;
+  /** when set, every vertex is lifted by the terrain height at its own x/z (roads, markings, rails) */
+  drape: HeightFn | null = null;
   get vertexCount() { return this.p.length / 3; }
   get empty() { return this.t.length === 0; }
 
   vert(x: number, y: number, z: number, col: RGB, u = 0, v = 0) {
+    y += this.baseY + (this.drape ? this.drape.h(x, z) : 0);
     this.p.push(x, y, z); this.c.push(col[0], col[1], col[2]); this.uv.push(u, v);
     return this.p.length / 3 - 1;
   }
