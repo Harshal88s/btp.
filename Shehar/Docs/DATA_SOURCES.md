@@ -39,3 +39,21 @@ Not used (no licensed source was available in this environment): satellite image
 - OSM has the metro stations "Savitribai Phule Pune University", "Deccan Gymkhana" and "Mahatma Phule Mandai" with the **same names** as the landmarks. The pipeline prefers the campus, park or market feature over the station. Railway-station landmarks prefer the station.
 - 17 buildings tagged `layer≥1` cover drivable roads (mostly elevated metro stations). They are raised to a 7 m clearance so roads stay passable. Their real clearance isn't tagged.
 - `Pune Railway Station` and a few campus buildings contain service-road nodes inside their footprints, which is an OSM mapping overlap. They are kept at ground level.
+
+## Terrain (browser build)
+
+| Source | Use | Licence |
+|---|---|---|
+| AWS Terrain Tiles (`elevation-tiles-prod.s3.amazonaws.com`, Terrarium PNG, zoom 14), mostly SRTM 30 m in India | Height map resampled to a 12.5 m grid with a light Gaussian blur, written to `terrain.bin` (Int16 decimetres above the base elevation) | SRTM is public domain; the tiles are from Mapzen/Tilezen. Attribution is shown in-game. |
+
+## Rathi Maheshwari Hostel (browser build)
+
+| Source | Claim supported |
+|---|---|
+| [kondhwa.in directory listing](https://www.kondhwa.in) | Coordinates 18.4545933, 73.8759129 and the Kondhwa Budruk address |
+| [Justdial listing](https://www.justdial.com) | Same latitude; the hostel is in the Kondhwa / Bibwewadi area, Pune 411048 |
+| [ABMECT, contact page](https://abmectpune.in) | The hostel's trust (unreachable from the build machine; quoted from search snippets) |
+| [Facebook: rathihostel1](https://www.facebook.com/rathihostel1) and Instagram `rathimaheshwari_hostel` | Name: Seth Shri Gangadhar Bansilal Rathi Maheshwari Hostel |
+| OpenStreetMap way 360976845 | Building footprint (689 m², 8 m from the reference point). OSM has no name tag on it, so the match is by proximity and size. |
+
+The 4-storey height and the facade are an approximation. Nothing in the sources gives the real architecture.

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="description" content="Shehar - an open-world driving game in a real, OpenStreetMap-accurate Pune. Plays on desktop and mobile." />
+  <title>Shehar – Open-World India</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1020'/%3E%3Cpath d='M6 22h20l-3-8H9z' fill='%23ff9933'/%3E%3Ccircle cx='11' cy='23' r='3' fill='%23fff'/%3E%3Ccircle cx='21' cy='23' r='3' fill='%23138808'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <canvas id="c"></canvas>
+
+  <div id="hud" class="hidden">
+    <div id="topRight"><div id="money"></div><div id="clock"></div></div>
+    <div id="objective" class="hidden"><div id="objTitle"></div><div id="objText"></div><div id="objTimer"></div></div>
+    <div id="gps" class="hidden"><span id="gpsArrow">&#x2191;</span><span id="gpsText"></span><span id="gpsDist"></span></div>
+    <div id="toasts"></div>
+    <div id="mini"><canvas id="miniCanvas" width="200" height="200"></canvas><div id="miniN">N</div></div>
+    <div id="street"><div id="streetName"></div><div id="zoneName"></div></div>
+    <div id="speedo" class="hidden"><div id="spd">0</div><div id="spdU">km/h</div><div class="bar"><i id="fuel"></i><span>FUEL</span></div><div class="bar"><i id="hp"></i><span>BODY</span></div><div id="vname"></div></div>
+    <div id="prompt" class="hidden"></div>
+    <div id="big" class="hidden"><div id="bigT"></div><div id="bigS"></div></div>
+    <div id="dialog" class="hidden"><div id="dlgWho"></div><div id="dlgLine"></div></div>
+    <div id="attrib">&copy; OpenStreetMap contributors &middot; terrain: SRTM / AWS Terrain Tiles</div>
+    <div id="fps" class="hidden"></div>
+  </div>
+
+  <div id="touch" class="hidden">
+    <div id="joyZone"></div>
+    <div id="lookZone"></div>
+    <div id="joy"><div id="joyKnob"></div></div>
+    <div id="btnsR">
+      <button id="bBrake" class="tb big">BRAKE</button>
+      <button id="bBoost" class="tb">BOOST</button>
+      <button id="bHorn" class="tb">HORN</button>
+      <button id="bEnter" class="tb">E</button>
+      <button id="bAct" class="tb">F</button>
+    </div>
+    <div id="btnsTop">
+      <button id="bMenu" class="tb s">&#9776;</button>
+      <button id="bMap" class="tb s">MAP</button>
+      <button id="bCam" class="tb s">CAM</button>
+      <button id="bReset" class="tb s">RESET</button>
+    </div>
+  </div>
+
+  <!-- desktop + mobile utility bar -->
+  <div id="utilBar" class="hidden">
+    <button id="uHostel" class="ub" title="Navigate to Rathi Maheshwari Hostel">&#x1F3E0; Hostel</button>
+    <button id="uCheat" class="ub" title="Cheat codes (` or T)">&#x2328; Cheats</button>
+    <button id="uSettings" class="ub" title="Settings">&#x2699; Settings</button>
+    <button id="uHelp" class="ub" title="Tutorial">?</button>
+  </div>
+
+  <div id="cheat" class="overlay hidden">
+    <div class="panel">
+      <h2>Cheat code</h2>
+      <input id="cheatInput" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="type a code, e.g. HELIPUNE" />
+      <div class="row2"><button id="cheatGo" class="btn primary">Activate</button><button id="cheatClose" class="btn">Close</button></div>
+      <div id="cheatMsg" class="help"></div>
+      <div class="help">Known codes: <b>HELIPUNE</b> (car &rarr; helicopter) &middot; <b>CARMODE</b> (land, then helicopter &rarr; car) &middot; <b>MONSOON</b> (rain on/off) &middot; <b>NIGHTRIDER</b> (night) &middot; <b>SUNRISE</b> (morning) &middot; <b>FULLTANK</b> (repair + fuel) &middot; <b>RICKSHAW</b> (spawn an auto)</div>
+    </div>
+  </div>
+
+  <div id="settingsView" class="overlay hidden">
+    <div class="panel wide">
+      <h2>Settings</h2>
+      <div id="sliders"></div>
+      <div class="srow"><label>Gyroscope camera (phones)</label><button id="gyroBtn" class="btn small">Off</button></div>
+      <div class="srow"><label>Invert vertical look</label><button id="invBtn" class="btn small">Off</button></div>
+      <div class="srow"><label>Graphics quality</label><select id="qualitySet"><option value="auto">Auto</option><option value="low">Low (phones)</option><option value="high">High</option></select></div>
+      <div class="row2"><button id="setReset" class="btn">Reset to defaults</button><button id="setTut" class="btn">Replay tutorial</button><button id="setClose" class="btn primary">Done</button></div>
+    </div>
+  </div>
+
+  <div id="tutorial" class="hidden">
+    <div id="tutCard">
+      <div id="tutStep"></div>
+      <div id="tutTitle"></div>
+      <div id="tutText"></div>
+      <div id="tutKeys"></div>
+      <div id="tutCheck"></div>
+      <div class="tutBtns"><button id="tutSkip" class="btn small">Skip tutorial</button><button id="tutBack" class="btn small">Back</button><button id="tutNext" class="btn small primary">Next &rarr;</button></div>
+    </div>
+  </div>
+
+  <div id="menu" class="overlay">
+    <div class="panel menuPanel">
+      <h1>SHEHAR</h1>
+      <div class="sub">OPEN-WORLD INDIA</div>
+      <div class="tricolor"><i></i><i></i><i></i></div>
+      <div class="city">
+        <div class="cityName">Pune <span>Maharashtra</span></div>
+        <div class="cityInfo">Shivajinagar &middot; Deccan &middot; FC &amp; JM Road &middot; the Peths &middot; Swargate &middot; Pune Station &middot; Parvati &middot; Bibwewadi &middot; Taljai hills &mdash; real roads (OpenStreetMap) on real terrain (SRTM).</div>
+      </div>
+      <button id="playFree" class="btn primary">Free Roam &ndash; Deccan Gymkhana</button>
+      <button id="playHostel" class="btn">Free Roam &ndash; Rathi Maheshwari Hostel, Bibwewadi</button>
+      <button id="playMissions" class="btn">Missions</button>
+      <div class="row2"><button id="menuSettings" class="btn">&#x2699; Settings</button><button id="menuTutorial" class="btn">? Tutorial</button></div>
+      <div class="row"><label>Graphics</label>
+        <select id="quality"><option value="auto">Auto</option><option value="low">Low (phones)</option><option value="high">High</option></select>
+      </div>
+      <div class="soon">Mumbai, Delhi, Bengaluru, Hyderabad, Chennai, Kolkata &hellip; coming soon</div>
+      <div id="controlsHelp" class="help"></div>
+      <div class="legal">Map data &copy; OpenStreetMap contributors (ODbL). Original game &ndash; not affiliated with any other franchise.</div>
+    </div>
+  </div>
+
+  <div id="loading" class="overlay hidden">
+    <div class="loadBox">
+      <div class="loadCity">PUNE</div>
+      <div class="progress"><i id="loadBar"></i></div>
+      <div id="loadLabel">Loading&hellip;</div>
+      <div id="loadTip" class="tip"></div>
+    </div>
+  </div>
+
+  <div id="pause" class="overlay hidden">
+    <div class="panel">
+      <h2>Paused</h2>
+      <button class="btn primary" data-a="resume">Resume</button>
+      <button class="btn" data-a="missions">Missions</button>
+      <button class="btn" data-a="map">City map</button>
+      <button class="btn" data-a="hostel">Navigate to Rathi Maheshwari Hostel</button>
+      <button class="btn" data-a="travel">Fast travel to the hostel</button>
+      <button class="btn" data-a="settings">Settings</button>
+      <button class="btn" data-a="cheat">Cheat codes</button>
+      <button class="btn" data-a="time">Time +3 h</button>
+      <button class="btn" data-a="rain">Rain on / off</button>
+      <button class="btn" data-a="quality">Graphics: <span id="qLabel"></span></button>
+      <button class="btn" data-a="abort" id="abortBtn">Abandon mission</button>
+      <button class="btn danger" data-a="quit">Main menu</button>
+    </div>
+  </div>
+
+  <div id="missions" class="overlay hidden">
+    <div class="panel wide"><h2>Missions &ndash; Pune</h2><div id="missionList"></div><button class="btn" data-a="close">Close</button></div>
+  </div>
+
+  <div id="mapView" class="overlay hidden">
+    <canvas id="mapCanvas"></canvas>
+    <div id="mapHint">Drag to pan &middot; scroll / pinch to zoom &middot; tap a street or landmark to set GPS</div>
+    <button id="mapClose" class="btn small">Close</button>
+    <div id="mapBtns"><button id="mapHostel" class="btn small primary">&#x1F3E0; Navigate to Rathi Maheshwari Hostel</button><button id="mapTravel" class="btn small">Fast travel there</button><button id="mapMe" class="btn small">Centre on me</button></div>
+    <div id="mapInfo"></div>
+  </div>
+
+  <div id="rotate" class="hidden">Rotate your phone to landscape &#x21bb;</div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

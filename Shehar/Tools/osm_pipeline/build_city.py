@@ -13,7 +13,7 @@ output by the `heightSource` statistics printed at the end.
 
 Map data (c) OpenStreetMap contributors, available under the Open Database License (ODbL 1.0).
 """
-import argparse, glob, json, math, os, sys, hashlib
+import argparse, glob, json, math, os, sys, hashlib, struct
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 
@@ -105,6 +105,9 @@ LANDMARKS = {
         ("Kasba Ganpati", ["Kasba Ganpati", "Shree Kasba Ganpati", "Kasba Ganapati"]),
         ("Balgandharva Rangmandir", ["Balgandharva Rangmandir", "Bal Gandharva Rang Mandir", "Balgandharva Rang Mandir"]),
         ("Sarasbaug", ["Sarasbaug", "Saras Baug", "Peshwe Udyan"]),
+        ("Taljai Hills", ["Taljai forest", "Taljai Watch Tower", "Taljai Ground"]),
+        ("Vetal Tekdi", ["Vetal Tekdi Forest Area"]),
+        ("Bibwewadi", ["Bibwewadi"]),
     ]
 }
 
@@ -326,6 +329,7 @@ def main():
     ap.add_argument("city")
     ap.add_argument("--raw")
     ap.add_argument("--out")
+    ap.add_argument("--no-terrain", action="store_true")
     a = ap.parse_args()
     cfg = json.load(open(os.path.join(HERE, "cities.json")))[a.city]
     raw = a.raw or os.path.join(HERE, "raw", a.city)
@@ -599,6 +603,32 @@ def main():
             elif kind:
                 add_area(ring_xy(ring), kind, tags.get("name", ""), oid)
 
+    # ---------------- special buildings (e.g. a named hostel the OSM footprint does not label) ----------------
+    specials = []
+    for sp in cfg.get("special_buildings", []):
+        sx, sz = (sp["lon"] - lon0) * mlon, (sp["lat"] - lat0) * mlat
+        best, bd = None, sp.get("max_dist", 40)
+        for ch in chunks.values():
+            for b in ch["buildings"]:
+                pts = list(zip(b["pts"][0::2], b["pts"][1::2]))
+                if abs(poly_area(pts)) < sp.get("min_area", 0):
+                    continue
+                d = min(math.hypot(px - sx, pz - sz) for px, pz in pts)
+                if point_in_poly(sx, sz, pts):
+                    d = 0
+                if d < bd:
+                    bd, best = d, b
+        if best is None:
+            print("Special building NOT matched:", sp["name"]); continue
+        best["kind"] = sp.get("kind", "special"); best["name"] = sp["name"]; best["levels"] = sp.get("levels", best["levels"])
+        best["h"] = round(best["levels"] * 3.2 + 1.6, 1)
+        pts = list(zip(best["pts"][0::2], best["pts"][1::2]))
+        cx, cz = centroid(pts)
+        specials.append({"name": sp["name"], "fullName": sp.get("full_name", sp["name"]), "x": r1(cx), "z": r1(cz),
+                         "srcX": r1(sx), "srcZ": r1(sz), "building": best["id"], "source": sp.get("source", "")})
+        print("Special building '%s' -> OSM building %s, %.0f m from the reference point, footprint %.0f m2"
+              % (sp["name"], best["id"], bd, abs(poly_area(pts))))
+
     # ---------------- waterways & railways ----------------
     WATERLINE_W = {"river": 40.0, "canal": 12.0, "stream": 4.0, "drain": 2.5, "ditch": 1.5}
     for wid, (nds, tags) in ways.items():
@@ -770,8 +800,23 @@ def main():
         "nodeX": gx, "nodeZ": gz, "nodeFlags": gflags,
         "edgeA": edges_a, "edgeB": edges_b, "edgeRoad": edges_road, "edgeDir": edges_dir,
         "roads": [{k: v for k, v in r.items() if k != "nodes"} | {"nodes": r["nodes"]} for r in roads],
-        "pois": pois, "landmarks": landmarks,
+        "pois": pois, "landmarks": landmarks, "specials": specials,
     }
+    dem_path = os.path.join(raw, "dem.npz")
+    if os.path.exists(dem_path) and not a.no_terrain:
+        import numpy as np
+        dem = np.load(dem_path)
+        grid = dem["grid"].astype(np.float64)
+        base = float(np.floor(grid.min()))
+        q = np.clip(np.round((grid - base) * 10), 0, 32767).astype("<i2")  # decimetres above base
+        with open(os.path.join(out, "terrain.bin"), "wb") as f:
+            f.write(q.tobytes())
+        index["terrain"] = {"file": "terrain.bin", "cell": float(dem["cell"]), "x0": r1(float(dem["x0"])), "z0": r1(float(dem["z0"])),
+                            "nx": int(grid.shape[1]), "nz": int(grid.shape[0]), "base": base, "scale": 0.1,
+                            "attribution": "Terrain: AWS Terrain Tiles (Mapzen/Tilezen) incl. SRTM (NASA)"}
+        print("Terrain: %dx%d cells @ %.1f m, %.0f..%.0f m above sea level" % (grid.shape[1], grid.shape[0], float(dem["cell"]), grid.min(), grid.max()))
+    for sp in specials:
+        landmarks.append({"name": sp["name"].title().replace("Rathi Maheshwari Hostel", "Rathi Maheshwari Hostel"), "osmName": "", "kind": "hostel", "x": sp["x"], "z": sp["z"]})
     with open(os.path.join(out, "index.json"), "w") as f:
         json.dump(index, f, separators=(",", ":"), ensure_ascii=False)
     with open(os.path.join(out, "global.json"), "w") as f:

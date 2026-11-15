@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "if [ -d Shehar/Web ]; then cd Shehar/Web; fi; npm install",
+  "buildCommand": "if [ -d Shehar/Web ]; then cd Shehar/Web && npm run build && rm -rf ../../dist && cp -r dist ../../dist; else npm run build; fi",
+  "outputDirectory": "dist",
+  "headers": [
+    { "source": "/cities/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }] },
+    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] }
+  ]
+}

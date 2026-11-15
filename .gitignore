@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 
 .vscode/
+# Vercel build output copied to repo root
+/dist/
